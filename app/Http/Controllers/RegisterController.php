@@ -20,7 +20,7 @@ class RegisterController extends Controller
     public function postSignup(UsersRequest $request)
     {
 
-        $data = $request->except(['password_confirmation','_token']);
+        $data = $request->except(['password_confirmation', '_token']);
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
