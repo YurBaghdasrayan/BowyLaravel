@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UsersRequest;
+use App\Models\role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,7 @@ class RegisterController extends Controller
 
         $data = $request->except(['password_confirmation', '_token']);
         $data['password'] = Hash::make($data['password']);
+        $data['role_id'] = Role::USER_ID;
 
         $user = User::create($data);
 
@@ -32,6 +34,5 @@ class RegisterController extends Controller
         }
 
     }
-
 
 }

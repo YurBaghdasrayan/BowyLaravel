@@ -11,6 +11,11 @@ class role extends Model
 
     protected $guarded = [];
 
-    const ADMIN_ID = 1;
-    const USER_ID = 2;
+    const ADMIN_ID = 2;
+    const USER_ID = 1;
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }

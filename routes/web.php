@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProfileController;
@@ -45,6 +46,6 @@ Route::middleware(['AuthAdmin'])->group(function () {
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
     });
 });
-
+Route::get('/ads',[AdsController::class,'index'])->name('ads');
 
 
