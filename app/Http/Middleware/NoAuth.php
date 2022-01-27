@@ -20,7 +20,7 @@ class NoAuth
             return $next($request);
 
         }else{
-            return redirect('/profile');
+            return redirect('/profile-active-ads');
         }
 
     }

@@ -21,7 +21,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($data)) {
             $request->session()->regenerate();
-            return redirect('/profile');
+            return redirect('/place-an-ad');
 
         } else {
 

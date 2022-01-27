@@ -18,7 +18,7 @@ class AuthUser
     {
         if (auth()->check()) {
             return $next($request);
-        }else{
+        } else {
             return redirect('/login');
         }
 

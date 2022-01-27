@@ -2,7 +2,7 @@
     <div class="header_wrapper">
         <div class="header_logo_wrapper">
             <a href="{{route('home')}}" class="header_logo">
-                <img src="../images/logo2.svg" alt="">
+                <img src="../images/new_logo.svg" alt="">
             </a>
         </div>
         <div class="hamburger_menu_mobile_version">
@@ -18,14 +18,14 @@
 
                     </div>
                     <a href="{{route('login')}}" class="header_registration_log_in_btn">Вход и регистрация</a>
-                    <a href="" class="header_link">Разместить объявление</a>
+                    <a href="../html/place_an_ad.html" class="header_link">Разместить объявление</a>
                 </div>
             </div>
         </div>
 
         <div class="header_registration_log_in_btn_link_wrapper">
             <a href="{{route('login')}}" class="header_registration_log_in_btn">Вход и регистрация</a>
-            <a href="" class="header_link">Разместить объявление</a>
+            <a href="../html/place_an_ad.html" class="header_link">Разместить объявление</a>
 
         </div>
     </div>

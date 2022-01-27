@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class AdsController extends Controller
+class ProfileSettingsController extends Controller
 {
     public function index()
     {
-        return view('ads');
+        return view('/profile-settings');
     }
 }
