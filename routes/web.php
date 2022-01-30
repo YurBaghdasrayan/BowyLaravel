@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\AnnounController;
+use App\Http\Controllers\ChatController;
+use App\Http\Controllers\FavouritesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaidServicesController;
@@ -46,6 +49,9 @@ Route::middleware(['AuthUser'])->group(function () {
     Route::get('profile-settings', [ProfileSettingsController::class, 'index'])->name('profile-settings');
     Route::get('/profile-active-ads', [ProfileActiveController::class, 'index'])->name('profile-active-ads');
     Route::get('/profile-place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
+    Route::get('/announcement',[AnnounController::class,'index'])->name('announcement');
+    Route::get('/chat',[ChatController::class,'index'])->name('chat');
+    Route::get('/favourites',[FavouritesController::class,'index'])->name('favourites');
 });
 
 
