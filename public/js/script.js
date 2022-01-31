@@ -3,14 +3,14 @@
 $(document).on("click", ".find_transport_form_select_title_wrapper", function(){
     $(".find_transport_form_select_hidden_wrapper").removeClass("open");
     $(this).parent().find(".find_transport_form_select_hidden_wrapper").addClass("open");
-})
+});
 
 
 $(document).on("click", ".find_transport_form_select_hidden_info", function(){
    var datainfo = $(this).data("info");
    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
-   
+
 })
 
 
@@ -20,9 +20,9 @@ $(document).on("click", ".sort_btn", function(){
     var data_id = $(this).data("id");
     $(".sort_btn").removeClass("active");
     $(this).addClass("active");
-    
-  
-  
+
+
+
     $(".recent_announcements_item").removeClass("open");
     $("#" + data_id).addClass("open");
   });
@@ -51,9 +51,9 @@ $(document).on("click", ".active_inactive_ads_second_item_sorts_btn", function()
     var data_id = $(this).data("id");
     $(".active_inactive_ads_second_item_sorts_btn").removeClass("active");
     $(this).addClass("active");
-    
-  
-  
+
+
+
     $(".active_inactive_ads_second_items_wrapper").removeClass("open");
     $("#" + data_id).addClass("open");
   });
@@ -70,7 +70,7 @@ $(document).on("click", ".active_inactive_ads_second_item_sorts_btn", function()
   });
 
 
-  
+
   $(document).on("click",".active_type_btn", function(){
     $(".active_inactive_ads_second_item_child_link").removeClass("inactive");
     $(".inactive_type_btn").removeClass("active");
@@ -89,7 +89,7 @@ $(document).on('change','#fileinput_form2',function () {
   var arr           = value.split('\\');
   var fileExtension = ['jpeg', 'jpg', 'png', 'gif', 'bmp'];
   var span          = $(this).closest(".registration_input_type_files_wrapper").find(".file_span");
-  
+
   $(this).closest(".registration_input_type_files_wrapper").find(".file_span").html(arr[arr.length - 1]);
 
   if ($.inArray($(this).val().split('.').pop().toLowerCase(), fileExtension) == -1) {
@@ -104,13 +104,13 @@ $(document).on('change','#fileinput_form2',function () {
     })
 
   } else {
-      
+
     $(".registration_input-type_file_img_wrapper").fadeIn();
     readURL(this);
     span.css({
         "display": "none"
     });
-    
+
   }
 
 });
@@ -165,3 +165,65 @@ const swiper = new Swiper('#announcement_first_swiper', {
 
 
 });
+
+
+$(document).on("click", ".open_users_chat", function(){
+    $(".chat_popup").toggleClass("open");
+    $("body").toggleClass("hidden_body");
+
+})
+
+
+$(document).on("click", ".announcement_edit_btn2", function(){
+    // var value = $(this).parent().(".announcement_second_item_title").val();
+    let val = $(this).parent().find('.announcement_second_item_title').data('info');
+    $(this).parent().parent().find(".announcement_second_item_title_edit_btn_wrapper").hide();
+    $(this).parent().parent().find(".announcement_second_item_input_icon_wrapper").addClass("open").find('.announcement_second_item_input_field').val(val);
+})
+
+
+$(document).on("click", ".check_mark_icon", function() {
+
+    var val2 = $(this).parent().find(".announcement_second_item_input_field").val();
+    console.log(val2)
+    $(".announcement_second_item_title_edit_btn_wrapper").show();
+     $(this).parent().parent().find(".announcement_second_item_title").html(val2);
+        $(this).parent().parent().find(".announcement_second_item_input_icon_wrapper").removeClass("open");
+        $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find(".announcement_second_item_title").data('info',val2);
+})
+
+
+
+$(document).on("click", ".announcement_edit_btn3", function(){
+
+     let val3 = $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_car_info_details_text').data('info');
+    $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_car_info_details_text').hide();
+     $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_input_icon_wrapper').addClass("open").find('.announcement_second_item_input_field2').val(val3);
+
+})
+
+
+$(document).on("click", ".check_mark_icon", function() {
+
+    let val2 = $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find(".announcement_second_item_input_field2").val();
+    $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_car_info_details_text').show();
+     $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_car_info_details_text').html(val2);
+        $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_input_icon_wrapper').removeClass("open");
+        $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_car_info_details_text').data('info',val2);
+})
+
+
+$(document).on("click", ".announcement_edit_btn4", function(){
+    let val4 = $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info');
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
+      $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
+
+})
+
+$(document).on("click", ".check_mark_icon", function() {
+    let val5 = $(this).closest(".announcement_second_item_specifications_wrapper").find(".announcement_second_item_specification_input_field2").val();
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').show();
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').html(val5);
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').removeClass("open");
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info',val5);
+})

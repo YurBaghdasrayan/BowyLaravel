@@ -69,69 +69,71 @@
 
 
                 <div class="types_of_transport_links_wrapper">
-                    <a href="" class="types_of_transport_link">
-                        <div class="types_of_transport_link_img">
-                            <img src="../images/types_of_transport_link_img1.png" alt="">
-                        </div>
-                        <div class="types_of_transport_link_info_parent">
-                            <span class="types_of_transport_link_info">Автомобили</span>
-                        </div>
+                    @foreach($category as $categories )
+                        <a href="" class="types_of_transport_link">
+                            <div class="types_of_transport_link_img">
+                                <img src="{{asset('images/'.$categories->image)}}" alt="">
+                            </div>
+                            <div class="types_of_transport_link_info_parent">
+                                <span class="types_of_transport_link_info">{{$categories->name}}</span>
+                            </div>
 
-                    </a>
-                    <a href="" class="types_of_transport_link">
-                        <div class="types_of_transport_link_img">
-                            <img src="../images/types_of_transport_link_img2.png" alt="">
-                        </div>
-                        <div class="types_of_transport_link_info_parent">
-                            <span class="types_of_transport_link_info">Мотоциклы</span>
-                        </div>
+                        </a>
+                    @endforeach
+{{--                    <a href="" class="types_of_transport_link">--}}
+{{--                        <div class="types_of_transport_link_img">--}}
+{{--                            <img src="../images/types_of_transport_link_img2.png" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="types_of_transport_link_info_parent">--}}
+{{--                            <span class="types_of_transport_link_info">Мотоциклы</span>--}}
+{{--                        </div>--}}
 
-                    </a>
-                    <a href="" class="types_of_transport_link">
-                        <div class="types_of_transport_link_img">
-                            <img src="../images/types_of_transport_link_img3.png" alt="">
-                        </div>
-                        <div class="types_of_transport_link_info_parent">
-                            <span class="types_of_transport_link_info">Специальный и грузовой транспорт</span>
-                        </div>
+{{--                    </a>--}}
+{{--                    <a href="" class="types_of_transport_link">--}}
+{{--                        <div class="types_of_transport_link_img">--}}
+{{--                            <img src="../images/types_of_transport_link_img3.png" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="types_of_transport_link_info_parent">--}}
+{{--                            <span class="types_of_transport_link_info">Специальный и грузовой транспорт</span>--}}
+{{--                        </div>--}}
 
-                    </a>
-                    <a href="" class="types_of_transport_link">
-                        <div class="types_of_transport_link_img">
-                            <img src="../images/types_of_transport_link_img4.png" alt="">
-                        </div>
-                        <div class="types_of_transport_link_info_parent">
-                            <span class="types_of_transport_link_info">Водный транспорт</span>
-                        </div>
+{{--                    </a>--}}
+{{--                    <a href="" class="types_of_transport_link">--}}
+{{--                        <div class="types_of_transport_link_img">--}}
+{{--                            <img src="../images/types_of_transport_link_img4.png" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="types_of_transport_link_info_parent">--}}
+{{--                            <span class="types_of_transport_link_info">Водный транспорт</span>--}}
+{{--                        </div>--}}
 
-                    </a>
-                    <a href="" class="types_of_transport_link">
-                        <div class="types_of_transport_link_img">
-                            <img src="../images/types_of_transport_link_img5.png" alt="">
-                        </div>
-                        <div class="types_of_transport_link_info_parent">
-                            <span class="types_of_transport_link_info">Велосипеды</span>
-                        </div>
+{{--                    </a>--}}
+{{--                    <a href="" class="types_of_transport_link">--}}
+{{--                        <div class="types_of_transport_link_img">--}}
+{{--                            <img src="../images/types_of_transport_link_img5.png" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="types_of_transport_link_info_parent">--}}
+{{--                            <span class="types_of_transport_link_info">Велосипеды</span>--}}
+{{--                        </div>--}}
 
-                    </a>
-                    <a href="" class="types_of_transport_link">
-                        <div class="types_of_transport_link_img">
-                            <img src="../images/types_of_transport_link_img6.png" alt="">
-                        </div>
-                        <div class="types_of_transport_link_info_parent">
-                            <span class="types_of_transport_link_info">Прицепы</span>
-                        </div>
+{{--                    </a>--}}
+{{--                    <a href="" class="types_of_transport_link">--}}
+{{--                        <div class="types_of_transport_link_img">--}}
+{{--                            <img src="../images/types_of_transport_link_img6.png" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="types_of_transport_link_info_parent">--}}
+{{--                            <span class="types_of_transport_link_info">Прицепы</span>--}}
+{{--                        </div>--}}
 
-                    </a>
-                    <a href="" class="types_of_transport_link">
-                        <div class="types_of_transport_link_img">
-                            <img src="../images/types_of_transport_link_img7.png" alt="">
-                        </div>
-                        <div class="types_of_transport_link_info_parent">
-                            <span class="types_of_transport_link_info">Малогабаритный транспорт</span>
-                        </div>
+{{--                    </a>--}}
+{{--                    <a href="" class="types_of_transport_link">--}}
+{{--                        <div class="types_of_transport_link_img">--}}
+{{--                            <img src="../images/types_of_transport_link_img7.png" alt="">--}}
+{{--                        </div>--}}
+{{--                        <div class="types_of_transport_link_info_parent">--}}
+{{--                            <span class="types_of_transport_link_info">Малогабаритный транспорт</span>--}}
+{{--                        </div>--}}
 
-                    </a>
+{{--                    </a>--}}
                 </div>
             </div>
         </section>

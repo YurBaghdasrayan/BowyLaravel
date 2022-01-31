@@ -54,15 +54,15 @@
                         </div>
                         <div class="active_inactive_ads_first_item_links_wrapper">
                             <a href="{{route('profile-active-ads')}}" class="active_inactive_ads_first_item_link">Мои объявления</a>
-                            <a href="../html/profile_settings.html{{route('profile-settings')}}" class="active_inactive_ads_first_item_link">Настройки профиля</a>
-                            <a href="../html/notification.html" class="active_inactive_ads_first_item_link notification_link">Оповещения
+                            <a href="{{route('profile-settings')}}" class="active_inactive_ads_first_item_link">Настройки профиля</a>
+                            <a href="{{route('notification')}}" class="active_inactive_ads_first_item_link notification_link">Оповещения
                                 <div class="notification_icon">
                                     <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="4" cy="4" r="4" fill="#FF5B37"/>
                                     </svg>
                                 </div>
                             </a>
-                            <a href="../html/paid_services.html" class="active_inactive_ads_first_item_link">Платные услги</a>
+                            <a href="{{route('paid-services')}}" class="active_inactive_ads_first_item_link">Платные услги</a>
                         </div>
                     </div>
                     <div class="favourites_item_second_item">

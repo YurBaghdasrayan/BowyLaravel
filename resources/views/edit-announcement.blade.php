@@ -3,8 +3,8 @@
     <title>Главная</title>
 @endsection
 @section('content')
+    @include('includes_file.header')
     <div class="bowy_mian_wrapper" id="logged_user_announcement_page">
-        @include('includes_file.header')
         <main>
             <section class="announcement">
                 <div class="announcement_wrapper">

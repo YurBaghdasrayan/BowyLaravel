@@ -4,15 +4,18 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AnnounController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\EditAnnouncementController;
 use App\Http\Controllers\FavouritesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PaidServicesController;
 use App\Http\Controllers\ProfileActiveController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilePlaceController;
 use App\Http\Controllers\ProfileSettingsController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UnloggedUserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,10 +28,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 /*GET METHODS*/
 
@@ -43,15 +42,18 @@ Route::middleware(['NoAuth'])->group(function () {
     Route::get('/login', [LoginController::class, 'getLogin'])->name('login');
 });
 Route::middleware(['AuthUser'])->group(function () {
+    /*MIDDLEWARE GET METHODS*/
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
     Route::get('/paid-services', [PaidServicesController::class, 'index'])->name('paid-services');
-    Route::get('profile-settings', [ProfileSettingsController::class, 'index'])->name('profile-settings');
+    Route::get('/profile-settings', [ProfileSettingsController::class, 'index'])->name('profile-settings');
     Route::get('/profile-active-ads', [ProfileActiveController::class, 'index'])->name('profile-active-ads');
     Route::get('/profile-place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
-    Route::get('/announcement',[AnnounController::class,'index'])->name('announcement');
-    Route::get('/chat',[ChatController::class,'index'])->name('chat');
-    Route::get('/favourites',[FavouritesController::class,'index'])->name('favourites');
+    Route::get('/announcement', [AnnounController::class, 'index'])->name('announcement');
+    Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
+    Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
+    Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
+    Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 });
 
 
