@@ -8,6 +8,6 @@ class ProfileActiveController extends Controller
 {
     public function index()
     {
-        return view('/profile-active-ads');
+        return view('profile-active-ads');
     }
 }

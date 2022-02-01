@@ -8,9 +8,8 @@
                     </a>
                 </div>
                 <div class="footer_registration_log_in_btn_link_wrapper">
-                    <a href="../html/login.html" class="footer_registration_log_in_btn">Вход и регистрация</a>
-                    <a href="../html/place_an_ad.html" class="footer_link">Разместить объявление</a>
-
+                    <a href="{{route('login')}}" class="footer_registration_log_in_btn">Вход и регистрация</a>
+                    <a href="{{route('profile-place-anad')}}" class="footer_link">Разместить объявление</a>
                 </div>
             </div>
             <nav class="footer_nav_wrapper first_nav">

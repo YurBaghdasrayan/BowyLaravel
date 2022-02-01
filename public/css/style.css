@@ -50,6 +50,10 @@
     font-weight: 300;
     font-style: normal;
 }
+
+/*body{*/
+/*    display: none;*/
+/*}*/
 * {
     margin: 0;
     padding: 0;
@@ -4545,7 +4549,15 @@ body.hidden_body{
     font-family: sans-serif;
     border-radius: 5px;
     padding: 20px;
-    background-color: #f5c6cb;; /* Red */
+    background-color: #f5c6cb; /* Red */
     color: #721c24;
+    margin-bottom: 15px;
+}
+.alert-success{
+    font-family: sans-serif;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #d4edda; /* Red */
+    color: #155724;
     margin-bottom: 15px;
 }

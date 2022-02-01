@@ -10,7 +10,7 @@
     <link rel="icon" href="../images/new_logo.svg">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     @yield('title')
-
+    @yield('map-data')
 </head>
 <body>
 

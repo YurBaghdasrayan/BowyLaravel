@@ -2,6 +2,66 @@
 @section('title')
     <title>Главная</title>
 @endsection
+@section('map-data')
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=fef7e3c9-583a-4e95-a050-8cee33b80427&lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(function () {
+            var myMap = new ymaps.Map('map', {
+                    center: [55.64239903922247, 37.92069505372031],
+                    zoom: 15
+                }, {
+                    searchControlProvider: 'yandex#search'
+                }),
+
+                // Создаём макет содержимого.
+                MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+                ),
+
+                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                    hintContent: 'Собственный значок метки',
+                    balloonContent: 'Это красивая метка'
+                }, {
+                    // Опции.
+                    // Необходимо указать данный тип макета.
+                    iconLayout: 'default#image',
+                    // Своё изображение иконки метки.
+                    iconImageHref: '../images/map_mark.png',
+                    // Размеры метки.
+                    iconImageSize: [82, 93],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                    iconImageOffset: [-5, -38]
+                }),
+
+                myPlacemarkWithContent = new ymaps.Placemark([55.64239903922247, 37.92069505372031], {
+                    hintContent: 'Собственный значок метки с контентом',
+                    balloonContent: 'А эта — новогодняя',
+                    iconContent: '12'
+                }, {
+                    // Опции.
+                    // Необходимо указать данный тип макета.
+                    iconLayout: 'default#imageWithContent',
+                    // Своё изображение иконки метки.
+                    // iconImageHref: 'images/ball.png',
+                    // Размеры метки.
+                    iconImageSize: [48, 48],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                    iconImageOffset: [-24, -24],
+                    // Смещение слоя с содержимым относительно слоя с картинкой.
+                    iconContentOffset: [15, 15],
+                    // Макет содержимого.
+                    iconContentLayout: MyIconContentLayout
+                });
+
+            myMap.geoObjects
+                .add(myPlacemark)
+                .add(myPlacemarkWithContent);
+        });
+    </script>
+
+@endsection
 @section('content')
 <div class="bowy_mian_wrapper">
     @include('includes_file.header')
@@ -16,6 +76,9 @@
                             <p class="find_transport_form_select_title">Выберите категорию</p>
                         </div>
                         <div class="find_transport_form_select_hidden_wrapper">
+                            @if($category == 'cars')
+
+                            @endif
                             <p class="find_transport_form_select_hidden_info" data-info="Автомобили">Автомобили</p>
                             <p class="find_transport_form_select_hidden_info" data-info="Мотоциклы">Мотоциклы</p>
                             <p class="find_transport_form_select_hidden_info" data-info="Водный транспорт">Водный транспорт</p>

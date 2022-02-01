@@ -1,10 +1,10 @@
 <div class="announcement_first_item">
     <div class="active_inactive_ads_user_img_name_info">
         <div class="active_inactive_ads_user_img">
-            <img src="../images/user_img1.png" alt="">
+            <img src="{{url('')}}/storage/app/uploads/{{auth()->user()->image}}" alt="">
         </div>
         <div class="active_inactive_ads_user_info">
-            <p class="active_inactive_ads_user_name">Михаил Иванов</p>
+            <p class="active_inactive_ads_user_name">{{auth()->user()->name}}</p>
             <p class="active_inactive_ads_user_city_name">г. Сочи</p>
         </div>
     </div>
@@ -21,13 +21,11 @@
                 </svg>
             </div>
         </a>
-        <a href="" class="active_inactive_ads_favourites_link">
+        <a href="{{route('favourites')}}" class="active_inactive_ads_favourites_link">
             <div class="active_inactive_ads_favourites_link_icon1">
-                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M11 16.7383L4.53475 20.3573L5.9785 13.09L0.538086 8.05933L7.89617 7.18667L11 0.458333L14.1038 7.18667L21.4619 8.05933L16.0215 13.09L17.4653 20.3573L11 16.7383Z" fill="#FFD708"/>
-                </svg>
-
-
+                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11 16.7383L4.53475 20.3573L5.9785 13.09L0.538086 8.05933L7.89617 7.18667L11 0.458333L14.1038 7.18667L21.4619 8.05933L16.0215 13.09L17.4653 20.3573L11 16.7383Z" fill="#FFD708"/>
+                    </svg>
             </div>
 
         </a>

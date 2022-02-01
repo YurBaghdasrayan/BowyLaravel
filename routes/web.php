@@ -47,6 +47,7 @@ Route::middleware(['AuthUser'])->group(function () {
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
     Route::get('/paid-services', [PaidServicesController::class, 'index'])->name('paid-services');
     Route::get('/profile-settings', [ProfileSettingsController::class, 'index'])->name('profile-settings');
+    Route::put('/profile-settings',[ProfileSettingsController::class,'update']);
     Route::get('/profile-active-ads', [ProfileActiveController::class, 'index'])->name('profile-active-ads');
     Route::get('/profile-place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
     Route::get('/announcement', [AnnounController::class, 'index'])->name('announcement');
