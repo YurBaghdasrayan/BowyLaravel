@@ -16,7 +16,7 @@
                         <h1 class="login_form_title">Войдите или зарегистрируйтесь</h1>
                         <div class="login_form_inputs_wrapper">
                             <div class="login_form_input">
-                                <input type="email" class="login_form_input_field" placeholder="Email" name="email">
+                                <input type="email" class="login_form_input_field" placeholder="Email" name="email"" @if(Cookie::has('email')) value="{{Cookie::get('email')}}" @endif()>
                                 @if($errors->has('email'))
                                     <div class="alert alert-danger" >{{ $errors->first('email') }}</div>
                                 @endif
@@ -31,6 +31,12 @@
                                         {{ session()->get('login_error') }}
                                     </div>
                                 @endif
+                            </div>
+                            <div class="chekdiv">
+                                <label for="rememberme" class="rememberme">
+                                    <input type="checkbox" id="rememberme" name="rememberme" class="chek">
+                                    <p class="">Запомните меня</p>
+                                </label>
                             </div>
                             <button type="submit" value="save" class="login_form_btn">Войти</button>
                         </div>

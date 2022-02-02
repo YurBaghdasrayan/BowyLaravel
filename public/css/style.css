@@ -4561,3 +4561,32 @@ body.hidden_body{
     color: #155724;
     margin-bottom: 15px;
 }
+.chek{
+    margin-right: 5px;
+}
+.chekdiv{
+    font-family: 'Circe',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+    opacity: 0.59;
+    text-align: center;
+    margin-bottom: p10px;
+    background: linear-gradient(
+        94.67deg
+        , #34BE7C 0%, #2EB6A5 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    margin-left: 144px;
+    display: flex;
+
+}
+.rememberme{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+}
+

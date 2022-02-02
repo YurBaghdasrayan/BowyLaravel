@@ -44,4 +44,8 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
+    public function resset(){
+        return $this->belongsTo(RessetPassword::class);
+    }
+
 }
