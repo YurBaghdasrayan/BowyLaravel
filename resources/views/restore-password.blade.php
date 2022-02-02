@@ -11,13 +11,13 @@
         <section class="login">
             <div class="login_wrapper">
                 <div class="login_form_social_links_wrapper">
-                    <form action="{{route('create_login')}}" class="login_form_wrapper" method="post">
+                    <form action="{{route('restore-password')}}" class="login_form_wrapper" method="post">
                         @csrf
                         <h1 class="login_form_title">Восстановить пароль?</h1>
                         <div class="login_form_inputs_wrapper">
 
                             <div class="login_form_input">
-                                <input type="number" class="login_form_input_field" placeholder="code" name="code" >
+                                <input type="number" class="login_form_input_field" placeholder="random_int" name="random_int" >
                                 @if($errors->has('code'))
                                     <div class="alert alert-danger" >{{ $errors->first('code') }}</div>
                                 @endif
