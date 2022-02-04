@@ -15,6 +15,17 @@ class ProfileSettingsController extends Controller
 
     public function update(UpdateuserRequest $request)
     {
+        $image = $request->file('image');
+        $user_image = '';
+        if ($image) {
+
+            $destinationPath = 'upload/';
+            $user_image = time().$image->getClientOriginalName();
+            $image->move($destinationPath, $user_image);
+//            dd($user_image);
+        }else{
+            $user_image = auth()->user()->image;
+        }
 
         $user = auth()->user();
         $email = $request->email;
@@ -29,6 +40,7 @@ class ProfileSettingsController extends Controller
                     'name' => $request->name,
                     'surname' => $request->surname,
                     'number' => $request->number,
+                    'image'=>$user_image
                 ];
 
                 $update_success = $user->update($update_data);
@@ -51,6 +63,7 @@ class ProfileSettingsController extends Controller
                 'name' => $request->name,
                 'surname' => $request->surname,
                 'number' => $request->number,
+                'image'=> $user_image,
             ];
 
             $update_success = $user->update($update_data);

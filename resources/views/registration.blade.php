@@ -22,19 +22,22 @@
                                 <!--      <input type="text" class="registration_form_input_field" name="Фамилия" placeholder="Фамилия">-->
                                 <!--  </div>-->
                                 <div class="registration_form_input">
-                                    <input type="text" class="registration_form_input_field" placeholder="Email" name="email">
+                                    <input type="text" id="demo" value="{{old('email')}}"
+                                           class="registration_form_input_field" placeholder="Email" name="email" value="">
                                     @if($errors->has('email'))
                                         <div class="alert alert-danger" >{{ $errors->first('email') }}</div>
                                     @endif
                                 </div>
+
                                 <div class="registration_form_input">
-                                    <input type="password" class="registration_form_input_field" placeholder="Пароль" name="password">
+
+                                    <input type="password" value="{{old('password')}}" class="registration_form_input_field" placeholder="Пароль" name="password" >
                                     @if($errors->has('password'))
                                         <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
                                     @endif
                                 </div>
                                 <div class="registration_form_input">
-                                    <input type="password" class="registration_form_input_field" placeholder="Повторить пароль" name="password_confirmation">
+                                    <input type="password" value="{{old('password_confirmation')}}" class="registration_form_input_field" placeholder="Повторить пароль" name="password_confirmation">
                                     @if($errors->has('password_confirmation'))
                                         <div class="alert alert-danger" role="alert"> {{ $errors->first('password_confirmation') }}</div>
                                     @endif
@@ -64,7 +67,7 @@
                             </div>
 
 
-                            <button class="registration_form_btn mobile_form_btn">Регистрация</button>
+                            <button id="button" class="registration_form_btn mobile_form_btn">Регистрация</button>
                         </form>
 
                     </div>
@@ -76,5 +79,6 @@
         </main>
         @include('includes_file.footer')
     </div>
+
 @endsection
 

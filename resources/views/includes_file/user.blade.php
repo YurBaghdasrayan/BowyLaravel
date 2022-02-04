@@ -1,7 +1,7 @@
 <div class="announcement_first_item">
     <div class="active_inactive_ads_user_img_name_info">
         <div class="active_inactive_ads_user_img">
-            <img src="{{url('')}}/storage/app/uploads/{{auth()->user()->image}}" alt="">
+            <img src="{{asset('upload/'.auth()->user()->image)}}" alt="">
         </div>
         <div class="active_inactive_ads_user_info">
             <p class="active_inactive_ads_user_name">{{auth()->user()->name}}</p>
@@ -21,7 +21,7 @@
                 </svg>
             </div>
         </a>
-        <a href="{{route('favourites')}}" class="active_inactive_ads_favourites_link">
+        <a href="{{route('favourites')}}" class="active_inactive_ads_favourites_link active {{ Request::path() == 'favourites' ? 'active' : '' }}">
             <div class="active_inactive_ads_favourites_link_icon1">
                     <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11 16.7383L4.53475 20.3573L5.9785 13.09L0.538086 8.05933L7.89617 7.18667L11 0.458333L14.1038 7.18667L21.4619 8.05933L16.0215 13.09L17.4653 20.3573L11 16.7383Z" fill="#FFD708"/>
@@ -40,16 +40,16 @@
         </a>
     </div>
     <div class="active_inactive_ads_first_item_links_wrapper">
-        <a href="{{route('profile-active-ads')}}" class="active_inactive_ads_first_item_link">Мои объявления</a>
-        <a href="{{route('profile-settings')}}" class="active_inactive_ads_first_item_link">Настройки профиля</a>
-        <a href="{{route('notification')}}" class="active_inactive_ads_first_item_link notification_link">Оповещения
+        <a href="{{route('profile-active-ads')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'profile-active-ads' ? 'active' : '' }}">Мои объявления</a>
+        <a href="{{route('profile-settings')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'profile-settings' ? 'active' : '' }}">Настройки профиля</a>
+        <a href="{{route('notification')}}" class="active_inactive_ads_first_item_link notification_link {{ Request::path() == 'notification' ? 'active' : '' }}">Оповещения
             <div class="notification_icon">
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="4" cy="4" r="4" fill="#FF5B37"/>
                 </svg>
             </div>
         </a>
-        <a href="{{route('paid-services')}}" class="active_inactive_ads_first_item_link">Платные услги</a>
+        <a href="{{route('paid-services')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'paid-services' ? 'active' : '' }}" >Платные услги</a>
     </div>
     @include('includes_file.chat')
 </div>

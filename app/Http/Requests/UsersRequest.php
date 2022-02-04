@@ -30,7 +30,7 @@ class UsersRequest extends FormRequest
 //            'name' => 'required|min:3|max:64',
 //            'surname' => 'required|min:3|max:64',
             'email' => 'required|min:3|max:64|unique:users',
-            'password' => 'required|min:3|max:64|confirmed',
+            'password' => 'required|min:6|max:64|confirmed',
             'password_confirmation' => 'required',
 //            'image'=>'required',
 
@@ -51,7 +51,7 @@ class UsersRequest extends FormRequest
             'email.max' => 'Поле электронной почты должна превышать 64 символов.',
             'email.unique' => 'Повторяющаяся запись для электронной почты',
             'password.required' => 'Поле пароля обязательно.',
-            'password.min' => 'Пароль должен быть не менее 3 символов.',
+            'password.min' => 'Пароль должен быть не менее 6 символов.',
             'password.max' => 'Пароль не должен быть длиннее 64 символов.',
             'password.confirmed' => 'Подтверждение пароля не совпадает.',
             'password_confirmation.required' => 'Поле подтверждение пароля обязательно.',

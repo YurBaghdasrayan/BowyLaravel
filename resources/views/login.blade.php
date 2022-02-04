@@ -10,9 +10,26 @@
     <main>
         <section class="login">
             <div class="login_wrapper">
+
+
+
                 <div class="login_form_social_links_wrapper">
                     <form action="{{route('create_login')}}" class="login_form_wrapper" method="post">
                         @csrf
+
+
+                        @if(session()->has('success'))
+
+                            <div class="succses1">
+                                <p class="succsestext">
+                                    <img class="succsesimg" src="{{asset('images/emoji.png')}}"/>
+                                    Вы успешно прошли регистрацию</p>
+                            </div>
+
+                        @endif
+
+
+
                         <h1 class="login_form_title">Войдите или зарегистрируйтесь</h1>
                         <div class="login_form_inputs_wrapper">
                             <div class="login_form_input">
@@ -36,7 +53,13 @@
                                 <label for="rememberme" class="rememberme">
                                     <input type="checkbox" id="rememberme" name="rememberme" class="chek">
                                     <p class="">Запомните меня</p>
+
                                 </label>
+
+                            </div>
+
+                            <div class="forgot-password">
+                                <a href="{{route('forgot-password')}}">Забыли пароль</a>
                             </div>
                             <button type="submit" value="save" class="login_form_btn">Войти</button>
                         </div>

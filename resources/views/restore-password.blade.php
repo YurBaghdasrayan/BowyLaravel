@@ -11,18 +11,21 @@
         <section class="login">
             <div class="login_wrapper">
                 <div class="login_form_social_links_wrapper">
-                    <form action="{{route('create_login')}}" class="login_form_wrapper" method="post">
+                    <form action="{{route('restore-password')}}" class="login_form_wrapper" method="post">
                         @csrf
                         <h1 class="login_form_title">Восстановить пароль?</h1>
                         <div class="login_form_inputs_wrapper">
 
                             <div class="login_form_input">
-                                <input type="number" class="login_form_input_field" placeholder="code" name="code" >
-                                @if($errors->has('code'))
-                                    <div class="alert alert-danger" >{{ $errors->first('code') }}</div>
-                                @endif
                                 <div class="registration_form_input">
-                                    <input type="password" class="registration_form_input_field" placeholder="Пароль" name="password_confirmation">
+                                    <input type="text" class="login_form_input_field" placeholder="Код потверждения" name="random_int" >
+                                </div>
+                                @if($errors->has('random_int'))
+                                    <div class="alert alert-danger" >{{ $errors->first('random_int') }}</div>
+                                @endif
+
+                                <div class="registration_form_input">
+                                    <input type="password" class="registration_form_input_field" placeholder="Пароль" name="password">
                                     @if($errors->has('password_confirmation'))
                                         <div class="alert alert-danger" role="alert"> {{ $errors->first('password_confirmation') }}</div>
                                     @endif
@@ -33,6 +36,11 @@
                                         <div class="alert alert-danger" role="alert"> {{ $errors->first('password_confirmation') }}</div>
                                     @endif
                                 </div>
+                                @if(session()->has('message'))
+                                    <div class="alert alert-danger">
+                                        {{ session()->get('message') }}
+                                    </div>
+                                @endif
 
                             </div>
 

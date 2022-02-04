@@ -76,9 +76,6 @@
                             <p class="find_transport_form_select_title">Выберите категорию</p>
                         </div>
                         <div class="find_transport_form_select_hidden_wrapper">
-                            @if($category == 'cars')
-
-                            @endif
                             <p class="find_transport_form_select_hidden_info" data-info="Автомобили">Автомобили</p>
                             <p class="find_transport_form_select_hidden_info" data-info="Мотоциклы">Мотоциклы</p>
                             <p class="find_transport_form_select_hidden_info" data-info="Водный транспорт">Водный транспорт</p>

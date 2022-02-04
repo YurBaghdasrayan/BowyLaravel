@@ -200,6 +200,7 @@
     padding: 8px 15px;
     height: 43px;
     cursor: pointer;
+    padding-left: 16px;
 }
 .top .find_transport_form_select_title {
     font-size: 18px;
@@ -210,6 +211,7 @@
 .top .find_transport_form_select_wrapper {
     position: relative;
     width: 281px;
+
 }
 .top .find_transport_form_select_hidden_wrapper {
     position: absolute;
@@ -1542,6 +1544,7 @@ body.hidden_body {
     align-items: flex-end;
     text-align: end;
     margin-top: 30px;
+    margin-right: 10px;
 }
 .footer .footer_social_link:not(:last-child) {
     margin-right: 20px;
@@ -2971,6 +2974,7 @@ body.hidden_body {
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 19px;
+    border: 1px solid #E8E8E8;
 }
 
 .place_an_ad_form_input_field_wrapper {
@@ -4552,14 +4556,17 @@ body.hidden_body{
     background-color: #f5c6cb; /* Red */
     color: #721c24;
     margin-bottom: 15px;
+    text-align: center;
 }
 .alert-success{
+    text-align: center;
     font-family: sans-serif;
     border-radius: 5px;
     padding: 20px;
     background-color: #d4edda; /* Red */
     color: #155724;
     margin-bottom: 15px;
+
 }
 .chek{
     margin-right: 5px;
@@ -4588,5 +4595,68 @@ body.hidden_body{
     align-items: baseline;
     justify-content: center;
 
+}
+.forgot-password{
+    font-family: 'Circe',sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #000000;
+    opacity: 0.59;
+    text-align: center;
+    margin-bottom: p10px;
+    background: linear-gradient(
+        94.67deg
+        , #34BE7C 0%, #2EB6A5 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    margin-left: 163px;
+    display: flex;
+
+}
+.place_an_ad_form{
+    background: unset!important;
+}
+
+.place_an_ad_form .find_transport_form_select_title{
+    color: #00000091!important;
+}
+
+.place_an_ad_form .find_transport_form_select_hidden_info{
+    color: #00000091!important;
+}
+.place_an_ad_form .find_transport_form_select_wrapper{
+    max-width: 325px;
+    width: 100%;
+}
+.succses{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+
+}
+.succsesimg{
+    width: 21px;
+
+    align-items: center;
+}
+
+.succses1{
+    width: 300px;
+    height: 50px;
+    background-color: #34BE7C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 72px;
+}
+
+.succsestext{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-family: sans-serif;
 }
 

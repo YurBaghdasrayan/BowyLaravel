@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ForgotPasswordRequest;
 use App\Mail\RessetpasswordMail;
 use App\Models\RessetPassword;
 use App\Models\User;
@@ -15,9 +16,9 @@ class ForgotController extends Controller
         return view('/forgot-password');
     }
 
-    public function send(Request $request)
+    public function send(ForgotPasswordRequest $request)
     {
-        $email = $request->email;
+        $email = $request->validated();
         $email_exist = User::where(['email' => $email, 'role_id' => '1'])->get();
 
         if (!$email_exist->isEmpty()) {
@@ -40,9 +41,7 @@ class ForgotController extends Controller
             return redirect('/restore-password');
 
         } else {
-            dd("inccorect email");
+            return redirect('/forgot-password')->with('message', 'Email не существует !');
         }
-
-
     }
 }

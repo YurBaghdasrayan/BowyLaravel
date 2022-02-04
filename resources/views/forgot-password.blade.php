@@ -14,12 +14,18 @@
                     <form action="{{route('code-sending')}}" class="login_form_wrapper" method="post">
                         @csrf
                         <h1 class="login_form_title">Забыли пароль?</h1>
+                        @if(session()->has('message'))
+                            <div class="alert alert-danger">
+                                {{ session()->get('message') }}
+                            </div>
+                        @endif
+                        @if($errors->has('email'))
+                            <div class="alert alert-danger" >{{ $errors->first('email') }}</div>
+                        @endif
                         <div class="login_form_inputs_wrapper">
                             <div class="login_form_input">
-                                <input type="email" class="login_form_input_field" placeholder="Email" name="email"" @if(Cookie::has('email')) value="{{Cookie::get('email')}}" @endif()>
-                                @if($errors->has('email'))
-                                    <div class="alert alert-danger" >{{ $errors->first('email') }}</div>
-                                @endif
+                                <input type="email" class="login_form_input_field" placeholder="Email" name="email" >
+
                             </div>
 {{--                            <div class="login_form_input">--}}
 {{--                                <input type="password" class="login_form_input_field" placeholder="Пароль" name="password">--}}
@@ -38,7 +44,7 @@
 {{--                                    <p class="">Запомните меня</p>--}}
 {{--                                </label>--}}
 {{--                            </div>--}}
-                            <button type="submit" value="save" class="login_form_btn">Продолжить</button>
+                            <button type="submit" value="save" class="login_form_btn">Восстановить</button>
                         </div>
                     </form>
 {{--                    <div class="login_social_links_title_wrapper">--}}

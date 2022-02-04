@@ -8,7 +8,8 @@
                 <div class="place_an_ad_wrapper">
                     <div class="place_an_ad_items_wrapper">
                         @include('includes_file.user')
-                        <form action="" class="place_an_ad_form">
+
+                        <form action="" class="place_an_ad_form top">
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
@@ -19,11 +20,23 @@
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
+                                    <div class="find_transport_form_select_wrapper">
+                                        <div class="find_transport_form_select_title_wrapper">
+                                            <p class="find_transport_form_select_title">Выберите категорию</p>
+                                        </div>
+                                        <div class="find_transport_form_select_hidden_wrapper">
+                                            @foreach($category as $categoryes)
+                                               <p class="find_transport_form_select_hidden_info" data-info="{{$categoryes->name}}">{{$categoryes->name}}</p>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Название транспорта" class="place_an_ad_form_input_field" name="Название транспорта">
+                                        <input type="text" placeholder="Регион" name="region" class="place_an_ad_form_input_field">
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Адрес" name="Адрес" class="place_an_ad_form_input_field">
+                                        <input type="text" placeholder="Город" name="city" class="place_an_ad_form_input_field">
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">

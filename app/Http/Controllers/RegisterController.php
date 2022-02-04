@@ -22,14 +22,21 @@ class RegisterController extends Controller
     public function postSignup(UsersRequest $request)
     {
         $image = $request->file('image');
+
         if ($image) {
-            $imageName = time() . '.' . $image->extension();
-            $add_image = $image->storeAs('/uploads', $imageName);
+
+            $destinationPath = 'upload/';
+            $originalFile = time().$image->getClientOriginalName();
+            $image->move($destinationPath, $originalFile);
+
+//            $imageName = time() . '.' . $image->extension();
+//            $add_image = $image->storeAs('public/uploads', $imageName);
+
             $data = [
                 'email' => $request->email,
                 'password' => $request->password,
                 'role_id' => Role::USER_ID,
-                'image' => $add_image
+                'image' => $originalFile
             ];
         } else {
             $data = [
@@ -41,7 +48,7 @@ class RegisterController extends Controller
         $user = User::create($data);
 
         if ($user) {
-            return redirect('/login');
+            return redirect('/login')->with('success','Вы успешно прошли регистрацию');
         } else {
             return redirect('/registration')->with('login_error', 'неверные данные');
         }
