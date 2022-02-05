@@ -14,6 +14,7 @@ class role extends Model
     const ADMIN_ID = 2;
     const USER_ID = 1;
 
+    
     public function user()
     {
         return $this->hasMany(User::class);
