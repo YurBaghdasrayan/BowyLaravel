@@ -15,6 +15,7 @@ class ProfileSettingsController extends Controller
 
     public function update(UpdateuserRequest $request)
     {
+//        dd($request);
         $image = $request->file('image');
         $user_image = '';
         if ($image) {
