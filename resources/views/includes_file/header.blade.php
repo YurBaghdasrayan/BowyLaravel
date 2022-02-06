@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header_wrapper">
         <div class="header_logo_wrapper">
-            <a href="{{route('home')}}" class="header_logo">
+            <a href="{{route('home.index')}}" class="header_logo">
                 <img src="../images/new_logo.svg" alt="">
             </a>
         </div>

@@ -1,5 +1,18 @@
 
+$(".password_visibility").on('click', function () {
+    if ($("#passwordInp").hasClass('showPass') ) {
+        $(".show_icon").addClass("active_show_icon")
+        $(".hide_icon").removeClass("active_show_icon")
+        $("#passwordInp").removeClass('showPass')
+        $('#passwordInp').attr('type','password')
+    }else {
+        $(".hide_icon").addClass("active_show_icon")
+        $(".show_icon").removeClass("active_show_icon")
+        $("#passwordInp").addClass('showPass')
+        $('#passwordInp').attr('type','text')
+    }
 
+})
 $(document).on("click", ".find_transport_form_select_title_wrapper", function(){
     var thisis = $(this);
     if (thisis.parent().find(".find_transport_form_select_hidden_wrapper").hasClass("open")){

@@ -4659,4 +4659,15 @@ body.hidden_body{
     color: white;
     font-family: sans-serif;
 }
-
+.password_visibility {
+    position: absolute;
+    z-index: 1000;
+    cursor: pointer;
+    width: 20px;
+    right: 15px;
+    bottom: 20px;
+    display: none;
+}
+.active_show_icon {
+    display: block;
+}

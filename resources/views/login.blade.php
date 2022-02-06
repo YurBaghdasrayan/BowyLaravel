@@ -33,13 +33,17 @@
                         <h1 class="login_form_title">Войдите или зарегистрируйтесь</h1>
                         <div class="login_form_inputs_wrapper">
                             <div class="login_form_input">
-                                <input type="email" class="login_form_input_field" placeholder="Email" name="email"" @if(Cookie::has('email')) value="{{Cookie::get('email')}}" @endif()>
+                                <input type="email" class="login_form_input_field" placeholder="Email" name="email">
                                 @if($errors->has('email'))
                                     <div class="alert alert-danger" >{{ $errors->first('email') }}</div>
                                 @endif
                             </div>
                             <div class="login_form_input">
-                                <input type="password" class="login_form_input_field" placeholder="Пароль" name="password">
+                                <div style="position:relative;" class="password_group">
+                                    <img class="password_visibility show_icon active_show_icon" src="{{asset('images/icons/view.png')}}" alt="">
+                                    <img class="password_visibility hide_icon" src="{{asset('images/icons/hide.png')}}" alt="">
+                                    <input id="passwordInp" type="password" class="login_form_input_field" placeholder="Пароль" name="password">
+                                </div>
                                 @if($errors->has('password'))
                                     <div class="alert alert-danger" >{{ $errors->first('password') }}</div>
                                 @endif
@@ -104,6 +108,6 @@
     @include('includes_file.footer')
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../js/script.js">
+    <script src="{{ asset('js/script.js') }}">
     </script>
 @endsection

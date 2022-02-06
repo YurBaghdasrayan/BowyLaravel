@@ -33,12 +33,12 @@ use Illuminate\Support\Facades\Route;
 
 /*GET METHODS*/
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 //MIDDLEWARE METHODS
 
-Route::middleware(['NoAuth'])->group(function () {
+Route::middleware(['guest'])->group(function () {
 
     /*  MIDDLEWARE POST METHODS*/
 
@@ -58,7 +58,7 @@ Route::middleware(['NoAuth'])->group(function () {
 
 //MIDDLEWARE METHODS
 
-Route::middleware(['AuthUser'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     /*MIDDLEWARE GET METHODS*/
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
@@ -75,7 +75,7 @@ Route::middleware(['AuthUser'])->group(function () {
 });
 
 //ADMIN MIDDLEWARE METHODS
-Route::middleware(['AuthAdmin'])->group(function () {
+Route::middleware(['admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
     });

@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UsersRequest;
-use App\Models\role;
+use App\Jobs\RegisteredSuccessEmailJob;
+use App\Mail\RegisteredSuccessFullyMail;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
@@ -46,8 +49,8 @@ class RegisterController extends Controller
             ];
         }
         $user = User::create($data);
-
         if ($user) {
+            RegisteredSuccessEmailJob::dispatch();
             return redirect('/login')->with('success','Вы успешно прошли регистрацию');
         } else {
             return redirect('/registration')->with('login_error', 'неверные данные');
