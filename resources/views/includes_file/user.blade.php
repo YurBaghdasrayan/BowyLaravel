@@ -5,7 +5,9 @@
         </div>
         <div class="active_inactive_ads_user_info">
             <p class="active_inactive_ads_user_name">{{auth()->user()->name}}</p>
-            <p class="active_inactive_ads_user_city_name">г. Сочи</p>
+            <p class="active_inactive_ads_user_surname">{{auth()->user()->surname}}</p>
+            <p class="active_inactive_ads_user_city_name">{{auth()->user()->city}}</p>
+
         </div>
     </div>
     <div class="active_inactive_ads_first_item_chat_favourites_links_wrapper">

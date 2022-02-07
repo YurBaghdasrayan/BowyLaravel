@@ -9,8 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $table = 'products';
+    protected $guarded = [];
+
     public function category()
     {
-        $this->belongsTo(Category::class);
+        $this->belongsTo(Categories::class);
     }
 }

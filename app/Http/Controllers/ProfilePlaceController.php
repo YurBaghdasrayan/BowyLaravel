@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class ProfilePlaceController extends Controller
 {
     public function index()
     {
-        $category = Category::all();
-        return view('/profile-place-anad',compact('category'));
+        $categories = Categories::all();
+        return view('/profile-place-anad',compact('categories'));
     }
 }

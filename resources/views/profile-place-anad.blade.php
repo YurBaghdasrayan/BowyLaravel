@@ -9,14 +9,15 @@
                     <div class="place_an_ad_items_wrapper">
                         @include('includes_file.user')
 
-                        <form action="" class="place_an_ad_form top">
+                        <form action="{{route('profile-place-anad')}}" class="place_an_ad_form top" method="post">
+                            @csrf
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Заголовок объявления" class="place_an_ad_form_input_field" name="Заголовок объявления">
+                                        <input type="text" placeholder="Заголовок объявления" class="place_an_ad_form_input_field" name="headline">
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper price_input_field">
-                                        <input type="text" placeholder="Стоимость" name="Стоимость" class="place_an_ad_form_input_field">
+                                        <input type="text" placeholder="Стоимость" name="price" class="place_an_ad_form_input_field">
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
@@ -25,8 +26,8 @@
                                             <p class="find_transport_form_select_title">Выберите категорию</p>
                                         </div>
                                         <div class="find_transport_form_select_hidden_wrapper">
-                                            @foreach($category as $categoryes)
-                                               <p class="find_transport_form_select_hidden_info" data-info="{{$categoryes->name}}">{{$categoryes->name}}</p>
+                                            @foreach($categories as $category)
+                                               <p class="find_transport_form_select_hidden_info" data-info="{{$category->name}}">{{$category->name}}</p>
                                             @endforeach
                                         </div>
                                     </div>
@@ -40,27 +41,27 @@
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
-                                    <input type="text" placeholder="Марка автомобиля" class="place_an_ad_form_input_field" name="Марка автомобиля">
+                                    <input type="text" placeholder="Марка автомобиля" class="place_an_ad_form_input_field" name="car_model">
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
-                                    <input type="text" placeholder="Описание объявления" name="Описание объявления" class="place_an_ad_form_input_field">
+                                    <input type="text" placeholder="Описание объявления" name="description" class="place_an_ad_form_input_field">
                                 </div>
                             </div>
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <p class="place_an_ad_form_inputs_title">Характеристики</p>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Тип кузова" class="place_an_ad_form_input_field" name="Тип кузова">
+                                        <input type="text" placeholder="Тип кузова" class="place_an_ad_form_input_field" name="body_type">
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Руль" name="Руль" class="place_an_ad_form_input_field">
+                                        <input type="text" placeholder="Руль" name="rudder" class="place_an_ad_form_input_field">
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
-                                    <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="Год выпуска">
+                                    <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="year_of_issue">
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
-                                    <input type="text" placeholder="Коробка передач" name="Коробка передач" class="place_an_ad_form_input_field">
+                                    <input type="text" placeholder="Коробка передач" name="transmission" class="place_an_ad_form_input_field">
                                 </div>
                                 <div class="registration_input_type_files_label_img_wrapper place_an_ad_form_input_type_file_img_wrapper ">
                                     <label for="fileinput_form2" class="registration_input_type_file file_label place_an_ad_form_input_label">
@@ -78,7 +79,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button class="place_an_ad_form_btn" type="button">Сохранить</button>
+                                <button class="place_an_ad_form_btn" type="submit">Сохранить</button>
                             </div>
                         </form>
 
