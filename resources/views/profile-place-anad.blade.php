@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="find_transport_form_select_hidden_wrapper">
                                             @foreach($categories as $category)
-                                               <p class="find_transport_form_select_hidden_info" data-info="{{$category->name}}">{{$category->name}}</p>
+                                               <p class="find_transport_form_select_hidden_info" data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
                                             @endforeach
                                         </div>
                                     </div>

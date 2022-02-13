@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -21,27 +22,28 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create(CreateProductRequest $request)
     {
-//        dd($request);
-        $products = [
-            'headline' => $request->headline,
-            'price' => $request->price,
-            'city' => $request->city,
-            'region' => $request->region
-        ];
-        $createProd = Product::create($products);
+
+
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param CreateProductRequest $request
+     * @return \Illuminate\Http\JsonResponse|void
      */
-    public function store(Request $request)
+    public function store(CreateProductRequest $request)
     {
-        //
+        $imagePath = time() . 'image.' . $request->file('image')->extension();
+        $request->file('image')->storeAs('public/uploads', $imagePath);
+        $data = $request->all();
+        $data['image'] = $imagePath;
+        if (Product::query()->create($data)) {
+            return response()->json([
+                'success' => true,
+                'message' => 'product was successfully created'
+            ], 201);
+        }
     }
 
     /**
