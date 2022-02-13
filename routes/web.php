@@ -69,6 +69,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile-place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
     Route::get('/announcement', [AnnounController::class, 'index'])->name('announcement');
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
+    Route::post('/create-products',[FavouritesController::class, 'store']);
     Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
     Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
     Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
@@ -80,6 +81,8 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
     });
 });
+
+
 
 
 

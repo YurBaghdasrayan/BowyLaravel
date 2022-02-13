@@ -29,6 +29,8 @@ $(document).on("click", ".find_transport_form_select_title_wrapper", function(){
 
 $(document).on("click", ".find_transport_form_select_hidden_info", function(){
    var datainfo = $(this).data("info");
+   var category_id = $(this).data("category_id");
+   $(this).parent().parent().find(".hidden_category_data").val(category_id);
    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
 
@@ -253,4 +255,131 @@ $("#button").click(function() {
     $("#ln").show();
 });
 
+// $(document).on("click",".recent_announcements_item_child_link_favourite_img",function (){
+//     var token =  $('meta[name="csrf-token"]').attr('content');
+//     console.log(token);
+//     $.ajax({
+//         url: "/create-favorite",
+//         type:'POST',
+//         data: {_token:token,post_id:'' +
+//                 ''},
+//         success: function(data) {
+//             printMsg(data);
+//         }
+//     });
+// })
+
+$(document).on("submit",".place_an_ad_form",function (event){
+    event.preventDefault();
+
+    var token =  $('meta[name="csrf-token"]').attr('content');
+
+    var headline = $('input[name="headline"]',this);
+    var headline_val = headline.val();
+
+    var price = $('input[name="price"]',this);
+    var price_val = price.val();
+
+    var city = $('input[name="city"]',this);
+    var city_val = city.val();
+
+    var region = $('input[name="region"]',this);
+    var region_val = region.val();
+
+    var car_model = $('input[name="car_model"]',this);
+    var car_model_val = car_model.val();
+
+    var description = $('input[name="description"]',this);
+    var description_val = description.val();
+
+    var body_type = $('input[name="body_type"]',this);
+    var body_type_val = body_type.val();
+
+    var rudder = $('input[name="rudder"]',this);
+    var rudder_val = rudder.val();
+
+    var year_of_issue = $('input[name="year_of_issue"]',this);
+    var year_of_issue_val = year_of_issue.val();
+
+    var transmission = $('input[name="transmission"]',this);
+    var transmission_val = transmission.val();
+
+    var image = $('input[type="file"]',this);
+    var image_val = image.val();
+
+    var category_id = $('input[name="category_id"]',this).val();
+    var valid = true;
+
+    if (category_id.length < 1){
+        valid = false
+        $('.find_transport_form_select_title_wrapper').css('border','1px solid red');
+    }
+
+    if (headline_val.length < 1){
+        valid = false
+        headline.parent().css('border','1px solid red');
+    }
+
+    if (price_val.length < 1){
+        valid = false
+        price.parent().css('border','1px solid red');
+    }
+
+    if (city_val.length < 1){
+        valid = false
+        city.parent().css('border','1px solid red');
+    }
+
+    if (region_val.length < 1){
+        valid = false
+        region.parent().css('border','1px solid red');
+    }
+
+    if (car_model_val.length < 1){
+        valid = false
+        car_model.parent().css('border','1px solid red');
+    }
+
+    if (description_val.length < 1){
+        valid = false
+        description.parent().css('border','1px solid red');
+    }
+
+    if (body_type_val.length < 1){
+        valid = false
+        body_type.parent().css('border','1px solid red');
+    }
+
+    if (rudder_val.length < 1){
+        valid = false
+        rudder.parent().css('border','1px solid red');
+    }
+
+    if (year_of_issue_val.length < 1){
+        valid = false
+        year_of_issue.parent().css('border','1px solid red');
+    }
+
+    if (transmission_val.length < 1){
+        valid = false
+        transmission.parent().css('border','1px solid red');
+    }
+
+    if (!valid) {
+        return false;
+    }
+
+    $.ajax({
+        url: "/create-products",
+        type:'POST',
+        data: {_token:token,headline:headline_val,price:price_val,city:city_val,region:region_val,
+            car_model:car_model_val,description:description_val,body_type:body_type_val,rudder:rudder_val,
+            year_of_issue:year_of_issue_val,transmission:transmission_val,category_id:category_id,image:image_val},
+        success: function(data) {
+            console.log(data);
+        }
+    });
+
+
+})
 

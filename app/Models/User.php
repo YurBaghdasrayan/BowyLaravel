@@ -44,8 +44,19 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class);
     }
 
-    public function resset(){
+    public function resset()
+    {
         return $this->belongsTo(RessetPassword::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function favourites()
+    {
+        return $this->hasMany(Favourites::class,'user_id');
     }
 
 }

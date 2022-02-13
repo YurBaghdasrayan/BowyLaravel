@@ -41,7 +41,8 @@ class ProfileSettingsController extends Controller
                     'name' => $request->name,
                     'surname' => $request->surname,
                     'number' => $request->number,
-                    'image'=>$user_image
+                    'image'=>$user_image,
+                    'city'=>$request->city
                 ];
 
                 $update_success = $user->update($update_data);
@@ -65,6 +66,7 @@ class ProfileSettingsController extends Controller
                 'surname' => $request->surname,
                 'number' => $request->number,
                 'image'=> $user_image,
+                'city'=>$request->city
             ];
 
             $update_success = $user->update($update_data);

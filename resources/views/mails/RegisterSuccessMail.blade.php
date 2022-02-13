@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<p>Duq hajoxutyamb grancvel eq id: {{ $id  }}</p>
-<p>Thank you</p>
+<p>вы успешно зарегестрирова спасибо: {{ $id  }}</p>
+<p>спасибо</p>
 
 </body>
 </html>

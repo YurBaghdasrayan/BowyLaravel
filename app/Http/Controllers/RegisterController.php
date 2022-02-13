@@ -50,7 +50,7 @@ class RegisterController extends Controller
         }
         $user = User::create($data);
         if ($user) {
-            RegisteredSuccessEmailJob::dispatch();
+            RegisteredSuccessEmailJob::dispatch($user);
             return redirect('/login')->with('success','Вы успешно прошли регистрацию');
         } else {
             return redirect('/registration')->with('login_error', 'неверные данные');

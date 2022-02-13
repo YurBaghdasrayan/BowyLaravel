@@ -30,8 +30,11 @@
                                 </div>
 
                                 <div class="registration_form_input">
-
-                                    <input type="password" value="{{old('password')}}" class="registration_form_input_field" placeholder="Пароль" name="password" >
+                                    <div style="position:relative;" class="password_group">
+                                        <img class="password_visibility show_icon active_show_icon" src="{{asset('images/icons/view.png')}}" alt="">
+                                        <img class="password_visibility hide_icon" src="{{asset('images/icons/hide.png')}}" alt="">
+                                        <input type="password" id="passwordInp" value="{{old('password')}}" class="registration_form_input_field" placeholder="Пароль" name="password" >
+                                    </div>
                                     @if($errors->has('password'))
                                         <div class="alert alert-danger" role="alert">{{ $errors->first('password') }}</div>
                                     @endif
