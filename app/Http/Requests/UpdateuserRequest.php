@@ -27,6 +27,7 @@ class UpdateuserRequest extends FormRequest
             'name'=>'required',
             'email' => 'email',
             'number' => 'numeric',
+            'city'=>'required',
         ];
     }
 
@@ -36,6 +37,7 @@ class UpdateuserRequest extends FormRequest
             'email.email' => 'Необходимо ввести электронная почта',
             'number.numeric'=>'Необходимо ввести цифры',
             'name.required' => 'Необходимо ввести имя в поле',
+            'city.required'=>'asdasdasdasd',
         ];
     }
 

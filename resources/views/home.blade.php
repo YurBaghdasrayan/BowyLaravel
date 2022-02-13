@@ -76,12 +76,9 @@
                             <p class="find_transport_form_select_title">Выберите категорию</p>
                         </div>
                         <div class="find_transport_form_select_hidden_wrapper">
-                            <p class="find_transport_form_select_hidden_info" data-info="Автомобили">Автомобили</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Мотоциклы">Мотоциклы</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Водный транспорт">Водный транспорт</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Велосипеды">Велосипеды</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Прицепы">Прицепы</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Малогабаритный транспорт">Малогабаритный транспорт</p>
+                            @foreach($categories as $category)
+                            <p class="find_transport_form_select_hidden_info" data-info="Автомобили">{{$category->name}}</p>
+                            @endforeach
                         </div>
                     </div>
                     <div class="find_transport_form_select_wrapper">
@@ -129,13 +126,13 @@
 
 
                 <div class="types_of_transport_links_wrapper">
-                    @foreach($category as $categories )
+                    @foreach($categories as $category )
                         <a href="" class="types_of_transport_link">
                             <div class="types_of_transport_link_img">
-                                <img src="{{asset('images/'.$categories->image)}}" alt="">
+                                <img src="{{asset('images/'.$category->image)}}" alt="">
                             </div>
                             <div class="types_of_transport_link_info_parent">
-                                <span class="types_of_transport_link_info">{{$categories->name}}</span>
+                                <span class="types_of_transport_link_info">{{$category->name}}</span>
                             </div>
 
                         </a>

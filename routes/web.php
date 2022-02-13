@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\PaidServicesController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileActiveController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProfilePlaceController;
@@ -67,6 +68,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profile-settings', [ProfileSettingsController::class, 'update']);
     Route::get('/profile-active-ads', [ProfileActiveController::class, 'index'])->name('profile-active-ads');
     Route::get('/profile-place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
+    Route::post('/profile-place-anad', [ProductController::class, 'create'])->name('profile-place-anad');
     Route::get('/announcement', [AnnounController::class, 'index'])->name('announcement');
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
     Route::post('/create-products',[FavouritesController::class, 'store']);

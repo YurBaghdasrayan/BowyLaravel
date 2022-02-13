@@ -31,6 +31,6 @@ class RegisteredSuccessFullyMail extends Mailable
     public function build()
     {
         $id = $this->id;
-        return $this->view('mails/RegisterSuccessMail', compact('id') );
+        return $this->view('mails/RegisterSuccessMail', compact('id'));
     }
 }
