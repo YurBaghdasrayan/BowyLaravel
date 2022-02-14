@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProductRequest;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -13,8 +14,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('home', compact('products'));
+        $active_products = Auth::user()->products();
+
+        return view('home', compact('active_products'));
     }
 
     /**
@@ -34,10 +36,13 @@ class ProductController extends Controller
      */
     public function store(CreateProductRequest $request)
     {
-        $imagePath = time() . 'image.' . $request->file('image')->extension();
-        $request->file('image')->storeAs('public/uploads', $imagePath);
+        $image = $request->file('image');
+        $destinationPath = 'upload/';
+        $originalFile = time().$image->getClientOriginalName();
+        $image->move($destinationPath, $originalFile);
         $data = $request->all();
-        $data['image'] = $imagePath;
+        $data['image'] =  $originalFile;
+        $data['user_id'] =  Auth::user()->id;
         if (Product::query()->create($data)) {
             return response()->json([
                 'success' => true,

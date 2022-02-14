@@ -43,16 +43,16 @@ class CreateProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'headline.required' => 'Поле заголовок объявления почты обязательно.',
-            'price.required' => 'Поле стоимость почты обязательно.',
-            'city.required' => 'Поле город почты обязательно.',
-            'region.required' => 'Поле регион почты обязательно.',
-            'car_model.required' => 'Поле марка автомобиля почты обязательно.',
-            'description.required' => 'Поле описание объявления почты обязательно.',
-            'body_type.required' => 'Поле тип кузова почты обязательно.',
+            'headline.required' => 'Поле заголовок объявления обязательно.',
+            'price.required' => 'Поле стоимость обязательно.',
+            'city.required' => 'Поле город обязательно.',
+            'region.required' => 'Поле регион обязательно.',
+            'car_model.required' => 'Поле марка автомобиля обязательно.',
+            'description.required' => 'Поле описание объявления обязательно.',
+            'body_type.required' => 'Поле тип кузова  обязательно.',
             'rudder.required' => 'Поле руль почты обязательно.',
-            'year_of_issue.required' => 'Поле год выпуска почты обязательно.',
-            'transmission.required' => 'Поле коробка передач почты обязательно.',
+            'year_of_issue.required' => 'Поле год выпуска обязательно.',
+            'transmission.required' => 'Поле коробка передач обязательно.',
         ];
     }
 

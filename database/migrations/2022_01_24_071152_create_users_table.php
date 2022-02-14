@@ -22,7 +22,6 @@ class CreateUsersTable extends Migration
             $table->string('surname')->nullable();
             $table->string('number')->nullable();
             $table->string('Remember_token')->nullable();
-            $table->string('city')->nullable();
             $table->timestamps();
         });
     }

@@ -4499,7 +4499,7 @@ body.hidden_body{
 }
 
 .announcement_second_item_specification_input_field2{
-       font-family: Circe, sans-serif;
+    font-family: Circe, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -4556,6 +4556,7 @@ body.hidden_body{
     color: #721c24;
     margin-bottom: 15px;
     text-align: center;
+    display: none;
 }
 .alert-success{
     text-align: center;
@@ -4565,7 +4566,6 @@ body.hidden_body{
     background-color: #d4edda; /* Red */
     color: #155724;
     margin-bottom: 15px;
-
 }
 .chek{
     margin-right: 5px;

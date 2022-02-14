@@ -24,6 +24,7 @@ class Product extends Model
 
     public function favourites()
     {
-        return $this->hasMany(Favourites::class,'product_id');
+        return $this->hasMany(Favourites::class, 'product_id');
     }
+
 }

@@ -15,14 +15,15 @@
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
                                         <input type="text" placeholder="Заголовок объявления" class="place_an_ad_form_input_field" name="headline">
+
+                                            <div class="alert alert-danger-headline" ></div>
+
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper price_input_field">
                                         <input type="text" placeholder="Стоимость" name="price" class="place_an_ad_form_input_field">
+                                        <div class="alert alert-danger-price" ></div>
                                     </div>
                                 </div>
-                                @if($errors->has('headline'))
-                                    <div class="alert alert-danger" >{{ $errors->first('headline') }}</div>
-                                @endif
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="find_transport_form_select_wrapper">
                                         <div class="find_transport_form_select_title_wrapper">
@@ -39,16 +40,20 @@
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
                                         <input type="text" placeholder="Регион" name="region" class="place_an_ad_form_input_field">
+                                        <div class="alert alert-danger-region" ></div>
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper">
                                         <input type="text" placeholder="Город" name="city" class="place_an_ad_form_input_field">
+                                        <div class="alert alert-danger-city" ></div>
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Марка автомобиля" class="place_an_ad_form_input_field" name="car_model">
+                                    <div class="alert alert-danger-car_model" ></div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Описание объявления" name="description" class="place_an_ad_form_input_field">
+                                    <div class="alert alert-danger-description" ></div>
                                 </div>
                             </div>
                             <div class="place_an_ad_form_inputs_wrapper">
@@ -56,16 +61,20 @@
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
                                         <input type="text" placeholder="Тип кузова" class="place_an_ad_form_input_field" name="body_type">
+                                        <div class="alert alert-danger-body_type" ></div>
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper">
                                         <input type="text" placeholder="Руль" name="rudder" class="place_an_ad_form_input_field">
+                                        <div class="alert alert-danger-rudder" ></div>
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="year_of_issue">
+                                    <div class="alert alert-danger-year_of_issue" ></div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Коробка передач" name="transmission" class="place_an_ad_form_input_field">
+                                    <div class="alert alert-danger-transmission" ></div>
                                 </div>
                                 <div class="registration_input_type_files_label_img_wrapper place_an_ad_form_input_type_file_img_wrapper ">
                                     <label for="fileinput_form2" class="registration_input_type_file file_label place_an_ad_form_input_label">

@@ -401,11 +401,48 @@ $(document).on("submit",".place_an_ad_form",function (event){
                 window.location.href = 'profile-active-ads'
             }
         },
-        error: (err) => {
-            console.log(err)
+        error: function(error){
+            if (error.responseJSON.errors.headline){
+                $('.alert-danger-headline').css('display','block');
+                $('.alert-danger-headline').text(error.responseJSON.errors.headline[0]);
+            }
+            if (error.responseJSON.errors.price){
+                $('.alert-danger-price').css('display','block');
+                $('.alert-danger-price').text(error.responseJSON.errors.price[0]);
+            }
+            if (error.responseJSON.errors.region){
+                $('.alert-danger-region').css('display','block');
+                $('.alert-danger-region').text(error.responseJSON.errors.region[0]);
+            }
+            if (error.responseJSON.errors.city){
+                $('.alert-danger-city').css('display','block');
+                $('.alert-danger-city').text(error.responseJSON.errors.city[0]);
+            }
+            if (error.responseJSON.errors.car_model){
+                $('.alert-danger-car_model').css('display','block');
+                $('.alert-danger-car_model').text(error.responseJSON.errors.car_model[0]);
+            }
+            if (error.responseJSON.errors.description){
+                $('.alert-danger-description').css('display','block');
+                $('.alert-danger-description').text(error.responseJSON.errors.description[0]);
+            }
+            if (error.responseJSON.errors.body_type){
+                $('.alert-danger-body_type').css('display','block');
+                $('.alert-danger-body_type').text(error.responseJSON.errors.body_type[0]);
+            }
+            if (error.responseJSON.errors.rudder){
+                $('.alert-danger-rudder').css('display','block');
+                $('.alert-danger-rudder').text(error.responseJSON.errors.rudder[0]);
+            }
+            if (error.responseJSON.errors.year_of_issue){
+                $('.alert-danger-year_of_issue').css('display','block');
+                $('.alert-danger-year_of_issue').text(error.responseJSON.errors.year_of_issue[0]);
+            }
+            console.log(error.responseJSON.errors.headline[0]);
         }
     });
 
-
 })
+
+
 

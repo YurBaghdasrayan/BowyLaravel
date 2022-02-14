@@ -52,12 +52,13 @@ class User extends Authenticatable
 
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->hasMany(Product::class,'user_id');
     }
 
     public function favourites()
     {
-        return $this->hasMany(Favourites::class,'user_id');
+        return $this->hasMany(Favourites::class, 'user_id');
     }
+
 
 }
