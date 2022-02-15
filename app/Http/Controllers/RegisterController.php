@@ -32,9 +32,6 @@ class RegisterController extends Controller
             $originalFile = time().$image->getClientOriginalName();
             $image->move($destinationPath, $originalFile);
 
-//            $imageName = time() . '.' . $image->extension();
-//            $add_image = $image->storeAs('public/uploads', $imageName);
-
             $data = [
                 'email' => $request->email,
                 'password' => $request->password,

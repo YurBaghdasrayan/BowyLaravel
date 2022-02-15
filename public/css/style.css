@@ -4556,6 +4556,15 @@ body.hidden_body{
     color: #721c24;
     margin-bottom: 15px;
     text-align: center;
+    /*display: none;*/
+}.alert_none{
+    font-family: sans-serif;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f5c6cb; /* Red */
+    color: #721c24;
+    margin-bottom: 15px;
+    text-align: center;
     display: none;
 }
 .alert-success{
