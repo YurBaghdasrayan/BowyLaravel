@@ -86,13 +86,16 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        if (Product::query()->where('id', $id)->delete()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Product was successfully deleted'
+            ], 200);
+        }
     }
 }

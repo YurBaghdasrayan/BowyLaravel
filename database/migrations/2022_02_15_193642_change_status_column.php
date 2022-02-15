@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddStatusColumnToProductsTable extends Migration
+class ChangeStatusColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AddStatusColumnToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('status')->nullable();
+            $table->boolean('status')->default(false)->change();
         });
     }
 
@@ -26,7 +26,7 @@ class AddStatusColumnToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->dropColumn('status');
+            $table->string('status')->nullable();
         });
     }
 }

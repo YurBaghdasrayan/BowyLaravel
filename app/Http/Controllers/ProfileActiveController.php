@@ -10,23 +10,10 @@ class ProfileActiveController extends Controller
 {
     public function index()
     {
+        // TODO chmoranas  statusi tasovken anes
+            $products = Auth::user()->products()->get();
 
-        if (Auth::user()->products()->count() >= 1) {
-
-
-            $active_products = Auth::user()->products()->where('status', '=', 'active')->get();
-            $noactive_products = Auth::user()->products()->where('status', '=', 'noactive')->get();
-
-
-            return view('profile-active-ads', compact('noactive_products', 'active_products'));
-
-        } else {
-
-            return view('profile-active-ads');
-
-        }
-
-//        return view('profile-active-ads', compact('active_products'));
+            return view('profile-active-ads', compact('products'));
     }
 
     public function destroy(Product $product)

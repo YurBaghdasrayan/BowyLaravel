@@ -13,6 +13,25 @@ $(".password_visibility").on('click', function () {
     }
 
 })
+
+$(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete_btn", function(){
+    $.ajax({
+        url: `/products/${$("#deleteBtn").data('id')}`,
+        type: 'GET',
+        cache:false,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.success) {
+                $(this).parent().parent().parent().hide();
+            }
+        },
+        error: function (err) {
+
+        }
+    })
+})
+
 $(document).on("click", ".find_transport_form_select_title_wrapper", function(){
     var thisis = $(this);
     if (thisis.parent().find(".find_transport_form_select_hidden_wrapper").hasClass("open")){
@@ -99,12 +118,6 @@ $(document).on("click", ".active_inactive_ads_second_item_sorts_btn", function()
     $(".inactive_type_btn").removeClass("active");
     $(".active_type_btn").addClass("active");
 });
-
-$(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete_btn", function(){
-    $(this).parent().parent().parent().hide();
-})
-
-
 
 $(document).on('change','#fileinput_form2',function () {
 

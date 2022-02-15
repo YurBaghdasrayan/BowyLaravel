@@ -60,13 +60,15 @@ Route::middleware(['guest'])->group(function () {
 //MIDDLEWARE METHODS
 
 Route::middleware(['auth'])->group(function () {
+    Route::group(['prefix' => 'products'], function () {
+            Route::get('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+    });
     /*MIDDLEWARE GET METHODS*/
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
     Route::get('/paid-services', [PaidServicesController::class, 'index'])->name('paid-services');
     Route::get('/profile-settings', [ProfileSettingsController::class, 'index'])->name('profile-settings');
     Route::put('/profile-settings', [ProfileSettingsController::class, 'update']);
-    Route::delete('/profile-active-ads{product}',[ProfileActiveController::class,'destroy'])->name('profile.active');
     Route::get('/profile-active-ads', [ProfileActiveController::class, 'index'])->name('profile-active-ads');
     Route::get('/profile-place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
     Route::post('/profile-place-anad', [ProductController::class, 'create'])->name('profile-place-anad');
