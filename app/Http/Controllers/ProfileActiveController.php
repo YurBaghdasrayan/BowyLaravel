@@ -10,7 +10,7 @@ class ProfileActiveController extends Controller
 {
     public function index()
     {
-        // TODO chmoranas  statusi tasovken anes
+        // TODO statusy anes
             $products = Auth::user()->products()->get();
 
             return view('profile-active-ads', compact('products'));

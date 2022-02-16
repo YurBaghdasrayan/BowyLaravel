@@ -15,15 +15,18 @@ $(".password_visibility").on('click', function () {
 })
 
 $(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete_btn", function(){
+
+    var thisis = $(this);
+
     $.ajax({
-        url: `/products/${$("#deleteBtn").data('id')}`,
+        url: `/products/${$(this).data('id')}`,
         type: 'GET',
         cache:false,
         processData: false,
         contentType: false,
         success: function (response) {
             if (response.success) {
-                $(this).parent().parent().parent().hide();
+                thisis.parent().parent().parent().hide();
             }
         },
         error: function (err) {
