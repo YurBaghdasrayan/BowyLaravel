@@ -2974,6 +2974,7 @@ body.hidden_body {
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 19px;
+    margin-right: 88px;
 }
 
 .place_an_ad_form_input_field_wrapper {
@@ -3279,7 +3280,7 @@ body.hidden_body {
     align-items: flex-start;
     width: 100%;
     max-width: 877px;
-    /* flex-wrap: wrap; */
+     flex-wrap: wrap;
 }
 .favourites_item_child{
     width: 32%;
@@ -4704,3 +4705,4 @@ body.hidden_body{
     color: #303030;
     font-family: sans-serif;
 }
+

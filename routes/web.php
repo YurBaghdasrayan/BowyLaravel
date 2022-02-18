@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 /*GET METHODS*/
-Route::get('/readJson',[ProductController::class,'index'])->name('readJson');
+Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
@@ -62,20 +62,26 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::group(['prefix' => 'products'], function () {
-            Route::get('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+        Route::get('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+        Route::post('/place-anad', [ProductController::class, 'create'])->name('profile-place-anad');
+
+    });
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+        Route::get('/services', [PaidServicesController::class, 'index'])->name('paid-services');
+        Route::get('/settings', [ProfileSettingsController::class, 'index'])->name('profile-settings');
+        Route::put('/settings', [ProfileSettingsController::class, 'update']);
+        Route::get('/active-ads', [ProfileActiveController::class, 'index'])->name('profile-active-ads');
+        Route::get('/place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
+        Route::post('/create-products', [ProductController::class, 'store']);
+        Route::post('/favourites', [FavouritesController::class, 'store'])->name('favourites');
+
     });
     /*MIDDLEWARE GET METHODS*/
-    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
+
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
-    Route::get('/paid-services', [PaidServicesController::class, 'index'])->name('paid-services');
-    Route::get('/profile-settings', [ProfileSettingsController::class, 'index'])->name('profile-settings');
-    Route::put('/profile-settings', [ProfileSettingsController::class, 'update']);
-    Route::get('/profile-active-ads', [ProfileActiveController::class, 'index'])->name('profile-active-ads');
-    Route::get('/profile-place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
-    Route::post('/profile-place-anad', [ProductController::class, 'create'])->name('profile-place-anad');
     Route::get('/announcement', [AnnounController::class, 'index'])->name('announcement');
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
-    Route::post('/create-products',[ProductController::class, 'store']);
     Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
     Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
     Route::get('/notification', [NotificationController::class, 'index'])->name('notification');

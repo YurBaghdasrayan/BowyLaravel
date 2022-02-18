@@ -10,8 +10,9 @@ class ProfileActiveController extends Controller
 {
     public function index()
     {
-        // TODO statusy anes
-            $products = Auth::user()->products()->get();
+        // TODO statusy
+            $products = Auth::user()->products()->get()->where('status', '=', true);
+            $products = Auth::user()->products()->get()->where('status', '=', false);
 
             return view('profile-active-ads', compact('products'));
     }

@@ -25,7 +25,7 @@ class LoginController extends Controller
             $remember = true;
             if (Auth::attempt($data, $remember)) {
                 $request->session()->regenerate();
-                return redirect('/profile-active-ads');
+                return redirect('/profile/active-ads');
 
             } else {
 
@@ -36,7 +36,7 @@ class LoginController extends Controller
 
             if (Auth::attempt($data)) {
                 $request->session()->regenerate();
-                return redirect('/profile-active-ads');
+                return redirect('profile/active-ads');
             } else {
                 return redirect('/login')->with('login_error', 'неверные данные');
 

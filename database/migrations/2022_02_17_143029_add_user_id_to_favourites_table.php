@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUserIdColumnToProductsTable extends Migration
+class AddUserIdToFavouritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AddUserIdColumnToProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('favourites', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id');
         });
     }
@@ -25,7 +25,7 @@ class AddUserIdColumnToProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('products', function (Blueprint $table) {
+        Schema::table('favourites', function (Blueprint $table) {
             Schema::dropIfExists('user_id');
         });
     }

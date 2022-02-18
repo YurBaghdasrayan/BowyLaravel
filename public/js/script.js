@@ -406,7 +406,7 @@ $(document).on("submit",".place_an_ad_form",function (event){
         }
     });
     $.ajax({
-        url: "/create-products",
+        url: "/profile/create-products",
         type: 'POST',
         data: formData,
         cache:false,
@@ -414,7 +414,7 @@ $(document).on("submit",".place_an_ad_form",function (event){
         contentType: false,
         success: function (data) {
             if (data.success) {
-                window.location.href = 'profile-active-ads'
+                window.location.href = 'active-ads'
             }
         },
         error: function(error){
@@ -460,5 +460,24 @@ $(document).on("submit",".place_an_ad_form",function (event){
 
 })
 
+$(document).on("click", ".recent_announcements_item_child_link_favourite_img", function(){
 
+    var thisis = $(this);
+    var product_id = thisis.data('id');
+    var token =  $('meta[name="csrf-token"]').attr('content');
+
+    $.ajax({
+        url: "/profile/favourites",
+        type: 'post',
+        cache:false,
+        data:{'_token':token,'product_id':product_id},
+        success: function (response) {
+            console.log(response);
+
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+})
 

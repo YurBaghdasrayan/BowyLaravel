@@ -10,7 +10,7 @@ class ProfileSettingsController extends Controller
 {
     public function index()
     {
-        return view('/profile-settings');
+        return view('profile-settings');
     }
 
     public function update(UpdateuserRequest $request)
@@ -48,14 +48,14 @@ class ProfileSettingsController extends Controller
                 $update_success = $user->update($update_data);
 
                 if ($update_success) {
-                    return redirect('profile-settings')->with('status', 'Профиль обновлен!');
+                    return redirect('profile/settings')->with('status', 'Профиль обновлен!');
 
                 } else {
-                    return redirect('profile-settings')->with('error', 'что то пошло не так попробуйте снова');
+                    return redirect('profile/settings')->with('error', 'что то пошло не так попробуйте снова');
                 }
 
             } else {
-                return redirect('profile-settings')->with('emailerror', 'этот емайл существует');
+                return redirect('profile/settings')->with('emailerror', 'этот емайл существует');
             }
 
         } else {
@@ -72,9 +72,9 @@ class ProfileSettingsController extends Controller
             $update_success = $user->update($update_data);
 
             if ($update_success) {
-                return redirect('profile-settings')->with('status', 'Профиль обновлен!');
+                return redirect('profile/settings')->with('status', 'Профиль обновлен!');
             } else {
-                return redirect('profile-settings')->with('error', 'что то пошло не так попробуйте снова');
+                return redirect('profile/settings')->with('error', 'что то пошло не так попробуйте снова');
             }
 
         }
