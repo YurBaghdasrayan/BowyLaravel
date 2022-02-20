@@ -108,16 +108,17 @@ $(document).on("click", ".active_inactive_ads_second_item_sorts_btn", function()
 
 
   $(document).on("click",".inactive_type_btn", function(){
-       $(".active_inactive_ads_second_item_child_link").addClass("inactive");
+       $(".active_products_wrapper").css('display','none');
+       $(".noactiv_products_wrapper").css('display','block');
        $(".active_type_btn").removeClass("active");
        $(".inactive_type_btn").addClass("active");
-
   });
 
 
 
   $(document).on("click",".active_type_btn", function(){
-    $(".active_inactive_ads_second_item_child_link").removeClass("inactive");
+    $(".noactiv_products_wrapper").css('display','none');
+    $(".active_products_wrapper").css('display','block');
     $(".inactive_type_btn").removeClass("active");
     $(".active_type_btn").addClass("active");
 });

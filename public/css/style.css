@@ -228,6 +228,10 @@
     top: 35px;
     display: none;
     z-index: 2;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 150px
+
 }
 .top .find_transport_form_select_hidden_wrapper.open {
     display: block !important;
@@ -4719,4 +4723,8 @@ body.hidden_body{
     right: 20px;
     z-index: 1;
     cursor: pointer;
+}
+
+.noactiv_products_wrapper{
+    display: none;
 }

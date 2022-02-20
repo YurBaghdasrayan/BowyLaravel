@@ -13,6 +13,6 @@ class HomeController extends Controller
         $categories = Categories::all();
         $product = Product::paginate(1);
 
-        return view('/home',compact('categories', 'product'));
+        return view('/home', compact('categories', 'product'));
     }
 }

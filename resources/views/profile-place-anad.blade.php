@@ -68,7 +68,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Марка автомобиля" class="place_an_ad_form_input_field" name="car_model">
