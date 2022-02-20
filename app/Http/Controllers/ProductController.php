@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
 use App\Models\Product;
+use App\Models\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\City;
@@ -14,16 +15,16 @@ class ProductController extends Controller
     public function index()
     {
 //        $active_products = Auth::user()->products()->where('status', '=', true);
+//        $path = storage_path() . "/test.json";
 //
-//        return view('home', compact('active_products'));
-
-        $path = storage_path() . "/test.json";
-
-        $json = json_decode(file_get_contents($path), true);
-
-        foreach ($json as $val) {
-            City::create(['city' => $val['name'], 'region' => $val['district']]);
-        }
+//        $json = json_decode(file_get_contents($path), true);
+//
+//
+//        foreach ($json as $val) {
+//          dump($val->district);
+//        };die;
+        $regions = Region::all();
+        return view('profile/place-anad');
 
     }
 

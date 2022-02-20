@@ -3,6 +3,7 @@
     <title>Главная</title>
 @endsection
 @section('content')
+
     @include('includes_file.header')
 <div class="bowy_mian_wrapper" id="favourites_page">
     <main>

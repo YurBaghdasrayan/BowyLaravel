@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('headline');
             $table->unsignedBigInteger('price');
-            $table->string('city');
+            $table->string('city')->nullable();
             $table->string('region');
             $table->string('car_model');
             $table->string('description');

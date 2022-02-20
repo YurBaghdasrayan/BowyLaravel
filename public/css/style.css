@@ -4705,4 +4705,18 @@ body.hidden_body{
     color: #303030;
     font-family: sans-serif;
 }
-
+.recent_announcements_item_child_link_exist_favourite_img{
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    z-index: 1;
+    cursor: pointer;
+    display: none;
+}
+.recent_announcements_item_child_link_exist_favourite_post{
+    position: absolute;
+    top: 12px;
+    right: 20px;
+    z-index: 1;
+    cursor: pointer;
+}

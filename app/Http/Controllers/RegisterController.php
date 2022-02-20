@@ -19,7 +19,7 @@ class RegisterController extends Controller
 {
     public function index()
     {
-        return view('/registration');
+        return view('registration');
     }
 
     public function postSignup(UsersRequest $request)

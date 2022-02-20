@@ -4,6 +4,7 @@
     <div class="bowy_mian_wrapper" id="active_inactive_ads_page">
     @include('includes_file.header')
         <main>
+{{--            @dd($cities)--}}
             <section class="place_an_ad">
                 <div class="place_an_ad_wrapper">
                     <div class="place_an_ad_items_wrapper">
@@ -41,7 +42,6 @@
 {{--                                        <input type="text" placeholder="Город" name="city" class="place_an_ad_form_input_field">--}}
 {{--                                        <div class="alert_none alert-danger-city" ></div>--}}
 {{--                                    </div>--}}
-
                                     <div class="place_an_ad_form_inputs_first_wrapper">
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
@@ -50,7 +50,7 @@
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
                                                 @foreach($cities as $val)
-                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->city}}" data-info="{{$val->city}}">{{$val->city}}</p>
+                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>
                                                 @endforeach
                                             </div>
                                         </div>
@@ -62,8 +62,8 @@
                                                 <p class="find_transport_form_select_title">Выберите область</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
-                                                @foreach($region2 as $val)
-                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val['name']}}" data-info="{{$val['name']}}">{{$val['name']}}</p>
+                                                @foreach($regions as $val)
+                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>
                                                 @endforeach
                                             </div>
                                         </div>

@@ -472,7 +472,9 @@ $(document).on("click", ".recent_announcements_item_child_link_favourite_img", f
         cache:false,
         data:{'_token':token,'product_id':product_id},
         success: function (response) {
-            console.log(response);
+
+            thisis.css("display","none");
+            $(".recent_announcements_item_child_link_exist_favourite_img").css("display","block");
 
         },
         error: function (err) {
