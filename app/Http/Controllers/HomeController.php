@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         $categories = Categories::all();
         $product = Product::simplePaginate(1);
-
+//        dd();
         return view('/home', compact('categories', 'product'));
     }
 }
