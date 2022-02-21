@@ -26,7 +26,7 @@ class AddUserIdToFavouritesTable extends Migration
     public function down()
     {
         Schema::table('favourites', function (Blueprint $table) {
-            Schema::dropIfExists('user_id');
+            $table->dropColumn('user_id');
         });
     }
 }

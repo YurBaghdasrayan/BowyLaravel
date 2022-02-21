@@ -26,7 +26,7 @@ class AddProductIdToFavouritesTable extends Migration
     public function down()
     {
         Schema::table('favourites', function (Blueprint $table) {
-            Schema::dropIfExists('product_id');
+            $table->dropColumn('product_id');
         });
     }
 }

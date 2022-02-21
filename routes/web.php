@@ -35,7 +35,7 @@ use Illuminate\Support\Facades\Route;
 /*GET METHODS*/
 Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 
 //MIDDLEWARE METHODS

@@ -39,7 +39,9 @@
             @endif
         </div>
         <div class="active_inactive_ads_user_img">
+            @if(auth()->check())
             <a href=""><img src="{{asset('upload/'.auth()->user()->image)}}" alt=""></a>
+            @endif
         </div>
     </div>
 </header>
