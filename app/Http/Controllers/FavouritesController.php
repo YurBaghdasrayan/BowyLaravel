@@ -20,22 +20,7 @@ class FavouritesController extends Controller
         return view('/favourites', compact('favourites'));
     }
 
-//    public function store(CreateProductRequest $request){
-//
-//        $image = $request->file('image');
-//        dd($image);
-//
-//        $products = $request->validated();
-//
-//
-//
-//        $destinationPath = 'upload/';
-//        $originalFile = time().$image->getClientOriginalName();
-//        $image->move($destinationPath, $originalFile);
-//        dd($products);
-//        $create = Product::create($products);
-//        return redirect('/place-anad')->with('success', 'asdasdasds!');
-//    }
+
     public function store(Request $request)
     {
         $data = $request->all();

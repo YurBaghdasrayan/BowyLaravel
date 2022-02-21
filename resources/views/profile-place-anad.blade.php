@@ -4,7 +4,7 @@
     <div class="bowy_mian_wrapper" id="active_inactive_ads_page">
     @include('includes_file.header')
         <main>
-{{--            @dd($cities)--}}
+{{--            @dd($json)--}}
             <section class="place_an_ad">
                 <div class="place_an_ad_wrapper">
                     <div class="place_an_ad_items_wrapper">

@@ -15,7 +15,17 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
+//        $path = storage_path() . "/test.json";
+//
+//        $json = json_decode(file_get_contents($path), true);
+//
+//        foreach ($json as $val){
         DB::table('regions')->insert([
+//            [
+//                'name' => $val['name']
+//            ]
+
+
             [
                 'id' => '1',
                 'name' => 'Адыгея',
@@ -441,6 +451,8 @@ class RegionSeeder extends Seeder
                 'name' => 'Севастополь',
                 'created_at' => Carbon::now(),
             ],
+
+
         ]);
     }
 }

@@ -10,11 +10,11 @@ class ProfileActiveController extends Controller
 {
     public function index()
     {
-        // TODO statusy
+        // TODO
             $products = Auth::user()->products()->get()->where('status', '=', true);
-            $products = Auth::user()->products()->get()->where('status', '=', false);
+            $no_ative_products = Auth::user()->products()->get()->where('status', '=', false);
 
-            return view('profile-active-ads', compact('products'));
+            return view('profile-active-ads', compact('products','no_ative_products'));
     }
 
     public function destroy(Product $product)
