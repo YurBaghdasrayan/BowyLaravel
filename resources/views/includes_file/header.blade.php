@@ -20,6 +20,7 @@
                     @if(auth()->check())
                     <a href="{{route('user-logout')}}" class="header_registration_log_in_btn">выйти из системы</a>
                     <a href="{{route('profile-place-anad')}}" class="header_link">Разместить объявление</a>
+
                     @else
                         <a href="{{route('user-logout')}}" class="header_registration_log_in_btn">asd</a>
                         <a href="{{route('profile-place-anad')}}" class="header_link">Разместить объявление</a>
@@ -36,6 +37,9 @@
                 <a href="{{route('user-logout')}}" class="header_registration_log_in_btn">Вход и регистрация</a>
                 <a href="{{route('profile-place-anad')}}" class="header_link">Разместить объявление</a>
             @endif
+        </div>
+        <div class="active_inactive_ads_user_img">
+            <a href=""><img src="{{asset('upload/'.auth()->user()->image)}}" alt=""></a>
         </div>
     </div>
 </header>

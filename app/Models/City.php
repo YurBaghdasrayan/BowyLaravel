@@ -10,4 +10,10 @@ class City extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function region()
+    {
+        return $this->belongsTo(City::class,'region_id');
+    }
+
 }

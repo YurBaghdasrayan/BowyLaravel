@@ -41,8 +41,8 @@
         </a>
     </div>
     <div class="active_inactive_ads_first_item_links_wrapper">
-        <a href="{{route('profile-active-ads')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'profile-active-ads' ? 'active' : '' }}">Мои объявления</a>
-        <a href="{{route('profile-settings')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'profile-settings' ? 'active' : '' }}">Настройки профиля</a>
+        <a href="{{route('profile-active-ads')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'profile/active-ads' ? 'active' : '' }}">Мои объявления</a>
+        <a href="{{route('profile-settings')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'profile/settings' ? 'active' : '' }}">Настройки профиля</a>
         <a href="{{route('notification')}}" class="active_inactive_ads_first_item_link notification_link {{ Request::path() == 'notification' ? 'active' : '' }}">Оповещения
             <div class="notification_icon">
                 <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -50,7 +50,7 @@
                 </svg>
             </div>
         </a>
-        <a href="{{route('paid-services')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'paid-services' ? 'active' : '' }}" >Платные услги</a>
+        <a href="{{route('paid-services')}}" class="active_inactive_ads_first_item_link {{ Request::path() == 'profile/services' ? 'active' : '' }}" >Платные услги</a>
     </div>
     @include('includes_file.chat')
 </div>

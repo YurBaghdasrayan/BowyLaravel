@@ -30,7 +30,7 @@
                             @endif
 
                             <div class="profile_settings_form_textarea">
-                                <input type="text" class="profile_settings_form_input_field" onfocus="this.value=''" placeholder="Имя" name="name">
+                                <input type="text" class="profile_settings_form_input_field"  onfocus="this.value=''" placeholder="Имя" name="name" >
 
                                 <div class="profile_settings_form_textarea_icon">
                                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">

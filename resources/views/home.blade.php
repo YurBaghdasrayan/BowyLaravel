@@ -280,8 +280,9 @@
                                 </div>
                             </div>
                             @endforeach
-                            {{$product->links()}}
+
                         </div>
+                        {{$product->links()}}
                     </div>
                     <div class="recent_announcements_item" id="open_div2">
                         <div class="recent_announcements_item_parent2">
