@@ -94,7 +94,9 @@ $(document).on("click", ".mobile_version_close", function(){
 $(document).on("click", ".active_inactive_ads_second_item_sorts_btn", function(){
 
     var data_id = $(this).data("id");
-    $(".active_inactive_ads_second_item_sorts_btn").removeClass("active");
+    console.log(data_id);
+    $(".active_inactive_ads_second_item_sorts_bt" +
+        "n").removeClass("active");
     $(this).addClass("active");
 
 
