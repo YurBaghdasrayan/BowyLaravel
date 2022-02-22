@@ -18,17 +18,18 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
-
         $response = Http::get('http://htmlweb.ru/geo/api.php?country=ru&json&api_key=' . config('services.country_api.url'));
         $regions = $response->json('items');
+        dd($regions);
         $i = 0;
         foreach ($regions as $region) {
             $i++;
             Region::create([
                 'name' => $region['name'],
             ]);
-            $citiesResponse = Http::get('http://htmlweb.ru/geo/api.php?area_rajon='.$region['id'].'&json&api_key=' . config('services.country_api.url'));
+            $citiesResponse = Http::get('http://htmlweb.ru/geo/api.php?area_rajon=' . $region['id'] . '&json&api_key=' . config('services.country_api.url'));
             foreach ($citiesResponse->json('items') as $city) {
+                dd($city);
                 if (is_array($city)) {
                     City::query()->create([
                         'name' => $city['name'],
@@ -36,6 +37,6 @@ class RegionSeeder extends Seeder
                     ]);
                 }
             }
-        }
-    ;}
+        };
+    }
 }

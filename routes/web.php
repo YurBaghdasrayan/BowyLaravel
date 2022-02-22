@@ -76,6 +76,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/create-products', [ProductController::class, 'store']);
         Route::post('/favourites', [FavouritesController::class, 'store'])->name('favourites');
 
+
     });
     /*MIDDLEWARE GET METHODS*/
 
@@ -84,6 +85,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
     Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
     Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
+    Route::get('announcement{product}', [AnnounController::class, 'getProduct'])->name('announcement');
     Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 });
 

@@ -12,7 +12,6 @@
 
                         <form action="{{route('profile-place-anad')}}" class="place_an_ad_form top" method="post">
                             @csrf
-
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
@@ -85,9 +84,19 @@
                                         <input type="text" placeholder="Тип кузова" class="place_an_ad_form_input_field" name="body_type">
                                         <div class="alert_none alert-danger-body_type" ></div>
                                     </div>
-                                    <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Руль" name="rudder" class="place_an_ad_form_input_field">
-                                        <div class="alert_none alert-danger-rudder" ></div>
+{{--                                    <div class="place_an_ad_form_input_field_wrapper">--}}
+{{--                                        <input type="text" placeholder="Руль" name="rudder" class="place_an_ad_form_input_field">--}}
+{{--                                        <div class="alert_none alert-danger-rudder" ></div>--}}
+{{--                                    </div>--}}
+                                    <div class="find_transport_form_select_wrapper">
+                                        <div class="find_transport_form_select_title_wrapper">
+                                            <input type="hidden" class="hidden_category_data" name="category_id" value="">
+                                            <p class="find_transport_form_select_title">Руль</p>
+                                        </div>
+                                        <div class="find_transport_form_select_hidden_wrapper">
+                                            <p class="find_transport_form_select_hidden_info"  data-info="правильно">право</p>
+                                            <p class="find_transport_form_select_hidden_info"  data-info="слева">лева </p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
@@ -116,7 +125,6 @@
                                 <button class="place_an_ad_form_btn" type="submit">Сохранить</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </section>
