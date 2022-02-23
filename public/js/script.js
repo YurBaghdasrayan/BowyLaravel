@@ -532,6 +532,11 @@ $(document).on("submit", ".update", function (event) {
     formData.append('rudder', rudder_val);
     formData.append('year_of_issue', year_of_issue_val);
     formData.append('transmission', transmission_val);
+    // formData.append('token', csrf-token);
+    // formData.append('token',  csrf_token );
+    // formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+
 
 
     $.ajaxSetup({
@@ -539,10 +544,11 @@ $(document).on("submit", ".update", function (event) {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+
     $.ajax({
-        url: "/announcement/update",
-        type: 'POST',
-        data: formData,
+        url: "announcement/",
+        type: 'PUT',
+        data:formData,
         cache: false,
         processData: false,
         contentType: false,

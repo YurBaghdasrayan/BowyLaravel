@@ -49,7 +49,7 @@
                                         </div>
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите... name="price"">
+                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите... "name="price">
                                             </div>
                                             <i class="material-icons check_mark_icon">check mark</i>
 
@@ -180,7 +180,7 @@
                                     <p class="announcement_second_item_specifications_title">Марка автомобиля:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... ">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="car_model">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
