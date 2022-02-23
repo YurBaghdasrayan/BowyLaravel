@@ -12,6 +12,7 @@
 
                         <form action="{{route('profile-place-anad')}}" class="place_an_ad_form top" method="post">
                             @csrf
+
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
@@ -28,7 +29,9 @@
                                         <div class="find_transport_form_select_title_wrapper">
                                             <input type="hidden" class="hidden_category_data" name="category_id" value="">
                                             <p class="find_transport_form_select_title">Выберите категорию</p>
+                                            <div class="alert_none alert-danger-category_id" ></div>
                                         </div>
+
                                         <div class="find_transport_form_select_hidden_wrapper">
                                             @foreach($categories as $category)
                                                <p class="find_transport_form_select_hidden_info" data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
@@ -51,7 +54,9 @@
                                                 @foreach($cities as $val)
                                                     <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>
                                                 @endforeach
+
                                             </div>
+                                            <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>
                                         </div>
                                     </div>
                                     <div class="place_an_ad_form_inputs_first_wrapper">
@@ -89,14 +94,18 @@
 {{--                                        <div class="alert_none alert-danger-rudder" ></div>--}}
 {{--                                    </div>--}}
                                     <div class="find_transport_form_select_wrapper">
-                                        <div class="find_transport_form_select_title_wrapper">
-                                            <input type="hidden" class="hidden_category_data" name="category_id" value="">
-                                            <p class="find_transport_form_select_title">Руль</p>
+{{--                                        <div class="find_transport_form_select_title_wrapper">--}}
+{{--                                            <input type="hidden" class="hidden_category_data" value="">--}}
+{{--                                            <p class="find_transport_form_select_title">Руль</p>--}}
+{{--                                        </div>--}}
+                                        <div class="place_an_ad_form_input_field_wrapper">
+                                            <input type="text" placeholder="Руль" name="rudder" class="place_an_ad_form_input_field">
                                         </div>
-                                        <div class="find_transport_form_select_hidden_wrapper">
-                                            <p class="find_transport_form_select_hidden_info"  data-info="правильно">право</p>
-                                            <p class="find_transport_form_select_hidden_info"  data-info="слева">лева </p>
-                                        </div>
+
+{{--                                        <div class="find_transport_form_select_hidden_wrapper" value="">--}}
+{{--                                            <p class="find_transport_form_select_hidden_info"  data-info="право">право</p>--}}
+{{--                                            <p class="find_transport_form_select_hidden_info"  data-info="лева">лева </p>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
@@ -131,3 +140,5 @@
         </main>
     @include('includes_file.footer')
 @endsection
+
+

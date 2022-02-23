@@ -10,10 +10,13 @@
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
                         @include('includes_file.user')
+                        <form action="{{route('announcement')}}" class="update" method="post" enctype="multipart/form-data">
+                            @method('put')
+                            @csrf
                         <div class="announcement_second_item">
                             <p class="announcement_second_item_title1">Объявление</p>
 {{--                            @dd($product)--}}
-                            @foreach($product as $products)
+                            @foreach($products as $product)
                             <div class="announcement_second_item_titles_links_btns_wrapper">
                                 <div class="announcement_second_item_titles_wrapper">
                                     <div class="announcement_second_item_title_edit_btn_input_wrapper">
@@ -28,7 +31,7 @@
                                         </div>
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите... ">
+                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите..." name="headline">
                                             </div>
                                             <i class="material-icons check_mark_icon">check mark</i>
 
@@ -37,7 +40,7 @@
 
                                     <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                         <div class="announcement_second_item_title_edit_btn_wrapper">
-                                            <p class="announcement_second_item_title" data-info="1 290 ₽">{{$products->price}}</p>
+                                            <p class="announcement_second_item_title" data-info="1 290 ₽" >{{$product->price}}</p>
                                             <div class="announcement_edit_btn2">
                                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z" fill="black"/>
@@ -46,16 +49,15 @@
                                         </div>
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите... ">
+                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите... name="price"">
                                             </div>
                                             <i class="material-icons check_mark_icon">check mark</i>
 
                                         </div>
                                     </div>
-
                                 </div>
                                 <div class="announcement_second_item_links_btns_wrapper">
-                                    <a class="announcement_second_item_edit_btn"{{ action('AnnounController@getProduct',$products->id)}}>
+                                    <a class="announcement_second_item_edit_btn">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z" fill="white"/>
                                         </svg>
@@ -79,17 +81,17 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="swiper_slide_img">
-                                                <img src="../images/car_img.png" alt="">
+                                                <img src="{{asset('upload/' . $product->image)}}" alt="">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="swiper_slide_img">
-                                                <img src="../images/car_img.png" alt="">
+                                                <img src="{{asset('upload/' . $product->image)}}" alt="">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="swiper_slide_img">
-                                                <img src="../images/car_img.png" alt="">
+                                                <img src="{{asset('upload/' . $product->image)}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -115,25 +117,25 @@
                             </div>
                             <div class="announcement_second_item_car_info_details_wrapper">
                                 <div class="announcement_second_item_car_info_details">
-                                    <div class="announcement_second_item_title_edit_btn_input_wrapper">
-                                        <div class="announcement_second_item_title_edit_btn_wrapper">
-                                            <p class="announcement_second_item_car_info_details_title">Адрес</p>
-                                            <div class="announcement_edit_btn3">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z" fill="black"/>
-                                                </svg>
+{{--                                    <div class="announcement_second_item_title_edit_btn_input_wrapper">--}}
+{{--                                        <div class="announcement_second_item_title_edit_btn_wrapper">--}}
+{{--                                            <p class="announcement_second_item_car_info_details_title">Адрес</p>--}}
+{{--                                            <div class="announcement_edit_btn3">--}}
+{{--                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                    <path d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z" fill="black"/>--}}
+{{--                                                </svg>--}}
 
-                                            </div>
-                                        </div>
-                                        <div class="announcement_second_item_input_icon_wrapper">
-                                            <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... ">
-                                            </div>
-                                            <i class="material-icons check_mark_icon">check mark</i>
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="announcement_second_item_input_icon_wrapper">--}}
+{{--                                            <div class="announcement_second_item_input_field_wrapper">--}}
+{{--                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... " name="">--}}
+{{--                                            </div>--}}
+{{--                                            <i class="material-icons check_mark_icon">check mark</i>--}}
 
-                                        </div>
-                                        <p class="announcement_second_item_car_info_details_text" data-info="Лиговский проспект 11">Лиговский проспект 11</p>
-                                    </div>
+{{--                                        </div>--}}
+{{--                                        <p class="announcement_second_item_car_info_details_text" data-info="Лиговский проспект 11">Лиговский проспект 11</p>--}}
+{{--                                    </div>--}}
 
 
 
@@ -151,7 +153,7 @@
                                         </div>
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... ">
+                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... " name="description" >
                                             </div>
                                             <i class="material-icons check_mark_icon">check mark</i>
 
@@ -188,7 +190,7 @@
                                     <p class="announcement_second_item_specifications_title">Тип кузова:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... ">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="body_type">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -198,7 +200,7 @@
                                     <p class="announcement_second_item_specifications_title">Год выпуска:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... ">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="year_of_issue">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -208,7 +210,7 @@
                                     <p class="announcement_second_item_specifications_title">Коробка передач:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... ">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="transmission">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -218,13 +220,14 @@
                                     <p class="announcement_second_item_specifications_title">Руль:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... ">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="rudder">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
                                     <p class="announcement_second_item_specifications_info">Левый</p>
                                 </div>
                             </div>
+                            <button type="submit" class="profile_settings_form_btn" value="save">Сохранить</button>
                             <div class="similar_ads_wrapper">
                                 <p class="similar_ads_title">Похожие объявления</p>
                                 <div class="similar_ads_items_wrapper">
@@ -300,6 +303,7 @@
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="similar_ads_item_child">
                                     <a href="" class="similar_ads_item_child_link">
                                         <div class="similar_ads_item_child_link_img1">
@@ -340,6 +344,8 @@
                             </div>
 
                         </div>
+
+                        </form>
                     </div>
 
                 </div>

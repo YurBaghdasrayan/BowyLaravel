@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateProductRequest;
 use App\Models\Product;
 use App\Models\Region;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\City;
+use Illuminate\Support\Facades\Cookie;
 
 class ProductController extends Controller
 {
@@ -36,14 +38,27 @@ class ProductController extends Controller
 
     public function store(CreateProductRequest $request)
     {
+        //"city" => "2"
+        //"region" => "1"
+
         $image = $request->file('image');
         $destinationPath = 'upload/';
         $originalFile = time() . $image->getClientOriginalName();
         $image->move($destinationPath, $originalFile);
         $data = $request->all();
+
         $data['image'] = $originalFile;
         $data['user_id'] = Auth::user()->id;
-        if (Product::query()->create($data)) {
+
+        $city_id = $data['city'];
+        $regionId_forThisCity = City::where('id', $city_id)->first();
+
+        if ($data['region'] != $regionId_forThisCity->region_id) {
+            return response()->json([
+                'success' => false,
+                'message' => 'sxal region'
+            ], 300);
+        } else if (Product::query()->create($data)) {
             return response()->json([
                 'success' => true,
                 'message' => 'product was successfully created'
