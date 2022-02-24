@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
-    <link rel="icon" href="../images/new_logo.svg">
+    <link rel="icon" href="../new_logo.svg">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
     @yield('title')
     @yield('map-data')
@@ -24,6 +24,8 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
 <script src="../js/script.js"></script>
+<script src="../../../js/script.js"></script>
 </body>
 </html>

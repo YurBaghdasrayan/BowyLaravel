@@ -79,11 +79,11 @@ Route::middleware(['auth'])->group(function () {
     /*MIDDLEWARE GET METHODS*/
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
-    Route::get('/announcement', [AnnounController::class, 'index'])->name('announcement');
+    Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
     Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
     Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
-    Route::put('announcement', [AnnounController::class, 'update'])->name('announcement');
+    Route::post('announcement/activ/announcement_update', [AnnounController::class, 'update'])->name('announcement');
     Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 });
 

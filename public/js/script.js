@@ -428,8 +428,6 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
                 $('.alert-danger-headline').css('display', 'block');
                 $('.alert-danger-headline').text(error.responseJSON.errors.headline[0]);
             }
-
-
             if (error.responseJSON.errors.price) {
                 $('.alert-danger-price').css('display', 'block');
                 $('.alert-danger-price').text(error.responseJSON.errors.price[0]);
@@ -520,6 +518,9 @@ $(document).on("submit", ".update", function (event) {
     var transmission = $('input[name="transmission"]', this);
     var transmission_val = transmission.val();
 
+    let product_id = $('input[name="product_id"]', this);
+    let product_id_val = product_id.val();
+
 
 
     let formData = new FormData();
@@ -532,6 +533,8 @@ $(document).on("submit", ".update", function (event) {
     formData.append('rudder', rudder_val);
     formData.append('year_of_issue', year_of_issue_val);
     formData.append('transmission', transmission_val);
+    formData.append('product_id',product_id_val);
+    formData.append('_token',token);
     // formData.append('token', csrf-token);
     // formData.append('token',  csrf_token );
     // formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
@@ -539,29 +542,86 @@ $(document).on("submit", ".update", function (event) {
 
 
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+    // $.ajaxSetup({
+    //     headers: {
+    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //     }
+    // });
 
     $.ajax({
-        url: "announcement/",
-        type: 'PUT',
+        url: "announcement_update",
+        type: 'POST',
         data:formData,
         cache: false,
         processData: false,
         contentType: false,
         success: function (data) {
+            console.log(data);
+            $('.alert-success-status').css('display', 'none');
+
             if (data.success) {
-                window.location.href = 'active-ads'
+                $('.alert-success-status').css('display', 'block');
+                setTimeout(function () {
+                    alert_succes.css("border","1px solid #0086CF");
+                }, 3000)
             }
-        },
+                $('.alert-success-status').text(data.responseJSON.success([0]));
+
+            },
         error: function (error) {
+            $('.alert-danger-headline').css('display', 'none');
+            $('.alert-danger-price').css('display', 'none');
+            $('.alert-danger-region').css('display', 'none');
+            $('.alert-danger-city').css('display', 'none');
+            $('.alert-danger-car_model').css('display', 'none');
+            $('.alert-danger-description').css('display', 'none');
+            $('.alert-danger-body_type').css('display', 'none');
+            $('.alert-danger-rudder').css('display', 'none');
+            $('.alert-danger-year_of_issue').css('display', 'none');
+            $('.alert-danger-year_of_issue').css('display', 'none');
 
-            console.log('asdas')
-
-         }
+            if (error.responseJSON.errors.headline) {
+                $('.alert-danger-headline').css('display', 'block');
+                $('.alert-danger-headline').text(error.responseJSON.errors.headline[0]);
+            }
+            if (error.responseJSON.errors.price) {
+                $('.alert-danger-price').css('display', 'block');
+                $('.alert-danger-price').text(error.responseJSON.errors.price[0]);
+            }
+            if (error.responseJSON.errors.region) {
+                $('.alert-danger-region').css('display', 'block');
+                $('.alert-danger-region').text(error.responseJSON.errors.region[0]);
+            }
+            if (error.responseJSON.errors.city) {
+                $('.alert-danger-city').css('display', 'block');
+                $('.alert-danger-city').text(error.responseJSON.errors.city[0]);
+            }
+            if (error.responseJSON.errors.car_model) {
+                $('.alert-danger-car_model').css('display', 'block');
+                $('.alert-danger-car_model').text(error.responseJSON.errors.car_model[0]);
+            }
+            if (error.responseJSON.errors.description) {
+                $('.alert-danger-description').css('display', 'block');
+                $('.alert-danger-description').text(error.responseJSON.errors.description[0]);
+            }
+            if (error.responseJSON.errors.body_type) {
+                $('.alert-danger-body_type').css('display', 'block');
+                $('.alert-danger-body_type').text(error.responseJSON.errors.body_type[0]);
+            }
+            if (error.responseJSON.errors.transmission) {
+                $('.alert-danger-transmission').css('display', 'block');
+                $('.alert-danger-transmission').text(error.responseJSON.errors.transmission[0]);
+            }
+            if (error.responseJSON.errors.rudder) {
+                $('.alert-danger-rudder').css('display', 'block');
+                $('.alert-danger-rudder').text(error.responseJSON.errors.rudder[0]);
+            }
+            if (error.responseJSON.errors.year_of_issue) {
+                $('.alert-danger-year_of_issue').css('display', 'block');
+                $('.alert-danger-year_of_issue').text(error.responseJSON.errors.year_of_issue[0]);
+            }
+            console.log(error.responseJSON.errors.headline[0]);
+        }
     });
 
 })

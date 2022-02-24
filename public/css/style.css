@@ -4562,7 +4562,8 @@ body.hidden_body{
     margin-bottom: 15px;
     text-align: center;
     /*display: none;*/
-}.alert_none{
+}
+.alert_none{
     font-family: sans-serif;
     border-radius: 5px;
     padding: 20px;
@@ -4572,12 +4573,22 @@ body.hidden_body{
     text-align: center;
     display: none;
 }
+.alert_none_succes{
+    font-family: sans-serif;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #d4edda; /* Red */
+    color: #155724;
+    margin-bottom: 15px;
+    text-align: center;
+    display: none;
+}
 .alert-success{
     text-align: center;
     font-family: sans-serif;
     border-radius: 5px;
     padding: 20px;
-    background-color: #d4edda; /* Red */
+    background-color: #d4edda;
     color: #155724;
     margin-bottom: 15px;
 }

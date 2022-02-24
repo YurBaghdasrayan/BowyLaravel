@@ -4,7 +4,7 @@
             <div class="footer_item">
                 <div class="footer_logo_link_wrapper">
                     <a href="" class="footer_logo_link">
-                        <img src="../images/new_logo.svg" alt="">
+                        <img src="../../../images/new_logo.svg" alt="">
                     </a>
                 </div>
                 <div class="footer_registration_log_in_btn_link_wrapper">

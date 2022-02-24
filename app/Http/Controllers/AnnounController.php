@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -9,70 +10,44 @@ use Illuminate\Support\Facades\Auth;
 
 class AnnounController extends Controller
 {
-    public function index()
+    public function index($status, $id)
     {
-        $products = Auth::user()->products()->get()->where('status', '=', true);
-        $no_ative_products = Auth::user()->products()->get()->where('status', '=', false);
+        $products = "";
 
-        return view('announcement', compact('products','no_ative_products'));
+        if ($status == true) {
+            $products = Auth::user()->products()->where('status', '=', true)->where('id', $id)->get();
+        } else {
+            $products = Auth::user()->products()->where('status', '=', false)->where('id', $id)->get();
+        }
+        $similar_product = Product::where('car_model', '=', 'mercedes')->get();
+
+        return view('announcement', compact('products','similar_product'));
+
+
+
     }
 
-    public function update(Request $request)
+    public function update(UpdateProductRequest $request)
     {
-                dd($request->price);
-//        $data = $request->all();
-//        dd($data);
+        $data = $request->all();
 
-        $user = auth()->user();
-        $email = $request->email;
-        $email_exist = User::where(['email' => $email, 'role_id' => '1'])->get();
-        if (!$email_exist->isEmpty()) {
 
-            $exist_data_id = $email_exist[0]->id;
+        $update = Product::find($data['product_id']);
+        $update->headline = $data['product_id'];
+        $update->price = $data['price'];
+        $update->car_model = $data['car_model'];
+        $update->description = $data['description'];
+        $update->body_type = $data['body_type'];
+        $update->rudder = $data['rudder'];
+        $update->year_of_issue = $data['year_of_issue'];
+        $update->transmission = $data['transmission'];
+        $update->save();
 
-            if (auth()->user()->id == $exist_data_id) {
+        return response()->json([
+            'success' => true,
+            'message' => 'update success',
+        ], 200);
 
-                $update_data = [
-                    'name' => $request->name,
-                    'surname' => $request->surname,
-                    'number' => $request->number,
-                    'image'=>$user_image,
-                    'city'=>$request->city
-                ];
-
-                $update_success = $user->update($update_data);
-
-                if ($update_success) {
-                    return redirect('profile/settings')->with('status', 'Профиль обновлен!');
-
-                } else {
-                    return redirect('profile/settings')->with('error', 'что то пошло не так попробуйте снова');
-                }
-
-            } else {
-                return redirect('profile/settings')->with('emailerror', 'этот емайл существует');
-            }
-
-        } else {
-
-            $update_data = [
-                'email' => $request->email,
-                'name' => $request->name,
-                'surname' => $request->surname,
-                'number' => $request->number,
-                'image'=> $user_image,
-                'city' => $request->city
-            ];
-
-            $update_success = $user->update($update_data);
-
-            if ($update_success) {
-                return redirect('profile/settings')->with('status', 'Профиль обновлен!');
-            } else {
-                return redirect('profile/settings')->with('error', 'что то пошло не так попробуйте снова');
-            }
-
-        }
     }
 
 }
