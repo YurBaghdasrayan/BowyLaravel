@@ -257,20 +257,6 @@ $("#button").click(function () {
     $("#ln").show();
 });
 
-// $(document).on("click",".recent_announcements_item_child_link_favourite_img",function (){
-//     var token =  $('meta[name="csrf-token"]').attr('content');
-//     console.log(token);
-//     $.ajax({
-//         url: "/create-favorite",
-//         type:'POST',
-//         data: {_token:token,post_id:'' +
-//                 ''},
-//         success: function(data) {
-//             printMsg(data);
-//         }
-//     });
-// })
-
 $(document).on("submit", ".place_an_ad_form", function (event) {
     event.preventDefault();
 
@@ -299,7 +285,6 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
 
     var rudder = $('input[name="rudder"]', this);
     var rudder_val = rudder.val();
-    console.log(rudder_val)
 
     var year_of_issue = $('input[name="year_of_issue"]', this);
     var year_of_issue_val = year_of_issue.val();
@@ -419,11 +404,6 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
 
             $('#regionError').css('display', 'block');
 
-            // if (error.responseJSON.errors.category_id){
-            //     $('.alert-danger-category_id').css('display','block');
-            //     $('.alert-danger-category_id').text(error.responseJSON.errors.category_id[0]);
-            // }
-
             if (error.responseJSON.errors.headline) {
                 $('.alert-danger-headline').css('display', 'block');
                 $('.alert-danger-headline').text(error.responseJSON.errors.headline[0]);
@@ -535,18 +515,6 @@ $(document).on("submit", ".update", function (event) {
     formData.append('transmission', transmission_val);
     formData.append('product_id',product_id_val);
     formData.append('_token',token);
-    // formData.append('token', csrf-token);
-    // formData.append('token',  csrf_token );
-    // formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
-
-
-
-
-    // $.ajaxSetup({
-    //     headers: {
-    //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    //     }
-    // });
 
     $.ajax({
         url: "announcement_update",
@@ -624,5 +592,25 @@ $(document).on("submit", ".update", function (event) {
         }
     });
 
+})
+$(document).on("click", ".announcement_second_item_delete_btn", function () {
+
+    var thisis = $(this);
+
+    $.ajax({
+        url: `/products/${$(this).data('id')}`,
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.success) {
+                thisis.parent().parent().parent().hide();
+            }
+        },
+        error: function (err) {
+
+        }
+    })
 })
 

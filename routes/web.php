@@ -38,6 +38,7 @@ Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 
+
 //MIDDLEWARE METHODS
 
 Route::middleware(['guest'])->group(function () {
@@ -54,7 +55,6 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'getLogin'])->name('login');
     Route::get('/forgot-password', [ForgotController::class, 'index'])->name('forgot-password');
     Route::get('/restore-password', [RestorPasswordController::class, 'index'])->name('restore-password');
-
 
 });
 

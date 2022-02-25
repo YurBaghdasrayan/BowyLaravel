@@ -29,7 +29,7 @@ class RegisterController extends Controller
         if ($image) {
 
             $destinationPath = 'upload/';
-            $originalFile = time().$image->getClientOriginalName();
+            $originalFile = time() . $image->getClientOriginalName();
             $image->move($destinationPath, $originalFile);
 
             $data = [
@@ -48,11 +48,9 @@ class RegisterController extends Controller
         $user = User::create($data);
         if ($user) {
             RegisteredSuccessEmailJob::dispatch($user);
-            return redirect('/login')->with('success','Вы успешно прошли регистрацию');
+            return redirect('/login')->with('success', 'Вы успешно прошли регистрацию');
         } else {
             return redirect('/registration')->with('login_error', 'неверные данные');
         }
-
     }
-
 }

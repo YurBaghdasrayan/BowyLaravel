@@ -42,6 +42,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'headline.required' => 'Поле заголовок объявления обязательно.',
             'price.required' => 'Поле стоимость обязательно.',
+            'price.numeric' => 'Поле стоимость должна быть цифры.',
 //            'city.required' => 'Поле город обязательно.',
 //            'region.required' => 'Поле регион обязательно.',
             'car_model.required' => 'Поле марка автомобиля обязательно.',
@@ -49,6 +50,7 @@ class UpdateProductRequest extends FormRequest
             'body_type.required' => 'Поле тип кузова  обязательно.',
             'rudder.required' => 'Поле руль почты обязательно.',
             'year_of_issue.required' => 'Поле год выпуска обязательно.',
+            'year_of_issue.numeric' => 'Поле год выпуска должна быть цифры.',
             'transmission.required' => 'Поле коробка передач обязательно.',
         ];
     }

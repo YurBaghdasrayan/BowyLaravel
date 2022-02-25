@@ -13,17 +13,30 @@ class AnnounController extends Controller
     public function index($status, $id)
     {
         $products = "";
+        $similar_product = "";
+        $car_model = "";
 
         if ($status == true) {
             $products = Auth::user()->products()->where('status', '=', true)->where('id', $id)->get();
+
+
         } else {
             $products = Auth::user()->products()->where('status', '=', false)->where('id', $id)->get();
+
         }
-        $similar_product = Product::where('car_model', '=', 'mercedes')->get();
 
+        $arr = $products->toArray();
+        //dd($arr);
+
+        if($arr != []){
+            $car_model = $products[0]->car_model;
+        }
+
+        if($products != "" && $car_model != ""){
+
+            $similar_product = Product::where('car_model', '=', $car_model)->get();
+        }
         return view('announcement', compact('products','similar_product'));
-
-
 
     }
 

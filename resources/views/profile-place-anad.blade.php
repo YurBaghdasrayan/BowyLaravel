@@ -73,9 +73,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="place_an_ad_form_input_field_wrapper field_box">
-                                    <input type="text" placeholder="Марка автомобиля" class="place_an_ad_form_input_field" name="car_model">
-                                    <div class="alert_none alert-danger-car_model" ></div>
+{{--                                <div class="place_an_ad_form_input_field_wrapper field_box">--}}
+{{--                                    <input type="text" placeholder="Марка автомобиля" class="place_an_ad_form_input_field" name="car_model">--}}
+{{--                                    <div class="alert_none alert-danger-car_model" ></div>--}}
+{{--                                </div>--}}
+                                <div class="place_an_ad_form_inputs_first_wrapper">
+                                    <div class="find_transport_form_select_wrapper">
+                                        <div class="find_transport_form_select_title_wrapper">
+                                            <input type="hidden" class="hidden_category_data" name="car_model" value="">
+                                            <p class="find_transport_form_select_title">Марка автомобиля</p>
+                                        </div>
+                                        <div class="find_transport_form_select_hidden_wrapper">
+                                                <p class="find_transport_form_select_hidden_info" data-id="" data-info=""></p>
+                                        </div>
+{{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
+                                    </div>
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Описание объявления" name="description" class="place_an_ad_form_input_field">
@@ -112,9 +124,21 @@
                                     <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="year_of_issue">
                                     <div class="alert_none alert-danger-year_of_issue" ></div>
                                 </div>
-                                <div class="place_an_ad_form_input_field_wrapper field_box">
-                                    <input type="text" placeholder="Коробка передач" name="transmission" class="place_an_ad_form_input_field">
-                                    <div class="alert_none alert-danger-transmission" ></div>
+{{--                                <div class="place_an_ad_form_input_field_wrapper field_box">--}}
+{{--                                    <input type="text" placeholder="Коробка передач" name="transmission" class="place_an_ad_form_input_field">--}}
+{{--                                    <div class="alert_none alert-danger-transmission" ></div>--}}
+{{--                                </div>--}}
+                                <div class="place_an_ad_form_inputs_first_wrapper">
+                                    <div class="find_transport_form_select_wrapper">
+                                        <div class="find_transport_form_select_title_wrapper">
+                                            <input type="hidden" class="hidden_category_data" name="transmission" value="">
+                                            <p class="find_transport_form_select_title">Коробка передач</p>
+                                        </div>
+                                        <div class="find_transport_form_select_hidden_wrapper">
+                                            <p class="find_transport_form_select_hidden_info" data-id="" data-info=""></p>
+                                        </div>
+{{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
+                                    </div>
                                 </div>
                                 <div class="registration_input_type_files_label_img_wrapper place_an_ad_form_input_type_file_img_wrapper ">
                                     <label for="fileinput_form2" class="registration_input_type_file file_label place_an_ad_form_input_label">

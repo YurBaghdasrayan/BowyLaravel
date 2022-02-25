@@ -19,13 +19,13 @@
                         <div class="announcement_second_item">
                             <p class="announcement_second_item_title1">Объявление</p>
 {{--                            @dd($product)--}}
-
+                            @if(isset($products[0]) )
                             @foreach($products as $product)
                             <div class="announcement_second_item_titles_links_btns_wrapper">
                                 <div class="announcement_second_item_titles_wrapper">
                                     <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                         <div class="announcement_second_item_title_edit_btn_wrapper">
-                                            <p class="announcement_second_item_title" data-info="Аренда авто без залога">Аренда авто без залога</p>
+                                            <p class="announcement_second_item_title" data-info="Аренда авто без залога" >Аренда авто без залога</p>
                                             <div class="announcement_edit_btn2">
                                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z" fill="black"/>
@@ -36,7 +36,7 @@
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
 
-                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите..." name="headline">
+                                                <input type="text" class="announcement_second_item_input_field"  placeholder=" Напишите..." name="headline" onfocus="this.value=''">
 
                                             </div>
 
@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите... "name="price">
+                                                <input type="text" class="announcement_second_item_input_field" placeholder=" Напишите... "name="price" onfocus="this.value=''">
                                             </div>
                                             <i class="material-icons check_mark_icon">check mark</i>
                                         </div>
@@ -76,7 +76,7 @@
                                         </svg>
 
                                     </a>
-                                    <button class="announcement_second_item_delete_btn">
+                                    <button class="announcement_second_item_delete_btn" data-id="{{ $product->id }}">
                                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M15 4H20V6H18V19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H3C2.73478 20 2.48043 19.8946 2.29289 19.7071C2.10536 19.5196 2 19.2652 2 19V6H0V4H5V1C5 0.734784 5.10536 0.48043 5.29289 0.292893C5.48043 0.105357 5.73478 0 6 0H14C14.2652 0 14.5196 0.105357 14.7071 0.292893C14.8946 0.48043 15 0.734784 15 1V4ZM16 6H4V18H16V6ZM7 9H9V15H7V9ZM11 9H13V15H11V9ZM7 2V4H13V2H7Z" fill="white"/>
                                         </svg>
@@ -138,7 +138,7 @@
                                         </div>
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... " name="city">
+                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... " name="city" onfocus="this.value=''">
                                             </div>
                                             <i class="material-icons check_mark_icon">check mark</i>
 
@@ -163,7 +163,7 @@
                                         </div>
                                         <div class="announcement_second_item_input_icon_wrapper">
                                             <div class="announcement_second_item_input_field_wrapper">
-                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... " name="description" >
+                                                <input type="text" class="announcement_second_item_input_field2" placeholder=" Напишите... " name="description" onfocus="this.value=''" >
                                             </div>
                                             <i class="material-icons check_mark_icon">check mark</i>
 
@@ -191,7 +191,7 @@
                                     <p class="announcement_second_item_specifications_title">Марка автомобиля:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="car_model">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="car_model" onfocus="this.value=''">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -203,7 +203,7 @@
                                     <p class="announcement_second_item_specifications_title">Тип кузова:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="body_type">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="body_type" onfocus="this.value=''">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -215,7 +215,7 @@
                                     <p class="announcement_second_item_specifications_title">Год выпуска:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="year_of_issue">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="year_of_issue" onfocus="this.value=''">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -226,7 +226,7 @@
                                     <p class="announcement_second_item_specifications_title">Коробка передач:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="transmission">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="transmission" onfocus="this.value=''">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -238,7 +238,7 @@
                                     <p class="announcement_second_item_specifications_title">Руль:</p>
                                     <div class="announcement_second_item_specifications_input_icon_wrapper">
                                         <div class="announcement_second_item_specifications_input_field_wrapper">
-                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="rudder">
+                                            <input type="text" class="announcement_second_item_specification_input_field2" placeholder=" Напишите... " name="rudder" onfocus="this.value=''">
                                         </div>
                                         <i class="material-icons check_mark_icon">check mark</i>
                                     </div>
@@ -249,8 +249,8 @@
                             <button type="submit" class="profile_settings_form_btn" value="save">Сохранить</button>
                             <div class="similar_ads_wrapper">
                                 <p class="similar_ads_title">Похожие объявления</p>
+                                @if($similar_product != "")
                                 @foreach($similar_product as $product)
-{{--                                    @if($similar_product->isEmpty()) @dd('asdasdasdasd')  @endif--}}
                                 <div class="similar_ads_items_wrapper">
                                     <div class="similar_ads_item_child">
                                         <a href="" class="similar_ads_item_child_link">
@@ -289,7 +289,8 @@
                                     </div>
                                 </div>
                                 @endforeach
-
+                              @endif
+                            @endif
 
                             </div>
 
