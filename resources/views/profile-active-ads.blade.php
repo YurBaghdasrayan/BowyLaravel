@@ -41,7 +41,7 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="" class="active_inactive_ads_second_item_child_link">
                                                <div class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('upload/' . $product->image)}}" alt="">
+                                                   <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
                                                </div>
                                                <p class="inactive_title">Неактивно </p>
                                            </a>
@@ -83,7 +83,7 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="" class="active_inactive_ads_second_item_child_link inactive">
                                                <div class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('upload/' . $product->image)}}" alt="">
+                                                   <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
                                                </div>
                                                <p class="inactive_title">Неактивно</p>
                                            </a>
@@ -121,7 +121,7 @@
                                    <div class="active_inactive_ads_second_item_child">
                                        <a href="" class="active_inactive_ads_second_item_child_link">
                                            <div class="active_inactive_ads_second_item_child_link_img1">
-                                               <img src="{{asset('upload/' . $product->image)}}" alt="">
+                                               <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
                                            </div>
                                            <p class="inactive_title">Неактивно</p>
                                        </a>
@@ -155,7 +155,7 @@
 {{--                                   <div class="active_inactive_ads_second_item_child">--}}
 {{--                                       <a href="" class="active_inactive_ads_second_item_child_link">--}}
 {{--                                           <div class="active_inactive_ads_second_item_child_link_img1">--}}
-{{--                                               <img src="{{asset('upload/' . $product->image)}}" alt="">--}}
+{{--                                               <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">--}}
 {{--                                           </div>--}}
 {{--                                           <p class="inactive_title">Неактивно</p>--}}
 {{--                                       </a>--}}

@@ -28,9 +28,9 @@ class RegisterController extends Controller
 
         if ($image) {
 
-            $destinationPath = 'upload/';
+            $destinationPath = 'public/uploads';
             $originalFile = time() . $image->getClientOriginalName();
-            $image->move($destinationPath, $originalFile);
+            $image->storeAs($destinationPath, $originalFile);
 
             $data = [
                 'email' => $request->email,

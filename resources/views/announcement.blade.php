@@ -89,17 +89,17 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide">
                                             <div class="swiper_slide_img">
-                                                <img src="{{asset('upload/' . $products[0]->image)}}" alt="">
+                                                <img src="{{asset('storage/uploads' . $products[0]->image)}}" alt="">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="swiper_slide_img">
-                                                <img src="{{asset('upload/' . $products[0]->image)}}" alt="">
+                                                <img src="{{asset('storage/uploads' . $products[0]->image)}}" alt="">
                                             </div>
                                         </div>
                                         <div class="swiper-slide">
                                             <div class="swiper_slide_img">
-                                                <img src="{{asset('upload/' . $products[0]->image)}}" alt="">
+                                                <img src="{{asset('storage/uploads' . $products[0]->image)}}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -255,7 +255,7 @@
                                     <div class="similar_ads_item_child">
                                         <a href="" class="similar_ads_item_child_link">
                                             <div class="similar_ads_item_child_link_img1">
-                                                <img src="{{asset('upload/' . $product->image)}}" alt="">
+                                                <img src="{{asset('storage/uploads' . $product->image)}}" alt="">
                                             </div>
                                             <div class="similar_ads_item_child_link_favourite_img">
                                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">

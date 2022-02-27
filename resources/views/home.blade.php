@@ -238,7 +238,7 @@
                             @foreach($product as $products)
                             <div class="recent_announcements_item_child">
                                     <div class="recent_announcements_item_child_link_img1">
-                                        <img src="{{asset('upload/' . $products->image)}}" alt="">
+                                        <img src="{{asset('storage/uploads/' . $products->image)}}" alt="">
                                     </div>
 
                                     @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $products->id])->get()->count() < 1)

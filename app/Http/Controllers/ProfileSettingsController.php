@@ -15,15 +15,11 @@ class ProfileSettingsController extends Controller
 
     public function update(UpdateuserRequest $request)
     {
-//        dd($request);
         $image = $request->file('image');
-        $user_image = '';
         if ($image) {
-
-            $destinationPath = 'upload/';
+            $destinationPath = 'public/uploads';
             $user_image = time().$image->getClientOriginalName();
-            $image->move($destinationPath, $user_image);
-//            dd($user_image);
+            $image->storeAs($destinationPath, $user_image);
         }else{
             $user_image = auth()->user()->image;
         }

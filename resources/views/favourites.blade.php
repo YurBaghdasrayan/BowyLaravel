@@ -17,7 +17,7 @@
                         <div class="favourites_item_child">
                             <a href="" class="favourites_item_child_link">
                                 <div class="favourites_child_link_img1">
-                                    <img src="{{asset('upload/' . $favourite->product->image)}}" alt="">
+                                    <img src="{{asset('storage/uploads/' . $favourite->product->image)}}" alt="">
                                 </div>
                                 <div class="favourites_child_link_icon">
                                     <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
