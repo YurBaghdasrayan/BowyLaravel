@@ -32,7 +32,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-dd('barev aperner');
 /*GET METHODS*/
 Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 
