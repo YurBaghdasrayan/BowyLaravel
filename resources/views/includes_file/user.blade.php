@@ -1,7 +1,7 @@
 <div class="announcement_first_item">
     <div class="active_inactive_ads_user_img_name_info">
         <div class="active_inactive_ads_user_img">
-            <img src="{{asset('storage/uploads/'.auth()->user()->image)}}" alt="">
+            <img src="{{asset('upload/'.auth()->user()->image)}}" alt="">
         </div>
         <div class="active_inactive_ads_user_info">
             <p class="active_inactive_ads_user_name">{{auth()->user()->name}}</p>

@@ -14,25 +14,35 @@ class FavouritesController extends Controller
 
     public function index()
     {
-        $auth_user_id = Auth::user()->id;
-        $favourites = Favourites::with('product', 'user')->where('user_id', '=', $auth_user_id)->get();
-        return view('/favourites', compact('favourites'));
+        $products = Product::whereHas('favourites', function ($query) {
+            $query->where('user_id', '=', \auth()->id());
+        })
+            ->get();
+        return view('/favourites', compact('products'));
     }
 
 
     public function store(Request $request)
     {
         $data = $request->all();
-
-        $token = $request['_token'];
-
-        $token = auth()->user()->id;
-
         $product_id = $data['product_id'];
         Favourites::create([
-            'user_id' => $token,
+            'user_id' => \auth()->id(),
             'product_id' => $product_id
         ]);
         return response()->json('success');
+    }
+
+    public function destroy($id)
+    {
+        $products = Product::where('id', $id)
+            ->first()
+            ->favourites()
+            ->where('user_id', \auth()->id())
+            ->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'successfully deleted'
+        ], 200);
     }
 }

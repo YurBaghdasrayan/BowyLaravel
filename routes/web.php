@@ -74,6 +74,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/place-anad', [ProfilePlaceController::class, 'index'])->name('profile-place-anad');
         Route::post('/create-products', [ProductController::class, 'store']);
         Route::post('/favourites', [FavouritesController::class, 'store'])->name('favourites');
+        Route::get('/favourites-destroy/{id}', [FavouritesController::class, 'destroy'])->name('favourites');
 
     });
     /*MIDDLEWARE GET METHODS*/

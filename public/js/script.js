@@ -468,6 +468,23 @@ $(document).on("click", ".recent_announcements_item_child_link_favourite_img", f
         }
     })
 })
+$(document).on("click", ".remove-favourite", function () {
+
+    var thisis = $(this);
+    var product_id = thisis.data('id');
+    $.ajax({
+        url: `profile/favourites-destroy/${product_id}`,
+        type: 'get',
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            $(`#${product_id}`).css("display", "none");
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+})
 $(document).on("submit", ".update", function (event) {
     event.preventDefault();
 
