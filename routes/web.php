@@ -39,6 +39,7 @@ Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 
+
 //MIDDLEWARE METHODS
 
 Route::middleware(['guest'])->group(function () {
@@ -56,7 +57,6 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/forgot-password', [ForgotController::class, 'index'])->name('forgot-password');
     Route::get('/restore-password', [RestorPasswordController::class, 'index'])->name('restore-password');
 
-
 });
 
 //MIDDLEWARE METHODS
@@ -64,7 +64,6 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::group(['prefix' => 'products'], function () {
         Route::get('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-        Route::post('/place-anad', [ProductController::class, 'create'])->name('profile-place-anad');
 
     });
     Route::group(['prefix' => 'profile'], function () {
@@ -77,16 +76,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/create-products', [ProductController::class, 'store']);
         Route::post('/favourites', [FavouritesController::class, 'store'])->name('favourites');
 
-
     });
     /*MIDDLEWARE GET METHODS*/
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
-    Route::get('/announcement', [AnnounController::class, 'index'])->name('announcement');
+    Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
     Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
     Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
-    Route::get('announcement{product}', [AnnounController::class, 'getProduct'])->name('announcement');
+    Route::post('announcement/activ/announcement_update', [AnnounController::class, 'update'])->name('announcement');
     Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 });
 

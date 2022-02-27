@@ -53,6 +53,7 @@ class CreateProductRequest extends FormRequest
             'rudder.required' => 'Поле руль почты обязательно.',
             'year_of_issue.required' => 'Поле год выпуска обязательно.',
             'transmission.required' => 'Поле коробка передач обязательно.',
+            'category_id.required' => 'асдасд',
         ];
     }
 

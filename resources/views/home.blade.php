@@ -70,11 +70,12 @@
             <div class="top_wrapper">
                 <h1 class="top_title"> <span>BOWY</span>  аренда всех видов транспорта</h1>
                 <p class="top_info">Более 2000 актуальных объявлений! </p>
-                <form action="" class="find_transport_form">
+                <form action="{{route('home.index')}}" method="get" class="find_transport_form">
                     <div class="find_transport_form_select_wrapper">
                         <div class="find_transport_form_select_title_wrapper">
                             <p class="find_transport_form_select_title">Выберите категорию</p>
                         </div>
+{{--@dd($product)--}}
                         <div class="find_transport_form_select_hidden_wrapper">
                             @foreach($categories as $category)
                             <p class="find_transport_form_select_hidden_info" data-info="Автомобили">{{$category->name}}</p>

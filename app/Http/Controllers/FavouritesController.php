@@ -16,7 +16,6 @@ class FavouritesController extends Controller
     {
         $auth_user_id = Auth::user()->id;
         $favourites = Favourites::with('product', 'user')->where('user_id', '=', $auth_user_id)->get();
-//        dd($favourites);
         return view('/favourites', compact('favourites'));
     }
 

@@ -2,7 +2,7 @@
     <div class="header_wrapper">
         <div class="header_logo_wrapper">
             <a href="{{route('home.index')}}" class="header_logo">
-                <img src="../images/new_logo.svg" alt="">
+                <img src="../../../images/new_logo.svg" alt="">
             </a>
         </div>
         <div class="hamburger_menu_mobile_version">
@@ -38,10 +38,10 @@
                 <a href="{{route('profile-place-anad')}}" class="header_link">Разместить объявление</a>
             @endif
         </div>
-        <div class="active_inactive_ads_user_img">
-            @if(auth()->check())
-            <a href=""><img src="{{asset('upload/'.auth()->user()->image)}}" alt=""></a>
-            @endif
-        </div>
+{{--        <div class="active_inactive_ads_user_img">--}}
+{{--            @if(auth()->check())--}}
+{{--            <a href=""><img src="{{asset('upload/'.auth()->user()->image)}}" alt=""></a>--}}
+{{--            @endif--}}
+{{--        </div>--}}
     </div>
 </header>

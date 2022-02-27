@@ -6,6 +6,7 @@ use App\Models\Categories;
 use App\Models\Region;
 use Illuminate\Http\Request;
 use App\Models\City;
+use Illuminate\Support\Facades\Cookie;
 
 class ProfilePlaceController extends Controller
 {
