@@ -4661,13 +4661,21 @@ body.hidden_body{
 }
 
 .succses1{
-    width: 300px;
-    height: 50px;
+    width: 100%;
+    max-width: 360px;
     background-color: #34BE7C;
     border-radius: 10px;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+.succses1 p{
+    color: white;
+    font-size: 19px;
+    font-family: Circe, sans-serif;
 }
 
 .succsestext{
