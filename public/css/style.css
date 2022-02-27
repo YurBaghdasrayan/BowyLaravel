@@ -1101,7 +1101,7 @@ body.hidden_body {
     color: #000000;
     opacity: 0.59;
     text-align: center;
-    margin-bottom: p10px;
+    margin-bottom: 10px;
  }
  .login_registration_link {
     font-family: 'Circe',sans-serif;
@@ -1115,9 +1115,7 @@ body.hidden_body {
     text-decoration: none;
     cursor: pointer;
     outline: none;
-    background: linear-gradient(94.67deg, #34BE7C 0%, #2EB6A5 100%);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
+    color: #2eb79f;
  }
  .login_info {
     font-family: 'Circe',sans-serif;
