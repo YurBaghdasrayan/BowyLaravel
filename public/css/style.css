@@ -4665,10 +4665,9 @@ body.hidden_body{
     height: 50px;
     background-color: #34BE7C;
     border-radius: 10px;
-    display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 72px;
+    margin: 0 auto;
 }
 
 .succsestext{

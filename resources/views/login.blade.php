@@ -26,7 +26,7 @@
                             <div class="succses1">
                                 <p class="succsestext">
                                     <img class="succsesimg" src="{{asset('images/emoji.png')}}"/>
-                                    Вы успешно прошли регистрацию</p>
+                                    <p>Вы успешно прошли регистрацию</p>
                             </div>
                         @endif
                         <h1 class="login_form_title">Войдите или зарегистрируйтесь</h1>
