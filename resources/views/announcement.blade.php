@@ -12,7 +12,6 @@
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
                         @include('includes_file.user')
-
                         <form action="{{route('announcement')}}" class="update" method="post"
                               enctype="multipart/form-data">
                             @csrf
@@ -21,9 +20,9 @@
                                 <p class="announcement_second_item_title1">Объявление</p>
                                 {{--                            @dd($product)--}}
                                 @if(isset($products[0]) )
-                                    @foreach($products as $product)
                                         <div class="announcement_second_item_titles_links_btns_wrapper">
                                             <div class="announcement_second_item_titles_wrapper">
+                                                @foreach($products as $product)
                                                 <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                                     <div class="announcement_second_item_title_edit_btn_wrapper">
                                                         <p class="announcement_second_item_title"
@@ -35,19 +34,15 @@
                                                                     d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z"
                                                                     fill="black"/>
                                                             </svg>
-
                                                         </div>
                                                     </div>
                                                     <div class="announcement_second_item_input_icon_wrapper">
                                                         <div class="announcement_second_item_input_field_wrapper">
-
                                                             <input type="text"
                                                                    class="announcement_second_item_input_field"
                                                                    placeholder=" Напишите..." name="headline"
                                                                    onfocus="this.value=''">
-
                                                         </div>
-
                                                         <i class="material-icons check_mark_icon">check mark</i>
                                                     </div>
                                                 </div>
@@ -78,6 +73,7 @@
                                                 </div>
                                                 <div class="alert_none alert-danger-price"></div>
                                             </div>
+                                            @endforeach
                                             <div class="announcement_second_item_links_btns_wrapper">
 
                                                 <a class="announcement_second_item_edit_btn">
@@ -95,7 +91,6 @@
                                                             d="M2.49189 7.065L3.77789 18H18.2219L19.5079 7.065L15.4979 9.738L10.9999 3.441L6.50189 9.738L2.49189 7.065ZM1.80089 4.2L5.99989 7L10.1859 1.14C10.2784 1.01037 10.4005 0.904704 10.5421 0.831801C10.6837 0.758898 10.8406 0.720863 10.9999 0.720863C11.1591 0.720863 11.3161 0.758898 11.4577 0.831801C11.5993 0.904704 11.7214 1.01037 11.8139 1.14L15.9999 7L20.1999 4.2C20.3588 4.09424 20.5447 4.0362 20.7356 4.03273C20.9265 4.02926 21.1144 4.08051 21.2771 4.18042C21.4398 4.28033 21.5705 4.42472 21.6537 4.59653C21.737 4.76835 21.7693 4.9604 21.7469 5.15L20.1039 19.117C20.0752 19.3603 19.9583 19.5845 19.7753 19.7473C19.5922 19.91 19.3558 20 19.1109 20H2.88889C2.64395 20 2.40755 19.91 2.22451 19.7473C2.04148 19.5845 1.92454 19.3603 1.89589 19.117L0.252885 5.149C0.230685 4.95948 0.263171 4.76757 0.346506 4.59592C0.429842 4.42426 0.560548 4.28003 0.723196 4.18026C0.885845 4.08048 1.07364 4.02932 1.26442 4.03282C1.45521 4.03632 1.641 4.09433 1.79989 4.2H1.80089ZM10.9999 14C10.4695 14 9.96074 13.7893 9.58567 13.4142C9.2106 13.0391 8.99989 12.5304 8.99989 12C8.99989 11.4696 9.2106 10.9609 9.58567 10.5858C9.96074 10.2107 10.4695 10 10.9999 10C11.5303 10 12.039 10.2107 12.4141 10.5858C12.7892 10.9609 12.9999 11.4696 12.9999 12C12.9999 12.5304 12.7892 13.0391 12.4141 13.4142C12.039 13.7893 11.5303 14 10.9999 14Z"
                                                             fill="white"/>
                                                     </svg>
-
                                                 </a>
                                                 <button class="announcement_second_item_delete_btn"
                                                         data-id="{{ $product->id }}">
@@ -108,7 +103,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                    @endforeach
+
                                     <div class="slider_btns_main_wrapper">
                                         <div class="swiper" id="announcement_first_swiper">
                                             <div class="swiper-wrapper">
@@ -172,7 +167,12 @@
                                                         <input type="text" class="announcement_second_item_input_field2"
                                                                placeholder=" Напишите... " name="city"
                                                                onfocus="this.value=''">
+{{--                                                        <select name="city" id="select">--}}
+{{--                                                            <option value="asdasd">asdasd</option>--}}
+{{--                                                            <option value="asdasdasd">asdasasdd</option>--}}
+{{--                                                        </select>--}}
                                                     </div>
+
                                                     <i class="material-icons check_mark_icon">check mark</i>
 
                                                 </div>
@@ -180,8 +180,6 @@
                                                    data-info="Лиговский проспект 11">City</p>
                                             </div>
                                             <div class="alert_none alert-danger-city"></div>
-
-
                                         </div>
                                         <div class="announcement_second_item_car_info_details">
                                             <div class="announcement_second_item_title_edit_btn_input_wrapper">
@@ -213,8 +211,6 @@
                                                     важную роль в формировании модели развития.</p>
                                             </div>
                                             <div class="alert_none alert-danger-description"></div>
-
-
                                         </div>
                                     </div>
                                     <div class="announcement_second_item_specifications_wrapper">
@@ -318,8 +314,8 @@
                                     <div class="similar_ads_wrapper">
                                         <p class="similar_ads_title">Похожие объявления</p>
                                         @if($similar_product != "")
-                                            @foreach($similar_product as $product)
                                                 <div class="similar_ads_items_wrapper">
+                                                    @foreach($similar_product as $product)
                                                     <div class="similar_ads_item_child">
                                                         <a href="" class="similar_ads_item_child_link">
                                                             <div class="similar_ads_item_child_link_img1">
@@ -365,11 +361,9 @@
                                                                 </di
                                                             </div>
                                                         </div>
-
-
                                                     </div>
+                                                    @endforeach
                                                 </div>
-                                            @endforeach
                                         @endif
                                         @endif
 

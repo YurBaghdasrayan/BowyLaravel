@@ -45,4 +45,17 @@ class FavouritesController extends Controller
             'message' => 'successfully deleted'
         ], 200);
     }
+
+    public function destroyFavourite($id)
+    {
+        $products = Product::where('id', $id)
+            ->first()
+            ->favourites()
+            ->where('user_id', \auth()->id())
+            ->delete();
+        return response()->json([
+            'success' => true,
+            'message' => 'successfully deletedsss'
+        ], 200);
+    }
 }

@@ -38,7 +38,6 @@ Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 
-
 //MIDDLEWARE METHODS
 
 Route::middleware(['guest'])->group(function () {
@@ -75,17 +74,20 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/create-products', [ProductController::class, 'store']);
         Route::post('/favourites', [FavouritesController::class, 'store'])->name('favourites');
         Route::get('/favourites-destroy/{id}', [FavouritesController::class, 'destroy'])->name('favourites');
+        Route::get('/favourites-delete/{id}', [FavouritesController::class, 'destroyFavourite'])->name('favourites');
 
     });
-    /*MIDDLEWARE GET METHODS*/
 
-    Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
-    Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
-    Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
-    Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
-    Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
-    Route::post('announcement/activ/announcement_update', [AnnounController::class, 'update'])->name('announcement');
-    Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
+
+        /*MIDDLEWARE GET METHODS*/
+
+        Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
+        Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
+        Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
+        Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
+        Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
+        Route::post('announcement/activ/announcement_update', [AnnounController::class, 'update'])->name('announcement');
+        Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 });
 
 //ADMIN MIDDLEWARE METHODS

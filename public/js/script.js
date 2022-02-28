@@ -543,7 +543,6 @@ $(document).on("submit", ".update", function (event) {
         success: function (data) {
             console.log(data);
             $('.alert-success-status').css('display', 'none');
-
             if (data.success) {
                 $('.alert-success-status').css('display', 'block');
                 setTimeout(function () {
@@ -551,7 +550,6 @@ $(document).on("submit", ".update", function (event) {
                 }, 3000)
             }
                 $('.alert-success-status').text(data.responseJSON.success([0]));
-
             },
         error: function (error) {
             $('.alert-danger-headline').css('display', 'none');
@@ -608,7 +606,6 @@ $(document).on("submit", ".update", function (event) {
             console.log(error.responseJSON.errors.headline[0]);
         }
     });
-
 })
 $(document).on("click", ".announcement_second_item_delete_btn", function () {
 
@@ -630,4 +627,50 @@ $(document).on("click", ".announcement_second_item_delete_btn", function () {
         }
     })
 })
+
+// $(document).on("click", ".remove-favourite", function () {
+//
+//     var thisis = $(this);
+//
+//     $.ajax({
+//         url: `/products/${$(this).data('id')}`,
+//         type: 'GET',
+//         cache: false,
+//         processData: false,
+//         contentType: false,
+//         success: function (response) {
+//             if (response.success) {
+//                 thisis.parent().parent().parent().hide();
+//             }
+//         },
+//         error: function (err) {
+//
+//         }
+//     })
+// })
+// $(document).on("click", ".recent_announcements_item_child_link_favourite_img", function () {
+//
+//     var thisis = $(this);
+//     var product_id = thisis.data('id');
+//     $.ajax({
+//         url: `profile/favourites-delete/${product_id}`,
+//         type: 'GET',
+//         processData: false,
+//         contentType: false,
+//         success: function (response) {
+//             $(`#${product_id}`).css("display", "none");
+//         },
+//         error: function (err) {
+//             console.log(err);
+//         }
+//     })
+// })
+
+
+// $('#region_input').val();
+
+// $('#region_input').input(function (){
+   //alert('okok');
+   // console.log('okko');
+// });
 

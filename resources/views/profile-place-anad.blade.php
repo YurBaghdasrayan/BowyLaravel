@@ -62,7 +62,7 @@
                                     <div class="place_an_ad_form_inputs_first_wrapper">
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
-                                                <input type="hidden" class="hidden_category_data" name="region" value="">
+                                                <input type="hidden" class="hidden_category_data" id="region_input" name="region" value="">
                                                 <p class="find_transport_form_select_title">Выберите область</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
@@ -85,7 +85,7 @@
                                         </div>
                                         <div class="find_transport_form_select_hidden_wrapper">
                                             @foreach($cars_models as $cars_model)
-                                                <p class="find_transport_form_select_hidden_info" data-id="{{$cars_model->id}}" data-info="">{{$cars_model->name}}</p>
+                                                <p class="find_transport_form_select_hidden_info" data-id="{{$cars_model->id}}" data-info="{{$cars_model->name}}">{{$cars_model->name}}</p>
                                             @endforeach
                                         </div>
 {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
@@ -106,22 +106,25 @@
                                     <div class="place_an_ad_form_inputs_first_wrapper" style="width: 350px">
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
-                                                <input type="hidden" class="hidden_category_data" name="transmission" value="">
+                                                <input type="hidden" class="hidden_category_data" name="rudder" value="">
                                                 <p class="find_transport_form_select_title" >Руль</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
-                                                <p class="find_transport_form_select_hidden_info" data-id="auto" data-info="auto">auto</p>
-                                                <p class="find_transport_form_select_hidden_info" data-id="manual" data-info="manual">manual</p>
+                                                <p class="find_transport_form_select_hidden_info" data-id="left" data-info="left">left</p>
+                                                <p class="find_transport_form_select_hidden_info" data-id="right" data-info="right">right</p>
                                             </div>
                                             {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="find_transport_form_select_hidden_wrapper">
-                                    <p class="find_transport_form_select_hidden_info" data-id="right" data-info="right">right</p>
-                                    <p class="find_transport_form_select_hidden_info" data-id="left" data-info="left">left</p>
+                                <div class="place_an_ad_form_input_field_wrapper field_box">
+                                    <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="year_of_issue">
                                     <div class="alert_none alert-danger-year_of_issue" ></div>
                                 </div>
+{{--                                <div class="place_an_ad_form_input_field_wrapper field_box">--}}
+{{--                                    <input type="text" placeholder="Коробка передач" name="transmission" class="place_an_ad_form_input_field">--}}
+{{--                                    <div class="alert_none alert-danger-transmission" ></div>--}}
+{{--                                </div>--}}
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="find_transport_form_select_wrapper">
                                         <div class="find_transport_form_select_title_wrapper">
@@ -159,5 +162,3 @@
         </main>
     @include('includes_file.footer')
 @endsection
-
-

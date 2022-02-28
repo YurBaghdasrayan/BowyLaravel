@@ -4746,3 +4746,6 @@ body.hidden_body{
 /*    font-weight: normal;*/
 /*    font-size: 18px;*/
 /*}*/
+#select{
+    border: none;
+}
