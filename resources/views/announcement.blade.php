@@ -12,7 +12,7 @@
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
                         @include('includes_file.user')
-                        <form action="{{route('announcement')}}" class="update" method="post"
+                        <form action="{{route('announcement')}}" class="update bottom" method="post"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="alert_none_succes alert-success-status">ваш продукт успешно обновлён</div>
@@ -167,10 +167,6 @@
                                                         <input type="text" class="announcement_second_item_input_field2"
                                                                placeholder=" Напишите... " name="city"
                                                                onfocus="this.value=''">
-{{--                                                        <select name="city" id="select">--}}
-{{--                                                            <option value="asdasd">asdasd</option>--}}
-{{--                                                            <option value="asdasdasd">asdasasdd</option>--}}
-{{--                                                        </select>--}}
                                                     </div>
 
                                                     <i class="material-icons check_mark_icon">check mark</i>
@@ -214,10 +210,38 @@
                                         </div>
                                     </div>
                                     <div class="announcement_second_item_specifications_wrapper">
-                                        <div
-                                            class="announcement_second_item_specifications_main_title_edit_btn_wrapper">
-                                            <p class="announcement_second_item_specifications_main_title">
+                                        <div class="announcement_second_item_specifications_main_title_edit_btn_wrapper characteristics_fisrt_data_wrapper">
+
+                                            <p class="announcement_second_item_specifications_main_title characteristics_fisrt_data">
                                                 Характеристики</p>
+                                            <div class="place_an_ad_form">
+{{--                                                <div class="find_transport_form_select_title_wrapper">--}}
+{{--                                                    <input type="hidden" class="hidden_category_data" name="category_id" value="">--}}
+{{--                                                    <p class="find_transport_form_select_title">Выберите категорию</p>--}}
+{{--                                                    <div class="alert_none alert-danger-category_id" ></div>--}}
+{{--                                                </div>--}}
+
+{{--                                                <div class="find_transport_form_select_hidden_wrapper">--}}
+
+{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test1</p>--}}
+{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test2</p>--}}
+{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test3</p>--}}
+{{--                                                </div>--}}
+                                                <div class="find_transport_form_select_wrappers">
+                                                    <div class="find_transport_form_select_title_wrappers">
+                                                        <input type="hidden" class="hidden_category_data" name="category_id" value="">
+                                                        <p class="find_transport_form_select_titles">Выберите категорию</p>
+                                                        <div class="alert_none alert-danger-category_id" ></div>
+                                                    </div>
+
+                                                    <div class="find_transport_form_select_hidden_wrappers">
+                                                        <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>
+                                                        <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            </div>
                                             <div class="announcement_edit_btn4">
                                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -234,15 +258,19 @@
                                             <div class="announcement_second_item_specifications_input_icon_wrapper">
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
-                                                    <input type="text"
-                                                           class="announcement_second_item_specification_input_field2"
-                                                           placeholder=" Напишите... " name="car_model"
-                                                           onfocus="this.value=''">
+{{--                                                    <input type="text"--}}
+{{--                                                           class="announcement_second_item_specification_input_field2"--}}
+{{--                                                           placeholder=" Напишите... " name="car_model"--}}
+{{--                                                           onfocus="this.value=''">--}}
+                                                    <select name="" id="">
+                                                        <option value="asdasdasdasd1">asdasdasdasd1</option>
+                                                        <option value="asdasdasdasd">asdasdasdasd</option>
+                                                    </select>
                                                 </div>
                                                 <i class="material-icons check_mark_icon">check mark</i>
                                             </div>
 
-                                            <p class="announcement_second_item_specifications_info">Vollkswagen</p>
+
                                         </div>
                                         <div class="alert_none alert-danger-car_model"></div>
                                         <div class="announcement_second_item_specifications">
@@ -314,13 +342,15 @@
                                     <div class="similar_ads_wrapper">
                                         <p class="similar_ads_title">Похожие объявления</p>
                                         @if($similar_product != "")
+                                            @foreach($similar_product as $product)
                                                 <div class="similar_ads_items_wrapper">
-                                                    @foreach($similar_product as $product)
+
                                                     <div class="similar_ads_item_child">
+
                                                         <a href="" class="similar_ads_item_child_link">
                                                             <div class="similar_ads_item_child_link_img1">
                                                                 <img
-                                                                    src="{{asset('storage/uploads' . $product->image)}}"
+                                                                    src="{{asset('storage/uploads/' . $product->image)}}"
                                                                     alt="">
                                                             </div>
                                                             <div class="similar_ads_item_child_link_favourite_img">
@@ -358,25 +388,23 @@
                                                                     </svg>
 
                                                                 </a>
-                                                                </di
+                                                                </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
-                                                    @endforeach
+                                            @endforeach
+
                                                 </div>
                                         @endif
                                         @endif
-
                                     </div>
-
                             </div>
-
                         </form>
                     </div>
-
                 </div>
-    </div>
-    </div>
+            </div>
+
     </section>
     </main>
     @include('includes_file.footer')

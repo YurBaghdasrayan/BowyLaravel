@@ -231,7 +231,7 @@
                     <div class="recent_announcements_item open" id="open_div1">
                         <div class="recent_announcements_item_parent1">
                             @foreach($product as $products)
-                            <div class="recent_announcements_item_child">
+                            <div class="recent_announcements_item_child" id="{{ $products->id }}">
                                     <div class="recent_announcements_item_child_link_img1">
                                         <img src="{{asset('storage/uploads/' . $products->image)}}" alt="">
                                     </div>
@@ -248,7 +248,7 @@
                                         </svg>
                                     </div>
                                     @else
-                                    <div class="recent_announcements_item_child_link_exist_favourite_post remove-favourite" data-id="{{$products->id}}">
+                                    <div class="recent_announcements_item_child_link_exist_favourite_post remove-favourites" data-id="{{$products->id}}">
                                         <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.001 1.52898C12.35 -0.58002 15.98 -0.51002 18.243 1.75698C20.505 4.02498 20.583 7.63698 18.479 9.99298L9.99901 18.485L1.52101 9.99298C-0.582994 7.63698 -0.503994 4.01898 1.75701 1.75698C4.02201 -0.50702 7.64501 -0.58302 10.001 1.52898Z" fill="white"></path>
                                         </svg>

@@ -54,8 +54,36 @@ $(document).on("click", ".find_transport_form_select_hidden_info", function () {
     $(this).parent().parent().find(".hidden_category_data").val(category_id);
     $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
     $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+    //console.log(category_id);
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var region_data_val = $('#region_input').val();
+
+    //console.log(data._token);
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: "/getCityByRegionId",
+        type: 'post',
+        cache: false,
+        data: {'_token': token, 'region_data':region_data_val},
+        success: function (response) {
+            $('#divCity').html('');
+            response.forEach(function (val){
+                $('#divCity').append('<p class="find_transport_form_select_hidden_info" data-id='+val.id+' data-info='+val.name+'>'+val.name+'</p>')
+            })
+            //
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
 
 })
+
 
 
 $(document).on("click", ".sort_btn", function () {
@@ -144,7 +172,6 @@ $(document).on('change', '#fileinput_form2', function () {
     }
 
 });
-
 
 function readURL(input) {
     if (input.files && input.files[0]) {
@@ -239,9 +266,10 @@ $(document).on("click", ".check_mark_icon", function () {
 
 
 $(document).on("click", ".announcement_edit_btn4", function () {
-    let val4 = $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info');
-    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
-    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
+     $(".characteristics_fisrt_data").hide();
+    // let val4 = $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info');
+    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
+    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
 
 })
 
@@ -458,7 +486,6 @@ $(document).on("click", ".recent_announcements_item_child_link_favourite_img", f
         cache: false,
         data: {'_token': token, 'product_id': product_id},
         success: function (response) {
-
             thisis.css("display", "none");
             $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "block");
 
@@ -648,29 +675,28 @@ $(document).on("click", ".announcement_second_item_delete_btn", function () {
 //         }
 //     })
 // })
-// $(document).on("click", ".recent_announcements_item_child_link_favourite_img", function () {
-//
-//     var thisis = $(this);
-//     var product_id = thisis.data('id');
-//     $.ajax({
-//         url: `profile/favourites-delete/${product_id}`,
-//         type: 'GET',
-//         processData: false,
-//         contentType: false,
-//         success: function (response) {
-//             $(`#${product_id}`).css("display", "none");
-//         },
-//         error: function (err) {
-//             console.log(err);
-//         }
-//     })
+$(document).on("click", ".remove-favourites", function () {
+
+    var thisis = $(this);
+    var product_id = thisis.data('id');
+    $.ajax({
+        url: `profile/favourites-delete/${product_id}`,
+        type: 'GET',
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            $(`#${product_id}`).css("display", "block");
+            $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "none");
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+})
+
+
+// let inp1 = document.getElementById('region_input');
+// inp1.addEventListener('click',function (){
+//     console.log('okok');
 // })
-
-
-// $('#region_input').val();
-
-// $('#region_input').input(function (){
-   //alert('okok');
-   // console.log('okko');
-// });
 

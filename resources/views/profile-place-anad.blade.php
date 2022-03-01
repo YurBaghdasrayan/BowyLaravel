@@ -50,7 +50,7 @@
                                                 <input type="hidden" class="hidden_category_data" name="city" value="">
                                                 <p class="find_transport_form_select_title">Выберите город</p>
                                             </div>
-                                            <div class="find_transport_form_select_hidden_wrapper">
+                                            <div class="find_transport_form_select_hidden_wrapper" id="divCity">
                                                 @foreach($cities as $val)
                                                     <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>
                                                 @endforeach
@@ -162,3 +162,4 @@
         </main>
     @include('includes_file.footer')
 @endsection
+
