@@ -12,7 +12,7 @@
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
                         @include('includes_file.user')
-                        <form action="{{route('announcement')}}" class="place_an_ad_form top" method="post"
+                        <form action="{{route('announcement')}}" class="update " method="post"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="alert_none_succes alert-success-status">ваш продукт успешно обновлён</div>
