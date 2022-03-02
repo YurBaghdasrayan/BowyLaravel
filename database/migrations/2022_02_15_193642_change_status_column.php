@@ -14,7 +14,7 @@ class ChangeStatusColumn extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->boolean('status')->default(false)->change();
+            $table->boolean('status')->default(true)->change();
         });
     }
 
