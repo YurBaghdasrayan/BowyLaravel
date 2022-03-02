@@ -18,6 +18,7 @@ use App\Http\Controllers\ProfilePlaceController;
 use App\Http\Controllers\ProfileSettingsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RestorPasswordController;
+use App\Http\Controllers\SearchResultsController;
 use App\Http\Controllers\UnloggedUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegionController;
@@ -99,7 +100,7 @@ Route::middleware(['admin'])->group(function () {
 });
 
 Route::post('/getCityByRegionId',[RegionController::class,'getCityByRegionId'])->name('getCityByRegionId');
-
+Route::get('/search-results',[SearchResultsController::class,'index'])->name('search.results');
 
 
 

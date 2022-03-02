@@ -12,7 +12,7 @@
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
                         @include('includes_file.user')
-                        <form action="{{route('announcement')}}" class="update bottom" method="post"
+                        <form action="{{route('announcement')}}" class="place_an_ad_form top" method="post"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="alert_none_succes alert-success-status">ваш продукт успешно обновлён</div>
@@ -215,30 +215,32 @@
                                             <p class="announcement_second_item_specifications_main_title characteristics_fisrt_data">
                                                 Характеристики</p>
                                             <div class="place_an_ad_form">
-{{--                                                <div class="find_transport_form_select_title_wrapper">--}}
-{{--                                                    <input type="hidden" class="hidden_category_data" name="category_id" value="">--}}
-{{--                                                    <p class="find_transport_form_select_title">Выберите категорию</p>--}}
-{{--                                                    <div class="alert_none alert-danger-category_id" ></div>--}}
-{{--                                                </div>--}}
-
-{{--                                                <div class="find_transport_form_select_hidden_wrapper">--}}
-
-{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test1</p>--}}
-{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test2</p>--}}
-{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test3</p>--}}
-{{--                                                </div>--}}
-                                                <div class="find_transport_form_select_wrappers">
-                                                    <div class="find_transport_form_select_title_wrappers">
-                                                        <input type="hidden" class="hidden_category_data" name="category_id" value="">
-                                                        <p class="find_transport_form_select_titles">Выберите категорию</p>
-                                                        <div class="alert_none alert-danger-category_id" ></div>
-                                                    </div>
-
-                                                    <div class="find_transport_form_select_hidden_wrappers">
-                                                        <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>
-                                                        <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>
-                                                    </div>
+                                                <div class="find_transport_form_select_title_wrapper">
+                                                    <input type="hidden" class="hidden_category_data" name="category_id" value="">
+                                                    <p class="find_transport_form_select_title">Выберите категорию</p>
+                                                    <div class="alert_none alert-danger-category_id" ></div>
                                                 </div>
+
+                                                <div class="find_transport_form_select_hidden_wrapper">
+
+                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test1</p>
+                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test2</p>
+                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test3</p>
+                                                </div>
+{{--                                                <div class="place_an_ad_form_inputs_first_wrapper">--}}
+{{--                                                    <div class="find_transport_form_select_wrappers">--}}
+{{--                                                        <div class="find_transport_form_select_title_wrappers">--}}
+{{--                                                            <input type="hidden" class="hidden_category_data" name="category_id" value="">--}}
+{{--                                                            <p class="find_transport_form_select_titles">Выберите категорию</p>--}}
+{{--                                                            <div class="alert_none alert-danger-category_id" ></div>--}}
+{{--                                                        </div>--}}
+
+{{--                                                        <div class="find_transport_form_select_hidden_wrappers">--}}
+{{--                                                            <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>--}}
+{{--                                                            <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                             </div>
 
                                             </div>

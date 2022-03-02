@@ -58,6 +58,7 @@ $(document).on("click", ".find_transport_form_select_hidden_info", function () {
     var token = $('meta[name="csrf-token"]').attr('content');
     var region_data_val = $('#region_input').val();
 
+
     //console.log(data._token);
     $.ajaxSetup({
         headers: {

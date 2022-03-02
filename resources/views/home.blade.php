@@ -66,51 +66,48 @@
 <div class="bowy_mian_wrapper">
     @include('includes_file.header')
     <main>
+{{--        @dd($regions)--}}
         <section class="top">
             <div class="top_wrapper">
                 <h1 class="top_title"> <span>BOWY</span>  аренда всех видов транспорта</h1>
                 <p class="top_info">Более 2000 актуальных объявлений! </p>
-                <form action="{{route('home.index')}}" method="get" class="find_transport_form">
+                <form action="{{route('search.results')}}" method="get" class="find_transport_form">
                     <div class="find_transport_form_select_wrapper">
                         <div class="find_transport_form_select_title_wrapper">
+                            <input type="hidden" class="hidden_category_data" name="category" value="">
                             <p class="find_transport_form_select_title">Выберите категорию</p>
                         </div>
-{{--@dd($product)--}}
+
                         <div class="find_transport_form_select_hidden_wrapper">
                             @foreach($categories as $category)
-                            <p class="find_transport_form_select_hidden_info" data-info="Автомобили">{{$category->name}}</p>
+                            <p class="find_transport_form_select_hidden_info"  data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
                             @endforeach
                         </div>
                     </div>
                     <div class="find_transport_form_select_wrapper">
-
                         <div class="find_transport_form_select_title_wrapper">
+                            <input type="hidden" class="hidden_category_data" id="region_input" name="region" value="">
                             <p class="find_transport_form_select_title">Выберите регион</p>
                         </div>
                         <div class="find_transport_form_select_hidden_wrapper">
-                            <p class="find_transport_form_select_hidden_info" data-info="Архангельская область">Архангельская область</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Белгородская область">Белгородская область</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Волгоградская область">Волгоградская область</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Воронежская область">Воронежская область</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Иркутская область">Иркутская область</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Краснодарский край">Краснодарский край</p>
+                            @foreach($regions as $region)
+                            <p class="find_transport_form_select_hidden_info" data-id="{{$region->id}}" data-info="{{$region->name}}">{{$region->name}}</p>
+                            @endforeach
                         </div>
-
                     </div>
                     <div class="find_transport_form_select_wrapper">
                         <div class="find_transport_form_select_title_wrapper">
+                            <input type="hidden" class="hidden_category_data" name="city" value="">
                             <p class="find_transport_form_select_title">Выберите город</p>
                         </div>
-                        <div class="find_transport_form_select_hidden_wrapper">
-                            <p class="find_transport_form_select_hidden_info" data-info="Москва">Москва</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Санкт-Петербург">Санкт-Петербург</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Нижний Новгород">Нижний Новгород</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Екатеринбург">Екатеринбург</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Владивосток">Владивосток</p>
-                            <p class="find_transport_form_select_hidden_info" data-info="Самара">Самара</p>
+                        <div class="find_transport_form_select_hidden_wrapper" id="divCity">
+                            @foreach($cities as $city)
+                            <p class="find_transport_form_select_hidden_info" data-id="{{$city->id}}" data-info="{{$city->name}}">{{$city->name}}</p>
+
+                            @endforeach
                         </div>
                     </div>
-                    <button class="find_transport_form_btn">Найти транспорт</button>
+                    <button type="submit" class="find_transport_form_btn">Найти транспорт</button>
                 </form>
             </div>
         </section>
@@ -278,7 +275,7 @@
                             @endforeach
 
                         </div>
-                        {{$product->links()}}
+{{--                        {{$product->links()}}--}}
                     </div>
                     <div class="recent_announcements_item" id="open_div2">
                         <div class="recent_announcements_item_parent2">
@@ -287,7 +284,7 @@
                                     <div class="recent_announcements_item_child_link_img1">
                                         <img src="../images/recent_announcements_item_child_link_img1.png" alt="">
                                     </div>
-                                    <div class="recent_announcements_item_child_link_favourite_img remove-favourite" data-id="{{$products->id}}">
+                                    <div class="recent_announcements_item_child_link_favourite_img remove-favourite" data-id="">
                                         <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.001 1.52898C12.35 -0.58002 15.98 -0.51002 18.243 1.75698C20.505 4.02498 20.583 7.63698 18.479 9.99298L9.99901 18.485L1.52101 9.99298C-0.582994 7.63698 -0.503994 4.01898 1.75701 1.75698C4.02201 -0.50702 7.64501 -0.58302 10.001 1.52898ZM16.827 3.16998C15.327 1.66798 12.907 1.60698 11.337 3.01698L10.002 4.21498L8.66601 3.01798C7.09101 1.60598 4.67601 1.66798 3.17201 3.17198C1.68201 4.66198 1.60701 7.04698 2.98001 8.62298L10 15.654L17.02 8.62398C18.394 7.04698 18.319 4.66498 16.827 3.16998Z" fill="white"/>
                                         </svg>
