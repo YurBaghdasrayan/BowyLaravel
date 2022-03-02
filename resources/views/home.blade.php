@@ -232,7 +232,7 @@
                                     <div class="recent_announcements_item_child_link_img1">
                                         <img src="{{asset('storage/uploads/' . $products->image)}}" alt="">
                                     </div>
-
+                                    @if(isset(auth()->user()->id))
                                     @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $products->id])->get()->count() < 1)
                                     <div class="recent_announcements_item_child_link_favourite_img" data-id="{{ $products->id }}">
                                             <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -251,6 +251,7 @@
                                         </svg>
                                     </div>
                                    @endif
+                                @endif
                                 <div class="recent_announcements_item_child_info_box">
                                     <h1 class="recent_announcements_item_child_title">Аренда авто без залога</h1>
                                     <h1 class="recent_announcements_item_child_price">{{$products->price}} </h1>

@@ -34,7 +34,8 @@ class CreateProductRequest extends FormRequest
             'body_type' => 'required',
             'rudder' => 'required',
             'year_of_issue' => 'required|numeric',
-            'transmission' => 'required|',
+            'transmission' => 'required',
+            'address' => 'required',
 //                'image' => 'required|file|image|max:2048',
             'category_id' => 'required'
         ];
@@ -53,6 +54,7 @@ class CreateProductRequest extends FormRequest
             'rudder.required' => 'Поле руль почты обязательно.',
             'year_of_issue.required' => 'Поле год выпуска обязательно.',
             'transmission.required' => 'Поле коробка передач обязательно.',
+            'address.required' => 'Поле адреса обязательно.',
             'category_id.required' => 'асдасд',
         ];
     }

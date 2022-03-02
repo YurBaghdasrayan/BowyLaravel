@@ -46,8 +46,36 @@ $(document).on("click", ".find_transport_form_select_title_wrapper", function ()
         $(this).parent().find(".find_transport_form_select_hidden_wrapper").addClass("open");
     }
 });
+function getCityBySelect(region_id) {
+    return new Promise((resolve, reject) => {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
-
+        $.ajax({
+            url: "/getCityByRegionId",
+            type: 'post',
+            cache: false,
+            data: {'region_data':region_id},
+            success: function (response) {
+                resolve(response)
+            },
+            error: function (err) {
+                reject(err)
+            }
+        })
+    })
+}
+$("#regionSelect").on("change", function (val) {
+    getCityBySelect($(this).val()).then(res => {
+        $("#citySelect").html('')
+        res.forEach(elem => {
+            $("#citySelect").append(`<option value="${elem.id}" >${elem.name}<option>`)
+        })
+    })
+})
 $(document).on("click", ".find_transport_form_select_hidden_info", function () {
     var datainfo = $(this).data("info");
     var category_id = $(this).data("id");
@@ -55,34 +83,15 @@ $(document).on("click", ".find_transport_form_select_hidden_info", function () {
     $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
     $(".find_transport_form_select_hidden_wrapper").removeClass("open");
     //console.log(category_id);
-    var token = $('meta[name="csrf-token"]').attr('content');
     var region_data_val = $('#region_input').val();
-
-
-    //console.log(data._token);
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-
-    $.ajax({
-        url: "/getCityByRegionId",
-        type: 'post',
-        cache: false,
-        data: {'_token': token, 'region_data':region_data_val},
-        success: function (response) {
-            $('#divCity').html('');
-            response.forEach(function (val){
+    getCityBySelect(region_data_val)
+        .then(res => {
+            res.forEach(function (val){
                 $('#divCity').append('<p class="find_transport_form_select_hidden_info" data-id='+val.id+' data-info='+val.name+'>'+val.name+'</p>')
             })
-            //
-        },
-        error: function (err) {
-            console.log(err);
-        }
+    }).catch(err => {
+        console.log(err)
     })
-
 })
 
 
@@ -273,7 +282,7 @@ $(document).on("click", ".announcement_edit_btn4", function(){
     element.each(function(){
 
         let val4 = $(this).data('info')
-        
+
         console.log($(this).data('info'))
 
         $(this).hide();
@@ -281,7 +290,6 @@ $(document).on("click", ".announcement_edit_btn4", function(){
         $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').find('select').val(val4)
     })
 
-    console.log(val4);
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
 
@@ -308,16 +316,19 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
     var headline = $('input[name="headline"]', this);
     var headline_val = headline.val();
 
+    var city = $('select[name="city"]', this);
+    var city_val = city.val();
+
+    var region = $('select[name="region"]', this);
+    var region_val = region.val();
+
     var price = $('input[name="price"]', this);
     var price_val = price.val();
 
-    var city = $('input[name="city"]', this);
-    var city_val = city.val();
+    var address = $('input[name="address"]',this)
+    var address_val = address.val();
 
-    var region = $('input[name="region"]', this);
-    var region_val = region.val();
-
-    var car_model = $('input[name="car_model"]', this);
+    var car_model = $('select[name="car_model"]', this);
     var car_model_val = car_model.val();
 
     var description = $('input[name="description"]', this);
@@ -410,10 +421,11 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
     formData.append('description', description_val);
     formData.append('body_type', body_type_val);
     formData.append('rudder', rudder_val);
-    formData.append('year_of_issue', year_of_issue_val);
+    formData.append('year_of_issue', parseInt(year_of_issue_val));
     formData.append('transmission', transmission_val);
     formData.append('category_id', category_id);
-    formData.append('image', image[0].files[0]);
+    // formData.append('image', image[0].files[0]);
+    formData.append('address',address_val);
 
     $.ajaxSetup({
         headers: {
@@ -443,6 +455,7 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
             $('.alert-danger-rudder').css('display', 'none');
             $('.alert-danger-year_of_issue').css('display', 'none');
             $('.alert-danger-year_of_issue').css('display', 'none');
+            $('.alert-danger-address').css('display', 'none');
 
 
             $('#regionError').css('display', 'block');
@@ -462,6 +475,10 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
             if (error.responseJSON.errors.city) {
                 $('.alert-danger-city').css('display', 'block');
                 $('.alert-danger-city').text(error.responseJSON.errors.city[0]);
+            }
+            if (error.responseJSON.errors.address) {
+                $('.alert-danger-address').css('display', 'block');
+                $('.alert-danger-address').text(error.responseJSON.errors.address[0]);
             }
             if (error.responseJSON.errors.car_model) {
                 $('.alert-danger-car_model').css('display', 'block');
@@ -708,7 +725,6 @@ $(document).on("click", ".remove-favourites", function () {
         }
     })
 })
-
 
 // let inp1 = document.getElementById('region_input');
 // inp1.addEventListener('click',function (){

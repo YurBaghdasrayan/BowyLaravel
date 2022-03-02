@@ -59,6 +59,7 @@
                                             <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>
                                         </div>
                                     </div>
+
                                     <div class="place_an_ad_form_inputs_first_wrapper">
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
@@ -71,6 +72,12 @@
                                                 @endforeach
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="place_an_ad_form_inputs_first_wrapper">
+                                    <div class="place_an_ad_form_input_field_wrapper">
+                                        <input type="text" placeholder="адрес" class="place_an_ad_form_input_field" name="address">
+                                        <div class="alert_none alert-danger-address" ></div>
                                     </div>
                                 </div>
 {{--                                <div class="place_an_ad_form_input_field_wrapper field_box">--}}

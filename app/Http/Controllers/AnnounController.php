@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\CarsModel;
+use App\Models\Categories;
+use App\Models\City;
 use App\Models\Product;
+use App\Models\Region;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,9 +16,16 @@ class AnnounController extends Controller
 {
     public function index($status, $id)
     {
+        $regions = Region::all();
+        $cities = City::all();
+        $cars_models = CarsModel::all();
+
+
+
         $products = "";
         $similar_product = "";
         $car_model = "";
+
 
         if ($status == true) {
             $products = Auth::user()->products()->where('status', '=', true)->where('id', $id)->get();
@@ -36,15 +47,13 @@ class AnnounController extends Controller
 
             $similar_product = Product::where('car_model', '=', $car_model)->get();
         }
-        return view('announcement', compact('products','similar_product'));
+        return view('announcement', compact('products','similar_product','regions','cities','cars_models'));
 
     }
 
     public function update(UpdateProductRequest $request)
     {
         $data = $request->all();
-
-
         $update = Product::find($data['product_id']);
         $update->headline = $data['product_id'];
         $update->price = $data['price'];

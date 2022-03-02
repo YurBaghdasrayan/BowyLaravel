@@ -177,6 +177,36 @@
                                             </div>
                                             <div class="alert_none alert-danger-city"></div>
                                         </div>
+                                        <div class="announcement_second_item_specifications">
+                                            <p class="announcement_second_item_specifications_title">Выберите область</p>
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                                <div
+                                                    class="announcement_second_item_specifications_input_field_wrapper">
+                                                    <select name="region" id="regionSelect">
+                                                        @foreach($regions as $region)
+                                                            <option value="{{$region->id}}" name="">{{$region->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+
+                                        </div>
+                                        <div class="announcement_second_item_specifications">
+                                            <p class="announcement_second_item_specifications_title">Выберите Город</p>
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                                <div
+                                                    class="announcement_second_item_specifications_input_field_wrapper">
+                                                    <select name="city" id="citySelect">
+
+                                                    </select>
+                                                </div>
+
+                                            </div>
+                                            <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+
+                                        </div>
                                         <div class="announcement_second_item_car_info_details">
                                             <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                                 <div class="announcement_second_item_title_edit_btn_wrapper">
@@ -245,39 +275,51 @@
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Тип кузова:</p>
                                             <div class="announcement_second_item_specifications_input_icon_wrapper">
-                                                <div
-                                                    class="announcement_second_item_specifications_input_field_wrapper">
-                                                    <select>
-                                                        <option value="Седан">Седан</option> 
-                                                        <option value="Седан1">Седан1</option> 
-                                                        <option value="Седан2">Седан2</option> 
-                                                        
+                                                <div class="announcement_second_item_specifications_input_field_wrapper">
+                                                    <select name="body_type">
+                                                        <option value="Седан">Седан</option>
+                                                        <option value="Универсал">Универсал</option>
+                                                        <option value="Хэтчбэк">Хэтчбэк</option>
+                                                        <option value="Купе">Купе</option>
+                                                        <option value="Лимузин">Лимузин</option>
                                                     </select>
                                                 </div>
-                                         
                                             </div>
                                             <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
 
                                         </div>
+                                    <div class="announcement_second_item_specifications">
+                                        <p class="announcement_second_item_specifications_title">Марка автомобиля</p>
+                                        <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                            <div
+                                                class="announcement_second_item_specifications_input_field_wrapper">
+                                                <select name="car_model" id="test">
+                                                    @foreach($cars_models as $key => $cars_model)
+                                                        <option  value="{{$cars_model->id}}">{{ $cars_model->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+
+                                    </div>
                                         <div class="alert_none alert-danger-body_type"></div>
 
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Год выпуска:</p>
                                             <div class="announcement_second_item_specifications_input_icon_wrapper">
-                                                
+
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
-                                                    
-                                                    <select>
-                                                        <option value="1996">1996</option> 
-                                                        <option value="1997">1997</option> 
-                                                        <option value="1998">1998</option> 
-                                                        <option value="1999">1999</option> 
-                                                        <option value="2000">2000</option> 
-                                                        <option value="2021">2021</option> 
+
+                                                    <select class="yearselect">
+                                                        @for($i = 1900; $i <= \Carbon\Carbon::now()->year; $i++)
+                                                            <option value="{{$i}}">{{ $i }}</option>
+                                                        @endfor
                                                     </select>
 
                                                 </div>
-                                               
+
                                             </div>
                                             <p class="announcement_second_item_specifications_info" data-info="2021">2021</p>
                                         </div>
@@ -289,13 +331,13 @@
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select>
-                                                        <option value="Автоматическая">Автоматическая</option> 
-                                                        <option value="Механическая">Механическая</option> 
-                                                       
-                                                        
+                                                        <option value="Автоматическая">Автоматическая</option>
+                                                        <option value="Механическая">Механическая</option>
+
+
                                                     </select>
                                                 </div>
-                                                
+
                                             </div>
                                             <p class="announcement_second_item_specifications_info" data-info="Автоматическая">Автоматическая</p>
                                         </div>
@@ -307,13 +349,13 @@
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
                                                    <select>
-                                                        <option value="Левый">Левый</option> 
-                                                        <option value="Правый">Правый</option> 
-                                                       
+                                                        <option value="Левый">Левый</option>
+                                                        <option value="Правый">Правый</option>
+
                                                     </select>
 
                                                 </div>
-                                               
+
                                             </div>
                                             <p class="announcement_second_item_specifications_info" data-info="Левый">Левый</p>
                                         </div>
