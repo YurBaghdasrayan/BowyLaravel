@@ -266,21 +266,21 @@ $(document).on("click", ".check_mark_icon", function () {
 })
 
 
-$(document).on("click", ".announcement_edit_btn4", function () {
-     $(".characteristics_fisrt_data").hide();
-    // let val4 = $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info');
-    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
-    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
+$(document).on("click", ".announcement_edit_btn4", function(){
+    let val4 = $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info');
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
 
 })
 
-$(document).on("click", ".check_mark_icon", function () {
+$(document).on("click", ".check_mark_icon", function() {
     let val5 = $(this).closest(".announcement_second_item_specifications_wrapper").find(".announcement_second_item_specification_input_field2").val();
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').show();
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').html(val5);
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').removeClass("open");
-    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info', val5);
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info',val5);
 })
+
 $("#button").click(function () {
     $("#fn").show();
     $("#ln").show();

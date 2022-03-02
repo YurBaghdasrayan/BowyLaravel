@@ -210,67 +210,34 @@
                                         </div>
                                     </div>
                                     <div class="announcement_second_item_specifications_wrapper">
-                                        <div class="announcement_second_item_specifications_main_title_edit_btn_wrapper characteristics_fisrt_data_wrapper">
-
-                                            <p class="announcement_second_item_specifications_main_title characteristics_fisrt_data">
-                                                Характеристики</p>
-                                            <div class="place_an_ad_form">
-                                                <div class="find_transport_form_select_title_wrapper">
-                                                    <input type="hidden" class="hidden_category_data" name="category_id" value="">
-                                                    <p class="find_transport_form_select_title">Выберите категорию</p>
-                                                    <div class="alert_none alert-danger-category_id" ></div>
-                                                </div>
-
-                                                <div class="find_transport_form_select_hidden_wrapper">
-
-                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test1</p>
-                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test2</p>
-                                                    <p class="find_transport_form_select_hidden_info" data-id="" data-info="">test3</p>
-                                                </div>
-{{--                                                <div class="place_an_ad_form_inputs_first_wrapper">--}}
-{{--                                                    <div class="find_transport_form_select_wrappers">--}}
-{{--                                                        <div class="find_transport_form_select_title_wrappers">--}}
-{{--                                                            <input type="hidden" class="hidden_category_data" name="category_id" value="">--}}
-{{--                                                            <p class="find_transport_form_select_titles">Выберите категорию</p>--}}
-{{--                                                            <div class="alert_none alert-danger-category_id" ></div>--}}
-{{--                                                        </div>--}}
-
-{{--                                                        <div class="find_transport_form_select_hidden_wrappers">--}}
-{{--                                                            <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>--}}
-{{--                                                            <p class="find_transport_form_select_hidden_info" data-id="" data-info="">asdasd</p>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-                                            </div>
-
-                                            </div>
+                                        <div class="announcement_second_item_specifications_main_title_edit_btn_wrapper">
+                                            <p class="announcement_second_item_specifications_main_title">Характеристики</p>
                                             <div class="announcement_edit_btn4">
-                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z"
-                                                        fill="black"></path>
+                                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z" fill="black"></path>
                                                 </svg>
 
                                             </div>
                                         </div>
-                                        <div class="announcement_second_item_specifications">
-                                            <p class="announcement_second_item_specifications_title">Марка
-                                                автомобиля:</p>
-                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
-                                                <div
-                                                    class="announcement_second_item_specifications_input_field_wrapper">
+
+{{--                                        <div class="announcement_second_item_specifications">--}}
+{{--                                            <p class="announcement_second_item_specifications_title">Марка--}}
+{{--                                                автомобиля:</p>--}}
+{{--                                            <div class="announcement_second_item_specifications_input_icon_wrapper">--}}
+{{--                                                <div--}}
+{{--                                                    class="announcement_second_item_specifications_input_field_wrapper">--}}
 {{--                                                    <input type="text"--}}
 {{--                                                           class="announcement_second_item_specification_input_field2"--}}
 {{--                                                           placeholder=" Напишите... " name="car_model"--}}
 {{--                                                           onfocus="this.value=''">--}}
-                                                    <select name="" id="">
-                                                        <option value="asdasdasdasd1">asdasdasdasd1</option>
-                                                        <option value="asdasdasdasd">asdasdasdasd</option>
-                                                    </select>
-                                                </div>
-                                                <i class="material-icons check_mark_icon">check mark</i>
-                                            </div>
+{{--                                                    <select name="" id="">--}}
+{{--                                                        <option value="asdasdasdasd1">asdasdasdasd1</option>--}}
+{{--                                                        <option value="asdasdasdasd">asdasdasdasd</option>--}}
+{{--                                                    </select>--}}
+{{--                                                </div>--}}
+{{--                                                <i class="material-icons check_mark_icon">check mark</i>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
 
                                         </div>
