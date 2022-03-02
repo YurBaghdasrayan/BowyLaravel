@@ -4777,3 +4777,18 @@ body.hidden_body{
 
 
 
+select {
+    background-image: linear-gradient(94.67deg, #34BE7C 0%, #2EB6A5 100%);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    /* color: white; */
+    font-family: Circe, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 27px;
+    color: #303030;
+    outline: none;
+    cursor: pointer;
+}

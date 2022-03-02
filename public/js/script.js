@@ -267,7 +267,21 @@ $(document).on("click", ".check_mark_icon", function () {
 
 
 $(document).on("click", ".announcement_edit_btn4", function(){
-    let val4 = $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info');
+
+    var element = $('.announcement_second_item_specifications_info');
+
+    element.each(function(){
+
+        let val4 = $(this).data('info')
+        
+        console.log($(this).data('info'))
+
+        $(this).hide();
+        $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').show()
+        $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').find('select').val(val4)
+    })
+
+    console.log(val4);
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
 

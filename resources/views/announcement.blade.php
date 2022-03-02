@@ -12,7 +12,7 @@
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
                         @include('includes_file.user')
-                        <form action="{{route('announcement')}}" class="update " method="post"
+                        <form action="{{route('announcement')}}" class="place_an_ad_form top" method="post"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="alert_none_succes alert-success-status">ваш продукт успешно обновлён</div>
@@ -247,30 +247,39 @@
                                             <div class="announcement_second_item_specifications_input_icon_wrapper">
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
-                                                    <input type="text"
-                                                           class="announcement_second_item_specification_input_field2"
-                                                           placeholder=" Напишите... " name="body_type"
-                                                           onfocus="this.value=''">
+                                                    <select>
+                                                        <option value="Седан">Седан</option> 
+                                                        <option value="Седан1">Седан1</option> 
+                                                        <option value="Седан2">Седан2</option> 
+                                                        
+                                                    </select>
                                                 </div>
-                                                <i class="material-icons check_mark_icon">check mark</i>
+                                         
                                             </div>
-                                            <p class="announcement_second_item_specifications_info">Седан</p>
+                                            <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+
                                         </div>
                                         <div class="alert_none alert-danger-body_type"></div>
 
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Год выпуска:</p>
                                             <div class="announcement_second_item_specifications_input_icon_wrapper">
-                                                <div
-                                                    class="announcement_second_item_specifications_input_field_wrapper">
-                                                    <input type="text"
-                                                           class="announcement_second_item_specification_input_field2"
-                                                           placeholder=" Напишите... " name="year_of_issue"
-                                                           onfocus="this.value=''">
+                                                
+                                                <div class="announcement_second_item_specifications_input_field_wrapper">
+                                                    
+                                                    <select>
+                                                        <option value="1996">1996</option> 
+                                                        <option value="1997">1997</option> 
+                                                        <option value="1998">1998</option> 
+                                                        <option value="1999">1999</option> 
+                                                        <option value="2000">2000</option> 
+                                                        <option value="2021">2021</option> 
+                                                    </select>
+
                                                 </div>
-                                                <i class="material-icons check_mark_icon">check mark</i>
+                                               
                                             </div>
-                                            <p class="announcement_second_item_specifications_info">2021</p>
+                                            <p class="announcement_second_item_specifications_info" data-info="2021">2021</p>
                                         </div>
                                         <div class="alert_none alert-danger-year_of_issue"></div>
                                         <div class="announcement_second_item_specifications">
@@ -279,14 +288,16 @@
                                             <div class="announcement_second_item_specifications_input_icon_wrapper">
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
-                                                    <input type="text"
-                                                           class="announcement_second_item_specification_input_field2"
-                                                           placeholder=" Напишите... " name="transmission"
-                                                           onfocus="this.value=''">
+                                                    <select>
+                                                        <option value="Автоматическая">Автоматическая</option> 
+                                                        <option value="Механическая">Механическая</option> 
+                                                       
+                                                        
+                                                    </select>
                                                 </div>
-                                                <i class="material-icons check_mark_icon">check mark</i>
+                                                
                                             </div>
-                                            <p class="announcement_second_item_specifications_info">Автоматическая</p>
+                                            <p class="announcement_second_item_specifications_info" data-info="Автоматическая">Автоматическая</p>
                                         </div>
                                         <div class="alert_none alert-danger-transmission"></div>
 
@@ -295,14 +306,16 @@
                                             <div class="announcement_second_item_specifications_input_icon_wrapper">
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
-                                                    <input type="text"
-                                                           class="announcement_second_item_specification_input_field2"
-                                                           placeholder=" Напишите... " name="rudder"
-                                                           onfocus="this.value=''">
+                                                   <select>
+                                                        <option value="Левый">Левый</option> 
+                                                        <option value="Правый">Правый</option> 
+                                                       
+                                                    </select>
+
                                                 </div>
-                                                <i class="material-icons check_mark_icon">check mark</i>
+                                               
                                             </div>
-                                            <p class="announcement_second_item_specifications_info">Левый</p>
+                                            <p class="announcement_second_item_specifications_info" data-info="Левый">Левый</p>
                                         </div>
                                         <div class="alert_none alert-danger-body_type"></div>
                                     </div>
