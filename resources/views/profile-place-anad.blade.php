@@ -9,8 +9,6 @@
                 <div class="place_an_ad_wrapper">
                     <div class="place_an_ad_items_wrapper">
                         @include('includes_file.user')
-
-
                         <form action="{{route('profile-place-anad')}}" class="place_an_ad_form top" method="post">
                             @csrf
                             <div class="place_an_ad_form_inputs_wrapper">

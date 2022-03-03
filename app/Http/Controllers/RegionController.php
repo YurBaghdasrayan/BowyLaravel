@@ -14,7 +14,6 @@ class RegionController extends Controller
 //        $
         $region_id = $request->region_data;
         $regions = City::where('region_id', '=', $region_id)->get();
-//        dd($regions);
         return response()->json($regions);
 
 
