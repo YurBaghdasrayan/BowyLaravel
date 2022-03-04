@@ -21,19 +21,15 @@ class AnnounController extends Controller
         $cars_models = CarsModel::all();
 
 
-
         $products = "";
         $similar_product = "";
         $car_model = "";
 
-
         if ($status == true) {
             $products = Auth::user()->products()->where('status', '=', true)->where('id', $id)->get();
 
-
         } else {
             $products = Auth::user()->products()->where('status', '=', false)->where('id', $id)->get();
-
         }
 
         $arr = $products->toArray();

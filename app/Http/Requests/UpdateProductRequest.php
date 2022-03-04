@@ -32,7 +32,7 @@ class UpdateProductRequest extends FormRequest
             'description' => 'required',
             'body_type' => 'required',
             'rudder' => 'required',
-            'year_of_issue' => 'required|numeric',
+            'year_of_issue' => 'required',
             'transmission' => 'required|',
         ];
     }
@@ -50,7 +50,7 @@ class UpdateProductRequest extends FormRequest
             'body_type.required' => 'Поле тип кузова  обязательно.',
             'rudder.required' => 'Поле руль почты обязательно.',
             'year_of_issue.required' => 'Поле год выпуска обязательно.',
-            'year_of_issue.numeric' => 'Поле год выпуска должна быть цифры.',
+//            'year_of_issue.numeric' => 'Поле год выпуска должна быть цифры.',
             'transmission.required' => 'Поле коробка передач обязательно.',
         ];
     }

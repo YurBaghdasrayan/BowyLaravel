@@ -2,8 +2,6 @@
 @section('title')
     <title>Главная</title>
 @endsection
-{{--@dd($similar_product)--}}
-
 @section('content')
     <div class="bowy_mian_wrapper" id="logged_user_announcement_page">
         @include('includes_file.header')
@@ -12,13 +10,12 @@
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
                         @include('includes_file.user')
-                        <form action="{{route('announcement')}}" class="place_an_ad_form top" method="post"
+                        <form action="{{route('announcement')}}" class="top update_place_an_ad" method="post"
                               enctype="multipart/form-data">
                             @csrf
                             <div class="alert_none_succes alert-success-status">ваш продукт успешно обновлён</div>
                             <div class="announcement_second_item">
                                 <p class="announcement_second_item_title1">Объявление</p>
-                                {{--                            @dd($product)--}}
                                 @if(isset($products[0]) )
                                         <div class="announcement_second_item_titles_links_btns_wrapper">
                                             <div class="announcement_second_item_titles_wrapper">
@@ -43,7 +40,7 @@
                                                                    placeholder=" Напишите..." name="headline"
                                                                    onfocus="this.value=''">
                                                         </div>
-                                                        <i class="material-icons check_mark_icon">check mark</i>
+                                                        <i class="material-icons check_mark_icon">✔</i>
                                                     </div>
                                                 </div>
                                                 <div class="alert_none alert-danger-headline"></div>
@@ -68,7 +65,7 @@
                                                                    placeholder=" Напишите... " name="price"
                                                                    onfocus="this.value=''">
                                                         </div>
-                                                        <i class="material-icons check_mark_icon">check mark</i>
+                                                        <i class="material-icons check_mark_icon">✔</i>
                                                     </div>
                                                 </div>
                                                 <div class="alert_none alert-danger-price"></div>
@@ -162,26 +159,47 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="announcement_second_item_input_icon_wrapper">
-                                                    <div class="announcement_second_item_input_field_wrapper">
-                                                        <input type="text" class="announcement_second_item_input_field2"
-                                                               placeholder=" Напишите... " name="city"
-                                                               onfocus="this.value=''">
+                                                <div class="announcement_second_item_title_edit_btn_input_wrapper">
+                                                    <div class="announcement_second_item_title_edit_btn_wrapper">
+                                                        <p class="announcement_second_item_title"
+                                                           data-info="Аренда авто без залога">Адрес</p>
+                                                        <div class="announcement_edit_btn2">
+                                                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z"
+                                                                    fill="black"/>
+                                                            </svg>
+                                                        </div>
                                                     </div>
-
-                                                    <i class="material-icons check_mark_icon">check mark</i>
-
+                                                    <div class="announcement_second_item_input_icon_wrapper">
+                                                        <div class="announcement_second_item_input_field_wrapper">
+                                                            <input type="text"
+                                                                   class="announcement_second_item_input_field"
+                                                                   placeholder=" Напишите..." name="address"
+                                                                   onfocus="this.value=''">
+                                                        </div>
+                                                        <i class="material-icons check_mark_icon">✔</i>
+                                                    </div>
                                                 </div>
-                                                <p class="announcement_second_item_car_info_details_text"
-                                                   data-info="Лиговский проспект 11">City</p>
+{{--                                                <div class="announcement_second_item_input_icon_wrapper">--}}
+{{--                                                    <div class="announcement_second_item_input_field_wrapper">--}}
+{{--                                                        <input type="text" class="announcement_second_item_input_field2"--}}
+{{--                                                               placeholder=" Напишите... " name="city"--}}
+{{--                                                               onfocus="this.value=''">--}}
+{{--                                                    </div>--}}
+{{--                                                    <i class="material-icons check_mark_icon">check mark</i>--}}
+{{--                                                </div>--}}
+{{--                                                <p class="announcement_second_item_car_info_details_text"--}}
+{{--                                                   data-info="Лиговский проспект 11">City</p>--}}
                                             </div>
                                             <div class="alert_none alert-danger-city"></div>
                                         </div>
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Выберите область</p>
-                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
-                                                <div
-                                                    class="announcement_second_item_specifications_input_field_wrapper">
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper show_regions_data">
+                                                <div class="announcement_second_item_specifications_input_field_wrapper">
+
                                                     <select name="region" id="regionSelect">
                                                         @foreach($regions as $region)
                                                             <option value="{{$region->id}}" name="">{{$region->name}}</option>
@@ -190,21 +208,21 @@
                                                 </div>
 
                                             </div>
-                                            <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+                                            <p class="announcement_second_item_specifications_info " hidden data-info="Седан">Седан</p>
 
                                         </div>
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Выберите Город</p>
-                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper show_city_data">
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select name="city" id="citySelect">
-
+                                                        <option value="" name=""></option>
                                                     </select>
                                                 </div>
 
                                             </div>
-                                            <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+                                            <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
 
                                         </div>
                                         <div class="announcement_second_item_car_info_details">
@@ -212,7 +230,7 @@
                                                 <div class="announcement_second_item_title_edit_btn_wrapper">
                                                     <p class="announcement_second_item_car_info_details_title">
                                                         Описание</p>
-                                                    <div class="announcement_edit_btn3">
+                                                    <div class="announcement_edit_btn2">
                                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
                                                             <path
@@ -228,8 +246,7 @@
                                                                placeholder=" Напишите... " name="description"
                                                                onfocus="this.value=''">
                                                     </div>
-                                                    <i class="material-icons check_mark_icon">check mark</i>
-
+                                                    <i class="material-icons check_mark_icon">✔</i>
                                                 </div>
                                                 <p class="announcement_second_item_car_info_details_text"
                                                    data-info="Идейные соображения высшего порядка">Идейные соображения
@@ -274,7 +291,7 @@
                                         <div class="alert_none alert-danger-car_model"></div>
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Тип кузова:</p>
-                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper body_car">
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select name="body_type">
                                                         <option value="Седан">Седан</option>
@@ -282,15 +299,30 @@
                                                         <option value="Хэтчбэк">Хэтчбэк</option>
                                                         <option value="Купе">Купе</option>
                                                         <option value="Лимузин">Лимузин</option>
+                                                        <option value="Микроавтобус">Микроавтобус</option>
+                                                        <option value="Минивэн">Минивэн</option>
+                                                        <option value="Хардтоп">Хардтоп</option>
+                                                        <option value="Таун-кар">Таун-кар</option>
+                                                        <option value="Лифтбэк">Лифтбэк</option>
+                                                        <option value="Фастбэк">Фастбэк</option>
+                                                        <option value="Кабриолет">Кабриолет</option>
+                                                        <option value="Родстер">Родстер</option>
+                                                        <option value="Ландо">Ландо</option>
+                                                        <option value="Брогам">Брогам</option>
+                                                        <option value="Тарга">Тарга</option>
+                                                        <option value="Спайдер">Спайдер</option>
+                                                        <option value="Шутингбрейк">Шутингбрейк</option>
+                                                        <option value="Пикап">Пикап</option>
+                                                        <option value="Фургон">Фургон</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+                                            <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
 
                                         </div>
                                     <div class="announcement_second_item_specifications">
                                         <p class="announcement_second_item_specifications_title">Марка автомобиля</p>
-                                        <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                        <div class="announcement_second_item_specifications_input_icon_wrapper car_model">
                                             <div
                                                 class="announcement_second_item_specifications_input_field_wrapper">
                                                 <select name="car_model" id="test">
@@ -301,63 +333,52 @@
                                             </div>
 
                                         </div>
-                                        <p class="announcement_second_item_specifications_info" data-info="Седан">Седан</p>
+                                        <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
 
                                     </div>
                                         <div class="alert_none alert-danger-body_type"></div>
 
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Год выпуска:</p>
-                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
-
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper year_of_issue" >
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
-
-                                                    <select class="yearselect">
+                                                    <select class="yearselect" name="year_of_issue">
                                                         @for($i = 1900; $i <= \Carbon\Carbon::now()->year; $i++)
                                                             <option value="{{$i}}">{{ $i }}</option>
                                                         @endfor
                                                     </select>
-
                                                 </div>
-
                                             </div>
-                                            <p class="announcement_second_item_specifications_info" data-info="2021">2021</p>
+                                            <p class="announcement_second_item_specifications_info" data-info="2021" hidden>2021</p>
                                         </div>
                                         <div class="alert_none alert-danger-year_of_issue"></div>
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Коробка
                                                 передач:</p>
-                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper transmission">
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
-                                                    <select>
+                                                    <select name="transmission">
                                                         <option value="Автоматическая">Автоматическая</option>
                                                         <option value="Механическая">Механическая</option>
-
-
                                                     </select>
                                                 </div>
-
                                             </div>
-                                            <p class="announcement_second_item_specifications_info" data-info="Автоматическая">Автоматическая</p>
+                                            <p class="announcement_second_item_specifications_info" hidden data-info="Автоматическая">Автоматическая</p>
                                         </div>
                                         <div class="alert_none alert-danger-transmission"></div>
-
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Руль:</p>
-                                            <div class="announcement_second_item_specifications_input_icon_wrapper">
+                                            <div class="announcement_second_item_specifications_input_icon_wrapper rudder" >
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
-                                                   <select>
+                                                   <select name="rudder">
                                                         <option value="Левый">Левый</option>
                                                         <option value="Правый">Правый</option>
-
                                                     </select>
-
                                                 </div>
-
                                             </div>
-                                            <p class="announcement_second_item_specifications_info" data-info="Левый">Левый</p>
+                                            <p class="announcement_second_item_specifications_info" hidden data-info="Левый">Левый</p>
                                         </div>
                                         <div class="alert_none alert-danger-body_type"></div>
                                     </div>
@@ -368,9 +389,7 @@
                                         @if($similar_product != "")
                                             @foreach($similar_product as $product)
                                                 <div class="similar_ads_items_wrapper">
-
                                                     <div class="similar_ads_item_child">
-
                                                         <a href="" class="similar_ads_item_child_link">
                                                             <div class="similar_ads_item_child_link_img1">
                                                                 <img
@@ -400,7 +419,6 @@
                                                                             d="M6.366 7.682C7.30434 9.33048 8.66952 10.6957 10.318 11.634L11.202 10.396C11.3442 10.1969 11.5543 10.0569 11.7928 10.0023C12.0313 9.94779 12.2814 9.98254 12.496 10.1C13.9103 10.8729 15.4722 11.3378 17.079 11.464C17.3298 11.4839 17.5638 11.5975 17.7345 11.7823C17.9052 11.9671 18 12.2094 18 12.461V16.923C18.0001 17.1706 17.9083 17.4094 17.7424 17.5932C17.5765 17.777 17.3483 17.8927 17.102 17.918C16.572 17.973 16.038 18 15.5 18C6.94 18 0 11.06 0 2.5C0 1.962 0.027 1.428 0.082 0.898C0.107255 0.651697 0.222984 0.423521 0.40679 0.257634C0.590595 0.0917472 0.829406 -5.33578e-05 1.077 2.32673e-08H5.539C5.79056 -3.15185e-05 6.0329 0.0947515 6.21768 0.265451C6.40247 0.43615 6.51613 0.670224 6.536 0.921C6.66222 2.52779 7.12708 4.08968 7.9 5.504C8.01746 5.71856 8.05221 5.96874 7.99767 6.2072C7.94312 6.44565 7.80306 6.65584 7.604 6.798L6.366 7.682ZM3.844 7.025L5.744 5.668C5.20478 4.50409 4.83535 3.26884 4.647 2H2.01C2.004 2.166 2.001 2.333 2.001 2.5C2 9.956 8.044 16 15.5 16C15.667 16 15.834 15.997 16 15.99V13.353C14.7312 13.1646 13.4959 12.7952 12.332 12.256L10.975 14.156C10.4287 13.9437 9.89801 13.6931 9.387 13.406L9.329 13.373C7.36758 12.2567 5.74328 10.6324 4.627 8.671L4.594 8.613C4.30691 8.10199 4.05628 7.57134 3.844 7.025Z"
                                                                             fill="white"/>
                                                                     </svg>
-
                                                                 </a>
                                                                 <a href="mailto:"
                                                                    class="similar_ads_items_child_message_btn">
@@ -415,20 +433,18 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                             @endforeach
-
-                                                </div>
+                                            </div>
                                         @endif
                                         @endif
                                     </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
-
+        </div>
     </section>
     </main>
     @include('includes_file.footer')

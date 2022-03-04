@@ -4792,3 +4792,9 @@ select {
     outline: none;
     cursor: pointer;
 }
+
+.update_place_an_ad{
+    width: 100%;
+    max-width: 739px;
+    background: unset!important;
+}

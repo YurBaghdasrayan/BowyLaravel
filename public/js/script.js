@@ -46,91 +46,118 @@ $(document).on("click", ".find_transport_form_select_title_wrapper", function ()
         $(this).parent().find(".find_transport_form_select_hidden_wrapper").addClass("open");
     }
 });
-// function getCityBySelect(region_id) {
-//     return new Promise((resolve, reject) => {
-//         $.ajaxSetup({
-//             headers: {
-//                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//             }
-//         });
-//
-//         $.ajax({
-//             url: "/getCityByRegionId",
-//             type: 'post',
-//             cache: false,
-//             data: {'region_data':region_id},
-//             success: function (response) {
-//                 resolve(response)
-//             },
-//             error: function (err) {
-//                 reject(err)
-//             }
-//         })
-//     })
-// }
-// $("#regionSelect").on("change", function (val) {
-//     getCityBySelect($(this).val()).then(res => {
-//         $("#citySelect").html('')
-//         res.forEach(elem => {
-//             $("#citySelect").append(`<option value="${elem.id}" >${elem.name}<option>`)
-//         })
-//     })
-// })
-// $(document).on("click", ".find_transport_form_select_hidden_info", function () {
-//     var datainfo = $(this).data("info");
-//     var category_id = $(this).data("id");
-//     $(this).parent().parent().find(".hidden_category_data").val(category_id);
-//     $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
-//     $(".find_transport_form_select_hidden_wrapper").removeClass("open");
-//     //console.log(category_id);
-//     var region_data_val = $('#region_input').val();
-//     getCityBySelect(region_data_val)
-//         .then(res => {
-//             res.forEach(function (val){
-//                 $('#divCity').append('<p class="find_transport_form_select_hidden_info" data-id='+val.id+' data-info='+val.name+'>'+val.name+'</p>')
-//             })
-//     }).catch(err => {
-//         console.log(err)
-//     })
-// })
-$(document).on("click", ".find_transport_form_select_hidden_info", function () {
-    var datainfo = $(this).data("info");
-    var category_id = $(this).data("id");
-    $(this).parent().parent().find(".hidden_category_data").val(category_id);
-    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
-    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
-    //console.log(category_id);
-    var token = $('meta[name="csrf-token"]').attr('content');
-    var region_data_val = $('#region_input').val();
+function getCityBySelect(region_id) {
+    return new Promise((resolve, reject) => {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
+        $.ajax({
+            url: "/getCityByRegionId",
+            type: 'post',
+            cache: false,
+            data: {'region_data':region_id},
+            success: function (response) {
+                resolve(response)
+            },
+            error: function (err) {
+                reject(err)
+            }
+        })
+    })
+}
+$("#regionSelect").on("change", function () {
+    $('.show_city_data').css('display', 'block');
+   var region_id = $(this).val();
+   var token = $('meta[name="csrf-token"]').attr('content');
 
-    //console.log(data._token);
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
 
     $.ajax({
         url: "/getCityByRegionId",
         type: 'post',
         cache: false,
-        data: {'_token': token, 'region_data':region_data_val},
+        data: {'_token': token, 'region_data': region_id},
         success: function (response) {
-            console.log('sax lava');
             $('#divCity').html('');
-            response.forEach(function (val){
-                $('#divCity').append('<p class="find_transport_form_select_hidden_info" data-id='+val.id+' data-info='+val.name+'>'+val.name+'</p>')
+            response.city_data.forEach(function (val) {
+                $('#citySelect').append('<option value=' + val.id + '>' + val.name + '</option>')
             })
-            //
         },
         error: function (err) {
             console.log(err);
         }
     })
 
+
+})
+$(document).on("click", ".add_city_data", function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+
+})
+$(document).on("click", ".add_category_data", function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+
+})
+$(document).on("click", ".add_cars_models_data", function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+
+})
+$(document).on("click", ".add_rudder_data", function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+
+})
+$(document).on("click", ".add_transmission_data", function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+
 })
 
+$(document).on("click", ".set_city_data", function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var region_data_val = $('#region_input').val();
+
+    $.ajax({
+        url: "/getCityByRegionId",
+        type: 'post',
+        cache: false,
+        data: {'_token': token, 'region_data': region_data_val},
+        success: function (response) {
+            $('#divCity').html('');
+            response.city_data.forEach(function (val) {
+                $('#divCity').append('<p class="find_transport_form_select_hidden_info add_city_data" data-id=' + val.id + ' data-info=' + val.name + '>' + val.name + '</p>')
+            })
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+})
 
 
 $(document).on("click", ".sort_btn", function () {
@@ -292,14 +319,28 @@ $(document).on("click", ".check_mark_icon", function () {
     $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find(".announcement_second_item_title").data('info', val2);
 })
 
-
 $(document).on("click", ".announcement_edit_btn3", function () {
 
-    let val3 = $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_car_info_details_text').data('info');
-    $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_car_info_details_text').hide();
-    $(this).closest(".announcement_second_item_title_edit_btn_input_wrapper").find('.announcement_second_item_input_icon_wrapper').addClass("open").find('.announcement_second_item_input_field2').val(val3);
+    $(".show_regions_data").show();
+    // var element = $('.announcement_second_item_specifications_info');
+    //
+    // element.each(function () {
+    //
+    //     let val4 = $(this).data('info')
+    //
+    //     console.log($(this).data('info'))
+    //
+    //     $(this).hide();
+    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').show()
+    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').find('select').val(val4)
+    // })
+    //
+    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
+    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
 
 })
+
+
 
 
 $(document).on("click", ".check_mark_icon", function () {
@@ -312,32 +353,37 @@ $(document).on("click", ".check_mark_icon", function () {
 })
 
 
-$(document).on("click", ".announcement_edit_btn4", function(){
+$(document).on("click", ".announcement_edit_btn4", function () {
 
-    var element = $('.announcement_second_item_specifications_info');
+    $(".body_car").show();
+    $(".car_model").show();
+    $(".year_of_issue").show();
+    $(".transmission").show();
+    $(".rudder").show();
+    // var element = $('.announcement_second_item_specifications_info');
 
-    element.each(function(){
-
-        let val4 = $(this).data('info')
-
-        console.log($(this).data('info'))
-
-        $(this).hide();
-        $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').show()
-        $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').find('select').val(val4)
-    })
-
-    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
-    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
+    // element.each(function () {
+    //
+    //     let val4 = $(this).data('info')
+    //
+    //     console.log($(this).data('info'))
+    //
+    //     $(this).hide();
+    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').show()
+    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').find('select').val(val4)
+    // })
+    //
+    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
+    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
 
 })
 
-$(document).on("click", ".check_mark_icon", function() {
+$(document).on("click", ".check_mark_icon", function () {
     let val5 = $(this).closest(".announcement_second_item_specifications_wrapper").find(".announcement_second_item_specification_input_field2").val();
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').show();
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').html(val5);
     $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').removeClass("open");
-    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info',val5);
+    $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').data('info', val5);
 })
 
 $("#button").click(function () {
@@ -362,7 +408,7 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
     var price = $('input[name="price"]', this);
     var price_val = price.val();
 
-    var address = $('input[name="address"]',this)
+    var address = $('input[name="address"]', this)
     var address_val = address.val();
 
     var car_model = $('input[name="car_model"]', this);
@@ -461,8 +507,8 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
     formData.append('year_of_issue', (year_of_issue_val));
     formData.append('transmission', transmission_val);
     formData.append('category_id', category_id);
-    // formData.append('image', image[0].files[0]);
-    formData.append('address',address_val);
+    formData.append('image', image[0].files[0]);
+    formData.append('address', address_val);
 
     $.ajaxSetup({
         headers: {
@@ -581,7 +627,7 @@ $(document).on("click", ".remove-favourite", function () {
         }
     })
 })
-$(document).on("submit", ".update", function (event) {
+$(document).on("submit", ".update_place_an_ad", function (event) {
     event.preventDefault();
 
     var token = $('meta[name="csrf-token"]').attr('content');
@@ -592,29 +638,35 @@ $(document).on("submit", ".update", function (event) {
     var price = $('input[name="price"]', this);
     var price_val = price.val();
 
-    var car_model = $('input[name="car_model"]', this);
+    var city = $('select[name="city"]',this)
+    var city_val = city.val;
+
+    var region = $('select[name="region"]',this)
+    var region_val = region.val;
+
+    var car_model = $('select[name="car_model"]', this);
     var car_model_val = car_model.val();
 
     var description = $('input[name="description"]', this);
     var description_val = description.val();
 
-    var body_type = $('input[name="body_type"]', this);
+    var body_type = $('select[name="body_type"]', this);
     var body_type_val = body_type.val();
 
-    var rudder = $('input[name="rudder"]', this);
+    var rudder = $('select[name="rudder"]', this);
     var rudder_val = rudder.val();
-    console.log(rudder_val)
 
-    var year_of_issue = $('input[name="year_of_issue"]', this);
+    var year_of_issue = $('select[name="year_of_issue"]', this);
     var year_of_issue_val = year_of_issue.val();
 
-    var transmission = $('input[name="transmission"]', this);
+    var transmission = $('select[name="transmission"]', this);
     var transmission_val = transmission.val();
 
     let product_id = $('input[name="product_id"]', this);
     let product_id_val = product_id.val();
 
-
+    let address = $('input[name="address"]', this);
+    let address_val = address.val();
 
     let formData = new FormData();
 
@@ -626,13 +678,14 @@ $(document).on("submit", ".update", function (event) {
     formData.append('rudder', rudder_val);
     formData.append('year_of_issue', year_of_issue_val);
     formData.append('transmission', transmission_val);
-    formData.append('product_id',product_id_val);
-    formData.append('_token',token);
+    formData.append('product_id', product_id_val);
+    formData.append('_token', token);
+    formData.append('address', address);
 
     $.ajax({
         url: "announcement_update",
         type: 'POST',
-        data:formData,
+        data: formData,
         cache: false,
         processData: false,
         contentType: false,
@@ -642,11 +695,11 @@ $(document).on("submit", ".update", function (event) {
             if (data.success) {
                 $('.alert-success-status').css('display', 'block');
                 setTimeout(function () {
-                    alert_succes.css("border","1px solid #0086CF");
+                    alert_succes.css("border", "1px solid #0086CF");
                 }, 3000)
             }
-                $('.alert-success-status').text(data.responseJSON.success([0]));
-            },
+            $('.alert-success-status').text(data.responseJSON.success([0]));
+        },
         error: function (error) {
             $('.alert-danger-headline').css('display', 'none');
             $('.alert-danger-price').css('display', 'none');

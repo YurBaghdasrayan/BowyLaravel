@@ -14,7 +14,7 @@
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Заголовок объявления" class="place_an_ad_form_input_field" name="headline">
+                                        <input type="text" placeholder="Заголовок объявления" class="place_an_ad_form_input_field" name="headline" value="">
                                             <div class="alert_none alert-danger-headline" ></div>
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper price_input_field">
@@ -32,7 +32,7 @@
 
                                         <div class="find_transport_form_select_hidden_wrapper">
                                             @foreach($categories as $category)
-                                               <p class="find_transport_form_select_hidden_info" data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
+                                               <p class="find_transport_form_select_hidden_info add_category_data" data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
                                             @endforeach
                                         </div>
                                     </div>
@@ -49,15 +49,14 @@
                                                 <p class="find_transport_form_select_title">Выберите город</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper" id="divCity">
-                                                @foreach($cities as $val)
-                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>
-                                                @endforeach
-
+                                                <p class="find_transport_form_select_hidden_info" >Выберите область</p>
+{{--                                                @foreach($cities as $val)--}}
+{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>--}}
+{{--                                                @endforeach--}}
                                             </div>
                                             <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>
                                         </div>
                                     </div>
-
                                     <div class="place_an_ad_form_inputs_first_wrapper">
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
@@ -66,7 +65,7 @@
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
                                                 @foreach($regions as $val)
-                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>
+                                                    <p class="find_transport_form_select_hidden_info set_city_data" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>
                                                 @endforeach
                                             </div>
                                         </div>
@@ -90,7 +89,7 @@
                                         </div>
                                         <div class="find_transport_form_select_hidden_wrapper">
                                             @foreach($cars_models as $cars_model)
-                                                <p class="find_transport_form_select_hidden_info" data-id="{{$cars_model->id}}" data-info="{{$cars_model->name}}">{{$cars_model->name}}</p>
+                                                <p class="find_transport_form_select_hidden_info add_cars_models_data" data-id="{{$cars_model->id}}" data-info="{{$cars_model->name}}">{{$cars_model->name}}</p>
                                             @endforeach
                                         </div>
 {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
@@ -112,11 +111,11 @@
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
                                                 <input type="hidden" class="hidden_category_data" name="rudder" value="">
-                                                <p class="find_transport_form_select_title" >Руль</p>
+                                                <p class="find_transport_form_select_title " >Руль</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
-                                                <p class="find_transport_form_select_hidden_info" data-id="left" data-info="left">left</p>
-                                                <p class="find_transport_form_select_hidden_info" data-id="right" data-info="right">right</p>
+                                                <p class="find_transport_form_select_hidden_info add_rudder_data" data-id="left" data-info="Левый">Левый</p>
+                                                <p class="find_transport_form_select_hidden_info add_rudder_data" data-id="right" data-info="Правый">Правый</p>
                                             </div>
                                             {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                         </div>
@@ -137,8 +136,8 @@
                                             <p class="find_transport_form_select_title">Коробка передач</p>
                                         </div>
                                         <div class="find_transport_form_select_hidden_wrapper">
-                                            <p class="find_transport_form_select_hidden_info" data-id="auto" data-info="auto">auto</p>
-                                            <p class="find_transport_form_select_hidden_info" data-id="manual" data-info="manual">manual</p>
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="auto" data-info="Автоматическая">Автоматическая</p>
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="manual" data-info="Механическая">Механическая</p>
                                         </div>
 {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                     </div>

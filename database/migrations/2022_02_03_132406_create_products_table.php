@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('body_type');
             $table->string('rudder');
-            $table->unsignedBigInteger('year_of_issue');
+            $table->string('year_of_issue');
             $table->string('transmission');
             $table->string('image');
             $table->integer('category_id');
