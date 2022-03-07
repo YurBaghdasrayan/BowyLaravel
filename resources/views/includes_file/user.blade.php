@@ -24,9 +24,9 @@
         </a>
         <a href="{{route('favourites')}}" class="active_inactive_ads_favourites_link active {{ Request::path() == 'favourites' ? 'active' : '' }}">
             <div class="active_inactive_ads_favourites_link_icon1">
-                    <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11 16.7383L4.53475 20.3573L5.9785 13.09L0.538086 8.05933L7.89617 7.18667L11 0.458333L14.1038 7.18667L21.4619 8.05933L16.0215 13.09L17.4653 20.3573L11 16.7383Z" fill="#FFD708"/>
-                    </svg>
+                <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11 16.7383L4.53475 20.3573L5.9785 13.09L0.538086 8.05933L7.89617 7.18667L11 0.458333L14.1038 7.18667L21.4619 8.05933L16.0215 13.09L17.4653 20.3573L11 16.7383Z" fill="#FFD708"/>
+                </svg>
             </div>
         </a>
         <a href="" class="active_inactive_ads_first_link">

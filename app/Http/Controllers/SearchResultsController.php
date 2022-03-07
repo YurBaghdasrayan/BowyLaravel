@@ -10,12 +10,35 @@ class SearchResultsController extends Controller
 {
     public function index(Request $request)
     {
-        $search_results = Product::where([
+        $sql = array(
             'category_id' => $request->category,
-            'city' => $request->city,
-            'region' => $request->region
-        ])->get();
+        );
 
-        return view('search-results', compact('search_results',));
+        if ($request->region) {
+            $sql = array(
+                'category_id' => $request->category,
+                'region' => $request->region,
+            );
+        }
+
+        if ($request->city) {
+            $sql = array(
+                'category_id' => $request->category,
+                'region' => $request->region,
+                'city' => $request->city,
+            );
+        }
+        $search_results = Product::where($sql)->get();
+
+        return view('search-results', compact('search_results'));
     }
+
+    public function getCategories($id)
+    {
+
+        $search_results = Product::where('category_id',$id)->get();
+
+        return view('search-results', compact('search_results'));
+    }
+
 }

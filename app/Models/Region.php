@@ -13,6 +13,6 @@ class Region extends Model
 
     public function cities()
     {
-        return $this->hasMany(Region::class);
+        return $this->hasMany(Product::class, 'city');
     }
 }

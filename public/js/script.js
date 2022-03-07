@@ -34,6 +34,61 @@ $(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete
     })
 })
 
+$(document).on("click",".add_category_data",function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+})
+
+$(document).on("click",".add_region_data",function () {
+    var datainfo = $(this).data("info");
+    var category_id = $(this).data("id");
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+    var token = $('meta[name="csrf-token"]').attr('content');
+    var region_data_val = $('#region_input').val();
+
+    $.ajax({
+        url: "/getCityByRegionId",
+        type: 'post',
+        cache: false,
+        data: {'_token': token, 'region_data': region_data_val},
+        success: function (response) {
+            $('#divCity').html('');
+            response.city_data.forEach(function (val) {
+                $('#divCity').append('<p class="find_transport_form_select_hidden_info add_region_data" data-id=' + val.id + ' data-info=' + val.name + '>' + val.name + '</p>')
+            })
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    })
+})
+
+$(document).on("click",".find_transport_form_btn",function () {
+
+    var thisis = $(this);
+    var category_data = thisis.parent().children().find(".check_search_category");
+    var category_data_val = category_data.val();
+
+    var valid = true;
+
+    if (category_data_val.length < 1){
+        valid = false;
+        category_data.parent().css("border","1px solid red");
+    }
+
+    if (!valid) {
+        return false;
+    }
+
+    thisis.parent().submit();
+
+})
+
 $(document).on("click", ".find_transport_form_select_title_wrapper", function () {
     var thisis = $(this);
     if (thisis.parent().find(".find_transport_form_select_hidden_wrapper").hasClass("open")) {
@@ -53,7 +108,6 @@ function getCityBySelect(region_id) {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
         $.ajax({
             url: "/getCityByRegionId",
             type: 'post',
@@ -158,7 +212,6 @@ $(document).on("click", ".set_city_data", function () {
         }
     })
 })
-
 
 $(document).on("click", ".sort_btn", function () {
 
@@ -777,26 +830,6 @@ $(document).on("click", ".announcement_second_item_delete_btn", function () {
     })
 })
 
-// $(document).on("click", ".remove-favourite", function () {
-//
-//     var thisis = $(this);
-//
-//     $.ajax({
-//         url: `/products/${$(this).data('id')}`,
-//         type: 'GET',
-//         cache: false,
-//         processData: false,
-//         contentType: false,
-//         success: function (response) {
-//             if (response.success) {
-//                 thisis.parent().parent().parent().hide();
-//             }
-//         },
-//         error: function (err) {
-//
-//         }
-//     })
-// })
 $(document).on("click", ".remove-favourites", function () {
 
     var thisis = $(this);
@@ -816,8 +849,4 @@ $(document).on("click", ".remove-favourites", function () {
     })
 })
 
-// let inp1 = document.getElementById('region_input');
-// inp1.addEventListener('click',function (){
-//     console.log('okok');
-// })
 

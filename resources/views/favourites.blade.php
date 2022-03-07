@@ -26,10 +26,10 @@
                             </a>
 
                             <div class="favourites_item_child_info_box">
-                                <h1 class="favourites_item_child_title">Аренда авто без залога</h1>
+                                <h1 class="favourites_item_child_title">{{$product->headline}}</h1>
                                 <h1 class="favourites_item_child_price">{{$product->price}} </h1>
-                                <p class="favourites_child_info1">{{$product->region}}</p>
-                                <p class="favourites_item_child_info2">{{$product->headline}} </p>
+                                <p class="favourites_child_info1">{{$product->address}}</p>
+                                <p class="favourites_item_child_info2">{{$product->description}} </p>
                             </div>
                         </div>
                         @endforeach

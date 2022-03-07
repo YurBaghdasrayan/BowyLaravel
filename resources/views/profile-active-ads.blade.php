@@ -46,10 +46,10 @@
                                                <p class="inactive_title">Неактивно </p>
                                            </a>
                                            <div class="active_inactive_ads_second_item_child_info_box">
-                                               <h1 class="active_inactive_ads_second_item_child_title">Аренда авто без залога wewe</h1>
+                                               <h1 class="active_inactive_ads_second_item_child_title">{{$product->headline}}</h1>
                                                <h1 class="active_inactive_ads_second_item_child_price">{{$product->price}}</h1>
-                                               <p class="active_inactive_ads_second_item_child_info1">{{$product->city}}</p>
-                                               <p class="active_inactive_ads_second_item_child_info2">{{$product->headline}}</p>
+                                               <p class="active_inactive_ads_second_item_child_info1">{{$product->address}}</p>
+                                               <p class="active_inactive_ads_second_item_child_info2">{{$product->description}}</p>
                                                <div class="active_inactive_ads_second_item_child_edit_link_delete_btns_wrapper">
                                                    <a href="/announcement/activ/{{$product->id}}" class="active_inactive_ads_second_item_child_edit_link">
                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,10 +88,10 @@
                                                <p class="inactive_title">Неактивно</p>
                                            </a>
                                            <div class="active_inactive_ads_second_item_child_info_box">
-                                               <h1 class="active_inactive_ads_second_item_child_title">Аренда авто без залога</h1>
+                                               <h1 class="active_inactive_ads_second_item_child_title">{{$product->headline}}</h1>
                                                <h1 class="active_inactive_ads_second_item_child_price">{{$product->price}}</h1>
-                                               <p class="active_inactive_ads_second_item_child_info1">{{$product->city}}</p>
-                                               <p class="active_inactive_ads_second_item_child_info2">{{$product->headline}}</p>
+                                               <p class="active_inactive_ads_second_item_child_info1">{{$product->address}}</p>
+                                               <p class="active_inactive_ads_second_item_child_info2">{{$product->description}}</p>
                                                <div class="active_inactive_ads_second_item_child_edit_link_delete_btns_wrapper">
                                                    <a href="/announcement/noactiv/{{$product->id}}" class="active_inactive_ads_second_item_child_edit_link">
                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -126,10 +126,10 @@
                                            <p class="inactive_title">Неактивно</p>
                                        </a>
                                        <div class="active_inactive_ads_second_item_child_info_box">
-                                           <h1 class="active_inactive_ads_second_item_child_title">Аренда авто без залога</h1>
+                                           <h1 class="active_inactive_ads_second_item_child_title">{{$product->headline}}</h1>
                                            <h1 class="active_inactive_ads_second_item_child_price">{{$product->price}}</h1>
-                                           <p class="active_inactive_ads_second_item_child_info1">{{$product->city}}</p>
-                                           <p class="active_inactive_ads_second_item_child_info2">{{$product->headline}} </p>
+                                           <p class="active_inactive_ads_second_item_child_info1">{{$product->address}}</p>
+                                           <p class="active_inactive_ads_second_item_child_info2">{{$product->description}} </p>
                                            <div class="active_inactive_ads_second_item_child_edit_link_delete_btns_wrapper">
                                                <a href="" class="active_inactive_ads_second_item_child_edit_link">
                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

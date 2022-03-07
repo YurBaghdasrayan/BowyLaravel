@@ -80,7 +80,6 @@ Route::middleware(['auth'])->group(function () {
 
     });
 
-
         /*MIDDLEWARE GET METHODS*/
 
         Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
@@ -101,6 +100,7 @@ Route::middleware(['admin'])->group(function () {
 
 Route::post('/getCityByRegionId',[RegionController::class,'getCityByRegionId'])->name('getCityByRegionId');
 Route::get('/search-results',[SearchResultsController::class,'index'])->name('search.results');
+Route::get('/search-results/{id?}',[SearchResultsController::class,'getCategories'])->name('search.results');
 
 
 

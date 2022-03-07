@@ -60,13 +60,11 @@
                 .add(myPlacemarkWithContent);
         });
     </script>
-
 @endsection
 @section('content')
 <div class="bowy_mian_wrapper">
     @include('includes_file.header')
     <main>
-{{--        @dd($regions)--}}
         <section class="top">
             <div class="top_wrapper">
                 <h1 class="top_title"> <span>BOWY</span>  аренда всех видов транспорта</h1>
@@ -74,13 +72,13 @@
                 <form action="{{route('search.results')}}" method="get" class="find_transport_form">
                     <div class="find_transport_form_select_wrapper">
                         <div class="find_transport_form_select_title_wrapper">
-                            <input type="hidden" class="hidden_category_data" name="category" value="">
+                            <input type="hidden" class="hidden_category_data check_search_category" name="category" value="">
                             <p class="find_transport_form_select_title">Выберите категорию</p>
                         </div>
 
                         <div class="find_transport_form_select_hidden_wrapper">
                             @foreach($categories as $category)
-                            <p class="find_transport_form_select_hidden_info"  data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
+                            <p class="find_transport_form_select_hidden_info add_category_data"  data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
                             @endforeach
                         </div>
                     </div>
@@ -91,7 +89,7 @@
                         </div>
                         <div class="find_transport_form_select_hidden_wrapper">
                             @foreach($regions as $region)
-                            <p class="find_transport_form_select_hidden_info" data-id="{{$region->id}}" data-info="{{$region->name}}">{{$region->name}}</p>
+                            <p class="find_transport_form_select_hidden_info add_region_data" data-id="{{$region->id}}" data-info="{{$region->name}}">{{$region->name}}</p>
                             @endforeach
                         </div>
                     </div>
@@ -103,11 +101,10 @@
                         <div class="find_transport_form_select_hidden_wrapper" id="divCity">
                             @foreach($cities as $city)
                             <p class="find_transport_form_select_hidden_info" data-id="{{$city->id}}" data-info="{{$city->name}}">{{$city->name}}</p>
-
                             @endforeach
                         </div>
                     </div>
-                    <button type="submit" class="find_transport_form_btn">Найти транспорт</button>
+                    <button type="button" class="find_transport_form_btn">Найти транспорт</button>
                 </form>
             </div>
         </section>
@@ -121,18 +118,15 @@
                         </svg>
                     </a>
                 </div>
-
-
                 <div class="types_of_transport_links_wrapper">
                     @foreach($categories as $category )
-                        <a href="" class="types_of_transport_link">
+                        <a href="{{asset(route('search.results',$category->id))}}" class="types_of_transport_link">
                             <div class="types_of_transport_link_img">
                                 <img src="{{asset('images/'.$category->image)}}" alt="">
                             </div>
                             <div class="types_of_transport_link_info_parent">
                                 <span class="types_of_transport_link_info">{{$category->name}}</span>
                             </div>
-
                         </a>
                     @endforeach
 {{--                    <a href="" class="types_of_transport_link">--}}
@@ -253,10 +247,10 @@
                                    @endif
                                 @endif
                                 <div class="recent_announcements_item_child_info_box">
-                                    <h1 class="recent_announcements_item_child_title">Аренда авто без залога</h1>
+                                    <h1 class="recent_announcements_item_child_title">{{$products->headline}}</h1>
                                     <h1 class="recent_announcements_item_child_price">{{$products->price}} </h1>
-                                    <p class="recent_announcements_item_child_info1">{{$products->region}}</p>
-                                    <p class="recent_announcements_item_child_info2">{{$products->region}} </p>
+                                    <p class="recent_announcements_item_child_info1">{{$products->address}}</p>
+                                    <p class="recent_announcements_item_child_info2">{{$products->description}} </p>
                                     <div class="recent_announcements_items_child_call_message_btns_wrapper">
                                         <button class="recent_announcements_items_child_call_btn">
                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

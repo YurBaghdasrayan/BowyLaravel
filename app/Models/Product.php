@@ -27,4 +27,9 @@ class Product extends Model
         return $this->hasMany(Favourites::class, 'product_id');
     }
 
+    public function Region()
+    {
+        return $this->belongsTo(Region::class, 'city');
+    }
+
 }

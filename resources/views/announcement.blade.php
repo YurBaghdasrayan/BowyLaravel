@@ -156,7 +156,6 @@
                                                                 d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z"
                                                                 fill="black"/>
                                                         </svg>
-
                                                     </div>
                                                 </div>
                                                 <div class="announcement_second_item_title_edit_btn_input_wrapper">
@@ -199,14 +198,12 @@
                                             <p class="announcement_second_item_specifications_title">Выберите область</p>
                                             <div class="announcement_second_item_specifications_input_icon_wrapper show_regions_data">
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
-
                                                     <select name="region" id="regionSelect">
                                                         @foreach($regions as $region)
                                                             <option value="{{$region->id}}" name="">{{$region->name}}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-
                                             </div>
                                             <p class="announcement_second_item_specifications_info " hidden data-info="Седан">Седан</p>
 
@@ -285,8 +282,6 @@
 {{--                                                <i class="material-icons check_mark_icon">check mark</i>--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
-
-
                                         </div>
                                         <div class="alert_none alert-danger-car_model"></div>
                                         <div class="announcement_second_item_specifications">
@@ -294,29 +289,30 @@
                                             <div class="announcement_second_item_specifications_input_icon_wrapper body_car">
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select name="body_type">
-                                                        <option value="Седан">Седан</option>
-                                                        <option value="Универсал">Универсал</option>
-                                                        <option value="Хэтчбэк">Хэтчбэк</option>
-                                                        <option value="Купе">Купе</option>
-                                                        <option value="Лимузин">Лимузин</option>
-                                                        <option value="Микроавтобус">Микроавтобус</option>
-                                                        <option value="Минивэн">Минивэн</option>
-                                                        <option value="Хардтоп">Хардтоп</option>
-                                                        <option value="Таун-кар">Таун-кар</option>
-                                                        <option value="Лифтбэк">Лифтбэк</option>
-                                                        <option value="Фастбэк">Фастбэк</option>
-                                                        <option value="Кабриолет">Кабриолет</option>
-                                                        <option value="Родстер">Родстер</option>
-                                                        <option value="Ландо">Ландо</option>
-                                                        <option value="Брогам">Брогам</option>
-                                                        <option value="Тарга">Тарга</option>
-                                                        <option value="Спайдер">Спайдер</option>
-                                                        <option value="Шутингбрейк">Шутингбрейк</option>
-                                                        <option value="Пикап">Пикап</option>
-                                                        <option value="Фургон">Фургон</option>
+                                                        <option name="body_type" value="Седан">Седан</option>
+                                                        <option name="body_type" value="Универсал">Универсал</option>
+                                                        <option name="body_type" value="Хэтчбэк">Хэтчбэк</option>
+                                                        <option name="body_type" value="Купе">Купе</option>
+                                                        <option name="body_type" value="Лимузин">Лимузин</option>
+                                                        <option name="body_type" value="Микроавтобус">Микроавтобус</option>
+                                                        <option name="body_type" value="Минивэн">Минивэн</option>
+                                                        <option name="body_type" value="Хардтоп">Хардтоп</option>
+                                                        <option name="body_type" value="Таун-кар">Таун-кар</option>
+                                                        <option name="body_type" value="Лифтбэк">Лифтбэк</option>
+                                                        <option name="body_type" value="Фастбэк">Фастбэк</option>
+                                                        <option name="body_type" value="Кабриолет">Кабриолет</option>
+                                                        <option name="body_type" value="Родстер">Родстер</option>
+                                                        <option name="body_type" value="Ландо">Ландо</option>
+                                                        <option name="body_type" value="Брогам">Брогам</option>
+                                                        <option name="body_type" value="Тарга">Тарга</option>
+                                                        <option name="body_type" value="Спайдер">Спайдер</option>
+                                                        <option name="body_type" value="Шутингбрейк">Шутингбрейк</option>
+                                                        <option name="body_type" value="Пикап">Пикап</option>
+                                                        <option name="body_type" value="Фургон">Фургон</option>
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="alert_none alert-danger-body_type"></div>
                                             <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
 
                                         </div>
@@ -331,10 +327,8 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-
                                         </div>
                                         <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
-
                                     </div>
                                         <div class="alert_none alert-danger-body_type"></div>
 
@@ -406,10 +400,10 @@
                                                             </div>
                                                         </a>
                                                         <div class="similar_ads_item_child_info_box">
-                                                            <h1 class="similar_ads_item_child_title">{{$product->car_model}}</h1>
+                                                            <h1 class="similar_ads_item_child_title">{{$product->headline}}</h1>
                                                             <h1 class="similar_ads_item_child_price">{{$product->price}}</h1>
-                                                            <p class="similar_ads_item_child_info1">{{$product->city}}</p>
-                                                            <p class="similar_ads_item_child_info2">{{$product->headline}}</p>
+                                                            <p class="similar_ads_item_child_info1">{{$product->address}}</p>
+                                                            <p class="similar_ads_item_child_info2">{{$product->description}}</p>
                                                             <div
                                                                 class="similar_ads_items_child_call_message_btns_wrapper">
                                                                 <a href="tel:" class="similar_ads_items_child_call_btn">
