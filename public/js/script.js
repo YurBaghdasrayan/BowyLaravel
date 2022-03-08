@@ -42,6 +42,14 @@ $(document).on("click",".add_category_data",function () {
     $(".find_transport_form_select_hidden_wrapper").removeClass("open");
 })
 
+$(document).on("click",".add_body_type",function () {
+    var datainfo = $(this).data("info");
+
+    $(this).parent().parent().find(".hidden_category_data").val(datainfo);
+    $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
+    $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+})
+
 $(document).on("click",".add_region_data",function () {
     var datainfo = $(this).data("info");
     var category_id = $(this).data("id");
@@ -123,7 +131,6 @@ function getCityBySelect(region_id) {
     })
 }
 $("#regionSelect").on("change", function () {
-    $('.show_city_data').css('display', 'block');
    var region_id = $(this).val();
    var token = $('meta[name="csrf-token"]').attr('content');
 
@@ -134,7 +141,8 @@ $("#regionSelect").on("change", function () {
         cache: false,
         data: {'_token': token, 'region_data': region_id},
         success: function (response) {
-            $('#divCity').html('');
+            $('#citySelect').html('');
+            $('.show_city_data').css('display', 'block');
             response.city_data.forEach(function (val) {
                 $('#citySelect').append('<option value=' + val.id + '>' + val.name + '</option>')
             })
@@ -242,14 +250,17 @@ $(document).on("click", ".mobile_version_close", function () {
 $(document).on("click", ".active_inactive_ads_second_item_sorts_btn", function () {
 
     var data_id = $(this).data("id");
-    console.log(data_id);
+    var active_id = $(this).data("active_id");
+    console.log(active_id)
     $(".active_inactive_ads_second_item_sorts_bt" +
         "n").removeClass("active");
     $(this).addClass("active");
 
 
     $(".active_inactive_ads_second_items_wrapper").removeClass("open");
+    $(".active_inactive_ads_second_items_wrapper").removeClass("no_active_open");
     $("#" + data_id).addClass("open");
+    $("." + active_id).addClass("no_active_open");
 });
 
 
@@ -673,7 +684,7 @@ $(document).on("click", ".remove-favourite", function () {
         processData: false,
         contentType: false,
         success: function (response) {
-            $(`#${product_id}`).css("display", "none");
+            $('#'+ product_id).css("display", "none");
         },
         error: function (err) {
             console.log(err);

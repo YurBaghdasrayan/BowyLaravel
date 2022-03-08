@@ -3,6 +3,7 @@
     <title>Главная</title>
 @endsection
 @section('content')
+{{--    @dd($products)--}}
     <div class="bowy_mian_wrapper" id="logged_user_announcement_page">
         @include('includes_file.header')
         <main>
@@ -130,10 +131,11 @@
                                             <div class="swiper-button-next announcement_next_btn"></div>
                                         </div>
                                     </div>
+                                    @foreach($products as $product)
                                     <div class="announcement_second_item_view_date_info_box">
                                         <div class="announcement_second_item_view_date_info">
                                             <p class="announcement_second_item_view_date_info_title">Дата подачи:</p>
-                                            <p class="announcement_second_item_view_date_info_text">21.02.2021</p>
+                                            <p class="announcement_second_item_view_date_info_text">{{($product->created_at)}} </p>
                                         </div>
                                         <div class="announcement_second_item_view_date_info">
                                             <p class="announcement_second_item_view_date_info_title">Просмотры:</p>
@@ -144,6 +146,7 @@
                                             <p class="announcement_second_item_view_date_info_text">12</p>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <div class="announcement_second_item_car_info_details_wrapper">
                                         <div class="announcement_second_item_car_info_details">
                                             <div class="announcement_second_item_title_edit_btn_input_wrapper">
@@ -181,16 +184,6 @@
                                                         <i class="material-icons check_mark_icon">✔</i>
                                                     </div>
                                                 </div>
-{{--                                                <div class="announcement_second_item_input_icon_wrapper">--}}
-{{--                                                    <div class="announcement_second_item_input_field_wrapper">--}}
-{{--                                                        <input type="text" class="announcement_second_item_input_field2"--}}
-{{--                                                               placeholder=" Напишите... " name="city"--}}
-{{--                                                               onfocus="this.value=''">--}}
-{{--                                                    </div>--}}
-{{--                                                    <i class="material-icons check_mark_icon">check mark</i>--}}
-{{--                                                </div>--}}
-{{--                                                <p class="announcement_second_item_car_info_details_text"--}}
-{{--                                                   data-info="Лиговский проспект 11">City</p>--}}
                                             </div>
                                             <div class="alert_none alert-danger-city"></div>
                                         </div>
@@ -337,7 +330,7 @@
                                             <div class="announcement_second_item_specifications_input_icon_wrapper year_of_issue" >
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select class="yearselect" name="year_of_issue">
-                                                        @for($i = 1900; $i <= \Carbon\Carbon::now()->year; $i++)
+                                                        @for($i = 1930; $i <= \Carbon\Carbon::now()->year; $i++)
                                                             <option value="{{$i}}">{{ $i }}</option>
                                                         @endfor
                                                     </select>
@@ -381,8 +374,8 @@
                                     <div class="similar_ads_wrapper">
                                         <p class="similar_ads_title">Похожие объявления</p>
                                         @if($similar_product != "")
-                                            @foreach($similar_product as $product)
                                                 <div class="similar_ads_items_wrapper">
+                                                    @foreach($similar_product as $product)
                                                     <div class="similar_ads_item_child">
                                                         <a href="" class="similar_ads_item_child_link">
                                                             <div class="similar_ads_item_child_link_img1">
@@ -404,8 +397,7 @@
                                                             <h1 class="similar_ads_item_child_price">{{$product->price}}</h1>
                                                             <p class="similar_ads_item_child_info1">{{$product->address}}</p>
                                                             <p class="similar_ads_item_child_info2">{{$product->description}}</p>
-                                                            <div
-                                                                class="similar_ads_items_child_call_message_btns_wrapper">
+                                                            <div class="similar_ads_items_child_call_message_btns_wrapper">
                                                                 <a href="tel:" class="similar_ads_items_child_call_btn">
                                                                     <svg width="18" height="18" viewBox="0 0 18 18"
                                                                          fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -427,8 +419,8 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    @endforeach
                                                     </div>
-                                            @endforeach
                                             </div>
                                         @endif
                                         @endif

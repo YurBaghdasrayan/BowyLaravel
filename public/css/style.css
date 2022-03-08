@@ -1843,7 +1843,7 @@ body.hidden_body {
 }
  .notification_icon {
     position: absolute;
-    right: -5px;
+    right: -10px;
     top: 0px;
 }
 .active_inactive_ads_user_city_name {
@@ -1926,6 +1926,9 @@ body.hidden_body {
     display: none;
 }
 .active_inactive_ads .active_inactive_ads_second_items_wrapper.open {
+    display: block !important;
+}
+.active_inactive_ads_second_items_wrapper.no_active_open {
     display: block !important;
 }
 .active_inactive_ads #open_div3 .active_inactive_ads_second_item_child {
@@ -2475,6 +2478,7 @@ body.hidden_body {
     height: 129px;
     margin-bottom: 30px;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .file_span {
@@ -3286,7 +3290,7 @@ body.hidden_body {
 }
 .favourites_item_child{
     width: 32%;
-
+    position: relative;
     background: #FFFFFF;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
@@ -3467,8 +3471,9 @@ body.hidden_body {
 
 .favourites_child_link_icon {
     position: absolute;
-    right: 14px;
-    top: 14px;
+    right: 22px;
+    top: 22px;
+    cursor: pointer;
 }
 
 

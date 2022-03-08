@@ -54,7 +54,7 @@
 {{--                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>--}}
 {{--                                                @endforeach--}}
                                             </div>
-                                            <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>
+{{--                                            <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                         </div>
                                     </div>
                                     <div class="place_an_ad_form_inputs_first_wrapper">
@@ -103,10 +103,10 @@
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <p class="place_an_ad_form_inputs_title">Характеристики</p>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
-                                    <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Тип кузова" class="place_an_ad_form_input_field" name="body_type">
-                                        <div class="alert_none alert-danger-body_type" ></div>
-                                    </div>
+{{--                                    <div class="place_an_ad_form_input_field_wrapper">--}}
+{{--                                        <input type="text" placeholder="Тип кузова" class="place_an_ad_form_input_field" name="body_type">--}}
+{{--                                        <div class="alert_none alert-danger-body_type" ></div>--}}
+{{--                                    </div>--}}
                                     <div class="place_an_ad_form_inputs_first_wrapper" style="width: 350px">
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
@@ -121,6 +121,19 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="place_an_ad_form_inputs_first_wrapper">
+                                    <div class="find_transport_form_select_wrapper">
+                                        <div class="find_transport_form_select_title_wrapper">
+                                            <input type="hidden" class="hidden_category_data" name="transmission" value="">
+                                            <p class="find_transport_form_select_title">Коробка передач</p>
+                                        </div>
+                                        <div class="find_transport_form_select_hidden_wrapper">
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="auto" data-info="Автоматическая">Автоматическая</p>
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="manual" data-info="Механическая">Механическая</p>
+                                        </div>
+                                        {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
+                                    </div>
+                                </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="year_of_issue">
                                     <div class="alert_none alert-danger-year_of_issue" ></div>
@@ -132,12 +145,30 @@
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="find_transport_form_select_wrapper">
                                         <div class="find_transport_form_select_title_wrapper">
-                                            <input type="hidden" class="hidden_category_data" name="transmission" value="">
-                                            <p class="find_transport_form_select_title">Коробка передач</p>
+                                            <input type="hidden" class="hidden_category_data" name="body_type" value="">
+                                            <p class="find_transport_form_select_title">Тип кузова</p>
                                         </div>
                                         <div class="find_transport_form_select_hidden_wrapper">
-                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="auto" data-info="Автоматическая">Автоматическая</p>
-                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="manual" data-info="Механическая">Механическая</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Седан">Седан</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Универсал">Универсал</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Хэтчбэк">Хэтчбэк</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Купе">Купе</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Лимузин">Лимузин</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Микроавтобус">Микроавтобус</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Минивэн">Минивэн</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Хардтоп">Хардтоп</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Таун-кар">Таун-кар</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Лифтбэк">Лифтбэк</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Фастбэк">Фастбэк</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Кабриолет">Кабриолет</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Родстер">Родстер</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Ландо">Ландо</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Брогам">Брогам</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Тарга">Тарга</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Спайдер">Спайдер</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Шутингбрейк">Шутингбрейк</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Пикап">Пикап</p>
+                                            <p class="find_transport_form_select_hidden_info add_body_type" data-info="Фургон">Фургон</p>
                                         </div>
 {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                     </div>

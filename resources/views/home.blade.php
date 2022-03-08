@@ -129,60 +129,6 @@
                             </div>
                         </a>
                     @endforeach
-{{--                    <a href="" class="types_of_transport_link">--}}
-{{--                        <div class="types_of_transport_link_img">--}}
-{{--                            <img src="../images/types_of_transport_link_img2.png" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="types_of_transport_link_info_parent">--}}
-{{--                            <span class="types_of_transport_link_info">Мотоциклы</span>--}}
-{{--                        </div>--}}
-
-{{--                    </a>--}}
-{{--                    <a href="" class="types_of_transport_link">--}}
-{{--                        <div class="types_of_transport_link_img">--}}
-{{--                            <img src="../images/types_of_transport_link_img3.png" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="types_of_transport_link_info_parent">--}}
-{{--                            <span class="types_of_transport_link_info">Специальный и грузовой транспорт</span>--}}
-{{--                        </div>--}}
-
-{{--                    </a>--}}
-{{--                    <a href="" class="types_of_transport_link">--}}
-{{--                        <div class="types_of_transport_link_img">--}}
-{{--                            <img src="../images/types_of_transport_link_img4.png" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="types_of_transport_link_info_parent">--}}
-{{--                            <span class="types_of_transport_link_info">Водный транспорт</span>--}}
-{{--                        </div>--}}
-
-{{--                    </a>--}}
-{{--                    <a href="" class="types_of_transport_link">--}}
-{{--                        <div class="types_of_transport_link_img">--}}
-{{--                            <img src="../images/types_of_transport_link_img5.png" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="types_of_transport_link_info_parent">--}}
-{{--                            <span class="types_of_transport_link_info">Велосипеды</span>--}}
-{{--                        </div>--}}
-
-{{--                    </a>--}}
-{{--                    <a href="" class="types_of_transport_link">--}}
-{{--                        <div class="types_of_transport_link_img">--}}
-{{--                            <img src="../images/types_of_transport_link_img6.png" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="types_of_transport_link_info_parent">--}}
-{{--                            <span class="types_of_transport_link_info">Прицепы</span>--}}
-{{--                        </div>--}}
-
-{{--                    </a>--}}
-{{--                    <a href="" class="types_of_transport_link">--}}
-{{--                        <div class="types_of_transport_link_img">--}}
-{{--                            <img src="../images/types_of_transport_link_img7.png" alt="">--}}
-{{--                        </div>--}}
-{{--                        <div class="types_of_transport_link_info_parent">--}}
-{{--                            <span class="types_of_transport_link_info">Малогабаритный транспорт</span>--}}
-{{--                        </div>--}}
-
-{{--                    </a>--}}
                 </div>
             </div>
         </section>
@@ -223,9 +169,11 @@
                         <div class="recent_announcements_item_parent1">
                             @foreach($product as $products)
                             <div class="recent_announcements_item_child" id="{{ $products->id }}">
+                                <a href="{{asset(route('announcement-unlogged-user',$products->id))}}">
                                     <div class="recent_announcements_item_child_link_img1">
                                         <img src="{{asset('storage/uploads/' . $products->image)}}" alt="">
                                     </div>
+                                </a>
                                     @if(isset(auth()->user()->id))
                                     @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $products->id])->get()->count() < 1)
                                     <div class="recent_announcements_item_child_link_favourite_img" data-id="{{ $products->id }}">

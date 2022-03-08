@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AnnounController;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\EditAnnouncementController;
 use App\Http\Controllers\FavouritesController;
 use App\Http\Controllers\ForgotController;
@@ -85,7 +86,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
         Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
         Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
-        Route::get('/announcement-unlogged-user', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
+        Route::get('/announcement-unlogged-user/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
         Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
         Route::post('announcement/activ/announcement_update', [AnnounController::class, 'update'])->name('announcement');
         Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
@@ -101,6 +102,7 @@ Route::middleware(['admin'])->group(function () {
 Route::post('/getCityByRegionId',[RegionController::class,'getCityByRegionId'])->name('getCityByRegionId');
 Route::get('/search-results',[SearchResultsController::class,'index'])->name('search.results');
 Route::get('/search-results/{id?}',[SearchResultsController::class,'getCategories'])->name('search.results');
+
 
 
 

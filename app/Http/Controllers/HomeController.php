@@ -17,8 +17,6 @@ class HomeController extends Controller
         $product = Product::with('Region')->simplePaginate(1);
 //        dd($product);
         $regions = Region::all();
-
-
         $cities = City::all();
         return view('/home', compact('categories', 'product', 'regions', 'cities'));
     }
