@@ -16,9 +16,17 @@ class AnnounController extends Controller
 {
     public function index($status, $id)
     {
+
+        $post = Product::find($id);
+        $post->views++;
+        $post->save();
+//        dd($post);
+//        return view('posts.view-post', compact('post'));
+
         $regions = Region::all();
         $cities = City::all();
         $cars_models = CarsModel::all();
+        $views_posts = Product::all();
 
 
         $products = "";
@@ -39,11 +47,14 @@ class AnnounController extends Controller
             $car_model = $products[0]->car_model;
         }
 
+
         if($products != "" && $car_model != ""){
 
-            $similar_product = Product::where('car_model', '=', $car_model)->get();
+            $similar_product = Product::where('car_model', '=', $car_model)
+                ->where('id', '!=',$products[0]->id)
+                ->get();
         }
-        return view('announcement', compact('products','similar_product','regions','cities','cars_models'));
+        return view('announcement', compact('products','similar_product','regions','cities','cars_models','post'));
 
     }
 

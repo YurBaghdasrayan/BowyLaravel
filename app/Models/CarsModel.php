@@ -13,4 +13,6 @@ class CarsModel extends Model
 
     protected $guarded = [];
 
+
+
 }

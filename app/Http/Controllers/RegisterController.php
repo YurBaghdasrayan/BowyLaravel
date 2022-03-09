@@ -8,6 +8,7 @@ use App\Jobs\RegisteredSuccessEmailJob;
 use App\Mail\RegisteredSuccessFullyMail;
 use App\Models\Role;
 use App\Models\User;
+use http\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -44,13 +45,17 @@ class RegisterController extends Controller
                 'password' => $request->password,
                 'role_id' => Role::USER_ID,
             ];
+
         }
         $user = User::create($data);
         if ($user) {
             RegisteredSuccessEmailJob::dispatch($user);
             return redirect('/login')->with('success', 'Вы успешно прошли регистрацию');
         } else {
+
             return redirect('/registration')->with('login_error', 'неверные данные');
         }
+
     }
+
 }

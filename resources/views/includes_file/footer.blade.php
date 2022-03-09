@@ -15,18 +15,20 @@
                 </div>
             </div>
             <nav class="footer_nav_wrapper first_nav">
+
                 <ul class="footer_ul_list">
+
                     <li class="footer_ul_li">
-                        <a href="" class="footer_ul_link">Автомобили</a>
+                        <a href="{{route('search.results',1)}}" class="footer_ul_link">Автомобили</a>
                     </li>
                     <li class="footer_ul_li">
-                        <a href="" class="footer_ul_link">Водный транспорт</a>
+                        <a href="{{route('search.results',2)}}" class="footer_ul_link">Водный транспорт</a>
                     </li>
                     <li class="footer_ul_li">
-                        <a href="" class="footer_ul_link">Велосипеды</a>
+                        <a href="{{route('search.results',3)}}" class="footer_ul_link">Велосипеды</a>
                     </li>
                     <li class="footer_ul_li">
-                        <a href="" class="footer_ul_link">Малогабаритный <br> транспорт</a>
+                        <a href="{{route('search.results',4)}}" class="footer_ul_link">Малогабаритный <br> транспорт</a>
                     </li>
                     <!-- <li class="footer_ul_li">
                        <a href="" class="footer_ul_link">Мотоциклы</a>
@@ -40,6 +42,7 @@
                    </li>  -->
 
                 </ul>
+
             </nav>
 
 
@@ -47,14 +50,14 @@
                 <ul class="footer_ul_list2">
 
                     <li class="footer_ul_li">
-                        <a href="" class="footer_ul_link">Мотоциклы</a>
+                        <a href="{{route('search.results',5)}}" class="footer_ul_link">Мотоциклы</a>
                     </li>
                     <li class="footer_ul_li">
-                        <a href="" class="footer_ul_link">Специальный <br>
+                        <a href="{{route('search.results',6)}}" class="footer_ul_link">Специальный <br>
                             и грузовой транспорт</a>
                     </li>
                     <li class="footer_ul_li">
-                        <a href="" class="footer_ul_link">Прицепы</a>
+                        <a href="{{route('search.results',7)}}" class="footer_ul_link">Прицепы</a>
                     </li>
                 </ul>
             </nav>

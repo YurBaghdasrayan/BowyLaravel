@@ -37,6 +37,7 @@ class SearchResultsController extends Controller
     {
 
         $search_results = Product::where('category_id',$id)->get();
+//        dd($search_results);
 
         return view('search-results', compact('search_results'));
     }

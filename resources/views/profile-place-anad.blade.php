@@ -114,8 +114,8 @@
                                                 <p class="find_transport_form_select_title " >Руль</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
-                                                <p class="find_transport_form_select_hidden_info add_rudder_data" data-id="left" data-info="Левый">Левый</p>
-                                                <p class="find_transport_form_select_hidden_info add_rudder_data" data-id="right" data-info="Правый">Правый</p>
+                                                <p class="find_transport_form_select_hidden_info add_rudder_data" data-id="Левый" data-info="Левый">Левый</p>
+                                                <p class="find_transport_form_select_hidden_info add_rudder_data" data-id="Правый" data-info="Правый">Правый</p>
                                             </div>
                                             {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                         </div>
@@ -128,16 +128,28 @@
                                             <p class="find_transport_form_select_title">Коробка передач</p>
                                         </div>
                                         <div class="find_transport_form_select_hidden_wrapper">
-                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="auto" data-info="Автоматическая">Автоматическая</p>
-                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="manual" data-info="Механическая">Механическая</p>
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="Автоматическая" data-info="Автоматическая">Автоматическая</p>
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="Механическая" data-info="Механическая">Механическая</p>
                                         </div>
                                         {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                     </div>
                                 </div>
-                                <div class="place_an_ad_form_input_field_wrapper field_box">
-                                    <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="year_of_issue">
-                                    <div class="alert_none alert-danger-year_of_issue" ></div>
+                                <div class="find_transport_form_select_wrapper">
+                                    <div class="find_transport_form_select_title_wrapper">
+                                        <input type="hidden" class="hidden_category_data" name="year_of_issue" value="">
+                                        <p class="find_transport_form_select_title">Год выпуска</p>
+                                    </div>
+                                    <div class="find_transport_form_select_hidden_wrapper">
+                                        @for($i = 1930; $i <= \Carbon\Carbon::now()->year; $i++)
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="{{$i++}}" data-info="{{$i++}}">{{$i++}}</p>
+                                        @endfor
+                                    </div>
+                                    {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                 </div>
+{{--                                <div class="place_an_ad_form_input_field_wrapper field_box">--}}
+{{--                                    <input type="text" placeholder="Год выпуска" class="place_an_ad_form_input_field" name="year_of_issue">--}}
+{{--                                    <div class="alert_none alert-danger-year_of_issue"></div>--}}
+{{--                                </div>--}}
 {{--                                <div class="place_an_ad_form_input_field_wrapper field_box">--}}
 {{--                                    <input type="text" placeholder="Коробка передач" name="transmission" class="place_an_ad_form_input_field">--}}
 {{--                                    <div class="alert_none alert-danger-transmission" ></div>--}}

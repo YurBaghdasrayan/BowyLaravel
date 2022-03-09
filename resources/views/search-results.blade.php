@@ -30,9 +30,11 @@
                                     @if(isset($search_results))
                                     @foreach($search_results as $search_result)
                                         <div class="recent_announcements_item_child" >
-                                            <div class="recent_announcements_item_child_link_img1">
-                                                <img src="{{asset('storage/uploads/' . $search_result->image)}}" alt="">
-                                            </div>
+                                            <a href="{{asset(route('announcement-unlogged-user',$search_result->id))}}">
+                                                <div class="recent_announcements_item_child_link_img1">
+                                                    <img src="{{asset('storage/uploads/' . $search_result->image)}}" alt="">
+                                                </div>
+                                            </a>
                                             @if(isset(auth()->user()->id))
                                                 @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $search_result->id])->get()->count() < 1)
                                                     <div class="recent_announcements_item_child_link_favourite_img" data-id="{{ $search_result->id }}">

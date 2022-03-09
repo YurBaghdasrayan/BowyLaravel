@@ -4803,3 +4803,6 @@ select {
     max-width: 739px;
     background: unset!important;
 }
+.delete_favorite_show{
+    display: none;
+}

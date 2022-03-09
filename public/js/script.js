@@ -172,8 +172,8 @@ $(document).on("click", ".add_category_data", function () {
 })
 $(document).on("click", ".add_cars_models_data", function () {
     var datainfo = $(this).data("info");
-    var category_id = $(this).data("id");
-    $(this).parent().parent().find(".hidden_category_data").val(category_id);
+
+    $(this).parent().parent().find(".hidden_category_data").val(datainfo);
     $(this).parent().parent().find(".find_transport_form_select_title").html(datainfo);
     $(".find_transport_form_select_hidden_wrapper").removeClass("open");
 
@@ -685,6 +685,8 @@ $(document).on("click", ".remove-favourite", function () {
         contentType: false,
         success: function (response) {
             $('#'+ product_id).css("display", "none");
+            thisis.css("display", "none");
+            $(".delete_favorite_show").css("display", "block")
         },
         error: function (err) {
             console.log(err);
@@ -841,7 +843,7 @@ $(document).on("click", ".announcement_second_item_delete_btn", function () {
     })
 })
 
-$(document).on("click", ".remove-favourites", function () {
+$(document).on("click", ".remove-favourites", function (){
 
     var thisis = $(this);
     var product_id = thisis.data('id');
@@ -851,8 +853,10 @@ $(document).on("click", ".remove-favourites", function () {
         processData: false,
         contentType: false,
         success: function (response) {
-            $(`#${product_id}`).css("display", "block");
-            $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "none");
+            // $(`#${product_id}`).css("display", "block");
+            // $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "block");
+            // $(`#${product_id}`).css("display", "none");
+            // $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "none");
         },
         error: function (err) {
             console.log(err);

@@ -33,7 +33,7 @@ class CreateProductRequest extends FormRequest
             'description' => 'required',
             'body_type' => 'required',
             'rudder' => 'required',
-            'year_of_issue' => 'required|numeric',
+            'year_of_issue' => 'required',
             'transmission' => 'required',
             'address' => 'required',
 //                'image' => 'required|file|image|max:2048',

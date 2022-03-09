@@ -14,7 +14,7 @@ class HomeController extends Controller
     {
 
         $categories = Categories::all();
-        $product = Product::with('Region')->simplePaginate(1);
+        $product = Product::orderBy('id','DESC')->simplePaginate(1);
 //        dd($product);
         $regions = Region::all();
         $cities = City::all();

@@ -72,7 +72,7 @@
                             </div>
                             <div class="announcement_second_item_view_date_info">
                                 <p class="announcement_second_item_view_date_info_title">Просмотры:</p>
-                                <p class="announcement_second_item_view_date_info_text">102</p>
+                                <p class="announcement_second_item_view_date_info_text">{{$post->views}}</p>
                             </div>
                             <div class="announcement_second_item_view_date_info">
                                 <p class="announcement_second_item_view_date_info_title">Звонки:</p>

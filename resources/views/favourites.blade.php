@@ -14,12 +14,10 @@
                     <div class="favourites_item_second_item">
                         @foreach($products as $product)
                         <div class="favourites_item_child" id="{{ $product->id }}" >
-                            <a class="favourites_item_child_link">
-
+                            <a href="{{asset(route('announcement-unlogged-user',$product->id))}}" class="favourites_item_child_link">
                                     <div class="favourites_child_link_img1" >
                                         <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
                                     </div>
-
                             </a>
                             <div class="favourites_child_link_icon remove-favourite " data-id="{{$product->id}}">
                                 <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
