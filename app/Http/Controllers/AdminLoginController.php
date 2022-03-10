@@ -16,41 +16,21 @@ class AdminLoginController extends Controller
 
     public function store(LoginRequest $request)
     {
-        $data = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+
+        $data = $request->validated();
 
         if (Auth::attempt($data)) {
+
+
             if (auth()->user()->role_id == 2) {
+                $request->session()->regenerate();
                 return redirect('/admin/users');
             } else {
-                return view('admin.admin.login')->with('errors', 'not admin !!!');
+                return redirect(route('admin.auth'))->with('messages', 'Простите вы не администратор');
             }
+        } else {
+            return redirect(route('admin.auth'))->with('messages', 'Простите вы не администратор');
         }
-//        } else {
-//            return redirect(route('admin.admin-login'))->with('errors', 'not admin !!!');
-//        }
 
-
-//        $data = $request->validated();
-//
-//        if ($request->rememberme) {
-//            $remember = true;
-//            if (Auth::attempt($data, $remember)) {
-//                $request->session()->regenerate();
-//                return redirect('/admin/login');
-//
-//            } else {
-//                return redirect('/login')->with('login_error', 'неверные данные');
-//            }
-//        } else {
-//            if (Auth::attempt($data)) {
-//                $request->session()->regenerate();
-//                return redirect('admin/login');
-//            } else {
-//                return redirect('/login')->with('login_error', 'неверные данные');
-//            }
-//        }
     }
 }

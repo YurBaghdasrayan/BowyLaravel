@@ -25,16 +25,16 @@ class RestorPasswordController extends Controller
 
         if (!$updatePassword) {
             return redirect('/restore-password')->with('message', 'Произошла ошибка!');
-        }else{
+        } else {
             $user_id = $updatePassword[0]->user_id;
 
-            $user = User::where('id','=',$user_id)->update(['password' => $request->password]);
+            $user = User::where('id', '=', $user_id)->update(['password' => $request->password]);
 
             $delete = RessetPassword::where(['id' => $updatePassword[0]->id])->delete();
 
-            if ($delete){
+            if ($delete) {
                 return redirect('/login')->with('message', 'Ваш пароль успешно изменен!');
-            }else{
+            } else {
                 return redirect('/restore-password')->with('message', 'Произошла ошибка!');
             }
 

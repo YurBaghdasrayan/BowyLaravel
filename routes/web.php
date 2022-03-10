@@ -38,7 +38,6 @@ use App\Http\Controllers\RegionController;
 
 /*GET METHODS*/
 Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
-
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 
@@ -66,7 +65,6 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::group(['prefix' => 'products'], function () {
         Route::get('/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-
     });
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
@@ -96,12 +94,11 @@ Route::middleware(['auth'])->group(function () {
 //ADMIN MIDDLEWARE METHODS
 
 Route::get('/admin-login', [AdminLoginController::class, 'index'])->name('admin.login');
-Route::post('/admin-auth', [AdminLoginController::class, 'store'])->name('admin.auth');
+Route::post('/admin-login', [AdminLoginController::class, 'store'])->name('admin.auth');
 
 Route::middleware(['admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
-
     });
 });
 
