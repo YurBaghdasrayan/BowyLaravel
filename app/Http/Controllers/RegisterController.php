@@ -45,7 +45,6 @@ class RegisterController extends Controller
                 'password' => $request->password,
                 'role_id' => Role::USER_ID,
             ];
-
         }
         $user = User::create($data);
         if ($user) {

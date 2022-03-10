@@ -19,8 +19,6 @@ class AuthAdmin
     {
         if (!auth()->check() || auth()->user()->role_id != Role::ADMIN_ID) {
             return redirect(route('login'))->with('error', 'not admin');
-        }else{
-            return redirect(route('admin'));
         }
 
         return $next($request);
