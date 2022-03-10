@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AnnounController;
 use App\Http\Controllers\ChatController;
@@ -81,27 +82,33 @@ Route::middleware(['auth'])->group(function () {
 
     });
 
-        /*MIDDLEWARE GET METHODS*/
+    /*MIDDLEWARE GET METHODS*/
 
-        Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
-        Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
-        Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
-        Route::get('/announcement-unlogged-user/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
-        Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
-        Route::post('announcement/activ/announcement_update', [AnnounController::class, 'update'])->name('announcement');
-        Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
+    Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
+    Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
+
+    Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
+    Route::post('announcement/activ/announcement_update', [AnnounController::class, 'update'])->name('announcement');
+    Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 });
 
 //ADMIN MIDDLEWARE METHODS
+
+Route::get('/admin-login', [AdminLoginController::class, 'index'])->name('admin.login');
+Route::post('/admin-auth', [AdminLoginController::class, 'store'])->name('admin.auth');
+
 Route::middleware(['admin'])->group(function () {
     Route::prefix('admin')->group(function () {
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
+
     });
 });
 
-Route::post('/getCityByRegionId',[RegionController::class,'getCityByRegionId'])->name('getCityByRegionId');
-Route::get('/search-results',[SearchResultsController::class,'index'])->name('search.results');
-Route::get('/search-results/{id?}',[SearchResultsController::class,'getCategories'])->name('search.results');
+Route::post('/getCityByRegionId', [RegionController::class, 'getCityByRegionId'])->name('getCityByRegionId');
+Route::get('/search-results', [SearchResultsController::class, 'index'])->name('search.results');
+Route::get('/search-results/{id?}', [SearchResultsController::class, 'getCategories'])->name('search.results');
+Route::get('/announcement-unlogged-user/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
 
 
 

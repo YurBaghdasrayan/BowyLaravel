@@ -653,7 +653,7 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
 
 })
 
-$(document).on("click", ".recent_announcements_item_child_link_favourite_img", function () {
+$(document).on("click", ".add-favorite", function () {
 
     var thisis = $(this);
     var product_id = thisis.data('id');
@@ -853,10 +853,9 @@ $(document).on("click", ".remove-favourites", function (){
         processData: false,
         contentType: false,
         success: function (response) {
-            // $(`#${product_id}`).css("display", "block");
-            // $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "block");
-            // $(`#${product_id}`).css("display", "none");
-            // $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "none");
+            $(`#${product_id}`).css("display", "none");
+            thisis.css("display", "none");
+            $(".delete_favorite_show").css("display", "block");
         },
         error: function (err) {
             console.log(err);
