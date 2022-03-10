@@ -170,7 +170,7 @@
                     <div class="recent_announcements_item open" id="open_div1">
                         <div class="recent_announcements_item_parent1">
                             @foreach($product as $products)
-                            <div class="recent_announcements_item_child" id="{{ $products->id }}">
+                            <div class="recent_announcements_item_child">
                                 <a href="{{asset(route('announcement-unlogged-user',$products->id))}}">
                                     <div class="recent_announcements_item_child_link_img1">
                                         <img src="{{asset('storage/uploads/' . $products->image)}}" alt="">
@@ -178,7 +178,7 @@
                                 </a>
                                     @if(isset(auth()->user()->id))
                                     @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $products->id])->get()->count() < 1)
-                                    <div class="recent_announcements_item_child_link_favourite_img" data-id="{{ $products->id }}">
+                                    <div class="recent_announcements_item_child_link_favourite_img add-favorite" data-id="{{ $products->id }}">
                                             <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M10.001 1.52898C12.35 -0.58002 15.98 -0.51002 18.243 1.75698C20.505 4.02498 20.583 7.63698 18.479 9.99298L9.99901 18.485L1.52101 9.99298C-0.582994 7.63698 -0.503994 4.01898 1.75701 1.75698C4.02201 -0.50702 7.64501 -0.58302 10.001 1.52898ZM16.827 3.16998C15.327 1.66798 12.907 1.60698 11.337 3.01698L10.002 4.21498L8.66601 3.01798C7.09101 1.60598 4.67601 1.66798 3.17201 3.17198C1.68201 4.66198 1.60701 7.04698 2.98001 8.62298L10 15.654L17.02 8.62398C18.394 7.04698 18.319 4.66498 16.827 3.16998Z" fill="white"/>
                                             </svg>
@@ -189,7 +189,7 @@
                                         </svg>
                                     </div>
                                     @else
-                                    <div class="recent_announcements_item_child_link_exist_favourite_post remove-favourites">
+                                    <div class="recent_announcements_item_child_link_exist_favourite_post remove-favourites" data-id="{{ $products->id }}">
                                         <svg width="20" height="19" viewBox="0 0 20 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.001 1.52898C12.35 -0.58002 15.98 -0.51002 18.243 1.75698C20.505 4.02498 20.583 7.63698 18.479 9.99298L9.99901 18.485L1.52101 9.99298C-0.582994 7.63698 -0.503994 4.01898 1.75701 1.75698C4.02201 -0.50702 7.64501 -0.58302 10.001 1.52898Z" fill="white"></path>
                                         </svg>
