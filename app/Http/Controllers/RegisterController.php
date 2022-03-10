@@ -59,7 +59,7 @@ class RegisterController extends Controller
 
     public function storeApi(Request $request)
     {
-        return resposne()->json($request);
+        dd($request);
     }
 
 }
