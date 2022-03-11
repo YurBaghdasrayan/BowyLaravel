@@ -20,8 +20,6 @@ class AnnounController extends Controller
         $post = Product::find($id);
         $post->views++;
         $post->save();
-//        dd($post);
-//        return view('posts.view-post', compact('post'));
 
         $regions = Region::all();
         $cities = City::all();
@@ -41,7 +39,6 @@ class AnnounController extends Controller
         }
 
         $arr = $products->toArray();
-        //dd($arr);
 
         if($arr != []){
             $car_model = $products[0]->car_model;

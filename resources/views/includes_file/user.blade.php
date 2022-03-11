@@ -1,3 +1,4 @@
+@if(auth()->check())
 <div class="announcement_first_item">
     <div class="active_inactive_ads_user_img_name_info">
         <div class="active_inactive_ads_user_img">
@@ -51,3 +52,5 @@
     </div>
     @include('includes_file.chat')
 </div>
+@else
+@endif

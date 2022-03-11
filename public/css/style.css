@@ -4806,3 +4806,6 @@ select {
 .delete_favorite_show{
     display: none;
 }
+.add-favorite svg{
+    cursor: pointer;
+}

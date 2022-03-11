@@ -654,11 +654,11 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
 })
 
 $(document).on("click", ".add-favorite", function () {
-
+      // alert();
     var thisis = $(this);
     var product_id = thisis.data('id');
     var token = $('meta[name="csrf-token"]').attr('content');
-
+    console.log(thisis.parent());
     $.ajax({
         url: "/profile/favourites",
         type: 'post',
@@ -666,7 +666,7 @@ $(document).on("click", ".add-favorite", function () {
         data: {'_token': token, 'product_id': product_id},
         success: function (response) {
             thisis.css("display", "none");
-            $(".recent_announcements_item_child_link_exist_favourite_img").css("display", "block");
+            thisis.parent().children(".recent_announcements_item_child_link_exist_favourite_img").css("display", "block");
 
         },
         error: function (err) {

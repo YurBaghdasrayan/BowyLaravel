@@ -105,7 +105,7 @@ Route::middleware(['admin'])->group(function () {
 Route::post('/getCityByRegionId', [RegionController::class, 'getCityByRegionId'])->name('getCityByRegionId');
 Route::get('/search-results', [SearchResultsController::class, 'index'])->name('search.results');
 Route::get('/search-results/{id?}', [SearchResultsController::class, 'getCategories'])->name('search.results');
-Route::get('/announcement-unlogged-user/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
+Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
 
 
 
