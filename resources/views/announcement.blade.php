@@ -379,7 +379,7 @@
                                                 <div class="similar_ads_items_wrapper">
                                                     @foreach($similar_product as $product)
                                                     <div class="similar_ads_item_child">
-                                                        <a href="" class="similar_ads_item_child_link">
+                                                        <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="similar_ads_item_child_link">
                                                             <div class="similar_ads_item_child_link_img1">
                                                                 <img
                                                                     src="{{asset('storage/uploads/' . $product->image)}}"

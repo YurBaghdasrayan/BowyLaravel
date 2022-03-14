@@ -79,7 +79,6 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/favourites-delete/{id}', [FavouritesController::class, 'destroyFavourite'])->name('favourites');
 
     });
-
     /*MIDDLEWARE GET METHODS*/
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
@@ -98,7 +97,12 @@ Route::post('/admin-login', [AdminLoginController::class, 'store'])->name('admin
 
 Route::middleware(['admin'])->group(function () {
     Route::prefix('admin')->group(function () {
+        Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
+        Route::post('/users', [AdminController::class, 'store'])->name('admin-users');
+        Route::get('/users-destroy/{id}', [AdminController::class, 'destroy'])->name('users');
+        Route::get('/update-users', [AdminController::class, 'getUpdate'])->name('users.update');
+        Route::post('/update-users', [AdminController::class, 'update'])->name('admin.update');
     });
 });
 

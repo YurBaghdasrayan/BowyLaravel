@@ -6,7 +6,6 @@
     @include('includes_file.header')
     <div class="bowy_mian_wrapper" id="unlogged_user_announcement_page">
         <main>
-
             <section class="announcement">
                 <div class="announcement_wrapper">
                     <div class="announcement_items_wrapper">
@@ -31,12 +30,9 @@
                                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.29101 18.824L1.12865e-05 20L1.17601 14.709C0.401543 13.2604 -0.00246185 11.6426 1.12865e-05 10C1.12865e-05 4.477 4.47701 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20C8.35737 20.0025 6.73963 19.5985 5.29101 18.824V18.824ZM5.58101 16.711L6.23401 17.061C7.39256 17.6801 8.6864 18.0027 10 18C11.5823 18 13.129 17.5308 14.4446 16.6518C15.7602 15.7727 16.7855 14.5233 17.391 13.0615C17.9965 11.5997 18.155 9.99113 17.8463 8.43928C17.5376 6.88743 16.7757 5.46197 15.6569 4.34315C14.538 3.22433 13.1126 2.4624 11.5607 2.15372C10.0089 1.84504 8.40035 2.00346 6.93854 2.60896C5.47674 3.21447 4.22731 4.23984 3.34825 5.55544C2.4692 6.87103 2.00001 8.41775 2.00001 10C2.00001 11.334 2.32501 12.618 2.94001 13.766L3.28901 14.419L2.63401 17.366L5.58101 16.711V16.711Z" fill="white"/>
                                     </svg>
-
                                 </button>
                                 </div>
                             </div>
-
-
                     <div class="announcement_second_item">
                         <p class="announcement_second_item_title1">Объявление</p>
 
@@ -45,7 +41,6 @@
                                 <p class="announcement_second_item_title">{{$unnloged->headline}}</p>
                                 <p class="announcement_second_item_title">{{$unnloged->price}}</p>
                             </div>
-
 {{--                            <!--<div class="announcement_second_item_links_btns_wrapper">-->--}}
 {{--                            <!--    <button class="announcement_second_item_edit_btn">-->--}}
 {{--                            <!--        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">-->--}}
@@ -145,7 +140,7 @@
                                 <div class="similar_ads_items_wrapper">
                                     @foreach($similar_product as $product)
                                         <div class="similar_ads_item_child">
-                                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="similar_ads_item_child_link">
+                                            <a href="" class="similar_ads_item_child_link">
                                                 <div class="similar_ads_item_child_link_img1">
                                                     <img
                                                         src="{{asset('storage/uploads/' . $product->image)}}"
@@ -182,7 +177,6 @@
                                                                 d="M5.29101 18.824L1.12865e-05 20L1.17601 14.709C0.401543 13.2604 -0.00246185 11.6426 1.12865e-05 10C1.12865e-05 4.477 4.47701 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20C8.35737 20.0025 6.73963 19.5985 5.29101 18.824V18.824ZM5.58101 16.711L6.23401 17.061C7.39256 17.6801 8.6864 18.0027 10 18C11.5823 18 13.129 17.5308 14.4446 16.6518C15.7602 15.7727 16.7855 14.5233 17.391 13.0615C17.9965 11.5997 18.155 9.99113 17.8463 8.43928C17.5376 6.88743 16.7757 5.46197 15.6569 4.34315C14.538 3.22433 13.1126 2.4624 11.5607 2.15372C10.0089 1.84504 8.40035 2.00346 6.93854 2.60896C5.47674 3.21447 4.22731 4.23984 3.34825 5.55544C2.4692 6.87103 2.00001 8.41775 2.00001 10C2.00001 11.334 2.32501 12.618 2.94001 13.766L3.28901 14.419L2.63401 17.366L5.58101 16.711V16.711Z"
                                                                 fill="white"/>
                                                         </svg>
-
                                                     </a>
                                                 </div>
                                             </div>
@@ -191,16 +185,14 @@
                                 </div>
                             </div>
                         @endif
-
                     </div>
                 </div>
-                </div>
-
-    </div>
-    </div>
-    </div>
+              </div>
+            </div>
+         </div>
+      </div>
     </section>
-    </main>
-    @include('includes_file.footer')
-    </div>
+  </main>
+ @include('includes_file.footer')
+</div>
 @endsection

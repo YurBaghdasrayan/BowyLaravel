@@ -65,14 +65,9 @@
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
-
-
                             <button id="button" class="registration_form_btn mobile_form_btn">Регистрация</button>
                         </form>
-
                     </div>
                     <div class="login_info_wrapper">
                         <p class="login_info">Аренда - это просто.</p>
@@ -82,6 +77,6 @@
         </main>
         @include('includes_file.footer')
     </div>
-
+    <input type="file" name="">
 @endsection
 

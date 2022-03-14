@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="адрес" class="place_an_ad_form_input_field" name="address">
+                                        <input type="text" placeholder="Адрес" class="place_an_ad_form_input_field" name="address">
                                         <div class="alert_none alert-danger-address" ></div>
                                     </div>
                                 </div>
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="find_transport_form_select_hidden_wrapper">
                                         @for($i = 1930; $i <= \Carbon\Carbon::now()->year; $i++)
-                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="{{$i++}}" data-info="{{$i++}}">{{$i++}}</p>
+                                            <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="{{$i}}" data-info="{{$i}}">{{$i}}</p>
                                         @endfor
                                     </div>
                                     {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}

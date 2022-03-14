@@ -3760,6 +3760,7 @@ body.hidden_body {
 
 .similar_ads_items_wrapper {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
 }

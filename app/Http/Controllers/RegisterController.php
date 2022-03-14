@@ -54,7 +54,6 @@ class RegisterController extends Controller
 
             return redirect('/registration')->with('login_error', 'неверные данные');
         }
-
     }
 
     public function storeApi(Request $request)

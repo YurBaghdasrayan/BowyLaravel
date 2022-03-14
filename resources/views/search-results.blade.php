@@ -3,11 +3,9 @@
     <title>Главная</title>
 @endsection
 @section('content')
-
     <div class="bowy_mian_wrapper">
         @include('includes_file.header')
         <main>
-{{--                    @dd($car_categories)--}}
             <section class="top">
                 <div class="top_wrapper">
                     <h1 class="top_title"> <span>BOWY</span>  аренда всех видов транспорта</h1>
@@ -30,7 +28,7 @@
                                     @if(isset($search_results))
                                     @foreach($search_results as $search_result)
                                         <div class="recent_announcements_item_child" >
-                                            <a href="{{asset(route('announcement-unlogged-user',$search_result->id))}}">
+                                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$search_result->id])}}">
                                                 <div class="recent_announcements_item_child_link_img1">
                                                     <img src="{{asset('storage/uploads/' . $search_result->image)}}" alt="">
                                                 </div>
@@ -77,8 +75,7 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    @endif
-
+                                @endif
                     </div>
                 </div>
             </section>

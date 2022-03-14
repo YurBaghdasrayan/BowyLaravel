@@ -14,7 +14,7 @@
                     <div class="favourites_item_second_item">
                         @foreach($products as $product)
                         <div class="favourites_item_child" id="{{ $product->id }}" >
-                            <a href="{{asset(route('announcement-unlogged-user',$product->id))}}" class="favourites_item_child_link">
+                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="favourites_item_child_link">
                                     <div style="height: 250px" class="favourites_child_link_img1" >
                                         <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
                                     </div>

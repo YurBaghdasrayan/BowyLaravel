@@ -33,6 +33,48 @@ $(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete
         }
     })
 })
+$(document).on("click", ".badge", function () {
+
+    var thisis = $(this);
+
+    $.ajax({
+        url: `/admin/${$(this).data('id')}`,
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.success) {
+                console.log(response)
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+})
+// $(document).on("click", ".badge", function () {
+//
+//     var thisis = $(this);
+//     var user_id = thisis.data('id');
+//
+//     $.ajax({
+//         url: `/admin/users-destroy/${user_id}`,
+//         type: 'GET',
+//         cache: false,
+//         processData: false,
+//         contentType: false,
+//         success: function (response) {
+//             if (response.success) {
+//                 console.log(response)
+//             }
+//         },
+//         error: function (err) {
+//             console.log(err)
+//
+//         }
+//     })
+// })
 
 $(document).on("click",".add_category_data",function () {
     var datainfo = $(this).data("info");
@@ -499,65 +541,6 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
 
     var valid = true;
 
-    // if (category_id.length < 1){
-    //     valid = false
-    //     $('.find_transport_form_select_title_wrapper').css('border','1px solid red');
-    // }
-    //
-    // if (headline_val.length < 1){
-    //     valid = false
-    //     headline.parent().css('border','1px solid red');
-    // }
-    //
-    // if (price_val.length < 1){
-    //     valid = false
-    //     price.parent().css('border','1px solid red');
-    // }
-    //
-    // if (city_val.length < 1){
-    //     valid = false
-    //     city.parent().css('border','1px solid red');
-    // }
-    //
-    // if (region_val.length < 1){
-    //     valid = false
-    //     region.parent().css('border','1px solid red');
-    // }
-    //
-    // if (car_model_val.length < 1){
-    //     valid = false
-    //     car_model.parent().css('border','1px solid red');
-    // }
-    //
-    // if (description_val.length < 1){
-    //     valid = false
-    //     description.parent().css('border','1px solid red');
-    // }
-    //
-    // if (body_type_val.length < 1){
-    //     valid = false
-    //     body_type.parent().css('border','1px solid red');
-    // }
-    //
-    // if (rudder_val.length < 1){
-    //     valid = false
-    //     rudder.parent().css('border','1px solid red');
-    // }
-    //
-    // if (year_of_issue_val.length < 1){
-    //     valid = false
-    //     year_of_issue.parent().css('border','1px solid red');
-    // }
-    //
-    // if (transmission_val.length < 1){
-    //     valid = false
-    //     transmission.parent().css('border','1px solid red');
-    // }
-    //
-    // if (!valid) {
-    //     return false;
-    // }
-
     let formData = new FormData();
 
     formData.append('headline', headline_val);
@@ -603,7 +586,6 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
             $('.alert-danger-year_of_issue').css('display', 'none');
             $('.alert-danger-year_of_issue').css('display', 'none');
             $('.alert-danger-address').css('display', 'none');
-
 
             $('#regionError').css('display', 'block');
 
@@ -757,11 +739,11 @@ $(document).on("submit", ".update_place_an_ad", function (event) {
         contentType: false,
         success: function (data) {
             console.log(data);
-            $('.alert-success-status').css('display', 'none');
+            // $('.alert-success-status').css('display', 'none');
             if (data.success) {
                 $('.alert-success-status').css('display', 'block');
                 setTimeout(function () {
-                    alert_succes.css("border", "1px solid #0086CF");
+                    $('.alert-success-status').css('display', 'none');
                 }, 3000)
             }
             $('.alert-success-status').text(data.responseJSON.success([0]));
