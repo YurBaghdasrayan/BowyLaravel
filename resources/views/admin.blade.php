@@ -1,11 +1,11 @@
 @extends('layouts.adminapp')
 @section('admincontent')
-{{--    @dd($users[0]->id)--}}
+{{--    @dd($users)--}}
 <div class="container-scroller">
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" style="color: white; text-decoration: none;" href="/public/admin">
+            <a class="sidebar-brand brand-logo" style="color: white; text-decoration: none;" href="{{'admin'}}">
                 Bowy
             </a>
             <a style="color: white; text-decoration: none;" class="sidebar-brand brand-logo-mini" href="/public/admin">
@@ -17,11 +17,28 @@
                 <span class="nav-link">Navigation</span>
             </li>
             <li class="nav-item menu-items active">
-                <a class="nav-link" href="/public/admin">
+                <a class="nav-link" href="{{route('admin')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
                     <span class="menu-title">Users</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items active">
+                <a class="nav-link" href="{{route('users.update',['id'=>$users[0]->id])}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+                    <span class="menu-title">Update Users</span>
+                </a>
+            </li>
+
+            <li class="nav-item menu-items active">
+                <a class="nav-link" href="{{route('products')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+                    <span class="menu-title">Delete Products</span>
                 </a>
             </li>
         </ul>
@@ -86,7 +103,6 @@
                         </div>
                     </li>
                 </ul>
-
                 <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-format-line-spacing"></span>
                 </button>
@@ -119,6 +135,7 @@
                                         <tbody>
 
                                         <tr>
+                                            @if(isset($users))
                                             @foreach($users as $user)
                                             <td>
                                                 <span class="pl-2"> {{$user->name}}</span>
@@ -130,12 +147,14 @@
                                             <td>  {{$user->created_at}} </td>
                                             <td>
                                                 <div style="display: flex">
-                                                    <a href="{{route('users.update',$user->id)}}" class="update badge-outline-danger" style="width: 100%; height: 100%; background: unset;color: #0ba9e5;border: 1px solid #0ba9e5;margin-right: 10px;">Update</a>
-                                                    <button class="badge badge-outline-danger" style="width: 100%; height: 100%; background: unset; " data-id="{{$user->id}}">Delete</button>
+                                                    <a href="{{route('users.update',$user->id)}}"   class="update badge badge-outline-danger" style="width: 100%; height: 100%; background: unset;color: #0ba9e5;border: 1px solid #0ba9e5;margin-right: 10px;">
+                                                        Update</a>
+                                                    <button class="delete-users-btn badge badge-outline-danger" style="width: 100%; height: 100%; background: unset; " data-id="{{$user->id}}">Delete</button>
                                                 </div>
                                             </td>
                                         </tr>
                                         @endforeach
+                                        @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -165,6 +184,5 @@
     </div>
     <!-- page-body-wrapper ends -->
 </div>
-
 @endsection
 

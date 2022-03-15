@@ -1,4 +1,4 @@
-$(document).on("click", ".badge", function () {
+$(document).on("click", ".delete-users-btn", function () {
 
     var thisis = $(this);
 
@@ -18,7 +18,27 @@ $(document).on("click", ".badge", function () {
         }
     })
 })
-$(document).on("submit", ".update_place_an_ad", function (event) {
+$(document).on("click", ".delete-products-btn", function () {
+
+    var thisis = $(this);
+
+    $.ajax({
+        url: `/admin/products-destroy/${$(this).data('id')}`,
+        type: 'GET',
+        cache: false,
+        processData: false,
+        contentType: false,
+        success: function (response) {
+            if (response.success) {
+                thisis.parent().parent().parent().hide();
+            }
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+})
+$(document).on("submit", ".admin-update-users", function (event) {
     event.preventDefault();
 
     var token = $('meta[name="csrf-token"]').attr('content');
@@ -30,22 +50,26 @@ $(document).on("submit", ".update_place_an_ad", function (event) {
     var Email_val = Email.val();
 
     var Surname = $('input[name="Surname"]', this)
-    var Surname_val = Surname.val;
+    var Surname_val = Surname.val();
 
     var Number = $('input[name="Number"]', this)
-    var Number_val = Number.val;
+    var Number_val = Number.val();
 
     var City = $('input[name="City"]', this);
     var City_val = City.val();
 
+    var user_id = $('input[name="user_id"]', this).val();
+
+    let formData = new FormData();
+
     formData.append('ClientName', ClientName_val);
     formData.append('Email', Email_val);
-    formData.append('car_model', car_model_val);
     formData.append('Surname', Surname_val);
     formData.append('Number', Number_val);
     formData.append('City', City_val);
-    $.ajaxSetup({
+    formData.append('user_id', user_id);
 
+    $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
@@ -53,7 +77,7 @@ $(document).on("submit", ".update_place_an_ad", function (event) {
 
 
     $.ajax({
-        url: "/update-users",
+        url: "/admin/update-users/",
         type: 'POST',
         data: formData,
         cache: false,

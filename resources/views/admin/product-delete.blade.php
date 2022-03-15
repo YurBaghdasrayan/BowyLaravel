@@ -1,6 +1,6 @@
 @extends('layouts.adminapp')
 @section('admincontent')
-    {{--        @dd($users->id)--}}
+
     <div class="container-scroller">
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -25,23 +25,35 @@
                         <span class="menu-title">Users</span>
                     </a>
                 </li>
-{{--                <li class="nav-item menu-items active">--}}
-
-{{--                    <a class="nav-link" href="{{route('users.update')}}">--}}
-{{--              <span class="menu-icon">--}}
-{{--                <i class="mdi mdi-speedometer"></i>--}}
-{{--              </span>--}}
-{{--                        <span class="menu-title">Update Users</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
-                <li class="nav-item menu-items active">
-                    <a class="nav-link" href="{{route('products')}}">
+                @if(isset($users[0]))
+                    <li class="nav-item menu-items active">
+                        <a class="nav-link" href="{{route('users.update',['id'=>$users[0]->id])}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
-                        <span class="menu-title">Delete Products</span>
-                    </a>
-                </li>
+                            <span class="menu-title">Update Users</span>
+                        </a>
+                        {{--                    @endif--}}
+                    </li>
+                @else
+                    <li class="nav-item menu-items active">
+                        <a class="nav-link" href="{{route('users.update')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+                            <span class="menu-title">Update Users</span>
+                        </a>
+                        {{--                    @endif--}}
+                    </li>
+                @endif
+                {{--                <li class="nav-item menu-items active">--}}
+                {{--                    <a class="nav-link" href="{{route('products')}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <i class="mdi mdi-speedometer"></i>--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">Delete Product</span>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
             </ul>
         </nav>
         <!-- partial -->
@@ -108,11 +120,11 @@
                             </div>
                         </li>
                     </ul>
-
                     <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                             data-toggle="offcanvas">
                         <span class="mdi mdi-format-line-spacing"></span>
                     </button>
+
                 </div>
             </nav>
             <!-- partial -->
@@ -123,59 +135,70 @@
                         <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Update Users</h4>
+                                    <h4 class="card-title">Delete Users</h4>
                                     <div class="table-responsive">
-                                        <form class="admin-update-users" method="post">
-                                            @csrf
-                                            <div>
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th> Client Name</th>
-                                                        <th> Email</th>
-                                                        <th> Surname</th>
-                                                        <th> Number</th>
-                                                        <th> City</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th>user id</th>
+                                                <th>headline</th>
+                                                <th>price</th>
+                                                <th>city</th>
+                                                <th>region</th>
+                                                <th>car_model</th>
+                                                <th>description</th>
+                                                <th>body type</th>
+                                                <th>rudder</th>
+                                                <th>year of issue</th>
+                                                <th>transmission</th>
+                                                <th>address</th>
+                                            </tr>
+                                            </thead>
                                             <tbody>
-                                            @if(isset($users))
-                                            <div style="display: flex;justify-content: space-between">
-                                                <input type="hidden" name="user_id" value="{{$user->id}}">
-                                                <input onfocus="this.value=''" style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
-                                                       name="ClientName" value="{{$user->name}}">
-                                                <input onfocus="this.value=''"  style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
-                                                       name="Email" value="{{$user->email}}">
-                                                <input onfocus="this.value=''" style="background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
-                                                       name="Surname" value="{{$user->surname}}">
-                                                <input onfocus="this.value=''" style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
-                                                       name="Number" value="{{$user->number}}">
-                                                <input onfocus="this.value=''" style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
-                                                       name="City" value="{{$user->city}}">
-                                            </div>
-                                            @endif
-                                            <button type="submit" class="update badge-outline-danger" style="border: 1px solid #27d5c5;
-                                                                                                                 border-radius: 5px;
-                                                                                                                 margin-top: 20px;
-                                                                                                                 color: #27d5c5;height: 100%; background: unset; ">
-                                                Update
-                                            </button>
-                                            </div>
-                                        </form>
+                                            @foreach($product as $products)
+                                                <tr>
+                                                    <td>
+                                                        <span class="pl-2"> {{$products->user_id}}</span>
+                                                    </td>
+                                                    <td>{{$products->headline}}   </td>
+                                                    <td> {{$products->price}}  </td>
+                                                    <td>{{$products->city}}  </td>
+                                                    <td> {{$products->region}} </td>
+                                                    <td> {{$products->car_model}} </td>
+                                                    <td> {{$products->description}} </td>
+                                                    <td> {{$products->body_type}} </td>
+                                                    <td> {{$products->year_of_issue}} </td>
+                                                    <td> {{$products->transmission}} </td>
+                                                    <td> {{$products->address}} </td>
+                                                    <td>
+                                                        <div style="display: flex">
+                                                            <button data-id="{{$products->id}}"
+                                                                    class="delete-products-btn badge badge-outline-danger"
+                                                                    style="width: 100%; height: 100%; background: unset;">
+                                                                Delete
+                                                            </button>
 
-                                        </tbody>
-
+                                                            <button data-id="{{$products->id}}"
+                                                                    class="delete-products-btn badge badge-outline-danger"
+                                                                    style="border: 1px solid #27d5c5;
+                                                                    border-radius: 5px;
+                                                                    color: #27d5c5;height: 100%; background: unset;
+                                                                    width: 100%; background: unset;">
+                                                                Update
+                                                            </button>
+                                                        </div>
+                                                    </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
 
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-12">
-
                         </div>
                     </div>
                 </div>

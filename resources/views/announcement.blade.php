@@ -201,7 +201,6 @@
                                                 </div>
                                             </div>
                                             <p class="announcement_second_item_specifications_info " hidden data-info="Седан">Седан</p>
-
                                         </div>
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Выберите Город</p>

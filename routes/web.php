@@ -100,9 +100,13 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
         Route::get('/users', [AdminController::class, 'index'])->name('admin');
         Route::post('/users', [AdminController::class, 'store'])->name('admin-users');
-        Route::get('/users-destroy/{id}', [AdminController::class, 'destroy'])->name('users');
-        Route::get('/update-users', [AdminController::class, 'getUpdate'])->name('users.update');
+        Route::get('/users-destroy/{id?}', [AdminController::class, 'destroy'])->name('users');
+        Route::get('/update-users/{id?}', [AdminController::class, 'getUpdate'])->name('users.update');
         Route::post('/update-users', [AdminController::class, 'update'])->name('admin.update');
+        Route::get('/products-users', [AdminController::class, 'getProductsPage'])->name('products');
+        Route::get('/products-destroy/{id?}', [AdminController::class, 'productsDestroy'])->name('delete-products');
+        Route::get('/update-products/{id?}', [AdminController::class, 'getProducts'])->name('admin.update');
+        Route::post('/update-products', [AdminController::class, 'updateProducts'])->name('admin.update');
     });
 });
 
