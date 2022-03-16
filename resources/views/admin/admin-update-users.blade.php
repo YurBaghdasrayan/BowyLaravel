@@ -5,7 +5,7 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" style="color: white; text-decoration: none;" href="{{'admin'}}">
+                <a class="sidebar-brand brand-logo" style="color: white; text-decoration: none;" href="{{route('admin')}}">
                     Bowy
                 </a>
                 <a style="color: white; text-decoration: none;" class="sidebar-brand brand-logo-mini"
@@ -14,7 +14,7 @@
                 </a>
             </div>
             <ul class="nav">
-                <li class="nav-item nav-category">
+            <li class="nav-item nav-category">
                     <span class="nav-link">Navigation</span>
                 </li>
                 <li class="nav-item menu-items active">
@@ -26,22 +26,23 @@
                     </a>
                 </li>
 {{--                <li class="nav-item menu-items active">--}}
-
-{{--                    <a class="nav-link" href="{{route('users.update')}}">--}}
+{{--                    <a class="nav-link" href="{{route('admin')}}">--}}
 {{--              <span class="menu-icon">--}}
 {{--                <i class="mdi mdi-speedometer"></i>--}}
 {{--              </span>--}}
 {{--                        <span class="menu-title">Update Users</span>--}}
 {{--                    </a>--}}
 {{--                </li>--}}
+
                 <li class="nav-item menu-items active">
                     <a class="nav-link" href="{{route('products')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
-                        <span class="menu-title">Delete Products</span>
+                        <span class="menu-title">Products</span>
                     </a>
                 </li>
+
             </ul>
         </nav>
         <!-- partial -->
@@ -127,41 +128,31 @@
                                     <div class="table-responsive">
                                         <form class="admin-update-users" method="post">
                                             @csrf
-                                            <div>
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <th> Client Name</th>
-                                                        <th> Email</th>
-                                                        <th> Surname</th>
-                                                        <th> Number</th>
-                                                        <th> City</th>
-                                                    </tr>
-                                                </thead>
-                                            </table>
+
                                             <tbody>
-                                            @if(isset($users))
-                                            <div style="display: flex;justify-content: space-between">
                                                 <input type="hidden" name="user_id" value="{{$user->id}}">
-                                                <input onfocus="this.value=''" style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
-                                                       name="ClientName" value="{{$user->name}}">
-                                                <input onfocus="this.value=''"  style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
+                                                <label for="ClientName">имя</label>
+                                                <input onfocus="this.value=''" type="text"
+                                                       name="name" value="{{$user->name}}">
+                                                <label for="email">электронная почта</label>
+                                                <input onfocus="this.value=''"  type="text"
                                                        name="Email" value="{{$user->email}}">
-                                                <input onfocus="this.value=''" style="background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
+                                                <label for="surname">фамилия</label>
+                                                <input onfocus="this.value=''"  type="text"
                                                        name="Surname" value="{{$user->surname}}">
-                                                <input onfocus="this.value=''" style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
+                                                <label for="number">Телефон</label>
+                                                <input onfocus="this.value=''" type="text"
                                                        name="Number" value="{{$user->number}}">
-                                                <input onfocus="this.value=''" style=" background: #4a5568; margin-right: 10px; border-radius: 5px" type="text"
+                                                <label for="City">город</label>
+                                                <input onfocus="this.value=''" type="text"
                                                        name="City" value="{{$user->city}}">
-                                            </div>
-                                            @endif
+
                                             <button type="submit" class="update badge-outline-danger" style="border: 1px solid #27d5c5;
                                                                                                                  border-radius: 5px;
                                                                                                                  margin-top: 20px;
                                                                                                                  color: #27d5c5;height: 100%; background: unset; ">
                                                 Update
                                             </button>
-                                            </div>
                                         </form>
 
                                         </tbody>

@@ -59,7 +59,7 @@ class AnnounController extends Controller
     {
         $data = $request->all();
         $update = Product::find($data['product_id']);
-        $update->headline = $data['product_id'];
+        $update->headline = $data['headline'];
         $update->price = $data['price'];
         $update->car_model = $data['car_model'];
         $update->description = $data['description'];

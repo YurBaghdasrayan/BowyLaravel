@@ -12,7 +12,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::where('role_id', "!=", '2')->get();
         return view('admin', compact('users'));
     }
 
@@ -86,12 +86,32 @@ class AdminController extends Controller
 
     public function getProducts($id)
     {
-        $productsUpdate = Product::find($id);
-        return view('admin.product-delete', compact('productsUpdate'));
+        $products = Product::find($id);
+        return view('admin.product-update', compact('products'));
     }
 
-    public function updateProducts()
+    public function updateProducts(Request $request)
     {
+        $data = $request->all();
 
+        $update = Product::find($data['product_id']);
+        $update->headline = $data['headline'];
+        $update->price = $data['price'];
+        $update->city = $data['city'];
+        $update->region = $data['region'];
+        $update->car_model = $data['car_model'];
+        $update->description = $data['description'];
+        $update->body_type = $data['body_type'];
+        $update->rudder = $data['rudder'];
+        $update->year_of_issue = $data['year_of_issue'];
+        $update->transmission = $data['transmission'];
+        $update->address = $data['address'];
+        $update->status = $data['status'];
+        $update->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'update successsssss',
+        ], 200);
     }
 }

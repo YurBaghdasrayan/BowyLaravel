@@ -53,7 +53,7 @@ class CreateProductRequest extends FormRequest
             'body_type.required' => 'Поле тип кузова  обязательно.',
             'rudder.required' => 'Поле руль почты обязательно.',
             'year_of_issue.required' => 'Поле год выпуска обязательно.',
-            'transmission.required' => 'Поле коробка передач обязательно.',
+            'transmission.required' => 'Поле коробка передачи обязательно.',
             'address.required' => 'Поле адреса обязательно.',
             'category_id.required' => 'асдасд',
         ];

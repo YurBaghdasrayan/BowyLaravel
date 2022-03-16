@@ -9,7 +9,7 @@
                     Bowy
                 </a>
                 <a style="color: white; text-decoration: none;" class="sidebar-brand brand-logo-mini"
-                   href="{{route('admin')}}">
+                   href="/public/admin">
                     BB
                 </a>
             </div>
@@ -42,6 +42,14 @@
                         <span class="menu-title">Products</span>
                     </a>
                 </li>
+                {{--                <li class="nav-item menu-items active">--}}
+                {{--                    <a class="nav-link" href="{{route('products')}}">--}}
+                {{--                        <span class="menu-icon">--}}
+                {{--                            <i class="mdi mdi-speedometer"></i>--}}
+                {{--                        </span>--}}
+                {{--                        <span class="menu-title">Delete Product</span>--}}
+                {{--                    </a>--}}
+                {{--                </li>--}}
             </ul>
         </nav>
         <!-- partial -->
@@ -68,8 +76,8 @@
                        </li>
                      </ul> -->
                     <ul class="navbar-nav navbar-nav-right">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
+                        <li class="nav-item dropdown"><a class="nav-link" id="profileDropdown" href="#"
+                                                         data-toggle="dropdown">
                                 <div class="navbar-profile">
                                     <!-- <img class="img-xs rounded-circle" src="http://194-67-111-30.cloudvps.regruhosting.ru/public/assets/images/faces/face15.jpg" alt=""> -->
                                     <p class="mb-0 d-none d-sm-block navbar-profile-name">Admin1</p>
@@ -118,85 +126,69 @@
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
-
                     <div class="row ">
                         <div class="col-12 grid-margin">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Products</h4>
+                                    <h4 class="card-title">Update Products</h4>
                                     <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th>user id</th>
-                                                <th>заголовок объявления</th>
-                                                <th>стоимость</th>
-                                                <th>город</th>
-                                                <th>регион</th>
-                                                <th>марка автомобиля</th>
-                                                <th>описание объявления</th>
-                                                <th>тип кузова</th>
-                                                <th>руль</th>
-                                                <th>год выпуска</th>
-                                                <th>коробка передачи</th>
-                                                <th>адрес</th>
-                                            </tr>
-                                            </thead>
+                                        <form class="admin-update-products" method="post">
+                                            @csrf
                                             <tbody>
-                                            @foreach($product as $products)
-                                                <tr>
-{{--                                                    <td>--}}
-{{--                                                        <span class="pl-2"> {{$products->user_id}}</span>--}}
-{{--                                                    </td>--}}
-                                                    <td>{{$products->user_id}}   </td>
-                                                    <td>{{$products->headline}}   </td>
-                                                    <td> {{$products->price}}  </td>
-                                                    <td>{{$products->city}}  </td>
-                                                    <td> {{$products->region}} </td>
-                                                    <td> {{$products->car_model}} </td>
-                                                    <td> {{$products->description}} </td>
-                                                    <td> {{$products->body_type}} </td>
-                                                    <td> {{$products->rudder}} </td>
-                                                    <td> {{$products->year_of_issue}} </td>
-                                                    <td> {{$products->transmission}} </td>
-                                                    <td> {{$products->address}} </td>
-                                                    <td>
-                                                        <div style="display: flex">
-                                                            <a href="{{route('admin.update',$products->id)}}" class="update badge badge-outline-danger" style="width: 100%; height: 100%; background: unset;color: #0ba9e5;border: 1px solid #0ba9e5;margin-right: 10px;">
-                                                                Update</a>
-                                                            <button data-id="{{$products->id}}"
-                                                                    class="delete-products-btn badge badge-outline-danger"
-                                                                    style="width: 100%; height: 100%; background: unset; color: red; border: 1px solid red">
-                                                                Delete
-                                                            </button>
-                                                        </div>
-                                                    </tr>
-                                            @endforeach
-                                            </tbody>
-                                        </table>
+{{--                                            <label for="products->id">user id {{$products->id}}</label>--}}
+                                            <input type="hidden" name="product_id" value="{{$products->id}}">
+                                            <label for="headline">заголовок объявления</label>
+                                            <input onfocus="this.value=''" type="text" name="headline" value="{{$products->headline}}">
+                                            <label for="price">стоимость</label>
+                                            <input onfocus="this.value=''" type="text" name="price" value="{{$products->price}}">
+                                            <label for="city">город</label>
+                                            <input onfocus="this.value=''" type="text" name="city" value="{{$products->city}}">
+                                            <label for="region">регион</label>
+                                            <input onfocus="this.value=''" type="text" name="region" value="{{$products->region}}">
+                                            <label for="car model">марка автомобиля</label>
+                                            <input onfocus="this.value=''" type="text" name="car_model" value="{{$products->car_model}}">
+                                            <label for="description">описание объявления</label>
+                                            <input onfocus="this.value=''" type="text" name="description" value="{{$products->description}}">
+                                            <label for="body type">тип кузова</label>
+                                            <input onfocus="this.value=''" type="text" name="body_type" value="{{$products->body_type}}">
+                                            <label for="rudder">руль</label>
+                                            <input onfocus="this.value=''" type="text" name="rudder" value="{{$products->rudder}}">
+                                            <label for="year of issue">год выпуска</label>
+                                            <input onfocus="this.value=''" type="text" name="year_of_issue" value="{{$products->year_of_issue}}">
+                                            <label for="transmission">коробка передачи</label>
+                                            <input onfocus="this.value=''" type="text" name="transmission" value="{{$products->transmission}}">
+                                            <label for="address">адрес</label>
+                                            <input onfocus="this.value=''" type="text" name="address" value="{{$products->address}}">
+                                            <label for="status">статус</label>
+                                            <input onfocus="this.value=''" type="text" name="status" value="{{$products->status}}">
+                                            <button type="submit" class="update-products badge-outline-danger" style="color: #0ba9e5;border: 1px solid #0ba9e5;">Update
+                                            </button>
                                     </div>
+                                    </form>
 
                                 </div>
+
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
                     </div>
                 </div>
-                <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
-                <footer class="footer">
-                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Bowy.com 2022</span>
-                        <!--   <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Development by <a href="http://justcodedigital.com/" target="_blank">JustCode Development company</a></span> -->
-                    </div>
-                </footer>
-                <!-- partial -->
             </div>
-            <!-- main-panel ends -->
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © Bowy.com 2022</span>
+                    <!--   <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Development by <a href="http://justcodedigital.com/" target="_blank">JustCode Development company</a></span> -->
+                </div>
+            </footer>
+            <!-- partial -->
         </div>
-        <!-- page-body-wrapper ends -->
+        <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
     </div>
 @endsection

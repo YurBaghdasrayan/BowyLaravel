@@ -1,11 +1,11 @@
 @extends('layouts.adminapp')
 @section('admincontent')
-{{--    @dd($users)--}}
+{{--    @dd($users[0]->role_id)--}}
 <div class="container-scroller">
     <!-- partial:partials/_sidebar.html -->
     <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-            <a class="sidebar-brand brand-logo" style="color: white; text-decoration: none;" href="{{'admin'}}">
+            <a class="sidebar-brand brand-logo" style="color: white; text-decoration: none;" href="{{route('admin')}}">
                 Bowy
             </a>
             <a style="color: white; text-decoration: none;" class="sidebar-brand brand-logo-mini" href="/public/admin">
@@ -24,21 +24,21 @@
                     <span class="menu-title">Users</span>
                 </a>
             </li>
-            <li class="nav-item menu-items active">
-                <a class="nav-link" href="{{route('users.update',['id'=>$users[0]->id])}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
-              </span>
-                    <span class="menu-title">Update Users</span>
-                </a>
-            </li>
+{{--            <li class="nav-item menu-items active">--}}
+{{--                <a class="nav-link" href="{{route('users.update',['id'=>$users[0]->id])}}">--}}
+{{--              <span class="menu-icon">--}}
+{{--                <i class="mdi mdi-speedometer"></i>--}}
+{{--              </span>--}}
+{{--                    <span class="menu-title">Update Users</span>--}}
+{{--                </a>--}}
+{{--            </li>--}}
 
             <li class="nav-item menu-items active">
                 <a class="nav-link" href="{{route('products')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-speedometer"></i>
               </span>
-                    <span class="menu-title">Delete Products</span>
+                    <span class="menu-title">Products</span>
                 </a>
             </li>
         </ul>
@@ -124,18 +124,19 @@
                                         <thead>
                                         <tr>
 
-                                            <th> Client Name </th>
-                                            <th> Email</th>
-                                            <th> Surname </th>
-                                            <th> Number </th>
-                                            <th> City </th>
-                                            <th> Register Date </th>
+                                            <th> имя </th>
+                                            <th> электронная почта</th>
+                                            <th> фамилия </th>
+                                            <th> Телефон </th>
+                                            <th> город </th>
+                                            <th> Дата регистрации</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
                                         <tr>
-                                            @if(isset($users))
+{{--                                            @dd($users[0]->role_id)--}}
+{{--                                            @if($users[0]->role_id == 1) --}}
                                             @foreach($users as $user)
                                             <td>
                                                 <span class="pl-2"> {{$user->name}}</span>
@@ -149,12 +150,12 @@
                                                 <div style="display: flex">
                                                     <a href="{{route('users.update',$user->id)}}"   class="update badge badge-outline-danger" style="width: 100%; height: 100%; background: unset;color: #0ba9e5;border: 1px solid #0ba9e5;margin-right: 10px;">
                                                         Update</a>
-                                                    <button class="delete-users-btn badge badge-outline-danger" style="width: 100%; height: 100%; background: unset; " data-id="{{$user->id}}">Delete</button>
+                                                    <button class="delete-users-btn badge badge-outline-danger" style="width: 100%; height: 100%; background: unset; color: red;border: 1px solid red; " data-id="{{$user->id}}">Delete</button>
                                                 </div>
                                             </td>
                                         </tr>
                                         @endforeach
-                                        @endif
+{{--                                        @endif--}}
                                         </tbody>
                                     </table>
                                 </div>

@@ -8,9 +8,14 @@
                     </a>
                 </div>
                 <div class="footer_registration_log_in_btn_link_wrapper">
+                    @if(auth()->check())
                     <a href="{{route('login')}}"
-                       class="footer_registration_log_in_btn {{ Request::path() == 'login' ? 'active' : '' }}">Вход и
-                        регистрация</a>
+                       class="footer_registration_log_in_btn {{ Request::path() == 'login' ? 'active' : '' }}"></a>
+                    @else
+                        <a href="{{route('login')}}"
+                           class="footer_registration_log_in_btn {{ Request::path() == 'login' ? 'active' : '' }}">Вход и
+                            регистрация</a>
+                    @endif
                     <a href="{{route('profile-place-anad')}}" class="footer_link">Разместить объявление</a>
                 </div>
             </div>

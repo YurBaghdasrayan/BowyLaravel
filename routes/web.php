@@ -106,7 +106,7 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/products-users', [AdminController::class, 'getProductsPage'])->name('products');
         Route::get('/products-destroy/{id?}', [AdminController::class, 'productsDestroy'])->name('delete-products');
         Route::get('/update-products/{id?}', [AdminController::class, 'getProducts'])->name('admin.update');
-        Route::post('/update-products', [AdminController::class, 'updateProducts'])->name('admin.update');
+        Route::post('/update-products', [AdminController::class, 'updateProducts'])->name('admin.update.asd');
     });
 });
 
