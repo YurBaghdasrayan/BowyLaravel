@@ -19,5 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('registration', [RegisterController::class, 'storeApi'])->name('registration');
-
+Route::get('registration', [RegisterController::class, 'storeApi'])->name('registration');
