@@ -83,5 +83,25 @@ class RegisterController extends Controller
 //        dd($data);
 //      dd($request);
 //        return response()->json($request);
+
+        $data = [
+            'email' => $request->email,
+            'password' => $request->password,
+            'role_id' => Role::USER_ID,
+            'number' => $request->number,
+            'name' => $request->name,
+        ];
+
+        $user = User::create($data);
+        if ($user) {
+            return response()->json([
+                'success' => true,
+                'message' => 'user successfuly registered'
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false
+            ], 401);
+        }
     }
 }
