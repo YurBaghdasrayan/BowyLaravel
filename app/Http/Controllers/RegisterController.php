@@ -60,7 +60,7 @@ class RegisterController extends Controller
     {
         $data = [
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'role_id' => Role::USER_ID,
             'number' => $request->number,
             'name' => $request->name,

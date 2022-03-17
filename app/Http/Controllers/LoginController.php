@@ -48,4 +48,23 @@ class LoginController extends Controller
 
         return redirect('/login');
     }
+
+    public function storeLogin(Request $request)
+    {
+        $data = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        if (Auth::attempt($data)) {
+            $token = auth()->user()->createToken('API Token')->accessToken;
+
+            return response(['user' => auth()->user(), 'token' => $token->token], 200);
+        }else{
+            return response(['error_message' => 'Incorrect Details.
+            Please try again']);
+        }
+    }
+
 }
+
