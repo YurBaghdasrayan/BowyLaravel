@@ -58,7 +58,7 @@ class RegisterController extends Controller
 
     public function storeApi(Request $request)
     {
-        dd($request);
+        
     }
 
 }
