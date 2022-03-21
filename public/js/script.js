@@ -728,7 +728,7 @@ $(document).on("submit", ".update_place_an_ad", function (event) {
     formData.append('transmission', transmission_val);
     formData.append('product_id', product_id_val);
     formData.append('_token', token);
-    formData.append('address', address);
+    formData.append('address', address_val);
 
     $.ajax({
         url: "announcement_update",

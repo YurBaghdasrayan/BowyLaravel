@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('registration', [RegisterController::class, 'storeApi'])->name('registration');
 Route::post('/login', [LoginController::class, 'storeLogin'])->name('login');
+Route::get('/home', [HomeController::class, 'indexApi'])->name('home');
+Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');

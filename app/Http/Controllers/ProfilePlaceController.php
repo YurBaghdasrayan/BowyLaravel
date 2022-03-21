@@ -16,6 +16,5 @@ class ProfilePlaceController extends Controller
         $cities = City::all();
         $cars_models = CarsModel::all();
         return view('/profile-place-anad', compact('categories', 'regions', 'cities','cars_models'));
-
     }
 }

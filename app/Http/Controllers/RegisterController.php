@@ -28,7 +28,6 @@ class RegisterController extends Controller
         $image = $request->file('image');
 
         if ($image) {
-
             $destinationPath = 'public/uploads';
             $originalFile = time() . $image->getClientOriginalName();
             $image->storeAs($destinationPath, $originalFile);
@@ -65,7 +64,12 @@ class RegisterController extends Controller
             'number' => $request->number,
             'name' => $request->name,
         ];
-
+        $this->validate($request,[
+            'name' => 'required|min:6|max:255',
+            'email' => 'required|min:3|max:64|unique:users',
+            'password' => 'required|min:6|max:64|confirmed',
+            'number' => 'required|min:3|max:64',
+        ]);
         $user = User::create($data);
         if ($user) {
             return response()->json([

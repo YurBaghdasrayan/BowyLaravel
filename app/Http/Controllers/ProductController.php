@@ -112,4 +112,34 @@ class ProductController extends Controller
             ], 200);
         }
     }
+
+    public function storeApi(Request $request)
+    {
+        dd($request);
+        $image = $request->file('image');
+        $destinationPath = 'public/uploads';
+        $originalFile = time().$image->getClientOriginalName();
+        $image->storeAs($destinationPath, $originalFile);
+        $data = $request->all();
+
+        $data['image'] = $originalFile;
+        $data['user_id'] = Auth::user()->id;
+
+        $city_id = $data['city'];
+        $regionId_forThisCity = City::where('id', $city_id)->first();
+
+        if ($data['region'] != $regionId_forThisCity->region_id) {
+            return response()->json([
+                'success' => false,
+                'message' => 'The region is not found'
+            ], 404);
+
+        } else if (Product::query()->create($data)) {
+
+            return response()->json([
+                'success' => true,
+                'message' => 'product was successfully created'
+            ], 201);
+        }
+    }
 }

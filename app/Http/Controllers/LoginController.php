@@ -51,6 +51,13 @@ class LoginController extends Controller
 
     public function storeLogin(Request $request)
     {
+        $this->validated($request, [
+            'name' => 'required|min:6|max:64',
+            'number' => 'required|min:6|max:64',
+            'password' => 'required|min:6|max:64|confirmed',
+            'email' => 'required|min:3|max:64|unique:users',
+        ]);
+
         $data = [
             'email' => $request->email,
             'password' => $request->password,
@@ -60,7 +67,7 @@ class LoginController extends Controller
             $token = auth()->user()->createToken('API Token')->accessToken;
 
             return response(['user' => auth()->user(), 'token' => $token->token], 200);
-        }else{
+        } else {
             return response(['error_message' => 'Incorrect Details.
             Please try again']);
         }

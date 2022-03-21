@@ -12,13 +12,19 @@ class HomeController extends Controller
 {
     public function index()
     {
-
         $categories = Categories::all();
-        $product = Product::orderBy('id','DESC')->limit(8)->get();
-//        dd($product);
+        $product = Product::orderBy('id', 'DESC')->limit(8)->get();
         $regions = Region::all();
         $cities = City::all();
         return view('/home', compact('categories', 'product', 'regions', 'cities'));
     }
 
+    public function indexApi()
+    {
+        $categories = Categories::all();
+        $product = Product::all();
+        $regions = Region::all();
+        $cities = City::all();
+        return response()->json([$categories,$product,$cities,$regions]);
+    }
 }

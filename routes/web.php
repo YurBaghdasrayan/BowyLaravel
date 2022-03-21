@@ -80,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/favourites-delete/{id}', [FavouritesController::class, 'destroyFavourite'])->name('favourites');
 
     });
+
     /*MIDDLEWARE GET METHODS*/
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
