@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ApiRegistrationRequest;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UsersRequest;
 use App\Jobs\RegisteredSuccessEmailJob;
@@ -55,7 +56,7 @@ class RegisterController extends Controller
         }
     }
 
-    public function storeApi(Request $request)
+    public function storeApi(ApiRegistrationRequest $request)
     {
         $data = [
             'email' => $request->email,
@@ -64,12 +65,7 @@ class RegisterController extends Controller
             'number' => $request->number,
             'name' => $request->name,
         ];
-        $this->validate($request,[
-            'name' => 'required|min:6|max:255',
-            'email' => 'required|min:3|max:64|unique:users',
-            'password' => 'required|min:6|max:64|confirmed',
-            'number' => 'required|min:3|max:64',
-        ]);
+
         $user = User::create($data);
         if ($user) {
             return response()->json([

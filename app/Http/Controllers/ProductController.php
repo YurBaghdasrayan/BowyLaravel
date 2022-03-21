@@ -115,7 +115,6 @@ class ProductController extends Controller
 
     public function storeApi(Request $request)
     {
-        dd($request);
         $image = $request->file('image');
         $destinationPath = 'public/uploads';
         $originalFile = time().$image->getClientOriginalName();
@@ -123,8 +122,7 @@ class ProductController extends Controller
         $data = $request->all();
 
         $data['image'] = $originalFile;
-        $data['user_id'] = Auth::user()->id;
-
+//        $data['user_id'] =  auth('api')->user()->id;
         $city_id = $data['city'];
         $regionId_forThisCity = City::where('id', $city_id)->first();
 

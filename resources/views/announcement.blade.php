@@ -39,7 +39,7 @@
                                                             <input type="text"
                                                                    class="announcement_second_item_input_field"
                                                                    placeholder=" Напишите..." name="headline"
-                                                                   onfocus="this.value=''">
+                                                                   onfocus="this.value=''" value="{{$product->headline}}">
                                                         </div>
                                                         <i class="material-icons check_mark_icon">✔</i>
                                                     </div>

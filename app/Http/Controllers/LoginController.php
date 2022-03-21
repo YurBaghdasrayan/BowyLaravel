@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginApiRequest;
 use App\Http\Requests\LoginRequest;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\Request;
@@ -49,15 +50,8 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
-    public function storeLogin(Request $request)
+    public function storeLogin(LoginApiRequest $request)
     {
-        $this->validated($request, [
-            'name' => 'required|min:6|max:64',
-            'number' => 'required|min:6|max:64',
-            'password' => 'required|min:6|max:64|confirmed',
-            'email' => 'required|min:3|max:64|unique:users',
-        ]);
-
         $data = [
             'email' => $request->email,
             'password' => $request->password,
@@ -68,10 +62,8 @@ class LoginController extends Controller
 
             return response(['user' => auth()->user(), 'token' => $token->token], 200);
         } else {
-            return response(['error_message' => 'Incorrect Details.
-            Please try again']);
+            return response(['error_message' => 'Incorrect Details. Please try again']);
         }
     }
-
 }
 
