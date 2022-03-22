@@ -113,13 +113,7 @@
             <div class="types_of_transport_wrapper">
                 <div class="types_of_transport_link_title_wrapper">
                     <h1 class="types_of_transport_title">Виды транспорта</h1>
-                    <a href="" class="more_transports_links">Больше транспотра
-                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3.78132 4.99999L0.481323 1.69999L1.42399 0.757324L5.66666 4.99999L1.42399 9.24266L0.481323 8.29999L3.78132 4.99999Z" fill="#101512" fill-opacity="0.35"/>
-                        </svg>
-                    </a>
                 </div>
-{{--                @dd($categories)--}}
                 <div class="types_of_transport_links_wrapper">
                     @foreach($categories as $category )
                         <a href="{{route('search.results',$category->id)}}" class="types_of_transport_link">

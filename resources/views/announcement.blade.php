@@ -24,7 +24,7 @@
                                                 <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                                     <div class="announcement_second_item_title_edit_btn_wrapper">
                                                         <p class="announcement_second_item_title"
-                                                           data-info="Аренда авто без залога">Аренда авто без залога</p>
+                                                           data-info="Аренда авто без залога">{{$product->headline}}</p>
                                                         <div class="announcement_edit_btn2">
                                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                                  xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +64,7 @@
                                                             <input type="text"
                                                                    class="announcement_second_item_input_field"
                                                                    placeholder=" Напишите... " name="price"
-                                                                   onfocus="this.value=''">
+                                                                   onfocus="this.value=''" value="{{$product->price}}">
                                                         </div>
                                                         <i class="material-icons check_mark_icon">✔</i>
                                                     </div>
@@ -166,7 +166,7 @@
                                                 <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                                     <div class="announcement_second_item_title_edit_btn_wrapper">
                                                         <p class="announcement_second_item_title"
-                                                           data-info="Аренда авто без залога">Адрес</p>
+                                                           data-info="">Адрес</p>
                                                         <div class="announcement_edit_btn2">
                                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                                  xmlns="http://www.w3.org/2000/svg">
@@ -180,8 +180,8 @@
                                                         <div class="announcement_second_item_input_field_wrapper">
                                                             <input type="text"
                                                                    class="announcement_second_item_input_field"
-                                                                   placeholder=" Напишите..." name="address"
-                                                                   onfocus="this.value=''">
+                                                                   placeholder=" Напишите..." value="{{$product->address}}" name="address"
+                                                                   onfocus="this.value=''">{{$product->address}}
                                                         </div>
                                                         <i class="material-icons check_mark_icon">✔</i>
                                                     </div>
@@ -214,7 +214,6 @@
 
                                             </div>
                                             <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
-
                                         </div>
                                         <div class="announcement_second_item_car_info_details">
                                             <div class="announcement_second_item_title_edit_btn_input_wrapper">
@@ -228,13 +227,12 @@
                                                                 d="M12.728 6.686L11.314 5.272L2 14.586V16H3.414L12.728 6.686ZM14.142 5.272L15.556 3.858L14.142 2.444L12.728 3.858L14.142 5.272ZM4.242 18H0V13.757L13.435 0.322C13.6225 0.134528 13.8768 0.029213 14.142 0.029213C14.4072 0.029213 14.6615 0.134528 14.849 0.322L17.678 3.151C17.8655 3.33853 17.9708 3.59284 17.9708 3.858C17.9708 4.12316 17.8655 4.37747 17.678 4.565L4.243 18H4.242Z"
                                                                 fill="black"/>
                                                         </svg>
-
                                                     </div>
                                                 </div>
                                                 <div class="announcement_second_item_input_icon_wrapper">
                                                     <div class="announcement_second_item_input_field_wrapper">
                                                         <input type="text" class="announcement_second_item_input_field2"
-                                                               placeholder=" Напишите... " name="description"
+                                                               placeholder=" Напишите... " value="{{$product->description}}" name="description"
                                                                onfocus="this.value=''">
                                                     </div>
                                                     <i class="material-icons check_mark_icon">✔</i>
@@ -283,6 +281,9 @@
                                             <div class="announcement_second_item_specifications_input_icon_wrapper body_car">
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select name="body_type">
+                                                        @if($product->body_type)
+                                                            <option name="body_type" selected  value="{{$product->body_type}}">{{$product->body_type}}</option>
+                                                        @endif
                                                         <option name="body_type" value="Седан">Седан</option>
                                                         <option name="body_type" value="Универсал">Универсал</option>
                                                         <option name="body_type" value="Хэтчбэк">Хэтчбэк</option>
@@ -308,7 +309,6 @@
                                             </div>
                                             <div class="alert_none alert-danger-body_type"></div>
                                             <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
-
                                         </div>
                                     <div class="announcement_second_item_specifications">
                                         <p class="announcement_second_item_specifications_title">Марка автомобиля</p>
@@ -316,24 +316,30 @@
                                             <div
                                                 class="announcement_second_item_specifications_input_field_wrapper">
                                                 <select name="car_model" id="test">
+                                                    @if($product->car_model)
+                                                        <option selected value="{{$product->car_model}}">{{$product->car_model}}</option>
                                                     @foreach($cars_models as $key => $cars_model)
-                                                        <option  value="{{$cars_model->id}}">{{ $cars_model->name }}</option>
+                                                            <option value="{{$cars_model->name}}">{{ $cars_model->name }}</option>
                                                     @endforeach
+                                                    @endif
                                                 </select>
                                             </div>
                                         </div>
                                         <p class="announcement_second_item_specifications_info" hidden data-info="Седан">Седан</p>
                                     </div>
-                                        <div class="alert_none alert-danger-body_type"></div>
+                                        <div class="alert_none alert-danger-car_model"></div>
 
                                         <div class="announcement_second_item_specifications">
                                             <p class="announcement_second_item_specifications_title">Год выпуска:</p>
                                             <div class="announcement_second_item_specifications_input_icon_wrapper year_of_issue" >
                                                 <div class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select class="yearselect" name="year_of_issue">
+                                                        @if($product->year_of_issue)
+                                                            <option  value="{{$product->year_of_issue}}">{{$product->year_of_issue}}</option>
                                                         @for($i = 1930; $i <= \Carbon\Carbon::now()->year; $i++)
-                                                            <option value="{{$i}}">{{ $i }}</option>
+                                                                <option  value="{{$i}}">{{$i}}</option>
                                                         @endfor
+                                                        @endif
                                                     </select>
                                                 </div>
                                             </div>
@@ -347,6 +353,9 @@
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
                                                     <select name="transmission">
+                                                        @if($product->transmission)
+                                                            <option selected value="{{$product->transmission}}">{{$product->transmission}}</option>
+                                                        @endif
                                                         <option value="Автоматическая">Автоматическая</option>
                                                         <option value="Механическая">Механическая</option>
                                                     </select>
@@ -361,14 +370,22 @@
                                                 <div
                                                     class="announcement_second_item_specifications_input_field_wrapper">
                                                    <select name="rudder">
-                                                        <option value="Левый">Левый</option>
-                                                        <option value="Правый">Правый</option>
+                                                       <option value="Левый"
+                                                          @if($product->rudder == "Левый")
+                                                               selected
+                                                           @endif
+                                                       >Левый</option>
+                                                       <option value="Правый"
+                                                          @if($product->rudder == "Правый")
+                                                          selected
+                                                          @endif
+                                                           >Правый</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <p class="announcement_second_item_specifications_info" hidden data-info="Левый">Левый</p>
+                                            <p class="announcement_second_item_specifications_info" hidden data-info="Правый">Правый</p>
                                         </div>
-                                        <div class="alert_none alert-danger-body_type"></div>
+                                        <div class="alert_none alert-danger-rudder"></div>
                                     </div>
                                     <button type="submit" class="profile_settings_form_btn" value="save">Сохранить
                                     </button>

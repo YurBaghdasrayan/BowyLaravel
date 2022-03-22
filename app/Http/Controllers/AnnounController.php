@@ -26,7 +26,6 @@ class AnnounController extends Controller
         $cars_models = CarsModel::all();
         $views_posts = Product::all();
 
-
         $products = "";
         $similar_product = "";
         $car_model = "";
@@ -58,50 +57,41 @@ class AnnounController extends Controller
     public function update(UpdateProductRequest $request)
     {
         $data = $request->all();
-
-        $product_id = $data['product_id'];
-
-        $update = [];
-//            array(
-//            'headline' => $data['headline'],
-//            'address' => $data['address'],
-//            'price' => $data['price'],
-//            'car_model' => $data['car_model'],
-//            'description' => $data['description'],
-//            'body_type' => $data['body_type'],
-//            'rudder' => $data['rudder'],
-//            'year_of_issue' => $data['year_of_issue'],
-//            'transmission' => $data['transmission'],
-//        );
-        foreach ($data as $datums){
-            if (isset($datums['headline'])) {
-                array_push($updates);
-            }
-            if (isset($datums['price'])) {
-                array_push($updates);
-            }
-            if (isset($datums['price'])) {
-                array_push($updates);
-            }
-        }
-        dd($datums);
-
-        $update_product = Product::where('id', '=', $product_id)->update($update);
-
-        if ($update_product) {
-
-            return response()->json([
-                'success' => true,
-                'message' => 'update success',
-            ], 200);
-
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'incorrect data',
-            ], 422);
-        }
+        $update = Product::find($data['product_id']);
+        $update->headline = $data['headline'];
+        $update->address = $data['address'];
+        $update->price = $data['price'];
+        $update->car_model = $data['car_model'];
+        $update->description = $data['description'];
+        $update->body_type = $data['body_type'];
+        $update->rudder = $data['rudder'];
+        $update->year_of_issue = $data['year_of_issue'];
+        $update->transmission = $data['transmission'];
+        $update->save();
+        return response()->json([
+            'success' => true,
+            'message' => 'update success'.$data['rudder'].">>".$data['product_id'],
+        ], 200);
     }
+
+
+
+//$update_product = Product::where('id', '=', $product_id)->update($update);
+
+//        if ($update_product) {
+//
+//            return response()->json([
+//                'success' => true,
+//                'message' => 'update success',
+//            ], 200);
+//
+//        } else {
+//            return response()->json([
+//                'success' => false,
+//                'message' => 'incorrect data',
+//            ], 422);
+//        }
+//    }
 
     public function ApiUpdate(Request $request)
     {

@@ -26,9 +26,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('registration', [RegisterController::class, 'storeApi'])->name('registration');
 Route::post('/login', [LoginController::class, 'storeLogin'])->name('login');
-Route::get('/home', [HomeController::class, 'indexApi'])->name('home');
+Route::group(['middleware'=>['auth:api']],function(){
+    Route::get('/home', [HomeController::class, 'indexApi'])->name('home');
+    Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');
+    Route::post('/announcement', [AnnounController::class, 'ApiUpdate'])->name('announcement');
+    Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'unloggedApi'])->name('announcement.unlogged.user');
+});
 Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');
-Route::post('/announcement', [AnnounController::class, 'ApiUpdate'])->name('announcement');
-Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'unloggedApi'])->name('announcement.unlogged.user');
+Route::get('/home', [ProductController::class, 'index'])->name('home');
 
 
