@@ -22,7 +22,6 @@ class HomeController extends Controller
 
     public function indexApi()
     {
-//        dd(Auth::user());
         $categories = Categories::all();
 //        dd($categories);
         $product = Product::all();
