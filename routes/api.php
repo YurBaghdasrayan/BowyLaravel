@@ -33,6 +33,6 @@ Route::group(['middleware'=>['auth:api']],function(){
     Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'unloggedApi'])->name('announcement.unlogged.user');
 });
 Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');
-Route::get('/home', [ProductController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'indexApi'])->name('home');
 
 

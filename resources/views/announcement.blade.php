@@ -24,7 +24,7 @@
                                                 <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                                     <div class="announcement_second_item_title_edit_btn_wrapper">
                                                         <p class="announcement_second_item_title"
-                                                           data-info="Аренда авто без залога">{{$product->headline}}</p>
+                                                           data-info="{{$product->headline}}">{{$product->headline}}</p>
                                                         <div class="announcement_edit_btn2">
                                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                                  xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@
                                                 <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                                     <div class="announcement_second_item_title_edit_btn_wrapper">
                                                         <p class="announcement_second_item_title"
-                                                           data-info="1 290 ₽">{{$product->price}}</p>
+                                                           data-info="{{$product->price}}">{{$product->price}}</p>
                                                         <div class="announcement_edit_btn2">
                                                             <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                                  xmlns="http://www.w3.org/2000/svg">

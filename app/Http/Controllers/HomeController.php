@@ -7,6 +7,7 @@ use App\Models\City;
 use App\Models\Product;
 use App\Models\Region;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,6 +22,7 @@ class HomeController extends Controller
 
     public function indexApi()
     {
+//        dd(Auth::user());
         $categories = Categories::all();
 //        dd($categories);
         $product = Product::all();
