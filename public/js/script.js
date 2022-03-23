@@ -18,7 +18,7 @@ $(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete
     var thisis = $(this);
 
     $.ajax({
-        url: `/products/${$(this).data('id')}`,
+        url: `http://185.46.11.159/BowyLaravel/public/products/${$(this).data('id')}`,
         type: 'GET',
         cache: false,
         processData: false,
@@ -38,7 +38,7 @@ $(document).on("click", ".badge", function () {
     var thisis = $(this);
 
     $.ajax({
-        url: `/admin/${$(this).data('id')}`,
+        url: `http://185.46.11.159/BowyLaravel/public/admin/${$(this).data('id')}`,
         type: 'GET',
         cache: false,
         processData: false,
@@ -53,28 +53,6 @@ $(document).on("click", ".badge", function () {
         }
     })
 })
-// $(document).on("click", ".badge", function () {
-//
-//     var thisis = $(this);
-//     var user_id = thisis.data('id');
-//
-//     $.ajax({
-//         url: `/admin/users-destroy/${user_id}`,
-//         type: 'GET',
-//         cache: false,
-//         processData: false,
-//         contentType: false,
-//         success: function (response) {
-//             if (response.success) {
-//                 console.log(response)
-//             }
-//         },
-//         error: function (err) {
-//             console.log(err)
-//
-//         }
-//     })
-// })
 
 $(document).on("click",".add_category_data",function () {
     var datainfo = $(this).data("info");
@@ -102,7 +80,7 @@ $(document).on("click",".add_region_data",function () {
     var region_data_val = $('#region_input').val();
 
     $.ajax({
-        url: "/getCityByRegionId",
+        url: "http://185.46.11.159/BowyLaravel/public/getCityByRegionId",
         type: 'post',
         cache: false,
         data: {'_token': token, 'region_data': region_data_val},
@@ -159,7 +137,7 @@ function getCityBySelect(region_id) {
             }
         });
         $.ajax({
-            url: "/getCityByRegionId",
+            url: "http://185.46.11.159/BowyLaravel/public/getCityByRegionId",
             type: 'post',
             cache: false,
             data: {'region_data':region_id},
@@ -178,7 +156,7 @@ $("#regionSelect").on("change", function () {
 
 
     $.ajax({
-        url: "/getCityByRegionId",
+        url: "http://185.46.11.159/BowyLaravel/public/getCityByRegionId",
         type: 'post',
         cache: false,
         data: {'_token': token, 'region_data': region_id},
@@ -247,7 +225,7 @@ $(document).on("click", ".set_city_data", function () {
     var region_data_val = $('#region_input').val();
 
     $.ajax({
-        url: "/getCityByRegionId",
+        url: "http://185.46.11.159/BowyLaravel/public/getCityByRegionId",
         type: 'post',
         cache: false,
         data: {'_token': token, 'region_data': region_data_val},
@@ -563,7 +541,7 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
         }
     });
     $.ajax({
-        url: "/profile/create-products",
+        url: "http://185.46.11.159/BowyLaravel/public/profile/create-products",
         type: 'POST',
         data: formData,
         cache: false,
@@ -642,7 +620,7 @@ $(document).on("click", ".add-favorite", function () {
     var token = $('meta[name="csrf-token"]').attr('content');
     console.log(thisis.parent());
     $.ajax({
-        url: "/profile/favourites",
+        url: "http://185.46.11.159/BowyLaravel/public/profile/favourites",
         type: 'post',
         cache: false,
         data: {'_token': token, 'product_id': product_id},
@@ -661,7 +639,7 @@ $(document).on("click", ".remove-favourite", function () {
     var thisis = $(this);
     var product_id = thisis.data('id');
     $.ajax({
-        url: `profile/favourites-destroy/${product_id}`,
+        url: `http://185.46.11.159/BowyLaravel/public/profile/favourites-destroy/${product_id}`,
         type: 'get',
         processData: false,
         contentType: false,
@@ -731,7 +709,7 @@ $(document).on("submit", ".update_place_an_ad", function (event) {
     formData.append('address', address_val);
 
     $.ajax({
-        url: "announcement_update",
+        url: "http://185.46.11.159/BowyLaravel/public/announcement_update",
         type: 'POST',
         data: formData,
         cache: false,
@@ -809,7 +787,7 @@ $(document).on("click", ".announcement_second_item_delete_btn", function () {
     var thisis = $(this);
 
     $.ajax({
-        url: `/products/${$(this).data('id')}`,
+        url: `http://185.46.11.159/BowyLaravel/public/products/${$(this).data('id')}`,
         type: 'GET',
         cache: false,
         processData: false,
@@ -830,7 +808,7 @@ $(document).on("click", ".remove-favourites", function (){
     var thisis = $(this);
     var product_id = thisis.data('id');
     $.ajax({
-        url: `profile/favourites-delete/${product_id}`,
+        url: `http://185.46.11.159/BowyLaravel/public/profile/favourites-delete/${product_id}`,
         type: 'GET',
         processData: false,
         contentType: false,

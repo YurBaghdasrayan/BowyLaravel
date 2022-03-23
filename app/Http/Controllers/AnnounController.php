@@ -126,6 +126,5 @@ class AnnounController extends Controller
                 'message' => 'incorrect data',
             ], 422);
         }
-
     }
 }

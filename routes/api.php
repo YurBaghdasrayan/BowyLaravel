@@ -31,8 +31,9 @@ Route::group(['middleware'=>['auth:api']],function(){
     Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');
     Route::post('/announcement', [AnnounController::class, 'ApiUpdate'])->name('announcement');
     Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'unloggedApi'])->name('announcement.unlogged.user');
+    Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');
+    Route::get('/home', [HomeController::class, 'indexApi'])->name('home');
 });
-Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');
-Route::get('/home', [HomeController::class, 'indexApi'])->name('home');
+
 
 
