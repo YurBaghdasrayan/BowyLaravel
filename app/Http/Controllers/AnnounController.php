@@ -16,8 +16,9 @@ class AnnounController extends Controller
 {
     public function index($status, $id)
     {
-
+//        dd($id);
         $post = Product::find($id);
+
         $post->views++;
         $post->save();
 
