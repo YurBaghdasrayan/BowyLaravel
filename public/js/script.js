@@ -614,7 +614,6 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
 })
 
 $(document).on("click", ".add-favorite", function () {
-      // alert();
     var thisis = $(this);
     var product_id = thisis.data('id');
     var token = $('meta[name="csrf-token"]').attr('content');
