@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+{{--@dd($products)--}}
 <div class="bowy_mian_wrapper" id="active_inactive_ads_page">
     @include('includes_file.header')
     <main>

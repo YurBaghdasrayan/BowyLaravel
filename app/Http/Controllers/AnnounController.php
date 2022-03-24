@@ -16,10 +16,13 @@ class AnnounController extends Controller
 {
     public function index($status, $id)
     {
-//        dd($id);
+        $clientIP = request()->ip();
+        dd($clientIP);
         $post = Product::find($id);
-
-        $post->views++;
+//        dd($post->user_id);
+        if ($post->user_id != auth()->user()->id){
+            $post->views++;
+        }
         $post->save();
 
         $regions = Region::all();
@@ -43,7 +46,6 @@ class AnnounController extends Controller
         if ($arr != []) {
             $car_model = $products[0]->car_model;
         }
-
 
         if ($products != "" && $car_model != "") {
 

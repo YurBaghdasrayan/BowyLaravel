@@ -3,7 +3,7 @@
     <title>Главная</title>
 @endsection
 @section('content')
-{{--    @dd($products)--}}
+{{--     @dd($products)--}}
     <div class="bowy_mian_wrapper" id="logged_user_announcement_page">
         @include('includes_file.header')
         <main>
@@ -21,6 +21,7 @@
                                         <div class="announcement_second_item_titles_links_btns_wrapper">
                                             <div class="announcement_second_item_titles_wrapper">
                                                 @foreach($products as $product)
+{{--                                                    @dd($product)--}}
                                                 <div class="announcement_second_item_title_edit_btn_input_wrapper">
                                                     <div class="announcement_second_item_title_edit_btn_wrapper">
                                                         <p class="announcement_second_item_title"
@@ -73,7 +74,6 @@
                                             </div>
                                             @endforeach
                                             <div class="announcement_second_item_links_btns_wrapper">
-
                                                 <a class="announcement_second_item_edit_btn">
                                                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
