@@ -274,6 +274,7 @@
 {{--                                                <i class="material-icons check_mark_icon">check mark</i>--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
+                                        @dd($products)
                                         </div>
                                         <div class="alert_none alert-danger-car_model"></div>
                                         <div class="announcement_second_item_specifications">

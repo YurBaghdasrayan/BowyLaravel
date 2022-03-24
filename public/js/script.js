@@ -709,7 +709,7 @@ $(document).on("submit", ".update_place_an_ad", function (event) {
     formData.append('address', address_val);
 
     $.ajax({
-        url: "http://185.46.11.159/BowyLaravel/public/announcement/",
+        url: "http://127.0.0.1:8000/announcement_update/xxx",
         type: 'POST',
         data: formData,
         cache: false,
