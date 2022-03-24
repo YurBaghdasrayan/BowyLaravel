@@ -24,7 +24,7 @@ class UnloggedUserController extends Controller
 
         $viewsCount = Views::where('product_id',$id)->count();
 
-        dd($clientIP.">>".$viewsCount.">>".$id);
+//        dd($clientIP.">>".$viewsCount.">>".$id);
         $unnlogeds = Product::with('user')->where('id', $id)->get();
 
         $regions = Region::all();
