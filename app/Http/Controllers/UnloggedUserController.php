@@ -15,7 +15,7 @@ class UnloggedUserController extends Controller
     public function index($status, $id)
     {
         $clientIP = request()->ip();
-        //dd($clientIP);
+
         $view = Views::where('product_id',$id)->where('ip_address',$clientIP)->get();
 
         if ($view->count() < 1){
@@ -23,7 +23,8 @@ class UnloggedUserController extends Controller
         }
 
         $viewsCount = Views::where('product_id',$id)->count();
-        //dd($viewsCount);
+
+        dd($clientIP.">>".$viewsCount.">>".$id);
         $unnlogeds = Product::with('user')->where('id', $id)->get();
 
         $regions = Region::all();
