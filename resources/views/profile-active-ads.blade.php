@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{--@dd($products)--}}
+{{--@dd($products[0]->id)--}}
 <div class="bowy_mian_wrapper" id="active_inactive_ads_page">
     @include('includes_file.header')
     <main>
@@ -88,6 +88,7 @@
                                                <h1 class="active_inactive_ads_second_item_child_price">{{$product->price}}</h1>
                                                <p class="active_inactive_ads_second_item_child_info1">{{$product->address}}</p>
                                                <p class="active_inactive_ads_second_item_child_info2">{{$product->description}}</p>
+{{--                                               @dd($product->id)--}}
                                                <div class="active_inactive_ads_second_item_child_edit_link_delete_btns_wrapper">
                                                    <a href="{{route('announcement',['status'=>'active','id'=>$product->id])}}" class="active_inactive_ads_second_item_child_edit_link">
                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

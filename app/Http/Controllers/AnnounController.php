@@ -9,21 +9,15 @@ use App\Models\City;
 use App\Models\Product;
 use App\Models\Region;
 use App\Models\User;
+use App\Models\Views;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AnnounController extends Controller
 {
-    public function index($status, $id)
+    public function index($status,$id)
     {
-        $clientIP = request()->ip();
-        dd($clientIP);
-        $post = Product::find($id);
-//        dd($post->user_id);
-        if ($post->user_id != auth()->user()->id){
-            $post->views++;
-        }
-        $post->save();
+        //dd($id);
 
         $regions = Region::all();
         $cities = City::all();
@@ -73,7 +67,7 @@ class AnnounController extends Controller
         $update->save();
         return response()->json([
             'success' => true,
-            'message' => 'update success'.$data['rudder'].">>".$data['product_id'],
+            'message' => 'update success' . $data['rudder'] . ">>" . $data['product_id'],
         ], 200);
     }
 
