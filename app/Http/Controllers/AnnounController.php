@@ -47,7 +47,7 @@ class AnnounController extends Controller
                 ->where('id', '!=', $products[0]->id)
                 ->get();
         }
-        return view('announcement', compact('products', 'similar_product', 'regions', 'cities', 'cars_models', 'post'));
+        return view('announcement', compact('products', 'similar_product', 'regions', 'cities', 'cars_models',));
 
     }
 
