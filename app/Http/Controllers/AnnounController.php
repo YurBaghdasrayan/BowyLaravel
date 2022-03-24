@@ -17,6 +17,10 @@ class AnnounController extends Controller
 {
     public function index($status,$id)
     {
+        $clientIP = request()->ip();
+
+        $view = Views::where('product_id',$id)->where('ip_address',$clientIP)->get();
+        $viewsCount = Views::where('product_id',$id)->count();
         //dd($id);
 
         $regions = Region::all();
@@ -47,7 +51,7 @@ class AnnounController extends Controller
                 ->where('id', '!=', $products[0]->id)
                 ->get();
         }
-        return view('announcement', compact('products', 'similar_product', 'regions', 'cities', 'cars_models',));
+        return view('announcement', compact('products', 'similar_product', 'regions', 'cities', 'cars_models','viewsCount'));
 
     }
 
