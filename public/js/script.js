@@ -394,9 +394,8 @@ $(document).on("click", ".announcement_edit_btn2", function () {
 
 
 $(document).on("click", ".check_mark_icon", function () {
-
     var val2 = $(this).parent().find(".announcement_second_item_input_field").val();
-    console.log(val2)
+    console.log(val2);
     $(".announcement_second_item_title_edit_btn_wrapper").show();
     $(this).parent().parent().find(".announcement_second_item_title").html(val2);
     $(this).parent().parent().find(".announcement_second_item_input_icon_wrapper").removeClass("open");
@@ -708,7 +707,7 @@ $(document).on("submit", ".update_place_an_ad", function (event) {
     formData.append('address', address_val);
 
     $.ajax({
-        url: "http://127.0.0.1:8000/announcement_update/xxx",
+        url: "http://185.46.11.159/BowyLaravel/public/announcement_update/xxx",
         type: 'POST',
         data: formData,
         cache: false,
