@@ -58,23 +58,22 @@ class AnnounController extends Controller
     public function update(UpdateProductRequest $request)
     {
 
-
-//        $data = $request->all();
-//        $update = Product::find($data['product_id']);
-//        $update->headline = $data['headline'];
-//        $update->address = $data['address'];
-//        $update->price = $data['price'];
-//        $update->car_model = $data['car_model'];
-//        $update->description = $data['description'];
-//        $update->body_type = $data['body_type'];
-//        $update->rudder = $data['rudder'];
-//        $update->year_of_issue = $data['year_of_issue'];
-//        $update->transmission = $data['transmission'];
-//        $update->save();
+        $data = $request->all();
+        $update = Product::find($data['product_id']);
+        $update->headline = $data['headline'];
+        $update->address = $data['address'];
+        $update->price = $data['price'];
+        $update->car_model = $data['car_model'];
+        $update->description = $data['description'];
+        $update->body_type = $data['body_type'];
+        $update->rudder = $data['rudder'];
+        $update->year_of_issue = $data['year_of_issue'];
+        $update->transmission = $data['transmission'];
+        $update->save();
         return response()->json([
             'success' => true,
             //'message' => 'update success' . $data['rudder'] . ">>" . $data['product_id'],
-            'message' => $request->all()
+            'message' => $request->all(),
         ], 200);
     }
 

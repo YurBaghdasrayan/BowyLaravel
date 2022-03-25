@@ -88,7 +88,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
 
     Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');
-    Route::post('/announcement_update/xxx', [AnnounController::class, 'update'])->name('announcement_update');
+    Route::post('/announcement_update', [AnnounController::class, 'update'])->name('announcement_update');
     Route::get('/notification', [NotificationController::class, 'index'])->name('notification');
 });
 
