@@ -21,6 +21,7 @@ use App\Http\Controllers\ProfileSettingsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RestorPasswordController;
 use App\Http\Controllers\SearchResultsController;
+use App\Http\Controllers\SocialController;
 use App\Http\Controllers\UnloggedUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegionController;
@@ -117,7 +118,8 @@ Route::get('/search-results', [SearchResultsController::class, 'index'])->name('
 Route::get('/search-results/{id?}', [SearchResultsController::class, 'getCategories'])->name('search.results');
 Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
 
-
+Route::get('auth/google', [SocialController::class, 'googleRedirect'])->name('auth.google');
+Route::get('auth/google/callback', [SocialController::class, 'loginWithGoogle']);
 
 
 
