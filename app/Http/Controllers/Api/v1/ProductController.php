@@ -248,7 +248,10 @@ class ProductController extends Controller
                 'category_id' => $request->category,
                 'region' => $request->region,
             );
+
         }
+
+
 
         if ($request->city) {
             $sql = array(
