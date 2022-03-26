@@ -16,21 +16,20 @@ class UnloggedUserController extends Controller
     {
         $clientIP = request()->ip();
 
-        $view = Views::where('product_id',$id)->where('ip_address',$clientIP)->get();
+        $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
 
-        if ($view->count() < 1){
-            Views::create(['product_id'=>$id,'ip_address'=>$clientIP]);
+        if ($view->count() < 1) {
+            Views::create(['product_id' => $id, 'ip_address' => $clientIP]);
         }
 
-        $viewsCount = Views::where('product_id',$id)->count();
+        $viewsCount = Views::where('product_id', $id)->count();
 
-//        dd($clientIP.">>".$viewsCount.">>".$id);
         $unnlogeds = Product::with('user')->where('id', $id)->get();
 
-        $regions = Region::all();
-        $cities = City::all();
-        $cars_models = CarsModel::all();
-        $views_posts = Product::all();
+//        $regions = Region::all();
+//        $cities = City::all();
+//        $cars_models = CarsModel::all();
+//        $views_posts = Product::all();
 
 
         $products = "";
@@ -61,7 +60,6 @@ class UnloggedUserController extends Controller
 
     public function unloggedApi($status, $id)
     {
-//        dd("asd");
         $post = Product::find($id);
         $post->views++;
         $post->save();
@@ -96,7 +94,7 @@ class UnloggedUserController extends Controller
                 ->where('id', '!=', $products[0]->id)
                 ->get();
         }
-        return response()->json([$unnlogeds,$post,$similar_product]);
+        return response()->json([$unnlogeds, $post, $similar_product]);
     }
 }
 

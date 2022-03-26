@@ -14,7 +14,7 @@ class Product extends Model
 
     public function category()
     {
-        $this->belongsTo(Categories::class);
+        return $this->belongsTo(Categories::class);
     }
 
     public function user()
@@ -29,12 +29,18 @@ class Product extends Model
 
     public function Region()
     {
-        return $this->belongsTo(Region::class, 'city');
+        return $this->belongsTo(Region::class, 'region');
     }
 
     public function views()
     {
         $this->hasMany(Views::class);
+    }
+
+
+    public function City()
+    {
+        return $this->belongsTo(City::class, 'city');
     }
 
 
