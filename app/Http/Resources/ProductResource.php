@@ -20,15 +20,14 @@ class ProductResource extends JsonResource
             'Region' => $this->resource->Region,
             'category' => $this->resource->category,
             'car' => $this->resource->car,
-            "description"=>$this->description,
-            "body_type"=>$this->body_type,
-            "rudder"=>$this->rudder,
-            "year_of_issue"=>$this->year_of_issue,
-            "transmission"=>$this->transmission,
-            "status"=>$this->status,
-            "address"=>$this->address,
-            "views"=>$this->views,
-
+            "description" => $this->description,
+            "body_type" => $this->body_type,
+            "rudder" => $this->rudder,
+            "year_of_issue" =>$this->year_of_issue,
+            "transmission" =>$this->transmission,
+            "status" =>$this->status,
+            "address" =>$this->address,
+            "Views" => count($this->resource->Views)
         ];
         return $return;
     }

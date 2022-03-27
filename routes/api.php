@@ -23,14 +23,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::post('registration', [RegisterController::class, 'storeApi'])->name('registration');
 Route::post('/login', [LoginController::class, 'storeLogin'])->name('login');
+Route::post('/code-sending', [\App\Http\Controllers\Api\v1\AuthController::class, 'send'])->name('code-sending');
+Route::post('/restore-password', [\App\Http\Controllers\Api\v1\AuthController::class, 'CodeSend']);
 Route::group(['middleware' => ['auth:api']], function () {
     Route::apiResource('products', \App\Http\Controllers\Api\v1\ProductController::class);
     Route::apiResource('categories', \App\Http\Controllers\Api\v1\ProductController::class);
     Route::apiResource('regions', \App\Http\Controllers\Api\v1\ProductController::class);
     Route::apiResource('cities', \App\Http\Controllers\Api\v1\ProductController::class);
     Route::put('user', [\App\Http\Controllers\Api\v1\UserController::class, 'update']);
-    Route::get('unlogged-user/{status?}/{id?}', [\App\Http\Controllers\Api\v1\ProductController::class, 'unlloggedIndex']);
-    Route::post('/place-anad', [ProductController::class, 'storeApi'])->name('profile-place-anad');
     Route::post('favourites', [\App\Http\Controllers\Api\v1\ProductController::class, 'storeFavourite']);
     Route::delete('favourites/{id}', [\App\Http\Controllers\Api\v1\ProductController::class, 'destroyFavourite']);
     Route::get('favourites', [\App\Http\Controllers\Api\v1\ProductController::class, 'indexFavourite']);
@@ -38,7 +38,6 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('search-result/{id?}', [\App\Http\Controllers\Api\v1\ProductController::class, 'getCategories'])->name('search.results');
 
 });
-
 
 
 

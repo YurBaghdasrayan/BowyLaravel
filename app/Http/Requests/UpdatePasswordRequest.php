@@ -48,7 +48,6 @@ class UpdatePasswordRequest extends FormRequest
         if (!$validate->fails()) {
             $code = $this->except(['password_confirmation', '_token']);
             $code['password'] = Hash::make($code['password']);
-
             $this->replace($code);
         }
         return $validate;

@@ -32,9 +32,9 @@ class Product extends Model
         return $this->belongsTo(Region::class, 'region');
     }
 
-    public function views()
+    public function Views()
     {
-        $this->hasMany(Views::class);
+       return $this->hasMany(Views::class);
     }
 
 

@@ -21,7 +21,7 @@ class ProductController extends Controller
         return response()->json([
             'success' => 'true',
             'message' => 'All products',
-            'data' => ProductResource::collection(auth()->user()->products)
+            'data' => ProductResource::collection(auth()->user()->products),
         ], 200);
     }
 
@@ -36,10 +36,8 @@ class ProductController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
@@ -71,20 +69,16 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show($id)
     {
-        $product = Product::where('id', $id)->first();
         return response()->json([
             'success' => true,
-            'message' => 'this is users product',
-            $product,
+            'message' => 'this is product',
+            'products' => new ProductResource(Product::find($id)),
         ]);
-
     }
 
     /**
@@ -99,14 +93,21 @@ class ProductController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
+        $product = Product::where('id', '=', $id)->first();
+        if ($product->user_id != \auth()->id()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'You cant update this image',
+            ], 403);
+
+        }
+
         $update = [
             'headline' => $request->headline,
             'address' => $request->address,
@@ -119,12 +120,10 @@ class ProductController extends Controller
             'transmission' => $request->transmission,
         ];
 
+        $productUpdated = $product->update($update);
+        $product->save();
 
-        $update_product = Product::where('id', '=', $id)->update($update);
-//        dd($update);
-
-        if ($update_product) {
-
+        if ($productUpdated) {
             return response()->json([
                 'success' => true,
                 'message' => 'update success',
@@ -139,10 +138,8 @@ class ProductController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
@@ -193,51 +190,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function unlloggedIndex($status, $id)
-    {
-        $clientIP = request()->ip();
-
-        $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
-
-        if ($view->count() < 1) {
-            Views::create(['product_id' => $id, 'ip_address' => $clientIP]);
-        }
-
-        $viewsCount = Views::where('product_id', $id)->count();
-
-        $unnlogeds = Product::with('user')->where('id', $id)->get();
-
-        $products = "";
-        $similar_product = "";
-        $car_model = "";
-
-        if ($status == true) {
-            $products = Product::where('status', '=', true)->where('id', $id)->get();
-
-        } else {
-            $products = Product::where('status', '=', false)->where('id', $id)->get();
-        }
-
-        $arr = $products->toArray();
-
-        if ($arr != []) {
-            $car_model = $products[0]->car_model;
-        }
-
-        if ($products != "" && $car_model != "") {
-
-            $similar_product = Product::where('car_model', '=', $car_model)
-                ->where('id', '!=', $products[0]->id)
-                ->get();
-        }
-        return response()->json([
-            $unnlogeds,
-            $similar_product,
-            $viewsCount
-        ]);
-    }
-
-    public function searchResultIndex(Request $request)
+    public function searchResultIndex(Request $request )
     {
         $sql = array(
             'category_id' => $request->category,

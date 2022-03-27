@@ -10,7 +10,6 @@ $(".password_visibility").on('click', function () {
         $("#passwordInp").addClass('showPass')
         $('#passwordInp').attr('type', 'text')
     }
-
 })
 
 $(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete_btn", function () {

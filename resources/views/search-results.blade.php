@@ -2,6 +2,7 @@
 @section('title')
     <title>Главная</title>
 @endsection
+
 @section('content')
     <div class="bowy_mian_wrapper">
         @include('includes_file.header')
