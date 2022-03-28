@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AnnounController extends Controller
 {
-    public function index($status,$id)
+    public function index($status, $id)
     {
         $clientIP = request()->ip();
 
-        $view = Views::where('product_id',$id)->where('ip_address',$clientIP)->get();
-        $viewsCount = Views::where('product_id',$id)->count();
+        $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
+        $viewsCount = Views::where('product_id', $id)->count();
         //dd($id);
 
         $regions = Region::all();
@@ -51,7 +51,7 @@ class AnnounController extends Controller
                 ->where('id', '!=', $products[0]->id)
                 ->get();
         }
-        return view('announcement', compact('products', 'similar_product', 'regions', 'cities', 'cars_models','viewsCount'));
+        return view('announcement', compact('products', 'similar_product', 'regions', 'cities', 'cars_models', 'viewsCount'));
 
     }
 
@@ -75,59 +75,5 @@ class AnnounController extends Controller
             //'message' => 'update success' . $data['rudder'] . ">>" . $data['product_id'],
             'message' => $request->all(),
         ], 200);
-    }
-
-
-
-//$update_product = Product::where('id', '=', $product_id)->update($update);
-
-//        if ($update_product) {
-//
-//            return response()->json([
-//                'success' => true,
-//                'message' => 'update success',
-//            ], 200);
-//
-//        } else {
-//            return response()->json([
-//                'success' => false,
-//                'message' => 'incorrect data',
-//            ], 422);
-//        }
-//    }
-
-    public function ApiUpdate(Request $request)
-    {
-        $data = $request->all();
-
-        $product_id = $data['product_id'];
-
-        $update = array(
-            'headline' => $data['headline'],
-            'address' => $data['address'],
-            'price' => $data['price'],
-            'car_model' => $data['car_model'],
-            'description' => $data['description'],
-            'body_type' => $data['body_type'],
-            'rudder' => $data['rudder'],
-            'year_of_issue' => $data['year_of_issue'],
-            'transmission' => $data['transmission'],
-        );
-
-        $update_product = Product::where('id', '=', $product_id)->update($update);
-
-        if ($update_product) {
-
-            return response()->json([
-                'success' => true,
-                'message' => 'update success',
-            ], 200);
-
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'incorrect data',
-            ], 422);
-        }
     }
 }

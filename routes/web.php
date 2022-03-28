@@ -121,5 +121,8 @@ Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserControlle
 Route::get('auth/google', [SocialController::class, 'googleRedirect'])->name('auth.google');
 Route::get('auth/google/callback', [SocialController::class, 'loginWithGoogle']);
 
+Route::get('auth/vk', [SocialController::class, 'vkRedirect'])->name('auth.vk');
+Route::get('auth/vk/callback', [SocialController::class, 'loginWithVk']);
+
 
 

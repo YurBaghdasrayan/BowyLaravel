@@ -26,10 +26,10 @@ class ApiRegistrationRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:64|',
-            'email' => 'required|min:3|max:64|unique:users',
+            'name' => 'required|min:6|max:64|',
+            'email' => 'required|min:6|max:64|unique:users',
             'password' => 'required|min:6|max:64|confirmed',
-            'number' => 'required|min:3|max:255',
+            'number' => 'required|min:6|max:255',
             'password_confirmation' => 'required',
         ];
     }
@@ -42,6 +42,7 @@ class ApiRegistrationRequest extends FormRequest
             'data' => $validator->errors()
         ]));
     }
+
     public function messages()
     {
         return [
@@ -49,12 +50,12 @@ class ApiRegistrationRequest extends FormRequest
 //            'name.min' => 'Имя должно быть не менее 3 символов.',
 //            'name.max' => 'Имя не должно быть длиннее 64 символов.',
 //            'surname.required' => 'Поле фамилия обязательно.',
-//            'surname.min' => 'Фамилия должна быть не менее 3 символов.',
-//            'surname.max' => 'Длина фамилии не должна превышать 64 символов..',
+            'number.min' => 'номер должно быть не менее 3 символов.',
+            'number.max' => 'длина номера не должно превышать 64 символов..',
             'name.required' => 'Необходимо ввести имя в поле.',
             'name.min' => 'Имя должно быть не менее 3 символов.',
             'name.max' => 'Имя не должно быть длиннее 64 символов.',
-            'number.required'=>'Необходимо ввести цифры',
+            'number.required' => 'Необходимо ввести цифры',
             'email.required' => 'Поле электронной почты обязательно.',
             'email.min' => 'Поле электронной почты должна быть не менее 3-х символов.',
             'email.max' => 'Поле электронной почты должна превышать 64 символов.',

@@ -33,7 +33,6 @@ class UsersRequest extends FormRequest
             'password' => 'required|min:6|max:64|confirmed',
             'password_confirmation' => 'required',
 //            'image'=>'required',
-
         ];
     }
 

@@ -33,7 +33,42 @@ class SocialController extends Controller
                     'email' => $user->email,
                     'google_id' => $user->id,
                     'password' => encrypt('user'),
-                    'image'=> 'profile.image.png',
+                    'image' => 'profile.image.png',
+                    'role_id' => Role::USER_ID,
+                ]);
+
+                Auth::login($createUser);
+
+                return redirect('profile/place-anad');
+            }
+        } catch (Exception $exception) {
+            dd($exception->getMessage());
+        }
+    }
+
+    public function vkRedirect()
+    {
+        return Socialite::driver('vkontakte')->redirect();
+    }
+
+    public function loginWithVk()
+    {
+        try {
+            $user = Socialite::driver('vkontakte')->user();
+
+            $isUser = User::where('vk_id', $user->id)->first();
+
+            if ($isUser) {
+                Auth::login($isUser);
+
+                return redirect('profile/place-anad');
+            } else {
+                $createUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'vk_id' => $user->id,
+                    'password' => encrypt('user'),
+                    'image' => 'profile.image.png',
                     'role_id' => Role::USER_ID,
                 ]);
 

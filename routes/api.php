@@ -30,13 +30,11 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::apiResource('categories', \App\Http\Controllers\Api\v1\ProductController::class);
     Route::apiResource('regions', \App\Http\Controllers\Api\v1\ProductController::class);
     Route::apiResource('cities', \App\Http\Controllers\Api\v1\ProductController::class);
-    Route::put('user', [\App\Http\Controllers\Api\v1\UserController::class, 'update']);
     Route::post('favourites', [\App\Http\Controllers\Api\v1\ProductController::class, 'storeFavourite']);
     Route::delete('favourites/{id}', [\App\Http\Controllers\Api\v1\ProductController::class, 'destroyFavourite']);
     Route::get('favourites', [\App\Http\Controllers\Api\v1\ProductController::class, 'indexFavourite']);
     Route::get('search-result', [\App\Http\Controllers\Api\v1\ProductController::class, 'searchResultIndex']);
     Route::get('search-result/{id?}', [\App\Http\Controllers\Api\v1\ProductController::class, 'getCategories'])->name('search.results');
-
 });
 
 

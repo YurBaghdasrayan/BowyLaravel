@@ -1086,7 +1086,7 @@ body.hidden_body {
   .login_social_links_wrapper {
     display: flex;
     justify-content: space-between;
-    width: 202px;
+    width: 200px;
     margin: 0 auto;
  }
  .login_social_links_title_wrapper {

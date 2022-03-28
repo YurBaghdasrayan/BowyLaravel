@@ -20,16 +20,4 @@ class HomeController extends Controller
         return view('/home', compact('categories', 'product', 'regions', 'cities'));
     }
 
-    public function indexApi()
-    {
-        $regions = Region::all();
-        $cities = City::all();
-        return response()->json([
-            'success' => true,
-            'message' => 'All is ok ',
-
-            $cities,
-            $regions
-        ]);
-    }
 }

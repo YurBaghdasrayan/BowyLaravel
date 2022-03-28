@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ApiProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\City;
 use App\Models\Favourites;
@@ -25,11 +26,7 @@ class ProductController extends Controller
         ], 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create(Request $request)
     {
 
@@ -39,7 +36,7 @@ class ProductController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function store(Request $request)
+    public function store(ApiProductRequest $request)
     {
         $image = $request->file('image');
         $destinationPath = 'public/uploads';
@@ -97,7 +94,7 @@ class ProductController extends Controller
      * @param $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function update(Request $request, $id)
+    public function update(ApiProductRequest $request, $id)
     {
         $product = Product::where('id', '=', $id)->first();
         if ($product->user_id != \auth()->id()) {
@@ -105,9 +102,7 @@ class ProductController extends Controller
                 'success' => false,
                 'message' => 'You cant update this image',
             ], 403);
-
         }
-
         $update = [
             'headline' => $request->headline,
             'address' => $request->address,
@@ -119,6 +114,7 @@ class ProductController extends Controller
             'year_of_issue' => $request->year_of_issue,
             'transmission' => $request->transmission,
         ];
+//        dd($update);
 
         $productUpdated = $product->update($update);
         $product->save();
@@ -190,7 +186,7 @@ class ProductController extends Controller
         ]);
     }
 
-    public function searchResultIndex(Request $request )
+    public function searchResultIndex(Request $request)
     {
         $sql = array(
             'category_id' => $request->category,
@@ -203,8 +199,6 @@ class ProductController extends Controller
             );
 
         }
-
-
 
         if ($request->city) {
             $sql = array(
