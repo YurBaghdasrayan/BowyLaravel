@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminLoginController;
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AnnounController;
+use App\Http\Controllers\CallsController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EditAnnouncementController;
@@ -117,6 +118,9 @@ Route::post('/getCityByRegionId', [RegionController::class, 'getCityByRegionId']
 Route::get('/search-results', [SearchResultsController::class, 'index'])->name('search.results');
 Route::get('/search-results/{id?}', [SearchResultsController::class, 'getCategories'])->name('search.results');
 Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
+Route::get('/announcement-unlogged/{id?}', [UnloggedUserController::class, 'indexCalls']);
+
+
 
 Route::get('auth/google', [SocialController::class, 'googleRedirect'])->name('auth.google');
 Route::get('auth/google/callback', [SocialController::class, 'loginWithGoogle']);

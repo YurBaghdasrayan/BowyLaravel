@@ -2025,7 +2025,7 @@
   }
 
   function fireCallbacksForOps(group) {
-    // Calls delayed callbacks and cursorActivity handlers until no
+    // Call delayed callbacks and cursorActivity handlers until no
     // new ones appear
     var callbacks = group.delayedCallbacks, i = 0;
     do {

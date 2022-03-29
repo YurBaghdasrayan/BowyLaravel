@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="active_inactive_ads_first_item_chat_favourites_links_wrapper">
-        <a  class="active_inactive_ads_chat_link open_users_chat">
+        <a class="active_inactive_ads_chat_link open_users_chat">
             <div class="active_inactive_ads_chat_link_icon1">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M5.07568 16.3533L0.666513 17.3333L1.64651 12.9242C1.00112 11.717 0.664452 10.3689 0.666513 9C0.666513 4.3975 4.39735 0.666667 8.99985 0.666667C13.6023 0.666667 17.3332 4.3975 17.3332 9C17.3332 13.6025 13.6023 17.3333 8.99985 17.3333C7.63098 17.3354 6.28286 16.9987 5.07568 16.3533Z" fill="#00A3FF"/>

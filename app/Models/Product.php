@@ -34,7 +34,7 @@ class Product extends Model
 
     public function Views()
     {
-       return $this->hasMany(Views::class);
+        return $this->hasMany(Views::class);
     }
 
 
@@ -43,5 +43,8 @@ class Product extends Model
         return $this->belongsTo(City::class, 'city');
     }
 
-
+    public function Call()
+    {
+        return $this->hasMany(Views::class);
+    }
 }

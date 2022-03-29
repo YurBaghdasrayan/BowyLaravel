@@ -27,7 +27,8 @@ class ProductResource extends JsonResource
             "transmission" =>$this->transmission,
             "status" =>$this->status,
             "address" =>$this->address,
-            "Views" => count($this->resource->Views)
+            "Views" => count($this->resource->Views),
+            "Call" => count($this->resource->Call)
         ];
         return $return;
     }
