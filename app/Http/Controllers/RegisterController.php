@@ -52,7 +52,7 @@ class RegisterController extends Controller
             return redirect('/login')->with('success', 'Вы успешно прошли регистрацию');
         } else {
 
-            return redirect('/registration')->with('login_error', 'неверные данные');
+            return redirect('/registration')->with('login_error', 'Неверные данные');
         }
     }
 

@@ -71,7 +71,7 @@
                 <h1 class="top_title"> <span>BOWY</span>  аренда всех видов транспорта</h1>
                 <p class="top_info">Более 2000 актуальных объявлений! </p>
                 <form action="{{route('search.results')}}" method="get" class="find_transport_form">
-                    <div class="find_transport_form_select_wrapper">
+                    <div class="find_transport_form_select_wrapper first_find_transport_wrapper">
                         <div class="find_transport_form_select_title_wrapper">
                             <input type="hidden" class="hidden_category_data check_search_category" name="category" value="">
                             <p class="find_transport_form_select_title">Выберите категорию</p>

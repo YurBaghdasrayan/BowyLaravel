@@ -16,18 +16,6 @@ class ProductController extends Controller
 
     public function index()
     {
-//        $active_products = Auth::user()->products()->where('status', '=', true);
-//        $path = storage_path() . "/test.json";
-//
-//        $json = json_decode(file_get_contents($path), true);
-//        dd($json);
-//
-//        foreach ($json as $val) {
-//
-//        }
-
-//        $regions = Region::all();
-//        return view('profile-place-anad',compact('regions'));
 
     }
 

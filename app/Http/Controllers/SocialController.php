@@ -27,6 +27,7 @@ class SocialController extends Controller
                 Auth::login($isUser);
 
                 return redirect('profile/place-anad');
+
             } else {
                 $createUser = User::create([
                     'name' => $user->name,

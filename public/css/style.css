@@ -208,11 +208,17 @@
 .top .find_transport_form_select_hidden_info {
     font-size: 16px;
 }
+
 .top .find_transport_form_select_wrapper {
     position: relative;
-    width: 281px;
-
+    width: 290px;
 }
+
+.top .first_find_transport_wrapper {
+    width: 100%;
+    max-width: 330px;
+}
+
 .top .find_transport_form_select_hidden_wrapper {
     position: absolute;
     background: #fff;

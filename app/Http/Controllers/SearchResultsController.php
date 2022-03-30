@@ -28,15 +28,15 @@ class SearchResultsController extends Controller
                 'city' => $request->city,
             );
         }
-        $search_results = Product::where($sql)->get();
+        $products = Product::where($sql)->get();
 
-        return view('search-results', compact('search_results'));
+        return view('search-results', compact('products'));
     }
 
     public function getCategories($id)
     {
-        $search_results = Product::where('category_id', $id)->get();
+        $products = Product::where('category_id', $id)->get();
 
-        return view('search-results', compact('search_results'));
+        return view('search-results', compact('products'));
     }
 }

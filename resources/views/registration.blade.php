@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button id="button" class="registration_form_btn mobile_form_btn">Регистрация</button>
+                            <button id="button" class="registration_form_btn mobile_form_btn second">Регистрация</button>
                         </form>
                     </div>
                     <div class="login_info_wrapper">
@@ -77,6 +77,5 @@
         </main>
         @include('includes_file.footer')
     </div>
-    <input type="file" name="">
 @endsection
 

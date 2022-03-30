@@ -75,7 +75,6 @@ $(document).on("submit", ".admin-update-users", function (event) {
         }
     });
 
-
     $.ajax({
         url: "/admin/update-users/",
         type: 'POST',

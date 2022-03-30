@@ -11,6 +11,11 @@
         <section class="login">
             <div class="login_wrapper">
                 <div class="login_form_social_links_wrapper">
+                    @if(session()->has('googlemessage'))
+                        <div class="alert alert-success">
+                            {{ session()->get('googlemessage') }}
+                        </div>
+                    @endif
                     @if(session()->has('message'))
                         <div class="alert alert-success">
                             {{ session()->get('message') }}

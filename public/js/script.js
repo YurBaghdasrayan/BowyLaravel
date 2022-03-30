@@ -248,7 +248,6 @@ $(document).on("click", ".sort_btn", function () {
     $(".sort_btn").removeClass("active");
     $(this).addClass("active");
 
-
     $(".recent_announcements_item").removeClass("open");
     $("#" + data_id).addClass("open");
 });
@@ -405,22 +404,6 @@ $(document).on("click", ".check_mark_icon", function () {
 $(document).on("click", ".announcement_edit_btn3", function () {
 
     $(".show_regions_data").show();
-    // var element = $('.announcement_second_item_specifications_info');
-    //
-    // element.each(function () {
-    //
-    //     let val4 = $(this).data('info')
-    //
-    //     console.log($(this).data('info'))
-    //
-    //     $(this).hide();
-    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').show()
-    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').find('select').val(val4)
-    // })
-    //
-    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
-    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
-
 })
 
 
@@ -441,21 +424,6 @@ $(document).on("click", ".announcement_edit_btn4", function () {
     $(".year_of_issue").show();
     $(".transmission").show();
     $(".rudder").show();
-    // var element = $('.announcement_second_item_specifications_info');
-
-    // element.each(function () {
-    //
-    //     let val4 = $(this).data('info')
-    //
-    //     console.log($(this).data('info'))
-    //
-    //     $(this).hide();
-    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').show()
-    //     $(this).parent().find('.announcement_second_item_specifications_input_icon_wrapper').find('select').val(val4)
-    // })
-    //
-    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_info').hide();
-    // $(this).closest(".announcement_second_item_specifications_wrapper").find('.announcement_second_item_specifications_input_icon_wrapper').addClass("open").find('.announcement_second_item_specification_input_field2').val(val4);
 
 })
 
@@ -833,10 +801,8 @@ $(".call").on("click", function (event) {
         contentType: false,
         success: function (response) {
             $('.calss_count_data').text(response.callsCount);
-            location.href = "tel:"+response.phone_number;
-            // $(`#${thelepone_id}`).css("display", "none");
-            // thisis.css("display", "none");
-            // $(".delete_favorite_show").css("display", "block");
+            location.href = "tel:" + response.phone_number;
+
         },
         error: function (err) {
             console.log(err);
