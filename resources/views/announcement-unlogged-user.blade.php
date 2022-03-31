@@ -34,8 +34,7 @@
                                         </svg>
                                     </a>
                                     @auth
-                                        <button
-                                            class="unlogged_user_announcement_item_child_message_btn open_users_chat">
+                                        <button class="unlogged_user_announcement_item_child_message_btn open_users_chat">
                                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path

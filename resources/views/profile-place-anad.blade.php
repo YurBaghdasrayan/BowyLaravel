@@ -112,7 +112,7 @@
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
                                                 <input type="hidden" class="hidden_category_data" name="rudder" value="">
-                                                <p class="find_transport_form_select_title " >Руль</p>
+                                                <p class="find_transport_form_select_title " ><span>Руль</span></p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
                                                 <p class="find_transport_form_select_hidden_info add_rudder_data" data-id="Левый" data-info="Левый">Левый</p>
@@ -185,6 +185,35 @@
                                         </div>
 {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                     </div>
+                                </div>
+                                <div class="find_transport_form_select_wrapper">
+                                    <div class="find_transport_form_select_title_wrapper">
+                                        <input type="hidden" class="hidden_category_data" name="body_type" value="">
+                                        <p class="find_transport_form_select_title">Тип кузова</p>
+                                    </div>
+                                    <div class="find_transport_form_select_hidden_wrapper">
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Седан">Седан</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Универсал">Универсал</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Хэтчбэк">Хэтчбэк</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Купе">Купе</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Лимузин">Лимузин</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Микроавтобус">Микроавтобус</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Минивэн">Минивэн</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Хардтоп">Хардтоп</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Таун-кар">Таун-кар</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Лифтбэк">Лифтбэк</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Фастбэк">Фастбэк</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Кабриолет">Кабриолет</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Родстер">Родстер</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Ландо">Ландо</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Брогам">Брогам</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Тарга">Тарга</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Спайдер">Спайдер</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Шутингбрейк">Шутингбрейк</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Пикап">Пикап</p>
+                                        <p class="find_transport_form_select_hidden_info add_body_type" data-info="Фургон">Фургон</p>
+                                    </div>
+                                    {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                 </div>
                                 <div class="registration_input_type_files_label_img_wrapper place_an_ad_form_input_type_file_img_wrapper ">
                                     <label for="fileinput_form2" class="registration_input_type_file file_label place_an_ad_form_input_label">

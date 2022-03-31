@@ -8,7 +8,7 @@
             </a>
             <div class="chat_user_img_info_wrapper">
                 <a href="" class="chat_user_img">
-                    <img src="../images/user_img2.png" alt="">
+                    <img src="{{asset('images/user_img2.png')}}" alt="">
                 </a>
                 <div class="chat_user_info">
                     <p class="chat_user_name">Дмитрий</p>
