@@ -14,7 +14,9 @@
                         @foreach($unnlogeds as $unnloged)
                             <div class="announcement_first_item">
                                 <div class="active_inactive_ads_user_img_name_info">
+                                    @include('includes_file.chat')
                                     <div class="active_inactive_ads_user_img">
+
                                         <img src="{{asset('storage/uploads/'.$unnloged->user->image)}}" alt="">
                                     </div>
                                     <div class="active_inactive_ads_user_info">
