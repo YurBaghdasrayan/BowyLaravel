@@ -2,8 +2,11 @@
 
 namespace App\Http\Requests;
 
+use App\Models\City;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class CreateProductRequest extends FormRequest
 {
@@ -64,6 +67,13 @@ class CreateProductRequest extends FormRequest
         $validate = parent::getValidatorInstance();
 
         if (!$validate->fails()) {
+            $regionIdByCity = City::query()->where('id', $this->city)->value('region_id');
+            if($this->region != $regionIdByCity) {
+                throw new HttpResponseException(response()->json([
+                    'success' => 0,
+                    'message' => 'City was not found',
+                ],404));
+            }
             $code = $this->except(['_token']);
 
             $this->replace($code);

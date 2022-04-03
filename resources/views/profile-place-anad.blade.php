@@ -62,7 +62,7 @@
                                         <div class="find_transport_form_select_wrapper">
                                             <div class="find_transport_form_select_title_wrapper">
                                                 <input type="hidden" class="hidden_category_data" id="region_input" name="region" value="">
-                                                <p class="find_transport_form_select_title">Выберите область</p>
+                                                <p class="find_transport_form_select_title">Выбеsрите область</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
                                                 @foreach($regions as $val)
@@ -183,7 +183,7 @@
                                             <path opacity="0.36" d="M0.52 21V15.4H15.56V0.119998H21.56V15.4H36.84V21H21.56V36.44H15.56V21H0.52Z" fill="black"/>
                                         </svg>
                                         <span class="file_span"></span>
-                                        <input type="file" id="fileinput_form2" name="image" hidden>
+                                        <input type="file" id="fileinput_form2" name="image[]" multiple hidden>
                                     </label>
                                     <div class="registration_input-type_file_img_wrapper" style="display:none">
                                         <img src="" alt="" id="registration_input-type_file_img">

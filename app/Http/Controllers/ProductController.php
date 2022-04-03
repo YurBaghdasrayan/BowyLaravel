@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\City;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -27,45 +28,31 @@ class ProductController extends Controller
 
     public function store(CreateProductRequest $request)
     {
-//        $image = $request->file('image');
-//        $destinationPath = 'public/uploads';
-//        $originalFile = time() . $image->getClientOriginalName();
-//        $image->storeAs($destinationPath, $originalFile);
-        $data = $request->all();
-
-//        dd($request);
-//
-//        $data['image'] = $originalFile;
-        dd($request->image);
-        if ($request->has('image')) {
-            foreach ($request->file('image') as $images) {
+        $fileNames = array_keys($request->allFiles());
+        $data = $request->except($fileNames);
+        $fileNames = array_keys($request->allFiles());
+        $data['user_id'] = Auth::user()->id;
+        DB::beginTransaction();
+        $product = Product::query()->create($data);
+        if (count($fileNames)) {
+            foreach ($fileNames as $fileName) {
+                $image = $request->file($fileName);
                 $destinationPath = 'public/uploads';
-                $originalFile = time() . $images->getClientOriginalName();
-                $images->storeAs($destinationPath, $originalFile);
+                $originalFile = time() . $image->getClientOriginalName();
+
+                $image->storeAs($destinationPath, $originalFile);
                 Image::create([
-                    'user_id'=>$request->id,
-                    'image'=>$originalFile
+                    'product_id' => $product->id,
+                    'image' => $originalFile
                 ]);
             }
         }
-        $data['user_id'] = Auth::user()->id;
+        DB::commit();
 
-        $city_id = $data['city'];
-        $regionId_forThisCity = City::where('id', $city_id)->first();
-
-        if ($data['region'] != $regionId_forThisCity->region_id) {
-            return response()->json([
-                'success' => false,
-                'message' => 'The region is not found'
-            ], 404);
-
-        } else if (Product::query()->create($data)) {
-
-            return response()->json([
-                'success' => true,
-                'message' => 'product was successfully created'
-            ], 201);
-        }
+        return response()->json([
+            'success' => true,
+            'message' => 'product was successfully created'
+        ], 201);
     }
 
     /**

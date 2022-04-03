@@ -478,9 +478,11 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
     var transmission = $('input[name="transmission"]', this);
     var transmission_val = transmission.val();
 
-    var image = $('input[type="file"]', this);
-
+    let TotalFiles = $('#fileinput_form2')[0].files.length;
+    let files = $('#fileinput_form2')[0];
     var category_id = $('input[name="category_id"]', this).val();
+
+
 
     var valid = true;
 
@@ -497,7 +499,10 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
     formData.append('year_of_issue', (year_of_issue_val));
     formData.append('transmission', transmission_val);
     formData.append('category_id', category_id);
-    formData.append('image', image[0].files[0]);
+
+    for (let i = 0; i < TotalFiles; i++) {
+        formData.append('files' + i, files.files[i]);
+    }
     formData.append('address', address_val);
 
     $.ajaxSetup({
