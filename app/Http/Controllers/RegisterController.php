@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use PhpParser\Parser\Multiple;
 
 class RegisterController extends Controller
 {
@@ -52,7 +53,7 @@ class RegisterController extends Controller
             return redirect('/login')->with('success', 'Вы успешно прошли регистрацию');
         } else {
 
-            return redirect('/registration')->with('login_error', 'Неверные данные');
+            return redirect('/registration')->with('login_error', 'неверные данные');
         }
     }
 

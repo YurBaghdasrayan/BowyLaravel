@@ -161,6 +161,9 @@
                                                                 src="{{asset('storage/uploads/' . $product->image)}}"
                                                                 alt="">
                                                         </div>
+                                                        @if(isset(auth()->check()->id))
+                                                            @if($product->user_id != Auth::user()->id)
+                                                                @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $product->id])->get()->count() < 1)
                                                         <div class="similar_ads_item_child_link_favourite_img">
                                                             <svg width="20" height="19" viewBox="0 0 20 19"
                                                                  fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -169,6 +172,10 @@
                                                                     fill="white"/>
                                                             </svg>
                                                         </div>
+                                                        @endif
+                    1                                 @endif
+                                                    @endif
+
                                                     </a>
                                                     <div class="similar_ads_item_child_info_box">
                                                         <h1 class="similar_ads_item_child_title">{{$product->headline}}</h1>

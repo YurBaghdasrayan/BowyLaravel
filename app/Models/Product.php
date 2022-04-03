@@ -47,4 +47,9 @@ class Product extends Model
     {
         return $this->hasMany(Views::class);
     }
+
+    public function image()
+    {
+        return $this->hasMany(Image::class);
+    }
 }

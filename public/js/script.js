@@ -612,7 +612,7 @@ $(document).on("click", ".remove-favourite", function () {
     var thisis = $(this);
     var product_id = thisis.data('id');
     $.ajax({
-        url: `/favourites-destroy/${product_id}`,
+        url: `profile/favourites-destroy/${product_id}`,
         type: 'get',
         processData: false,
         contentType: false,

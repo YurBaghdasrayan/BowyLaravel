@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProductRequest;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Region;
 use http\Env\Response;
@@ -26,13 +27,27 @@ class ProductController extends Controller
 
     public function store(CreateProductRequest $request)
     {
-        $image = $request->file('image');
-        $destinationPath = 'public/uploads';
-        $originalFile = time() . $image->getClientOriginalName();
-        $image->storeAs($destinationPath, $originalFile);
+//        $image = $request->file('image');
+//        $destinationPath = 'public/uploads';
+//        $originalFile = time() . $image->getClientOriginalName();
+//        $image->storeAs($destinationPath, $originalFile);
         $data = $request->all();
 
-        $data['image'] = $originalFile;
+//        dd($request);
+//
+//        $data['image'] = $originalFile;
+        dd($request->image);
+        if ($request->has('image')) {
+            foreach ($request->file('image') as $images) {
+                $destinationPath = 'public/uploads';
+                $originalFile = time() . $images->getClientOriginalName();
+                $images->storeAs($destinationPath, $originalFile);
+                Image::create([
+                    'user_id'=>$request->id,
+                    'image'=>$originalFile
+                ]);
+            }
+        }
         $data['user_id'] = Auth::user()->id;
 
         $city_id = $data['city'];

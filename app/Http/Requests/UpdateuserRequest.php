@@ -24,20 +24,22 @@ class UpdateuserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required',
+            'name'=>'required|min:3|max:64',
             'email' => 'email',
             'number' => 'numeric',
-            'city'=>'required',
+//            'city'=>'mi',/**/
         ];
     }
 
     public function messages()
     {
         return [
-            'email.email' => 'Необходимо ввести электронная почта',
-            'number.numeric'=>'Необходимо ввести цифры',
+            'email.email' => 'Необходимо ввести электронную почту',
+            'number.numeric'=>'ввдъедите ваш номер чтобы с вами связались',
             'name.required' => 'Необходимо ввести имя в поле',
-            'city.required'=>'asdasdasdasd',
+            'name.min' => 'Имя должно быть не менее 3 символов',
+            'name.max' => 'Имя не должно быть длиннее 64 символов',
+            'city.required'=>'Необходимо ввести город в поле',
         ];
     }
 
