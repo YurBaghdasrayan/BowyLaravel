@@ -279,6 +279,7 @@
             </div>
         </section>
     </main>
+    {{$product->links()}}
     @include('includes_file.footer')
 </div>
 @endsection

@@ -119,7 +119,6 @@
 
                        </div>
                        <div class="noactiv_products_wrapper">
-{{--                           1 neactiv products petka--}}
                            <div class="active_inactive_ads_second_items_wrapper no_active_open open_div5" id="open_div3">
                                <div class="active_inactive_ads_second_item_parent">
                                    @foreach($no_ative_products as $product)

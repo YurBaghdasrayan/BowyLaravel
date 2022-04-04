@@ -24,7 +24,6 @@ class AnnounController extends Controller
 
         $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
         $viewsCount = Views::where('product_id', $id)->count();
-        //dd($id);
 
         $regions = Region::all();
         $cities = City::all();
