@@ -167,7 +167,7 @@
                             <div class="recent_announcements_item_child">
                                 <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$products->id])}}">
                                     <div class="recent_announcements_item_child_link_img1">
-                                        <img src="{{asset('storage/uploads/' . $products->image)}}" alt="">
+                                        <img src="{{asset('storage/uploads/' . $products->image[0]->image)}}" alt="">
                                     </div>
                                 </a>
                                     @if(isset(auth()->user()->id))
@@ -227,7 +227,7 @@
                             <div class="recent_announcements_item_child">
                                 <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$products->id])}}" class="recent_announcements_item_child_link">
                                     <div class="recent_announcements_item_child_link_img1">
-                                        <img src="{{asset('storage/uploads/' . $products->image)}}" alt="">
+                                        <img src="{{asset('storage/uploads/' . $products->image[0]->image)}}" alt="">
                                     </div>
                                 </a>
                                 @if(isset(auth()->check()->id))

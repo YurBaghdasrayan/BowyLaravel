@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Call;
 use App\Models\CarsModel;
 use App\Models\City;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Region;
 use App\Models\User;
@@ -16,6 +17,9 @@ class UnloggedUserController extends Controller
 {
     public function index($status, $id)
     {
+
+        $files = Image::where('product_id',$id)->get();
+
         $clientIP = request()->ip();
 
         $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
@@ -52,7 +56,7 @@ class UnloggedUserController extends Controller
                 ->where('id', '!=', $products[0]->id)
                 ->get();
         }
-        return view('/announcement-unlogged-user', compact('unnlogeds', 'viewsCount', 'similar_product', 'call_count'));
+        return view('/announcement-unlogged-user', compact('unnlogeds', 'viewsCount', 'similar_product', 'call_count','files'));
     }
 
     public function indexCalls($id)

@@ -105,24 +105,25 @@
                                     <div class="slider_btns_main_wrapper">
                                         <div class="swiper" id="announcement_first_swiper">
                                             <div class="swiper-wrapper">
+                                                @foreach($file as $files)
                                                 <div class="swiper-slide">
                                                     <div class="swiper_slide_img">
-                                                        <img src="{{asset('storage/uploads/' . $products[0]->image)}}"
-                                                             alt="">
+                                                            <img src="{{asset('storage/uploads/' . $files->image)}}" alt="">
                                                     </div>
                                                 </div>
-                                                <div class="swiper-slide">
-                                                    <div class="swiper_slide_img">
-                                                        <img src="{{asset('storage/uploads/' . $products[0]->image)}}"
-                                                             alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="swiper-slide">
-                                                    <div class="swiper_slide_img">
-                                                        <img src="{{asset('storage/uploads/' . $products[0]->image)}}"
-                                                             alt="">
-                                                    </div>
-                                                </div>
+                                                @endforeach
+{{--                                                <div class="swiper-slide">--}}
+{{--                                                    <div class="swiper_slide_img">--}}
+{{--                                                        <img src="{{asset('storage/uploads/' . $products[0]->image)}}"--}}
+{{--                                                             alt="">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="swiper-slide">--}}
+{{--                                                    <div class="swiper_slide_img">--}}
+{{--                                                        <img src="{{asset('storage/uploads/' . $products[0]->image)}}"--}}
+{{--                                                             alt="">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                         <input type="hidden" name="product_id" value="{{$products[0]->id}}">
@@ -398,7 +399,7 @@
                                                         <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="similar_ads_item_child_link">
                                                             <div class="similar_ads_item_child_link_img1">
                                                                 <img
-                                                                    src="{{asset('storage/uploads/' . $product->image)}}"
+                                                                    src="{{asset('storage/uploads/' . $product->image[0]->image)}}"
                                                                     alt="">
                                                             </div>
                                                             @if(isset(auth()->check()->id))

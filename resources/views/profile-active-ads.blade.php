@@ -43,7 +43,7 @@
                                                <div class="active_inactive_ads_second_item_child_link_img1">
                                                    <a>
                                                        <div style="height:250px " class="recent_announcements_item_child_link_img1">
-                                                           <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
+                                                           <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
                                                        </div>
                                                    </a>
                                                </div>
@@ -84,7 +84,7 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="active_inactive_ads_second_item_child_link">
                                                <div style="height: 250px" class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
+                                                   <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
                                                </div>
                                                <p class="inactive_title">Неактивно </p>
                                            </a>
@@ -126,7 +126,7 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="" class="active_inactive_ads_second_item_child_link inactive">
                                                <div class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
+                                                   <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
                                                </div>
                                                <p class="inactive_title">Неактивно</p>
                                            </a>
@@ -163,7 +163,7 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="active_inactive_ads_second_item_child_link inactive">
                                                <div class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
+                                                   <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
                                                </div>
                                                <p class="inactive_title">Неактивно</p>
                                            </a>

@@ -28,7 +28,8 @@ class ProductResource extends JsonResource
             "status" =>$this->status,
             "address" =>$this->address,
             "Views" => count($this->resource->Views),
-            "Call" => count($this->resource->Call)
+            "Call" => count($this->resource->Call),
+            "image"=>$this->resource->image
         ];
         return $return;
     }

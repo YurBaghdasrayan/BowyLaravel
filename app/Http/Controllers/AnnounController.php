@@ -6,6 +6,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\CarsModel;
 use App\Models\Categories;
 use App\Models\City;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Region;
 use App\Models\User;
@@ -17,6 +18,8 @@ class AnnounController extends Controller
 {
     public function index($status, $id)
     {
+        $file = Image::where('product_id', $id)->get();
+
         $clientIP = request()->ip();
 
         $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
@@ -51,7 +54,7 @@ class AnnounController extends Controller
                 ->where('id', '!=', $products[0]->id)
                 ->get();
         }
-        return view('announcement', compact('products', 'similar_product', 'regions', 'cities', 'cars_models', 'viewsCount'));
+        return view('announcement', compact('products','file', 'similar_product', 'regions', 'cities', 'cars_models', 'viewsCount'));
 
     }
 

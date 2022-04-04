@@ -16,7 +16,7 @@
                         <div class="favourites_item_child" id="{{ $product->id }}" >
                             <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="favourites_item_child_link">
                                     <div style="height: 250px" class="favourites_child_link_img1" >
-                                        <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
+                                        <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
                                     </div>
                             </a>
                             <div class="favourites_child_link_icon remove-favourite " data-id="{{$product->id}}">

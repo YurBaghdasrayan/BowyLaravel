@@ -31,7 +31,7 @@
                                         <div class="recent_announcements_item_child" >
                                             <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}">
                                                 <div class="recent_announcements_item_child_link_img1">
-                                                    <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
+                                                    <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
                                                 </div>
                                             </a>
                                             @if(isset(auth()->user()->id))
