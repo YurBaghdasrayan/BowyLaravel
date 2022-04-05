@@ -116,7 +116,6 @@
                                    @endforeach
                                </div>
                            </div>
-
                        </div>
                        <div class="noactiv_products_wrapper">
                            <div class="active_inactive_ads_second_items_wrapper no_active_open open_div5" id="open_div3">
