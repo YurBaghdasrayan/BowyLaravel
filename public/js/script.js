@@ -518,6 +518,7 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
     formData.append('year_of_issue', (year_of_issue_val));
     formData.append('transmission', transmission_val);
     formData.append('category_id', category_id);
+    // formData.append('image', image[0].files[0]);
 
     for (let i = 0; i < TotalFiles; i++) {
         formData.append('files' + i, files.files[i]);
@@ -555,6 +556,7 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
             $('.alert-danger-address').css('display', 'none');
             $('.alert-danger-transmission').css('display', 'none');
             $('.alert-danger-category_id').css('display', 'none');
+            // $('.alert-danger-image').css('display', 'none');
 
             $('#regionError').css('display', 'block');
 
@@ -606,6 +608,10 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
                 $('.alert-danger-category_id').css('display', 'block');
                 $('.alert-danger-category_id').text(error.responseJSON.errors.category_id[0]);
             }
+            // if (error.responseJSON.errors.files) {
+            //     $('.alert-danger-files').css('display', 'block');
+            //     $('.alert-danger-files').text(error.responseJSON.errors.files[0]);
+            // }
             console.log(error.responseJSON.errors.headline[0]);
         }
     });

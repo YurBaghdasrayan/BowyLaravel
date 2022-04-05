@@ -12,24 +12,35 @@
                         @include('includes_file.user')
                         <form action="{{route('profile-place-anad')}}" class="place_an_ad_form top" method="post">
                             @csrf
+                            <div class="alert_none alert-danger-headline alert-danger-price alert-danger-category_id alert-danger-region
+                             alert-danger-car_model alert-danger-description alert-danger-city alert-danger-transmission
+                             alert-danger-rudder alert-danger-year_of_issue  alert-danger-address alert-danger-body_type"></div>
+{{--                            <div class="alert_none alert-danger-price"></div>--}}
+{{--                            <div class="alert_none alert-danger-category_id"></div>--}}
+{{--                            <div class="alert_none alert-danger-region"></div>--}}
+{{--                            <div class="alert_none alert-danger-car_model"></div>--}}
+{{--                            <div class="alert_none alert-danger-description"></div>--}}
+{{--                            <div class="alert_none alert-danger-body_type"></div>--}}
+{{--                            <div class="alert_none alert-danger-rudder"></div>--}}
+{{--                            <div class="alert_none alert-danger-year_of_issue"></div>--}}
+{{--                            <div class="alert_none alert-danger-transmission"></div>--}}
+{{--                            <div class="alert_none alert-danger-address"></div>--}}
+
                             <div class="place_an_ad_form_inputs_wrapper">
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="place_an_ad_form_input_field_wrapper">
                                         <input type="text" placeholder="Заголовок объявления" class="place_an_ad_form_input_field" name="headline" value="">
-                                            <div class="alert_none alert-danger-headline" ></div>
                                     </div>
                                     <div class="place_an_ad_form_input_field_wrapper price_input_field">
                                         <input type="text" placeholder="Стоимость" name="price" class="place_an_ad_form_input_field">
-                                        <div class="alert_none alert-danger-price" ></div>
-                                    </div>
 
+                                    </div>
                                 </div>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="find_transport_form_select_wrapper">
                                         <div class="find_transport_form_select_title_wrappers">
                                             <input type="hidden" class="hidden_category_data" name="category_id" value="">
                                             <p class="find_transport_form_select_title">Выберите категорию</p>
-                                            <div class="alert_none alert-danger-category_id" ></div>
                                         </div>
 
                                         <div class="find_transport_form_select_hidden_wrapper">
@@ -60,7 +71,6 @@
                                     <div class="place_an_ad_form_inputs_first_wrapper">
                                         <div class="place_an_ad_form_input_field_wrapper">
                                             <input type="text" placeholder="Адрес" class="place_an_ad_form_input_field" name="address">
-                                            <div class="alert_none alert-danger-address" ></div>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +111,6 @@
                                 </div>
                                 <div class="place_an_ad_form_input_field_wrapper field_box">
                                     <input type="text" placeholder="Описание объявления" name="description" class="place_an_ad_form_input_field">
-                                    <div class="alert_none alert-danger-description" ></div>
                                 </div>
                             </div>
                             <div class="place_an_ad_form_inputs_wrapper">
@@ -148,7 +157,6 @@
                                             <p class="find_transport_form_select_hidden_info add_transmission_data" data-id="{{$i}}" data-info="{{$i}}">{{$i}}</p>
                                         @endfor
                                     </div>
-                                    {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                 </div>
 
                                 <div class="find_transport_form_select_wrapper">
@@ -178,7 +186,6 @@
                                         <p class="find_transport_form_select_hidden_info add_body_type" data-info="Пикап">Пикап</p>
                                         <p class="find_transport_form_select_hidden_info add_body_type" data-info="Фургон">Фургон</p>
                                     </div>
-                                    {{--                                        <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
                                 </div>
                                 <div class="registration_input_type_files_label_img_wrapper place_an_ad_form_input_type_file_img_wrapper ">
                                     <label for="fileinput_form2" class="registration_input_type_file file_label place_an_ad_form_input_label">

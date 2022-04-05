@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{--@dd($products[0]->id)--}}
+{{--@dd($products->image[0]->image)--}}
 <div class="bowy_mian_wrapper" id="active_inactive_ads_page">
     @include('includes_file.header')
     <main>
@@ -161,7 +161,7 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="active_inactive_ads_second_item_child_link inactive">
                                                <div class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
+                                                   <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
                                                </div>
                                                <p class="inactive_title">Неактивно</p>
                                            </a>

@@ -39,7 +39,7 @@ class CreateProductRequest extends FormRequest
             'year_of_issue' => 'required',
             'transmission' => 'required',
             'address' => 'required',
-//                'image' => 'required|file|image|max:2048',
+//            'image' => 'required',
             'category_id' => 'required'
         ];
     }
@@ -47,18 +47,19 @@ class CreateProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'headline.required' => 'Поле заголовок объявления обязательно.',
-            'price.required' => 'Поле стоимость обязательно.',
-            'city.required' => 'Поле город обязательно.',
-            'region.required' => 'Поле регион обязательно.',
-            'car_model.required' => 'Поле марка автомобиля обязательно.',
-            'description.required' => 'Поле описание объявления обязательно.',
-            'body_type.required' => 'Поле тип кузова  обязательно.',
-            'rudder.required' => 'Поле руль обязательно.',
-            'year_of_issue.required' => 'Поле год выпуска обязательно.',
-            'transmission.required' => 'Поле коробка передачи обязательно.',
-            'address.required' => 'Поле адреса обязательно.',
-            'category_id.required' => 'Поле категори обязательно',
+            'headline.required' => 'в этом разделе необходимо заполнить все поля',
+            'price.required' => 'в этом разделе необходимо заполнить все поля',
+            'city.required' => 'в этом разделе необходимо заполнить все поля',
+            'region.required' => 'в этом разделе необходимо заполнить все поля',
+            'car_model.required' => 'в этом разделе необходимо заполнить все поля',
+            'description.required' => 'в этом разделе необходимо заполнить все поля',
+            'body_type.required' => 'в этом разделе необходимо заполнить все поля',
+            'rudder.required' => 'в этом разделе необходимо заполнить все поля',
+            'year_of_issue.required' => 'в этом разделе необходимо заполнить все поля',
+            'transmission.required' => 'в этом разделе необходимо заполнить все поля',
+            'address.required' => 'в этом разделе необходимо заполнить все поля',
+            'category_id.required' => 'в этом разделе необходимо заполнить все поля',
+//            'image.required' => 'в этом разделе необходимо заполнить все поля',
         ];
     }
 
