@@ -131,6 +131,19 @@ $(document).on("click", ".find_transport_form_select_title_wrapper", function ()
         $(this).parent().find(".find_transport_form_select_hidden_wrapper").addClass("open");
     }
 });
+$(document).on("click", ".find_transport_form_select_title_wrappers", function () {
+    var thisis = $(this);
+    if (thisis.parent().find(".find_transport_form_select_hidden_wrapper").hasClass("open")) {
+
+        thisis.parent().find(".find_transport_form_select_hidden_wrapper").removeClass("open");
+
+    } else {
+
+        $(".find_transport_form_select_hidden_wrapper").removeClass("open");
+        $(this).parent().find(".find_transport_form_select_hidden_wrapper").addClass("open");
+    }
+});
+
 
 function getCityBySelect(region_id) {
     return new Promise((resolve, reject) => {

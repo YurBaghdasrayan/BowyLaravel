@@ -22,10 +22,11 @@
                                         <input type="text" placeholder="Стоимость" name="price" class="place_an_ad_form_input_field">
                                         <div class="alert_none alert-danger-price" ></div>
                                     </div>
+
                                 </div>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="find_transport_form_select_wrapper">
-                                        <div class="find_transport_form_select_title_wrapper">
+                                        <div class="find_transport_form_select_title_wrappers">
                                             <input type="hidden" class="hidden_category_data" name="category_id" value="">
                                             <p class="find_transport_form_select_title">Выберите категорию</p>
                                             <div class="alert_none alert-danger-category_id" ></div>
@@ -45,24 +46,9 @@
 {{--                                    </div>--}}
                                     <div class="place_an_ad_form_inputs_first_wrapper">
                                         <div class="find_transport_form_select_wrapper">
-                                            <div class="find_transport_form_select_title_wrapper">
-                                                <input type="hidden" class="hidden_category_data" name="city" value="">
-                                                <p class="find_transport_form_select_title">Выберите город</p>
-                                            </div>
-                                            <div class="find_transport_form_select_hidden_wrapper" id="divCity">
-                                                <p class="find_transport_form_select_hidden_info" >Выберите область</p>
-{{--                                                @foreach($cities as $val)--}}
-{{--                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>--}}
-{{--                                                @endforeach--}}
-                                            </div>
-{{--                                            <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
-                                        </div>
-                                    </div>
-                                    <div class="place_an_ad_form_inputs_first_wrapper">
-                                        <div class="find_transport_form_select_wrapper">
-                                            <div class="find_transport_form_select_title_wrapper">
+                                            <div class="find_transport_form_select_title_wrappers">
                                                 <input type="hidden" class="hidden_category_data" id="region_input" name="region" value="">
-                                                <p class="find_transport_form_select_title">Выбеsрите область</p>
+                                                <p class="find_transport_form_select_title">Выберите область</p>
                                             </div>
                                             <div class="find_transport_form_select_hidden_wrapper">
                                                 @foreach($regions as $val)
@@ -71,20 +57,37 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="place_an_ad_form_inputs_first_wrapper">
-                                    <div class="place_an_ad_form_input_field_wrapper">
-                                        <input type="text" placeholder="Адрес" class="place_an_ad_form_input_field" name="address">
-                                        <div class="alert_none alert-danger-address" ></div>
+                                    <div class="place_an_ad_form_inputs_first_wrapper">
+                                        <div class="place_an_ad_form_input_field_wrapper">
+                                            <input type="text" placeholder="Адрес" class="place_an_ad_form_input_field" name="address">
+                                            <div class="alert_none alert-danger-address" ></div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <div class="place_an_ad_form_inputs_first_wrapper">
+                                    <div class="find_transport_form_select_wrapper">
+                                        <div class="find_transport_form_select_title_wrappers">
+                                            <input type="hidden" class="hidden_category_data" name="city" value="">
+                                            <p class="find_transport_form_select_title">Выберите город</p>
+                                        </div>
+                                        <div class="find_transport_form_select_hidden_wrapper" id="divCity">
+                                            <p class="find_transport_form_select_hidden_info" >Выберите область</p>
+                                            {{--                                                @foreach($cities as $val)--}}
+                                            {{--                                                    <p class="find_transport_form_select_hidden_info" data-id="{{$val->id}}" data-info="{{$val->name}}">{{$val->name}}</p>--}}
+                                            {{--                                                @endforeach--}}
+                                        </div>
+                                        {{--                                            <div class="alert_none" id="regionError">Город должен совподать соответствующему региону</div>--}}
+                                    </div>
+                                </div>
+
 {{--                                <div class="place_an_ad_form_input_field_wrapper field_box">--}}
 {{--                                    <input type="text" placeholder="Марка автомобиля" class="place_an_ad_form_input_field" name="car_model">--}}
 {{--                                    <div class="alert_none alert-danger-car_model" ></div>--}}
 {{--                                </div>--}}
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="find_transport_form_select_wrapper">
-                                        <div class="find_transport_form_select_title_wrapper">
+                                        <div class="find_transport_form_select_title_wrappers">
                                             <input type="hidden" class="hidden_category_data" name="car_model" value="">
                                             <p class="find_transport_form_select_title" >Марка автомобиля</p>
                                         </div>
@@ -110,7 +113,7 @@
 {{--                                    </div>--}}
                                     <div class="place_an_ad_form_inputs_first_wrapper" style="width: 350px">
                                         <div class="find_transport_form_select_wrapper">
-                                            <div class="find_transport_form_select_title_wrapper">
+                                            <div class="find_transport_form_select_title_wrappers">
                                                 <input type="hidden" class="hidden_category_data" name="rudder" value="">
                                                 <p class="find_transport_form_select_title " ><span>Руль</span></p>
                                             </div>
@@ -124,7 +127,7 @@
                                 </div>
                                 <div class="place_an_ad_form_inputs_first_wrapper">
                                     <div class="find_transport_form_select_wrapper">
-                                        <div class="find_transport_form_select_title_wrapper">
+                                        <div class="find_transport_form_select_title_wrappers">
                                             <input type="hidden" class="hidden_category_data" name="transmission" value="">
                                             <p class="find_transport_form_select_title">Коробка передач</p>
                                         </div>
@@ -136,7 +139,7 @@
                                     </div>
                                 </div>
                                 <div class="find_transport_form_select_wrapper">
-                                    <div class="find_transport_form_select_title_wrapper">
+                                    <div class="find_transport_form_select_title_wrappers">
                                         <input type="hidden" class="hidden_category_data" name="year_of_issue" value="">
                                         <p class="find_transport_form_select_title">Год выпуска</p>
                                     </div>
@@ -149,7 +152,7 @@
                                 </div>
 
                                 <div class="find_transport_form_select_wrapper">
-                                    <div class="find_transport_form_select_title_wrapper">
+                                    <div class="find_transport_form_select_title_wrappers">
                                         <input type="hidden" class="hidden_category_data" name="body_type" value="">
                                         <p class="find_transport_form_select_title">Тип кузова</p>
                                     </div>

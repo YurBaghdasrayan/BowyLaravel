@@ -254,7 +254,7 @@
     border-bottom-right-radius: 10px;
     padding: 15px;
     cursor: pointer;
-    width: 100%;
+    width: 360px;
     top: 35px;
     display: none;
     z-index: 2;
@@ -935,6 +935,9 @@ body.hidden_body {
     }
 
     .find_transport_form_select_title_wrapper {
+        padding: 10px !important;
+    }
+    .find_transport_form_select_title_wrappers {
         padding: 10px !important;
     }
 
@@ -3367,6 +3370,7 @@ body.hidden_body {
     justify-content: space-between;
     margin-bottom: 19px;
     margin-right: 88px;
+    height: 60px;
 }
 
 .place_an_ad_form_input_field_wrapper {
@@ -5140,7 +5144,7 @@ body.hidden_body {
 
 .place_an_ad_form .find_transport_form_select_wrapper {
     max-width: 325px;
-    width: 100%;
+    margin-bottom: 19px;
 }
 
 .succses {
@@ -5316,3 +5320,15 @@ select {
 .w-5 {
     display: none;
 }
+.top .find_transport_form_select_title_wrappers {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding: 15px;
+    cursor: pointer;
+    padding-left: 16px;
+    height: 60px;
+    width: 360px;
+}
+
