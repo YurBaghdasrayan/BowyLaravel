@@ -163,6 +163,7 @@
                 <div class="recent_announcements_items_wrapper">
                     <div class="recent_announcements_item open" id="open_div1">
                         <div class="recent_announcements_item_parent1">
+                            @if(isset($products->image[0]->image))
                             @foreach($product as $products)
                             <div class="recent_announcements_item_child">
                                 <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$products->id])}}">
@@ -219,6 +220,7 @@
                                 </div>
                             </div>
                             @endforeach
+                            @endif
                         </div>
                     </div>
                     <div class="recent_announcements_item" id="open_div2">
