@@ -18,7 +18,6 @@ class SocialController extends Controller
 
     public function loginWithGoogle()
     {
-
         try {
             $user = Socialite::driver('google')->user();
             $isUser = User::where('google_id', $user->id)->first();
