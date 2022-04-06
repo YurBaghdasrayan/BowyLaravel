@@ -14,7 +14,7 @@
                             @csrf
                             <div class="alert_none alert-danger-headline alert-danger-price alert-danger-category_id alert-danger-region
                              alert-danger-car_model alert-danger-description alert-danger-city alert-danger-transmission
-                             alert-danger-rudder alert-danger-year_of_issue  alert-danger-address alert-danger-body_type"></div>
+                             alert-danger-rudder alert-danger-year_of_issue  alert-danger-address alert-danger-body_type alert-danger-files0 "></div>
 {{--                            <div class="alert_none alert-danger-price"></div>--}}
 {{--                            <div class="alert_none alert-danger-category_id"></div>--}}
 {{--                            <div class="alert_none alert-danger-region"></div>--}}

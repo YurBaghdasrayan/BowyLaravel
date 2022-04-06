@@ -14,9 +14,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $file = Image::where('product_id')->get();
         $categories = Categories::all();
-        $product = Product::orderBy('id', 'DESC')->limit(8)->paginate(2);
+        //$product = Product::with('image')->orderBy('id', 'DESC')->cursorPaginate(2);
+        $product = Product::with('image')->orderBy('id', 'DESC')->simplePaginate(2);
         $regions = Region::all();
         $cities = City::all();
         return view('/home', compact('categories', 'product', 'regions', 'cities'));

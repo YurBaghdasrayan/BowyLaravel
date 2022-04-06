@@ -87,6 +87,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/logout', [LoginController::class, 'logout'])->name('user-logout');
     Route::get('/announcement/{status?}/{id?}', [AnnounController::class, 'index'])->name('announcement');
+    Route::get('/announcement/{id?}', [AnnounController::class, 'indexCalls']);
     Route::get('/favourites', [FavouritesController::class, 'index'])->name('favourites');
 
     Route::get('edit-announcement', [EditAnnouncementController::class, 'index'])->name('edit-announcement');

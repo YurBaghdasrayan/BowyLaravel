@@ -39,11 +39,13 @@
                                <div class="active_inactive_ads_second_item_parent">
                                    @foreach($products as $product)
                                        <div class="active_inactive_ads_second_item_child">
-
                                                <div class="active_inactive_ads_second_item_child_link_img1">
                                                    <a>
-                                                       <div style="height:250px " class="recent_announcements_item_child_link_img1">
-                                                           <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
+                                                       <div style="height:250px" class="recent_announcements_item_child_link_img1">
+                                                           @foreach($product->image as $image_data)
+                                                               <img src="{{asset('storage/uploads/' . $image_data->image)}}" alt="">
+                                                               @break
+                                                           @endforeach
                                                        </div>
                                                    </a>
                                                </div>
@@ -84,8 +86,10 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="active_inactive_ads_second_item_child_link">
                                                <div style="height: 250px" class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
-                                               </div>
+                                                   @foreach($product->image as $image_data)
+                                                       <img src="{{asset('storage/uploads/' . $image_data->image)}}" alt="">
+                                                       @break
+                                                   @endforeach                                               </div>
                                                <p class="inactive_title">Неактивно </p>
                                            </a>
                                            <div class="active_inactive_ads_second_item_child_info_box">
@@ -108,7 +112,6 @@
                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                            <path d="M15 4H20V6H18V19C18 19.2652 17.8946 19.5196 17.7071 19.7071C17.5196 19.8946 17.2652 20 17 20H3C2.73478 20 2.48043 19.8946 2.29289 19.7071C2.10536 19.5196 2 19.2652 2 19V6H0V4H5V1C5 0.734784 5.10536 0.48043 5.29289 0.292893C5.48043 0.105357 5.73478 0 6 0H14C14.2652 0 14.5196 0.105357 14.7071 0.292893C14.8946 0.48043 15 0.734784 15 1V4ZM16 6H4V18H16V6ZM7 9H9V15H7V9ZM11 9H13V15H11V9ZM7 2V4H13V2H7Z" fill="white"/>
                                                        </svg>
-
                                                    </button>
                                                </div>
                                            </div>
@@ -124,8 +127,10 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="" class="active_inactive_ads_second_item_child_link inactive">
                                                <div class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('storage/uploads/' . $product->image[0]->image)}}" alt="">
-                                               </div>
+                                                   @foreach($product->image as $image_data)
+                                                       <img src="{{asset('storage/uploads/' . $image_data->image)}}" alt="">
+                                                       @break
+                                                   @endforeach                                               </div>
                                                <p class="inactive_title">Неактивно</p>
                                            </a>
                                            <div class="active_inactive_ads_second_item_child_info_box">
@@ -139,7 +144,7 @@
                                                            <path d="M12.728 6.68599L11.314 5.27199L2 14.586V16H3.414L12.728 6.68599ZM14.142 5.27199L15.556 3.85799L14.142 2.44399L12.728 3.85799L14.142 5.27199ZM4.242 18H0V13.757L13.435 0.321992C13.6225 0.134521 13.8768 0.0292053 14.142 0.0292053C14.4072 0.0292053 14.6615 0.134521 14.849 0.321992L17.678 3.15099C17.8655 3.33852 17.9708 3.59283 17.9708 3.85799C17.9708 4.12316 17.8655 4.37746 17.678 4.56499L4.243 18H4.242Z" fill="white"/>
                                                        </svg>
                                                    </a>
-                                                   <a href="" class="active_inactive_ads_second_item_child_link2">
+                                                   <a href="{{route('announcement-unlogged-user',['status'=>'inactive','id'=>$product->id])}}" class="active_inactive_ads_second_item_child_link2">
                                                        <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                            <path d="M2.49189 7.06499L3.77789 18H18.2219L19.5079 7.06499L15.4979 9.73799L10.9999 3.44099L6.50189 9.73799L2.49189 7.06499ZM1.80089 4.19999L5.99989 6.99999L10.1859 1.13999C10.2784 1.01036 10.4005 0.904696 10.5421 0.831793C10.6837 0.75889 10.8406 0.720856 10.9999 0.720856C11.1591 0.720856 11.3161 0.75889 11.4577 0.831793C11.5993 0.904696 11.7214 1.01036 11.8139 1.13999L15.9999 6.99999L20.1999 4.19999C20.3588 4.09424 20.5447 4.0362 20.7356 4.03273C20.9265 4.02926 21.1144 4.0805 21.2771 4.18041C21.4398 4.28032 21.5705 4.42471 21.6537 4.59653C21.737 4.76834 21.7693 4.96039 21.7469 5.14999L20.1039 19.117C20.0752 19.3602 19.9583 19.5845 19.7753 19.7473C19.5922 19.91 19.3558 20 19.1109 20H2.88889C2.64395 20 2.40755 19.91 2.22451 19.7473C2.04148 19.5845 1.92454 19.3602 1.89589 19.117L0.252885 5.14899C0.230685 4.95947 0.263171 4.76756 0.346506 4.59591C0.429842 4.42425 0.560548 4.28003 0.723196 4.18025C0.885845 4.08048 1.07364 4.02932 1.26442 4.03281C1.45521 4.03631 1.641 4.09432 1.79989 4.19999H1.80089ZM10.9999 14C10.4695 14 9.96074 13.7893 9.58567 13.4142C9.2106 13.0391 8.99989 12.5304 8.99989 12C8.99989 11.4696 9.2106 10.9608 9.58567 10.5858C9.96074 10.2107 10.4695 9.99999 10.9999 9.99999C11.5303 9.99999 12.039 10.2107 12.4141 10.5858C12.7892 10.9608 12.9999 11.4696 12.9999 12C12.9999 12.5304 12.7892 13.0391 12.4141 13.4142C12.039 13.7893 11.5303 14 10.9999 14Z" fill="white"/>
                                                        </svg>
@@ -161,8 +166,10 @@
                                        <div class="active_inactive_ads_second_item_child">
                                            <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}" class="active_inactive_ads_second_item_child_link inactive">
                                                <div class="active_inactive_ads_second_item_child_link_img1">
-                                                   <img src="{{asset('storage/uploads/' . $product->image)}}" alt="">
-                                               </div>
+                                                   @foreach($product->image as $image_data)
+                                                       <img src="{{asset('storage/uploads/' . $image_data->image)}}" alt="">
+                                                       @break
+                                                   @endforeach                                               </div>
                                                <p class="inactive_title">Неактивно</p>
                                            </a>
                                            <div class="active_inactive_ads_second_item_child_info_box">

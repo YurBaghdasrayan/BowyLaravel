@@ -28,6 +28,7 @@ class ProductController extends Controller
 
     public function store(CreateProductRequest $request)
     {
+//        dd($request);
         $fileNames = array_keys($request->allFiles());
         $data = $request->except($fileNames);
         $fileNames = array_keys($request->allFiles());

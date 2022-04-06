@@ -556,7 +556,7 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
             $('.alert-danger-address').css('display', 'none');
             $('.alert-danger-transmission').css('display', 'none');
             $('.alert-danger-category_id').css('display', 'none');
-            // $('.alert-danger-image').css('display', 'none');
+            $('.alert-danger-files0').css('display', 'none');
 
             $('#regionError').css('display', 'block');
 
@@ -608,10 +608,10 @@ $(document).on("submit", ".place_an_ad_form", function (event) {
                 $('.alert-danger-category_id').css('display', 'block');
                 $('.alert-danger-category_id').text(error.responseJSON.errors.category_id[0]);
             }
-            // if (error.responseJSON.errors.files) {
-            //     $('.alert-danger-files').css('display', 'block');
-            //     $('.alert-danger-files').text(error.responseJSON.errors.files[0]);
-            // }
+            if (error.responseJSON.errors.files0) {
+                $('.alert-danger-files0').css('display', 'block');
+                $('.alert-danger-files0').text(error.responseJSON.errors.files0[0]);
+            }
             console.log(error.responseJSON.errors.headline[0]);
         }
     });

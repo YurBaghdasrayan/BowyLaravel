@@ -64,7 +64,6 @@
 
 @endsection
 @section('content')
-
 <div class="bowy_mian_wrapper">
     @include('includes_file.header')
     <main>
@@ -78,7 +77,7 @@
                             <input type="hidden" class="hidden_category_data check_search_category" name="category" value="">
                             <p class="find_transport_form_select_title">Выберите категорию</p>
                         </div>
-                        <div class="find_transport_form_select_hidden_wrapper">
+                        <div class="find_transport_form_select_hidden_wrapper home_find_transport_wrapper">
                             @foreach($categories as $category)
                                 <p class="find_transport_form_select_hidden_info add_category_data"  data-id="{{$category->id}}" data-info="{{$category->name}}">{{$category->name}}</p>
                             @endforeach
@@ -89,7 +88,7 @@
                             <input type="hidden" class="hidden_category_data" id="region_input" name="region" value="">
                             <p class="find_transport_form_select_title">Выберите регион</p>
                         </div>
-                        <div class="find_transport_form_select_hidden_wrapper">
+                        <div class="find_transport_form_select_hidden_wrapper home_find_transport_wrappers">
                             @foreach($regions as $region)
                             <p class="find_transport_form_select_hidden_info add_region_data" data-id="{{$region->id}}" data-info="{{$region->name}}">{{$region->name}}</p>
                             @endforeach
@@ -100,7 +99,7 @@
                             <input type="hidden" class="hidden_category_data" name="city" value="">
                             <p class="find_transport_form_select_title">Выберите город</p>
                         </div>
-                        <div class="find_transport_form_select_hidden_wrapper" id="divCity">
+                        <div class="find_transport_form_select_hidden_wrapper home_find_transport_wrappers" id="divCity">
                             @foreach($cities as $city)
                             <p class="find_transport_form_select_hidden_info" data-id="{{$city->id}}" data-info="{{$city->name}}">{{$city->name}}</p>
                             @endforeach
@@ -163,15 +162,20 @@
                 <div class="recent_announcements_items_wrapper">
                     <div class="recent_announcements_item open" id="open_div1">
                         <div class="recent_announcements_item_parent1">
-                            @if(isset($products->image[0]->image))
                             @foreach($product as $products)
+
                             <div class="recent_announcements_item_child">
                                 <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$products->id])}}">
                                     <div class="recent_announcements_item_child_link_img1">
-                                        <img src="{{asset('storage/uploads/' . $products->image[0]->image)}}" alt="">
+                                     @foreach($products->image as $image_data)
+
+                                        <img src="{{asset('storage/uploads/' . $image_data->image)}}" alt="">
+                                        @break
+                                     @endforeach
+
                                     </div>
                                 </a>
-                                    @if(isset(auth()->user()->id))
+                                    @if(auth()->check())
                                     @if($products->user_id != Auth::user()->id)
                                     @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $products->id])->get()->count() < 1)
                                     <div style="max-height: 250px" class="recent_announcements_item_child_link_favourite_img add-favorite" data-id="{{ $products->id }}">
@@ -219,21 +223,26 @@
                                     </div>
                                 </div>
                             </div>
+{{--                                {{dd($products->image[0])}}--}}
                             @endforeach
-                            @endif
+
                         </div>
                     </div>
                     <div class="recent_announcements_item" id="open_div2">
                         <div class="recent_announcements_item_parent2">
-                            @if(isset($products->image[0]->image))
+
                             @foreach($product as $products)
                             <div class="recent_announcements_item_child">
                                 <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$products->id])}}" class="recent_announcements_item_child_link">
                                     <div class="recent_announcements_item_child_link_img1">
-                                        <img src="{{asset('storage/uploads/' . $products->image[0]->image)}}" alt="">
+                                        @foreach($products->image as $image_data)
+                                            <img src="{{asset('storage/uploads/' . $image_data->image)}}" alt="">
+                                            @break
+                                        @endforeach
                                     </div>
+{{--                                    @dd($products->image[0]->image)--}}
                                 </a>
-                                @if(isset(auth()->check()->id))
+                                @if(auth()->check())
                                     @if($products->user_id != Auth::user()->id)
                                        @if(App\Models\Favourites::where(['user_id' => auth()->user()->id,'product_id' => $products->id])->get()->count() < 1)
                                         <div class="recent_announcements_item_child_link_favourite_img" data-id="{{ $products->id }}">
@@ -276,14 +285,16 @@
                                 </div>
                             </div>
                             @endforeach
-                            @endif
                         </div>
                     </div>
                 </div>
             </div>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+            @if(isset($product))
+            {{$product->links()}}
+            @endif
         </section>
     </main>
-    {{$product->links()}}
     @include('includes_file.footer')
 </div>
 @endsection

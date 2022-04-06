@@ -26,7 +26,6 @@
                         <div class="recent_announcements_items_wrapper">
                             <div class="recent_announcements_item open" id="open_div1">
                                 <div class="recent_announcements_item_parent1">
-                                    @if(isset($products))
                                     @foreach($products as $product)
                                         <div class="recent_announcements_item_child" >
                                             <a href="{{route('announcement-unlogged-user',['status'=>'active','id'=>$product->id])}}">
@@ -84,11 +83,10 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                @endif
+                        </div>
                     </div>
-                </div>
-            </section>
-        </main>
+                </section>
+            </main>
         @include('includes_file.footer')
     </div>
 @endsection

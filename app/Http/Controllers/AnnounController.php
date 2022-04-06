@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Call;
 use App\Models\CarsModel;
 use App\Models\Categories;
 use App\Models\City;
@@ -24,6 +25,8 @@ class AnnounController extends Controller
 
         $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
         $viewsCount = Views::where('product_id', $id)->count();
+        $call_count = Call::where('product_id', $id)->count();
+
 
         $regions = Region::all();
         $cities = City::all();
@@ -53,7 +56,7 @@ class AnnounController extends Controller
                 ->where('id', '!=', $products[0]->id)
                 ->get();
         }
-        return view('announcement', compact('products','file', 'similar_product', 'regions', 'cities', 'cars_models', 'viewsCount'));
+        return view('announcement', compact('products','file', 'similar_product', 'regions', 'cities','call_count', 'cars_models', 'viewsCount'));
 
     }
 
@@ -77,5 +80,24 @@ class AnnounController extends Controller
             //'message' => 'update success' . $data['rudder'] . ">>" . $data['product_id'],
             'message' => $request->all(),
         ], 200);
+    }
+    public function indexCalls($id)
+    {
+        $clientIP = request()->ip();
+
+        $calls = Call::where('product_id', $id)->where('ip_address', $clientIP)->get();
+
+        if ($calls->count() < 1) {
+            Call::create(['product_id' => $id, 'ip_address' => $clientIP]);
+        }
+
+        $callsCount = Call::where('product_id', $id)->count();
+
+        $call_phone_data = Product::where('id', $id)->get();
+        $product_user_id = $call_phone_data[0]->user_id;
+        $phoned_user = User::where('id', '=', $product_user_id)->get();
+        $phone_number = $phoned_user[0]->number;
+
+        return response()->json(['callsCount' => $callsCount, 'phone_number' => $phone_number]);
     }
 }

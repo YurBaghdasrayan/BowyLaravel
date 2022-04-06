@@ -39,7 +39,7 @@ class CreateProductRequest extends FormRequest
             'year_of_issue' => 'required',
             'transmission' => 'required',
             'address' => 'required',
-//            'image' => 'required',
+            'files0' => 'required',
             'category_id' => 'required'
         ];
     }
@@ -59,7 +59,7 @@ class CreateProductRequest extends FormRequest
             'transmission.required' => 'в этом разделе необходимо заполнить все поля',
             'address.required' => 'в этом разделе необходимо заполнить все поля',
             'category_id.required' => 'в этом разделе необходимо заполнить все поля',
-//            'image.required' => 'в этом разделе необходимо заполнить все поля',
+            'files0.required' => 'в этом разделе необходимо заполнить все поля',
         ];
     }
 

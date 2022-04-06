@@ -77,7 +77,6 @@ class UnloggedUserController extends Controller
         $phone_number = $phoned_user[0]->number;
 
         return response()->json(['callsCount' => $callsCount, 'phone_number' => $phone_number]);
-
     }
 }
 
