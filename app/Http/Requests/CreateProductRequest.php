@@ -60,6 +60,7 @@ class CreateProductRequest extends FormRequest
             'address.required' => 'в этом разделе необходимо заполнить все поля',
             'category_id.required' => 'в этом разделе необходимо заполнить все поля',
             'files0.required' => 'в этом разделе необходимо заполнить все поля',
+            'price.numeric' => 'стоимость должна быть числом'
         ];
     }
 
@@ -69,11 +70,11 @@ class CreateProductRequest extends FormRequest
 
         if (!$validate->fails()) {
             $regionIdByCity = City::query()->where('id', $this->city)->value('region_id');
-            if($this->region != $regionIdByCity) {
+            if ($this->region != $regionIdByCity) {
                 throw new HttpResponseException(response()->json([
                     'success' => 0,
                     'message' => 'City was not found',
-                ],404));
+                ], 404));
             }
             $code = $this->except(['_token']);
 
