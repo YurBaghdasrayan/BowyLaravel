@@ -16,8 +16,7 @@ class FavouritesController extends Controller
     {
         $products = Product::whereHas('favourites', function ($query) {
             $query->where('user_id', '=', \auth()->id());
-        })
-            ->get();
+        })->simplePaginate(3);
         return view('/favourites', compact('products'));
     }
 

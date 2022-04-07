@@ -3,7 +3,7 @@
     <title>Главная</title>
 @endsection
 @section('content')
-{{--@dd($files)--}}
+{{--@dd($similar_product)--}}
     @include('includes_file.header')
     <div class="bowy_mian_wrapper" id="unlogged_user_announcement_page">
         <main>
@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="unlogged_user_announcement_item_call_message_btns_wrapper">
-                                    <a  class="unlogged_user_announcement_item_child_call_btn call user-number" data-id="{{$unnloged->id}}">
+                                    <a class="unlogged_user_announcement_item_child_call_btn call user-number" data-id="{{$unnloged->id}}">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
                                             <path
@@ -158,7 +158,7 @@
                                                             </svg>
                                                         </div>
                                                         @endif
-                    1                                 @endif
+                                                     @endif
                                                     @endif
 
                                                     </a>
@@ -168,7 +168,7 @@
                                                         <p class="similar_ads_item_child_info1">{{$product->address}}</p>
                                                         <p class="similar_ads_item_child_info2">{{$product->description}}</p>
                                                         <div class="similar_ads_items_child_call_message_btns_wrapper">
-                                                            <a href="tel:" class="similar_ads_items_child_call_btn">
+                                                            <a class="similar_ads_items_child_call_btn call" data-id="{{$product->id}}">
                                                                 <svg width="18" height="18" viewBox="0 0 18 18"
                                                                      fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <path
@@ -177,7 +177,7 @@
                                                                 </svg>
                                                             </a>
                                                             <a href="mailto:"
-                                                               class="similar_ads_items_child_message_btn">
+                                                               class="similar_ads_items_child_message_btn" >
                                                                 <svg width="20" height="20" viewBox="0 0 20 20"
                                                                      fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                     <path
@@ -195,9 +195,11 @@
                             </div>
                     </div>
                 </div>
+
     </div>
     </div>
     </div>
+
     </section>
     </main>
     @include('includes_file.footer')

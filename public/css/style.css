@@ -4234,6 +4234,7 @@ body.hidden_body {
     line-height: 35px;
     color: #000000;
     margin-bottom: 5px;
+    word-break: break-all;
 }
 
 .similar_ads_item_child_price {
@@ -4255,6 +4256,7 @@ body.hidden_body {
     color: #000000;
     opacity: 0.43;
     margin-bottom: 10px;
+    word-break: break-all;
 }
 
 .similar_ads_item_child_info2 {
@@ -4265,6 +4267,7 @@ body.hidden_body {
     line-height: 27px;
     color: #000000;
     margin-bottom: 22px;
+    word-break: break-all;
 }
 
 .similar_ads_items_child_call_message_btns_wrapper {
@@ -4296,6 +4299,12 @@ body.hidden_body {
     /*margin-right: 38px;*/
     cursor: pointer;
     outline: none;
+}
+.active_inactive_ads{
+.flex justify-between
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -5348,6 +5357,33 @@ select {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.recent_announcements .justify-between{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.favourites .justify-between{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bowy_mian_wrapper .justify-between{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.active_inactive_ads .inline-flex{
+    color: #32bb8c;
+    text-decoration: none;
+}
+.bowy_mian_wrapper .inline-flex{
+    color: #32bb8c;
+    text-decoration: none;
+}
+.favourites .inline-flex{
+    color: #32bb8c;
+    text-decoration: none;
 }
 
 .recent_announcements .inline-flex{

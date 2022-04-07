@@ -11,8 +11,8 @@ class ProfileActiveController extends Controller
     public function index()
     {
         // TODO
-            $products = Auth::user()->products()->get()->where('status', '=', true);
-            $no_ative_products = Auth::user()->products()->get()->where('status', '=', false);
+            $products = Auth::user()->products()->where('status', '=', true)->simplePaginate(3);
+            $no_ative_products = Auth::user()->products()->simplePaginate(4)->where('status', '=', false);
 
             return view('profile-active-ads', compact('products','no_ative_products'));
     }

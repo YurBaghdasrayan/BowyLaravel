@@ -423,7 +423,7 @@
                                                             <p class="similar_ads_item_child_info1">{{$product->address}}</p>
                                                             <p class="similar_ads_item_child_info2">{{$product->description}}</p>
                                                             <div class="similar_ads_items_child_call_message_btns_wrapper">
-                                                                <a href="tel:" class="similar_ads_items_child_call_btn">
+                                                                <a class="similar_ads_items_child_call_btn call" data-id="{{$product->id}}">
                                                                     <svg width="18" height="18" viewBox="0 0 18 18"
                                                                          fill="none" xmlns="http://www.w3.org/2000/svg">
                                                                         <path
@@ -447,11 +447,13 @@
                                                     @endforeach
                                                     </div>
                                             </div>
+
                                         @endif
                                         @endif
                                     </div>
                             </div>
                         </div>
+
                     </div>
                 </form>
             </div>

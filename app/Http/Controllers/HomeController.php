@@ -16,7 +16,7 @@ class HomeController extends Controller
     {
         $categories = Categories::all();
         //$product = Product::with('image')->orderBy('id', 'DESC')->cursorPaginate(2);
-        $product = Product::with('image')->orderBy('id', 'DESC')->simplePaginate(2);
+        $product = Product::with('image')->orderBy('id', 'DESC')->where('status',true)->simplePaginate(4);
         $regions = Region::all();
         $cities = City::all();
         return view('/home', compact('categories', 'product', 'regions', 'cities'));

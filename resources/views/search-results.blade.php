@@ -2,7 +2,7 @@
 @section('title')
     <title>Главная</title>
 @endsection
-
+{{--@dd($products)--}}
 @section('content')
     <div class="bowy_mian_wrapper">
         @include('includes_file.header')
@@ -85,6 +85,11 @@
                                     @endforeach
                         </div>
                     </div>
+{{--                            @dd($products)--}}
+                            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+                @if(isset($products))
+                    {{$products->withQueryString()->links()}}
+                @endif
                 </section>
             </main>
         @include('includes_file.footer')

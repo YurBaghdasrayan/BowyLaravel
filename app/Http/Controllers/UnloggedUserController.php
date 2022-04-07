@@ -22,7 +22,7 @@ class UnloggedUserController extends Controller
 
         $clientIP = request()->ip();
 
-        $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->get();
+        $view = Views::where('product_id', $id)->where('ip_address', $clientIP)->simplePaginate(2);
 
         if ($view->count() < 1) {
             Views::create(['product_id' => $id, 'ip_address' => $clientIP]);
@@ -52,9 +52,9 @@ class UnloggedUserController extends Controller
 
         if ($products != "" && $car_model != "") {
 
-            $similar_product = Product::where('car_model', '=', $car_model)
+            $similar_product = Product::where('car_model', '=', $car_model)->where('status',true)
                 ->where('id', '!=', $products[0]->id)
-                ->get();
+                ->simplePaginate(3);
         }
         return view('/announcement-unlogged-user', compact('unnlogeds', 'viewsCount', 'similar_product', 'call_count','files'));
     }

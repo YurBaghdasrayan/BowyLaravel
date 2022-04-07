@@ -54,6 +54,7 @@ class AnnounController extends Controller
 
             $similar_product = Product::where('car_model', '=', $car_model)
                 ->where('id', '!=', $products[0]->id)
+                ->limit(3)
                 ->get();
         }
         return view('announcement', compact('products','file', 'similar_product', 'regions', 'cities','call_count', 'cars_models', 'viewsCount'));
