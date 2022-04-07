@@ -848,7 +848,6 @@ $(".call").on("click", function (event) {
         success: function (response) {
             $('.calss_count_data').text(response.callsCount);
             location.href = "tel:" + response.phone_number;
-
         },
         error: function (err) {
             console.log(err);
