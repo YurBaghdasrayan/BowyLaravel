@@ -838,7 +838,7 @@ $(".call").on("click", function (event) {
     var product_id = thisis.data('id');
 
     $.ajax({
-        url: `http://bowy.ru/profile/announcement-unlogged/${product_id}`,
+        url: `http://bowy.ru/announcement-unlogged/${product_id}`,
         // url: `/announcement-unlogged/${product_id}`,
         type: 'GET',
         processData: false,
