@@ -40,6 +40,8 @@ use App\Http\Controllers\RegionController;
 
 
 /*GET METHODS*/
+/*GET METHODS*/
+/*GET METHODS*/
 Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
@@ -80,7 +82,6 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/favourites', [FavouritesController::class, 'store'])->name('favourites');
         Route::get('/favourites-destroy/{id}', [FavouritesController::class, 'destroy'])->name('favourites');
         Route::get('/favourites-delete/{id}', [FavouritesController::class, 'destroyFavourite'])->name('favourites');
-
     });
 
     /*MIDDLEWARE GET METHODS*/
@@ -121,13 +122,9 @@ Route::get('/search-results/{id?}', [SearchResultsController::class, 'getCategor
 Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
 Route::get('/announcement-unlogged/{id?}', [UnloggedUserController::class, 'indexCalls']);
 
-
-
 Route::get('auth/google', [SocialController::class, 'googleRedirect'])->name('auth.google');
 Route::get('auth/google/callback', [SocialController::class, 'loginWithGoogle']);
 
 Route::get('auth/vk', [SocialController::class, 'vkRedirect'])->name('auth.vk');
 Route::get('auth/vk/callback', [SocialController::class, 'loginWithVk']);
-
-
 
