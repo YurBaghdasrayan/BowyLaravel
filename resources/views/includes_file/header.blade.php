@@ -21,7 +21,7 @@
                     <a href="{{route('profile-place-anad')}}" class="header_link">Разместить объявление</a>
 
                     @else
-                        <a href="{{route('user-logout')}}" class="header_registration_log_in_btn">asd</a>
+                        <a href="{{route('user-logout')}}" class="header_registration_log_in_btn"></a>
                         <a href="{{route('profile-place-anad')}}" class="header_link">Разместить объявление</a>
                     @endif
                 </div>
