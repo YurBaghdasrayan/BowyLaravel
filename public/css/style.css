@@ -239,8 +239,8 @@
 }
 
 .top .first_find_transport_wrapper {
-    width: 100%;
-    max-width: 330px;
+    width: 100%; !important;
+    width: 321px;
 }
 
 .top .find_transport_form_select_hidden_wrapper {
@@ -5392,7 +5392,7 @@ select {
 }
 
 .home_find_transport_wrapper{
-    max-width: 330px!important;
+    max-width: 320px!important;
     width: 100%;
 }
 .home_find_transport_wrappers{
