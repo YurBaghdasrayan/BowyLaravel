@@ -235,7 +235,7 @@
 
 .top .find_transport_form_select_wrapper {
     position: relative;
-    max-width: 320px;
+    width: 320px;
 }
 
 .top .first_find_transport_wrapper {
