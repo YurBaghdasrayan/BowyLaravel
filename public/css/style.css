@@ -4314,9 +4314,9 @@ body.hidden_body {
 }
 .active_inactive_ads{
 .flex justify-between
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
+    /*justify-content: center;*/
+    /*align-items: center;*/
 }
 
 
@@ -5366,17 +5366,17 @@ select {
     width: 360px;
 }
 .recent_announcements .justify-between{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
 .recent_announcements .justify-between{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
 .favourites .justify-between{
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
 }
