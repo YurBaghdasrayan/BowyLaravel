@@ -525,6 +525,8 @@
     color: #000;
     margin-bottom: 5px;
     word-break: break-all;
+    height: 28px;
+    overflow: hidden;
 }
 
 .recent_announcements .recent_announcements_item_child_price {
@@ -4241,6 +4243,8 @@ body.hidden_body {
     color: #000000;
     margin-bottom: 5px;
     word-break: break-all;
+    height: 28px;
+    overflow: hidden;
 }
 
 .similar_ads_item_child_price {
@@ -4274,6 +4278,8 @@ body.hidden_body {
     color: #000000;
     margin-bottom: 22px;
     word-break: break-all;
+    height: 28px;
+    overflow: hidden;
 }
 
 .similar_ads_items_child_call_message_btns_wrapper {
