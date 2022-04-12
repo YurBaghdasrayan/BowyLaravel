@@ -43,7 +43,7 @@ use App\Http\Controllers\RegionController;
 /*GET METHODS*/
 /*GET METHODS*/
 Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
-Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 //MIDDLEWARE METHODS

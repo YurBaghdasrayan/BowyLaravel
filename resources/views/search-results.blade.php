@@ -20,7 +20,11 @@
             <section class="recent_announcements">
                 <div class="recent_announcements_wrapper">
                     <div class="recent_announcements_title_sort_btns_wrapper">
-                        <h1 class="recent_announcements_title">Результаты поиска {{$products->count()}}</h1>
+                        @if($products->count() <= 0)
+                            <h1 style="margin: 0 auto; color: #20c997;">Ни найдено не одново транспорта </h1>
+                        @else
+                            <h1 class="recent_announcements_title">Результаты поиска {{$products->count()}}</h1>
+                        @endif
                     </div>
                     <div class="recent_announcements_items_wrapper">
                         <div class="recent_announcements_items_wrapper">

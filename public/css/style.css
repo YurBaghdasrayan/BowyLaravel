@@ -235,7 +235,7 @@
 
 .top .find_transport_form_select_wrapper {
     position: relative;
-    width: 290px;
+    width: 320px;
 }
 
 .top .first_find_transport_wrapper {
@@ -5396,7 +5396,7 @@ select {
     width: 100%;
 }
 .home_find_transport_wrappers{
-    max-width: 290px!important;
+    max-width: 320px!important;
     width: 100%;
 }
 
