@@ -493,11 +493,12 @@
 }
 
 .recent_announcements #open_div1 .recent_announcements_item_child_link_img1 {
-    width: 100%;
+    width: 275px;
     height: 256px;
     position: relative;
     margin-bottom: 6px;
 }
+
 
 .recent_announcements #open_div1 .recent_announcements_item_child_link_img1 img {
     width: 100%;
@@ -545,6 +546,8 @@
     line-height: 27px;
     color: #000;
     word-break: break-all;
+    height: 28px;
+    overflow: hidden;
 }
 
 .recent_announcements .recent_announcements_item_child_info1 {
@@ -1447,6 +1450,7 @@ body.hidden_body {
 
 #open_div1 .recent_announcements_item_child_info_box {
     padding: 20px 10px;
+    height: 275px
 }
 
 
@@ -2269,6 +2273,8 @@ body.hidden_body {
     font-size: 18px;
     line-height: 27px;
     word-break: break-all;
+    height: 28px;
+    overflow: hidden;
 }
 
 .active_inactive_ads .active_inactive_ads_second_item_child_info1 {
