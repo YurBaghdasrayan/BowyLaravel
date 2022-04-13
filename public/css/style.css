@@ -5414,5 +5414,8 @@ select {
 .pagination{
     justify-content: center;
 }
+nav{
+    justify-content: center;
+}
 
 
