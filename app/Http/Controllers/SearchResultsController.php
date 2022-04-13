@@ -29,14 +29,14 @@ class SearchResultsController extends Controller
                 'city' => $request->city,
             );
         }
-        $products = Product::where($sql)->simplePaginate(4);
+        $products = Product::where($sql)->paginate(4);
 
         return view('search-results', compact('products'));
     }
 
     public function getCategories($id)
     {
-        $products = Product::where('category_id', $id)->simplePaginate(4);
+        $products = Product::where('category_id', $id)->paginate(4);
 
         return view('search-results', compact('products'));
     }

@@ -5411,5 +5411,8 @@ select {
     max-width: 320px!important;
     width: 100%;
 }
+.pagination{
+    justify-content: center;
+}
 
 
