@@ -128,3 +128,6 @@ Route::get('auth/google/callback', [SocialController::class, 'loginWithGoogle'])
 Route::get('auth/vk', [SocialController::class, 'vkRedirect'])->name('auth.vk');
 Route::get('auth/vk/callback', [SocialController::class, 'loginWithVk']);
 
+Route::get('auth/ok', [SocialController::class, 'okRedirect'])->name('auth.ok');
+Route::get('auth/ok/callback', [SocialController::class, 'loginWithOk']);
+

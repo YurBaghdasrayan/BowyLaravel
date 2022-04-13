@@ -5419,7 +5419,8 @@ select {
 nav{
     justify-content: center;
 }
-.active .page-link  {
-    background-color: #20c997;
+.page-item.active .page-link  {
+    background-color: #20c997!important;
+    border-color:#20c997!important;
 }
 

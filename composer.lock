@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d2ac1bc81ff3b22616f471a091beb26",
+    "content-hash": "9a9c411812cf416a11adbe483b6b1587",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4339,6 +4339,47 @@
                 "source": "https://github.com/socialiteproviders/manager"
             },
             "time": "2022-01-23T22:40:23+00:00"
+        },
+        {
+            "name": "socialiteproviders/odnoklassniki",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SocialiteProviders/Odnoklassniki.git",
+                "reference": "8d08598685793678f44a58ea86b40b480cba29db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SocialiteProviders/Odnoklassniki/zipball/8d08598685793678f44a58ea86b40b480cba29db",
+                "reference": "8d08598685793678f44a58ea86b40b480cba29db",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^7.2 || ^8.0",
+                "socialiteproviders/manager": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SocialiteProviders\\Odnoklassniki\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Talgat Zheldibaev",
+                    "email": "talgat06585@gmail.com"
+                }
+            ],
+            "description": "Odnoklassniki OAuth2 Provider for Laravel Socialite",
+            "support": {
+                "source": "https://github.com/SocialiteProviders/Odnoklassniki/tree/4.1.0"
+            },
+            "time": "2020-12-01T23:10:59+00:00"
         },
         {
             "name": "socialiteproviders/vkontakte",
@@ -9533,5 +9574,5 @@
         "php": "^7.3|^8.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }

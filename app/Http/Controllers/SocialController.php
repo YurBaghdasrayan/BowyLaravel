@@ -80,4 +80,39 @@ class SocialController extends Controller
             dd($exception->getMessage());
         }
     }
+
+    public function okRedirect()
+    {
+        return Socialite::driver('odnoklassniki')->redirect();
+    }
+
+    public function loginWithOk()
+    {
+        try {
+            $user = Socialite::driver('odnoklassniki')->user();
+            $isUser = User::where('ok_id', $user->id)->first();
+
+            if ($isUser) {
+                Auth::login($isUser);
+
+                return redirect('profile/place-anad');
+
+            } else {
+                $createUser = User::create([
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'ok_id' => $user->id,
+                    'password' => encrypt('user'),
+                    'image' => 'profile.image.png',
+                    'role_id' => Role::USER_ID,
+                ]);
+
+                Auth::login($createUser);
+
+                return redirect('profile/place-anad');
+            }
+        } catch (Exception $exception) {
+            dd($exception->getMessage());
+        }
+    }
 }
