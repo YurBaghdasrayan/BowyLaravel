@@ -2254,6 +2254,8 @@ body.hidden_body {
     color: #000;
     margin-bottom: 5px;
     word-break: break-all;
+    height: 28px;
+    overflow: hidden;
 }
 
 .active_inactive_ads .active_inactive_ads_second_item_child_price {
@@ -2598,8 +2600,8 @@ body.hidden_body {
     }
 
     .active_inactive_ads_second_item_parent {
-        -ms-flex-pack: justify !important;
-        justify-content: space-between !important;
+        /*-ms-flex-pack: justify !important;*/
+        /*justify-content: space-between !important;*/
     }
 
     #open_div3 .active_inactive_ads_second_item_child_link,
@@ -5417,5 +5419,7 @@ select {
 nav{
     justify-content: center;
 }
-
+.active .page-link  {
+    background-color: #20c997;
+}
 

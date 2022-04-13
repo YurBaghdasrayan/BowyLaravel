@@ -22,7 +22,7 @@
                                 <!--      <input type="text" class="registration_form_input_field" name="Фамилия" placeholder="Фамилия">-->
                                 <!--  </div>-->
                                 <div class="registration_form_input">
-                                    <input type="text" id="demo" value="{{old('email')}}"
+                                    <input type="email" id="demo" value="{{old('email')}}"
                                            class="registration_form_input_field" placeholder="Email" name="email" >
                                     @if($errors->has('email'))
                                         <div class="alert alert-danger" >{{ $errors->first('email') }}</div>
