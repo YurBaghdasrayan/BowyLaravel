@@ -477,11 +477,12 @@
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     -ms-flex-align: center;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content:flex-start;
 }
 
 .recent_announcements #open_div1 .recent_announcements_item_child {
@@ -491,6 +492,7 @@
     border: 1px solid rgba(0, 0, 0, 0.21);
     border-radius: 5px;
     height: 530px;
+    margin-right: 11px;
 }
 
 .recent_announcements #open_div1 .recent_announcements_item_child_link_img1 {
@@ -945,6 +947,7 @@ body.hidden_body {
     .find_transport_form_select_title_wrapper {
         padding: 10px !important;
     }
+
     .find_transport_form_select_title_wrappers {
         padding: 10px !important;
     }
@@ -2365,7 +2368,7 @@ body.hidden_body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 10px 10px 25px;
-    margin: 0 auto 10px;
+    /*margin: 0 auto 10px;*/
 }
 
 .active_inactive_ads #open_div4 .active_inactive_ads_second_item_child_edit_link_delete_btns_wrapper {
@@ -2612,7 +2615,7 @@ body.hidden_body {
 
 @media (min-width: 670px) and (max-width: 2600px) {
     #open_div3 .active_inactive_ads_second_item_child {
-        margin: 0 auto 10px;
+        /*margin: 0 auto 10px;*/
     }
 }
 
@@ -4314,9 +4317,9 @@ body.hidden_body {
     cursor: pointer;
     outline: none;
 }
-.active_inactive_ads{
-.flex justify-between
-    display: none;
+
+.active_inactive_ads {
+. flex justify-between display: none;
     /*justify-content: center;*/
     /*align-items: center;*/
 }
@@ -5356,6 +5359,7 @@ select {
 .w-5 {
     display: none;
 }
+
 .top .find_transport_form_select_title_wrappers {
     background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -5367,60 +5371,74 @@ select {
     height: 60px;
     width: 360px;
 }
-.recent_announcements .justify-between{
+
+.recent_announcements .justify-between {
     display: none;
     justify-content: center;
     align-items: center;
 }
-.recent_announcements .justify-between{
+
+.recent_announcements .justify-between {
     display: none;
     justify-content: center;
     align-items: center;
 }
-.favourites .justify-between{
+
+.favourites .justify-between {
     display: none;
     justify-content: center;
     align-items: center;
 }
-.bowy_mian_wrapper .justify-between{
+
+.bowy_mian_wrapper .justify-between {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.active_inactive_ads .inline-flex{
-    color: #32bb8c;
-    text-decoration: none;
-}
-.bowy_mian_wrapper .inline-flex{
-    color: #32bb8c;
-    text-decoration: none;
-}
-.favourites .inline-flex{
+
+.active_inactive_ads .inline-flex {
     color: #32bb8c;
     text-decoration: none;
 }
 
-.recent_announcements .inline-flex{
+.bowy_mian_wrapper .inline-flex {
     color: #32bb8c;
     text-decoration: none;
 }
 
-.home_find_transport_wrapper{
-    max-width: 320px!important;
+.favourites .inline-flex {
+    color: #32bb8c;
+    text-decoration: none;
+}
+
+.recent_announcements .inline-flex {
+    color: #32bb8c;
+    text-decoration: none;
+}
+
+.home_find_transport_wrapper {
+    max-width: 320px !important;
     width: 100%;
 }
-.home_find_transport_wrappers{
-    max-width: 320px!important;
+
+.home_find_transport_wrappers {
+    max-width: 320px !important;
     width: 100%;
 }
-.pagination{
+
+.pagination {
     justify-content: center;
-}
-nav{
-    justify-content: center;
-}
-.page-item.active .page-link  {
-    background-color: #20c997!important;
-    border-color:#20c997!important;
 }
 
+nav {
+    justify-content: center;
+}
+
+.page-item.active .page-link {
+    background-color: #20c997 !important;
+    border-color: #20c997 !important;
+}
+
+li .page-link {
+    color:#20c997;
+}
