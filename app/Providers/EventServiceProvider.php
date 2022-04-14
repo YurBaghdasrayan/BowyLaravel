@@ -21,8 +21,8 @@ class EventServiceProvider extends ServiceProvider
         \SocialiteProviders\Manager\SocialiteWasCalled::class => [
             // ... other providers
             \SocialiteProviders\VKontakte\VKontakteExtendSocialite::class.'@handle',
+            \SocialiteProviders\Odnoklassniki\OdnoklassnikiExtendSocialite::class.'@handle'
         ],
-
     ];
 
     /**

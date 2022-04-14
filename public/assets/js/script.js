@@ -43,7 +43,7 @@ $(document).on("submit", ".admin-update-users", function (event) {
 
     var token = $('meta[name="csrf-token"]').attr('content');
 
-    var ClientName = $('input[name="ClientName"]', this);
+    var ClientName = $('input[name="name"]', this);
     var ClientName_val = ClientName.val();
 
     var Email = $('input[name="Email"]', this);

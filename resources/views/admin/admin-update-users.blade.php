@@ -131,7 +131,7 @@
 
                                             <tbody>
                                                 <input type="hidden" name="user_id" value="{{$user->id}}">
-                                                <label for="ClientName">имя</label>
+                                                <label for="Name">имя</label>
                                                 <input onfocus="this.value=''" type="text"
                                                        name="name" value="{{$user->name}}">
                                                 <label for="email">электронная почта</label>

@@ -55,6 +55,7 @@ class AdminController extends Controller
         $data = $request->all();
         $update = User::find($data['user_id']);
         $update->name = $data['ClientName'];
+//        dd($data['ClientName']);
         $update->email = $data['Email'];
         $update->surname = $data['Surname'];
         $update->number = $data['Number'];
