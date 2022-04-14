@@ -42,7 +42,6 @@ use App\Http\Controllers\RegionController;
 /*GET METHODS*/
 Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
-Route::get('/', [HomeController::class, 'index'])->name('home.index.test');
 
 
 //MIDDLEWARE METHODS
@@ -121,8 +120,6 @@ Route::get('/search-results', [SearchResultsController::class, 'index'])->name('
 Route::get('/search-results/{id?}', [SearchResultsController::class, 'getCategories'])->name('search.results');
 Route::get('/announcement-unlogged-user/{status?}/{id?}', [UnloggedUserController::class, 'index'])->name('announcement-unlogged-user');
 Route::get('/announcement-unlogged/{id?}', [UnloggedUserController::class, 'indexCalls']);
-
-
 
 Route::get('auth/google', [SocialController::class, 'googleRedirect'])->name('auth.google');
 Route::get('auth/google/callback', [SocialController::class, 'loginWithGoogle']);
