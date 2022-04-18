@@ -49,7 +49,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 Route::middleware(['guest'])->group(function () {
 
     /*  MIDDLEWARE POST METHODS*/
-
     Route::post('/restore-password', [RestorPasswordController::class, 'CodeSend'])->name('restore-password');
     Route::post('/code-sending', [ForgotController::class, 'send'])->name('code-sending');
     Route::post('/registration', [RegisterController::class, 'postSignup'])->name('create_user');
