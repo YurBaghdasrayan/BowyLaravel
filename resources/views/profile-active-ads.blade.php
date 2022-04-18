@@ -289,4 +289,3 @@
 @include('includes_file.footer')
 </div>
 @endsection
-

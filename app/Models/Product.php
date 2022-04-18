@@ -9,7 +9,6 @@ class Product extends Model
 {
     use HasFactory;
 
-
     protected $guarded = [];
 
     public function category()
@@ -36,7 +35,6 @@ class Product extends Model
     {
         return $this->hasMany(Views::class);
     }
-
 
     public function City()
     {

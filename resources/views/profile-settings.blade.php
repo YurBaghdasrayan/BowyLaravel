@@ -28,7 +28,6 @@
                                     {{ session('emailerror') }}
                                 </div>
                             @endif
-
                             <div class="profile_settings_form_textarea">
                                 <input type="text" class="profile_settings_form_input_field"  onfocus="this.value=''" placeholder="Имя" name="name" value="{{auth()->user()->name}}">
                                 <div class="profile_settings_form_textarea_icon">
@@ -90,7 +89,6 @@
                             @if($errors->has('city'))
                                 <div class="alert alert-danger" >{{ $errors->first('city') }}</div>
                             @endif
-
                             <div class="registration_input_type_files_label_img_wrapper place_an_ad_form_input_type_file_img_wrapper ">
                                 <label for="fileinput_form2" class="registration_input_type_file file_label place_an_ad_form_input_label">
                                     <svg width="37" height="37" viewBox="0 0 37 37" fill="none" xmlns="http://www.w3.org/2000/svg">
