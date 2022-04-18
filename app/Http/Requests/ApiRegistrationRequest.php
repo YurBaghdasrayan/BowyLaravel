@@ -27,7 +27,7 @@ class ApiRegistrationRequest extends FormRequest
     {
         return [
             'name' => 'required|min:6|max:64|',
-            'email' => 'required|min:6|max:64|unique:users',
+            'email' => 'required|min:6|max:64|unique:users|email',
             'password' => 'required|min:6|max:64|confirmed',
             'number' => 'required|min:6|max:255',
             'password_confirmation' => 'required',
