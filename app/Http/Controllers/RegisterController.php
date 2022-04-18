@@ -66,6 +66,7 @@ class RegisterController extends Controller
             'number' => $request->number,
             'name' => $request->name,
         ];
+        dd($data);
 
         $user = User::create($data);
         if ($user) {
