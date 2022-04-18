@@ -40,10 +40,8 @@ use App\Http\Controllers\RegionController;
 
 
 /*GET METHODS*/
-/*GET METHODS*/
-/*GET METHODS*/
 Route::get('/readJson', [ProductController::class, 'index'])->name('readJson');
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 
 
 //MIDDLEWARE METHODS
@@ -82,6 +80,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/favourites', [FavouritesController::class, 'store'])->name('favourites');
         Route::get('/favourites-destroy/{id}', [FavouritesController::class, 'destroy'])->name('favourites');
         Route::get('/favourites-delete/{id}', [FavouritesController::class, 'destroyFavourite'])->name('favourites');
+
     });
 
     /*MIDDLEWARE GET METHODS*/
