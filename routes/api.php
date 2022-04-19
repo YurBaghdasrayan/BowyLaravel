@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'homeApi'])->name('home');
+
 Route::post('registration', [RegisterController::class, 'storeApi'])->name('registration');
 Route::post('/login', [LoginController::class, 'storeLogin'])->name('login');
 Route::post('/code-sending', [\App\Http\Controllers\Api\v1\AuthController::class, 'send'])->name('code-sending');

@@ -21,5 +21,14 @@ class HomeController extends Controller
         $cities = City::all();
         return view('/home', compact('categories', 'product', 'regions', 'cities'));
     }
+    public function homeApi(){
+        $categories = Categories::all();
+        //$product = Product::with('image')->orderBy('id', 'DESC')->cursorPaginate(2);
+        $product = Product::with('image')->orderBy('id', 'DESC')->where('status',true)->paginate(4);
+        $regions = Region::all();
+        $cities = City::all();
+
+        return response()->json($categories,$product,$regions,$cities);
+    }
 
 }
