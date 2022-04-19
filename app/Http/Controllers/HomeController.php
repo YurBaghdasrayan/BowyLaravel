@@ -28,7 +28,7 @@ class HomeController extends Controller
         $regions = Region::all();
         $cities = City::all();
 
-        return response()->json($categories,$product,$regions,$cities);
+        return response()->json([$categories,$product,$regions,$cities]);
     }
 
 }
