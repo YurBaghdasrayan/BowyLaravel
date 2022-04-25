@@ -24,6 +24,7 @@ class ProductController extends Controller
             'message' => 'All products',
             'data' => ProductResource::collection(auth()->user()->products),
         ], 200);
+
     }
 
 

@@ -34,7 +34,6 @@ $(document).on("click", ".active_inactive_ads_second_item_child_edit_link_delete
     })
 })
 $(document).on("click", ".badge", function () {
-
     var thisis = $(this);
 
     $.ajax({
