@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::delete('favourites/{id}', [\App\Http\Controllers\Api\v1\ProductController::class, 'destroyFavourite']);
     Route::get('favourites', [\App\Http\Controllers\Api\v1\ProductController::class, 'indexFavourite']);
     Route::get('search-result', [\App\Http\Controllers\Api\v1\ProductController::class, 'searchResultIndex']);
+    Route::get('city', [\App\Http\Controllers\Api\v1\ProductController::class, 'city']);
     Route::get('search-result/{id?}', [\App\Http\Controllers\Api\v1\ProductController::class, 'getCategories'])->name('search.results');
 });
 

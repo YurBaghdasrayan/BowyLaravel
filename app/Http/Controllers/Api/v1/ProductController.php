@@ -9,16 +9,24 @@ use App\Models\City;
 use App\Models\Favourites;
 use App\Models\Product;
 use App\Models\Views;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProductController extends Controller
+class  ProductController extends Controller
 {
     /**
      * @return \Illuminate\Http\JsonResponse
      */
+    public function city()
+    {
+        $city = City::all();
+        return response()->json([$city]);
+    }
+
     public function index()
     {
+
         return response()->json([
             'success' => 'true',
             'message' => 'All products',
